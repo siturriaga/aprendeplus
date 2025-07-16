@@ -5,215 +5,142 @@
   box-sizing: border-box;
 }
 
+/* General */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #fafafa;
-  color: #333;
   line-height: 1.6;
+  background-color: #f5f7fa;
+  color: #333;
+  transition: background-color 0.5s ease;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;
-}
-
+/* Encabezado */
 .site-header {
-  background: linear-gradient(to right, #6a1b9a, #512da8);
-  padding: 30px 0;
+  background: linear-gradient(to right, #3a6186, #89253e);
+  padding: 1.5rem 0;
   color: white;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.logo {
-  max-height: 180px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 12px;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-}
-
-.tagline {
-  font-size: 1.5rem;
-  margin-top: 10px;
-  font-weight: 300;
-}
-
-nav {
-  margin-top: 20px;
-}
-
-.nav-links {
-  list-style: none;
+.header-content {
   display: flex;
-  justify-content: center;
-  gap: 25px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
   flex-wrap: wrap;
 }
 
-.nav-links li a {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav-links li a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: white;
-  left: 0;
-  bottom: -5px;
-  transition: width 0.3s ease;
-}
-
-.nav-links li a:hover::after {
-  width: 100%;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #7e57c2;
-  min-width: 250px;
-  z-index: 1000;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.dropdown-content li a {
-  display: block;
-  padding: 10px 20px;
-  color: white;
-  transition: background 0.3s;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown-content li a:hover {
-  background: #9575cd;
-}
-
-.hero {
-  padding: 60px 20px;
-  text-align: center;
-  background: #ede7f6;
-  color: #4a148c;
-  box-shadow: inset 0 -2px 4px rgba(0,0,0,0.05);
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-}
-
-.courses {
-  padding: 60px 20px;
-  background: #f3e5f5;
-  text-align: center;
-}
-
-.course-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.course-card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.logo {
+  max-height: 150px;
   transition: transform 0.3s ease;
 }
 
-.course-card:hover {
-  transform: translateY(-5px);
+.logo:hover {
+  transform: scale(1.08);
 }
 
-.course-card h3 a {
+.tagline {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+/* Navegación */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
   text-decoration: none;
-  color: #512da8;
   font-weight: bold;
 }
 
-.course-card p {
-  margin-top: 10px;
+.nav-links a:hover {
+  text-decoration: underline;
 }
 
-.price-info {
-  margin-top: 30px;
-  font-style: italic;
-  color: #6a1b9a;
+/* Cuerpo */
+main {
+  padding: 3rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease;
 }
 
-.about-us {
-  padding: 60px 20px;
-  background: #ede7f6;
-  text-align: center;
+.course-detail h1 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
 }
 
-.contact {
-  padding: 60px 20px;
-  background: #d1c4e9;
-  text-align: center;
+.course-detail p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
 }
 
+.course-details {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.course-details li {
+  margin-bottom: 0.7rem;
+}
+
+/* Botón */
 .contact-button {
   display: inline-block;
-  background: #5e35b1;
+  padding: 0.8rem 1.2rem;
+  background-color: #1abc9c;
   color: white;
-  padding: 12px 25px;
-  border-radius: 8px;
+  border-radius: 6px;
   text-decoration: none;
-  transition: background 0.3s ease;
-  margin-top: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .contact-button:hover {
-  background: #7e57c2;
+  background-color: #16a085;
 }
 
+/* Pie de página */
 footer {
-  background: #512da8;
-  color: white;
   text-align: center;
-  padding: 20px;
+  padding: 1rem;
+  background-color: #2c3e50;
+  color: white;
 }
 
-/* Animaciones */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn ease-in 1.2s forwards;
-}
-
+/* Efectos */
 @keyframes fadeIn {
-  0% {
+  from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Estilos únicos por curso */
+body.curso-filosofia {
+  background-color: #fdf6e3;
+}
+
+body.curso-politica {
+  background-color: #e8f8f5;
+}
+
+body.curso-historia {
+  background-color: #fef9f2;
+}
+
+body.curso-ingles {
+  background-color: #f0f8ff;
+}
+
+body.curso-docente {
+  background-color: #f7f0fa;
 }
