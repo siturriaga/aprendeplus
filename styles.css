@@ -1,6 +1,4 @@
-# Actualizar el styles.css para reflejar el logo más grande, mejor color del banner, y un botón de contacto moderno
-
-updated_css = """
+animated_css = """
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +10,7 @@ body {
   background-color: #fdfbf7;
   color: #333;
   line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
 /* HEADER */
@@ -31,13 +30,13 @@ body {
 }
 
 .logo {
-  max-height: 100px;
+  height: auto;
+  max-height: 130px;
   margin-bottom: 10px;
-  filter: brightness(0) invert(1); /* logo en blanco */
 }
 
 .large-logo {
-  max-height: 130px;
+  max-height: 150px;
 }
 
 .tagline {
@@ -108,11 +107,13 @@ body {
   padding: 20px;
   width: 300px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .course-card:hover {
   transform: translateY(-5px);
+  background-color: #e6ddff;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.15);
 }
 
 .price-info {
@@ -162,11 +163,12 @@ body {
   font-weight: bold;
   font-size: 1rem;
   margin-top: 10px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 .contact-button:hover {
-  background-color: #5E35B1;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(103, 58, 183, 0.4);
 }
 
 /* FOOTER */
@@ -177,10 +179,25 @@ footer {
   padding: 15px;
   font-size: 0.9rem;
 }
+
+/* ANIMATIONS */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 """
 
-css_path = "/mnt/data/styles.css"
-css_path_obj = Path(css_path)
-css_path_obj.write_text(updated_css, encoding="utf-8")
+from pathlib import Path
 
-css_path
+style_path = "/mnt/data/styles.css"
+Path(style_path).write_text(animated_css, encoding="utf-8")
+
+style_path
