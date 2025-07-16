@@ -1,13 +1,13 @@
-/* Color Palette (Revised for Visual Impact):
-   Primary Dark:       #212F3D (Deep Charcoal Blue - matches logo's background for strong base)
-   Accent 1 (Cyan):    #00BCD4 (Vibrant Cyan - for links, strong text, borders, highlights)
-   Accent 2 (Orange):  #FF7043 (Vibrant Orange - for CTA buttons, strong calls to action)
-   Lightest Grey:      #F8F9FA (Very subtle off-white for main body background)
-   Section Background: #FFFFFF (Pure white for cards and distinct content blocks)
-   Subtle Tint:        #EAF7F8 (A very light, refreshing cyan tint for background sections like intro/CTA)
-   Text Color:         #343A40 (Darker grey for enhanced readability and modern feel)
-   Faded Text:         #6C757D (Slightly lighter grey for less prominent text)
-   Footer Background:  #2F3C4F (Slightly lighter dark for footer)
+/* Color Palette (Refined for Professionalism):
+   Primary Dark:       #212F3D (Deep Charcoal Blue - strong, grounding)
+   Accent 1 (Cyan):    #00BCD4 (Vibrant Cyan - for key elements, active states)
+   Accent 2 (Orange):  #FF7043 (Vibrant Orange - for CTA buttons, high-impact)
+   Light Background:   #F8F9FA (Subtle, clean off-white for primary background)
+   Card/Section White: #FFFFFF (Crisp white for content cards, intro block)
+   Subtle Section Tint: #EBF4F7 (A very light, cool blue tint for distinct sections)
+   Main Text Color:    #343A40 (Dark, readable grey for primary text)
+   Secondary Text:     #6C757D (Softer grey for descriptions, less prominent info)
+   Footer Dark:        #2F3C4F (Slightly lighter dark for footer, good contrast)
 */
 
 /* Basic Reset & Body Styling */
@@ -15,38 +15,38 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #F8F9FA; /* Updated: Very subtle off-white background for overall page */
-    color: #343A40; /* Updated: Darker grey for main body text */
-    line-height: 1.8; /* Slightly more line height for readability */
+    background-color: #F8F9FA; /* Light, clean primary background */
+    color: #343A40; /* Darker, professional grey for main text */
+    line-height: 1.75; /* Improved line height for readability */
     scroll-behavior: smooth;
-    font-size: 1.1rem; /* Base font size increased */
+    font-size: 1.05rem; /* Base font size set for better overall balance */
 }
 
 /* Global Link Styling */
 a {
-    color: #00BCD4; /* Accent Cyan for general links */
+    color: #00BCD4;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 a:hover {
-    color: #008BA1; /* Darker Cyan on hover */
+    color: #008BA1;
+    text-decoration: underline; /* Subtle underline on hover for clarity */
 }
 
 /* Container for content width */
 .container {
-    max-width: 1100px; /* Slightly wider container for more space */
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 2rem; /* Increased horizontal padding for more breathing room */
 }
 
 /* Header Styling */
 header {
-    background-color: #212F3D; /* Primary Dark: Deeper charcoal-blue to match logo background */
+    background-color: #212F3D;
     color: #fff;
-    padding: 2rem 0; /* Increased padding */
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25); /* More prominent shadow */
+    padding: 1.8rem 0; /* Adjusted vertical padding */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2); /* Softer, more diffused shadow */
     position: relative;
     z-index: 1000;
 }
@@ -67,19 +67,19 @@ header {
     justify-content: center;
     text-align: center;
     margin: 0;
-    flex-shrink: 0; /* Prevent shrinking on smaller screens */
+    flex-shrink: 0;
 }
 
 .site-logo {
-    max-width: 450px; /* LOGO SIZE INCREASED SIGNIFICANTLY for desktop */
+    max-width: 380px; /* Adjusted logo size for professional balance on desktop */
     height: auto;
-    margin-bottom: 15px; /* More space */
+    margin-bottom: 12px; /* Adjusted spacing */
     display: block;
 }
 
 .tagline {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.4rem; /* Tagline font size increased */
+    font-size: 1.3rem; /* Adjusted tagline font size */
     color: #DDEEEE;
     margin: 0;
     font-weight: 400;
@@ -100,39 +100,24 @@ header {
 }
 
 .nav-links li {
-    margin-left: 35px; /* More space between nav items */
+    margin-left: 30px; /* Standard spacing */
 }
 
 .nav-links a {
-    text-decoration: none;
     color: #ECF0F1;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 1.1rem; /* Nav link font size increased */
-    padding: 10px 0; /* More padding */
+    font-size: 1rem; /* Standard professional nav link size */
+    padding: 8px 0;
     position: relative;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 3px;
-    background-color: #00BCD4;
-    transition: width 0.3s ease;
-    border-radius: 2px;
+    /* Removed custom underline, using standard text-decoration for simplicity and professionalism */
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
     color: #00BCD4;
-    transform: translateY(-3px); /* Slightly more lift */
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+    text-decoration: underline; /* Standard underline for clarity */
+    text-underline-offset: 4px; /* Space out underline */
 }
 
 /* Hamburger menu (hidden on desktop) */
@@ -140,7 +125,7 @@ header {
     display: none;
     background: none;
     border: none;
-    font-size: 2.2rem; /* Hamburger icon size increased */
+    font-size: 2rem;
     color: #fff;
     cursor: pointer;
     z-index: 1001;
@@ -149,20 +134,20 @@ header {
 
 /* Main Content Section Styling */
 main {
-    padding: 4rem 0; /* Increased padding */
+    padding: 4.5rem 0; /* More vertical padding for spaciousness */
     background-color: #F8F9FA;
 }
 
 /* Intro Text Section */
 .intro-text {
-    background-color: #EAF7F8;
-    padding: 3rem 3.5rem; /* Increased padding */
-    border-radius: 25px; /* More rounded */
-    box-shadow: 0 12px 40px rgba(0,0,0,0.1); /* Stronger shadow */
-    margin-bottom: 4rem; /* More margin */
+    background-color: #FFFFFF; /* Crisp white for main intro section */
+    padding: 3.5rem 4rem; /* Generous padding */
+    border-radius: 12px; /* Slightly less rounded for sharper professionalism */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* Soft, elegant shadow */
+    margin-bottom: 4.5rem;
     text-align: center;
-    line-height: 1.9; /* More line height */
-    font-size: 1.3rem; /* Intro text font size increased */
+    line-height: 1.8;
+    font-size: 1.25rem; /* Adjusted font size */
     color: #343A40;
 }
 
@@ -176,11 +161,11 @@ main {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     color: #212F3D;
-    font-size: 3.5rem; /* H2 heading font size increased significantly */
-    margin-bottom: 4.5rem; /* More margin */
+    font-size: 3.2rem; /* Adjusted H2 size */
+    margin-bottom: 4rem;
     position: relative;
-    padding-bottom: 20px; /* More space for underline */
-    letter-spacing: -1px; /* Tighter letter spacing for big headings */
+    padding-bottom: 18px;
+    letter-spacing: -0.5px;
     font-weight: 700;
 }
 
@@ -190,38 +175,38 @@ main {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 100px; /* Wider underline */
-    height: 7px; /* Thicker underline */
+    width: 80px;
+    height: 5px;
     background-color: #00BCD4;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 /* Grid for Course Items */
 .course-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly larger min-width for cards */
-    gap: 3.5rem; /* More gap between cards */
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); /* Adjusted min-width for cards */
+    gap: 2.5rem; /* More balanced gap */
 }
 
 /* Individual Course Item Card */
 .course-item {
     background-color: #FFFFFF;
-    border-radius: 20px;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border-radius: 12px; /* Consistent roundedness */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.07); /* Lighter, more subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease; /* Transition border */
     overflow: hidden;
-    border: 3px solid transparent;
+    border: 1px solid #E0E0E0; /* Subtle default border */
 }
 
 .course-item:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.2);
-    border-color: #00BCD4;
+    transform: translateY(-8px); /* Slightly less lift for polish */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15); /* More pronounced, but still soft shadow on hover */
+    border-color: #00BCD4; /* Accent Cyan border on hover */
 }
 
 .course-item a {
     display: block;
-    padding: 2rem; /* Increased padding within cards */
+    padding: 1.8rem; /* Adjusted padding within cards */
     text-decoration: none;
     color: inherit;
     height: 100%;
@@ -232,34 +217,34 @@ main {
     font-family: 'Montserrat', sans-serif;
     color: #212F3D;
     margin-top: 0;
-    font-size: 2.2rem; /* Course card title font size increased */
-    font-weight: 700;
-    margin-bottom: 1rem;
-    letter-spacing: -0.5px;
+    font-size: 2.1rem; /* Adjusted card title font size */
+    font-weight: 600; /* Bolder, but not overly heavy */
+    margin-bottom: 0.7rem;
+    letter-spacing: -0.2px;
 }
 
 .course-item p {
-    font-size: 1.15rem; /* Course description font size increased */
+    font-size: 1.0rem; /* Adjusted card description font size */
     color: #6C757D;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 /* Call to Action (CTA) Section at the bottom */
 .cta-section {
     text-align: center;
-    margin-top: 5.5rem; /* More margin */
-    margin-bottom: 4.5rem;
-    background-color: #EAF7F8;
-    padding: 4rem; /* Increased padding for bolder CTA */
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+    background-color: #EBF4F7; /* Subtle cool blue tint for CTA background */
+    padding: 3.8rem; /* Adjusted padding */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Very light shadow */
 }
 
 .cta-section p {
-    font-size: 1.6rem; /* CTA text font size increased */
+    font-size: 1.5rem; /* CTA text font size */
     color: #212F3D;
     font-weight: 700;
-    margin-bottom: 2.5rem; /* More space below text */
+    margin-bottom: 2rem;
 }
 
 /* General Button Styling (for main CTA) */
@@ -267,26 +252,26 @@ main {
     display: inline-block;
     background-color: #FF7043;
     color: #fff;
-    padding: 1.5rem 3.5rem; /* Larger padding for a more impactful button */
+    padding: 1.2rem 2.8rem; /* Adjusted padding for button */
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.5rem; /* Button text font size increased */
+    font-size: 1.35rem; /* Adjusted button text font size */
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     border: none;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Stronger shadow */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Refined shadow for button */
 }
 
 .button:hover {
     background-color: #E64A19;
-    transform: translateY(-8px); /* More pronounced lift */
-    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    transform: translateY(-5px); /* Moderate lift */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .button:active {
     transform: translateY(0px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     background-color: #D32F2F;
 }
 
@@ -295,15 +280,15 @@ footer {
     background-color: #2F3C4F;
     color: #ECF0F1;
     text-align: center;
-    padding: 3rem 1.5rem; /* Increased padding */
-    margin-top: 6rem; /* More margin */
-    font-size: 1rem; /* Footer text size increased */
+    padding: 2.5rem 2rem;
+    margin-top: 5.5rem;
+    font-size: 0.95rem; /* Adjusted footer text size */
 }
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
     .container {
-        padding: 0 1rem;
+        padding: 0 1.5rem; /* Slightly less padding for tablets */
     }
     .header-content {
         flex-direction: column;
@@ -313,63 +298,65 @@ footer {
     .logo-and-tagline {
         width: 100%;
         align-items: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
     .site-logo {
-        max-width: 350px; /* Logo size for larger tablets/smaller desktops */
+        max-width: 300px; /* Logo size for larger tablets/smaller desktops */
     }
     .tagline {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     .main-nav {
         width: 100%;
         justify-content: center;
     }
     .nav-links li {
-        margin: 0 20px;
+        margin: 0 18px;
     }
     .nav-links a {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
+    }
+    body {
+        font-size: 1rem; /* Base font size adjustment */
     }
     .intro-text {
         padding: 2.5rem 3rem;
-        font-size: 1.2rem;
+        font-size: 1.15rem;
     }
     .course-list h2 {
-        font-size: 3rem;
+        font-size: 2.8rem;
         margin-bottom: 3.5rem;
     }
     .course-grid {
-        gap: 2.5rem;
+        gap: 2rem;
     }
     .course-item a {
-        padding: 1.8rem;
+        padding: 1.5rem;
     }
     .course-item h3 {
-        font-size: 2rem;
+        font-size: 1.9rem;
     }
     .course-item p {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
     }
     .cta-section {
-        padding: 3.5rem;
+        padding: 3rem;
     }
     .cta-section p {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
     .button {
-        padding: 1.3rem 3rem;
-        font-size: 1.35rem;
+        padding: 1.1rem 2.5rem;
+        font-size: 1.25rem;
     }
 }
-
 
 @media (max-width: 768px) {
     .header-content {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 1.2rem 1.5rem;
+        padding: 1rem 1.5rem;
     }
     .logo-and-tagline {
         align-items: flex-start;
@@ -377,14 +364,14 @@ footer {
         margin-bottom: 0;
     }
     .site-logo {
-        max-width: 250px; /* Logo size for typical mobile landscape/tablet portrait */
+        max-width: 220px; /* Logo size for mobile landscape/tablet portrait */
         margin-bottom: 5px;
     }
     .tagline {
-        font-size: 1.0rem;
+        font-size: 0.9rem;
     }
 
-    /* Show hamburger menu, hide nav links initially */
+    /* Mobile Navigation */
     .hamburger-menu {
         display: block;
         margin-left: auto;
@@ -394,15 +381,15 @@ footer {
         position: fixed;
         top: 0;
         right: 0;
-        width: 300px; /* Wider mobile menu */
+        width: 280px; /* Mobile menu width */
         height: 100%;
         background-color: #2F3C4F;
-        box-shadow: -8px 0 20px rgba(0,0,0,0.4);
+        box-shadow: -6px 0 18px rgba(0,0,0,0.3);
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
         z-index: 999;
         flex-direction: column;
-        padding-top: 80px; /* More space at top for fixed header */
+        padding-top: 70px;
         align-items: center;
     }
 
@@ -421,87 +408,86 @@ footer {
     }
 
     .nav-links a {
-        padding: 18px 25px; /* Larger tap area */
-        font-size: 1.25rem; /* Larger mobile nav links */
+        padding: 15px 20px;
+        font-size: 1.15rem;
         display: block;
         color: #ECF0F1;
         text-align: left;
     }
-    .nav-links a::after {
-        display: none;
-    }
     .nav-links a:hover {
-        background-color: rgba(0,0,0,0.18);
+        background-color: rgba(0,0,0,0.1);
         color: #00BCD4;
-        transform: none;
+        text-decoration: none; /* No underline on mobile hover for cleaner look */
     }
 
     /* General text and spacing adjustments for smaller screens */
     body {
-        font-size: 1rem; /* Base font size adjusted for mobile */
+        font-size: 0.95rem;
     }
     .intro-text, .cta-section {
         padding: 1.5rem;
     }
     .intro-text p {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
     .course-list h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         margin-bottom: 2.5rem;
     }
     .course-list h2::after {
-        width: 70px;
-        height: 5px;
+        width: 60px;
+        height: 4px;
     }
     .course-item a {
-        padding: 1.5rem;
+        padding: 1.2rem;
     }
     .course-item h3 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
     .course-item p {
-        font-size: 1.05rem;
+        font-size: 0.9rem;
     }
     .button {
-        padding: 1.1rem 2.5rem;
-        font-size: 1.25rem;
+        padding: 1rem 2.2rem;
+        font-size: 1.15rem;
     }
     .cta-section p {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     footer {
-        padding: 2.5rem 1rem;
-        font-size: 0.9rem;
+        padding: 2rem 1rem;
+        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 480px) {
     .site-logo {
-        max-width: 200px; /* Logo size for smaller phones */
+        max-width: 180px; /* Logo size for smaller phones */
     }
     .tagline {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     .hamburger-menu {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     .main-nav {
-        width: 250px;
+        width: 240px;
     }
     .nav-links a {
-        font-size: 1.15rem;
+        font-size: 1.05rem;
+        padding: 12px 15px;
     }
     .intro-text {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     .course-list h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     .course-item h3 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
     .button {
-        font-size: 1.15rem;
+        font-size: 1.05rem;
+        padding: 0.9rem 2rem;
     }
 }
