@@ -1,7 +1,6 @@
-# Crear el archivo styles.css corregido con diseño atractivo y moderno
+# Actualizar el styles.css para reflejar el logo más grande, mejor color del banner, y un botón de contacto moderno
 
-css_content = """
-/* Reset básico */
+updated_css = """
 * {
   margin: 0;
   padding: 0;
@@ -17,9 +16,9 @@ body {
 
 /* HEADER */
 .site-header {
-  background-color: #673AB7;
+  background-color: #5E35B1;
   color: #fff;
-  padding: 20px 0;
+  padding: 30px 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -32,8 +31,13 @@ body {
 }
 
 .logo {
-  max-height: 80px;
+  max-height: 100px;
   margin-bottom: 10px;
+  filter: brightness(0) invert(1); /* logo en blanco */
+}
+
+.large-logo {
+  max-height: 130px;
 }
 
 .tagline {
@@ -67,8 +71,9 @@ body {
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 20px;
+  color: #4527A0;
 }
 
 .hero p {
@@ -87,6 +92,7 @@ body {
 .courses h2 {
   font-size: 2rem;
   margin-bottom: 30px;
+  color: #5E35B1;
 }
 
 .course-list {
@@ -98,10 +104,10 @@ body {
 
 .course-card {
   background-color: #f3f1fc;
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 20px;
   width: 300px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
 }
 
@@ -124,6 +130,7 @@ body {
 .about-us h2 {
   font-size: 2rem;
   margin-bottom: 20px;
+  color: #4527A0;
 }
 
 .about-us p {
@@ -142,11 +149,24 @@ body {
 .contact h2 {
   font-size: 2rem;
   margin-bottom: 20px;
+  color: #5E35B1;
 }
 
-.contact p a {
-  color: #673AB7;
-  text-decoration: underline;
+.contact-button {
+  display: inline-block;
+  background-color: #673AB7;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #5E35B1;
 }
 
 /* FOOTER */
@@ -159,8 +179,8 @@ footer {
 }
 """
 
-from pathlib import Path
+css_path = "/mnt/data/styles.css"
+css_path_obj = Path(css_path)
+css_path_obj.write_text(updated_css, encoding="utf-8")
 
-css_path = Path("/mnt/data/styles.css")
-css_path.write_text(css_content, encoding="utf-8")
-css_path.name
+css_path
