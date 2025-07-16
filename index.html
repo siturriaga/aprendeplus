@@ -3,17 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestros Cursos Disponibles - Aprende y Crece</title>
+    <title>Aprende+ | Educación que Suma</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo-container">
+        <div class="container header-content">
+            <div class="logo-and-tagline">
                 <img src="aprende_logo.png" alt="Aprende+ Logo" class="site-logo">
                 <p class="tagline">Educación que suma.</p>
             </div>
+
+            <nav class="main-nav">
+                <button class="hamburger-menu" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="ingles.html">Inglés</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="filosofia.html">Filosofía</a></li>
+                    <li><a href="ciencia-politica.html">Ciencia Política</a></li>
+                    <li><a href="#contacto">Contacto</a></li> </ul>
+            </nav>
         </div>
     </header>
 
@@ -64,8 +78,21 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 [Tu Nombre de Organización]. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Aprende+. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function() {
+                    navLinks.classList.toggle('active'); // Toggles the 'active' class on the nav-links
+                });
+            }
+        });
+    </script>
 </body>
 </html>
