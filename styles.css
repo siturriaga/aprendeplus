@@ -1,3 +1,54 @@
+/* Modern Aesthetic Colors:
+   Primary Dark: #2C3E50 (Deep Blue/Charcoal)
+   Accent Blue: #3498DB (Vibrant Sky Blue - slightly deeper now)
+   Soft Green (CTA): #2ECC71 (Emerald Green)
+   Light Background: #F8F9FA (Off-White/Very Light Grey)
+   Text Grey: #555 (Medium Grey)
+   Lighter Dark: #34495E (Slightly Lighter Deep Blue)
+   Success/Highlight: #27AE60 (Darker Emerald Green for hover)
+*/
+
+/* Basic Reset & Body Styling */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F8F9FA; /* Light, modern background */
+    color: #333;
+    line-height: 1.7; /* Slightly more space between lines for readability */
+    scroll-behavior: smooth; /* Smooth scrolling for internal links */
+}
+
+/* Container for content width */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header Styling */
+header {
+    background-color: #2C3E50; /* Primary Dark */
+    color: #fff;
+    padding: 2.5rem 0; /* Slightly less vertical padding with logo */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    margin-top: 0.8rem;
+}
+
 /* --- Logo and Tagline Styling --- */
 .logo-container {
     display: flex;
@@ -9,7 +60,7 @@
 }
 
 .site-logo {
-    max-width: 250px; /* Adjust logo size as needed, e.g., 200px, 300px */
+    max-width: 350px; /* INCREASED LOGO SIZE: Adjust this value as desired (e.g., 250px, 400px) */
     height: auto; /* Maintain aspect ratio */
     margin-bottom: 15px; /* Space between logo and tagline */
     display: block; /* Ensures margin works correctly */
@@ -24,27 +75,219 @@
     opacity: 0.9;
 }
 
-/* Adjust header padding if the logo makes it too tall */
-header {
-    /* Keep previous header styles, but you might adjust padding */
-    padding: 2.5rem 0; /* Slightly less vertical padding might be needed */
+/* Main Content Section Padding */
+main {
+    padding: 3rem 0; /* General padding for main content */
 }
 
-/* Media query for smaller screens */
+/* Intro Text Section */
+.intro-text {
+    background-color: #ffffff;
+    padding: 2.5rem 3rem;
+    border-radius: 18px; /* Slightly more rounded corners for modern feel */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Slightly stronger but soft shadow */
+    margin-bottom: 3rem;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 1.15rem;
+    color: #555; /* Medium Grey for body text */
+}
+
+.intro-text strong {
+    color: #2C3E50;
+}
+
+/* Course List Section */
+.course-list h2 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #2C3E50; /* Primary Dark */
+    font-size: 2.8rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    padding-bottom: 15px;
+    letter-spacing: -0.2px; /* Subtle negative letter-spacing */
+}
+
+.course-list h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background-color: #3498DB; /* Accent Blue */
+    border-radius: 3px;
+}
+
+/* Grid for Course Items */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Individual Course Item Card */
+.course-item {
+    background-color: #ffffff;
+    border-radius: 15px; /* Slightly more rounded corners */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Stronger default shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Added border-color transition */
+    overflow: hidden;
+    border: 2px solid transparent; /* Added transparent border by default */
+}
+
+.course-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2); /* More pronounced shadow on hover */
+    border-color: #3498DB; /* Accent blue border on hover for interactivity */
+}
+
+.course-item a {
+    display: block;
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.course-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #3498DB; /* Accent Blue for headings */
+    margin-top: 0;
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.2px; /* Subtle negative letter-spacing */
+}
+
+.course-item p {
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* Call to Action (CTA) Section at the bottom */
+.cta-section {
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    background-color: #EBF4F7; /* Very light blue background for CTA */
+    padding: 2.5rem;
+    border-radius: 18px; /* Slightly more rounded corners */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.cta-section p {
+    font-size: 1.3rem;
+    color: #2C3E50;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+/* General Button Styling (for main CTA) */
+.button {
+    display: inline-block;
+    background-color: #2ECC71; /* Soft Green */
+    color: #fff;
+    padding: 1.2rem 2.8rem;
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.3rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.button:hover {
+    background-color: #27AE60; /* Darker Emerald Green on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.button:active {
+    transform: translateY(0px); /* Move back down slightly on click */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Smaller shadow on click */
+    background-color: #1E8449; /* Even darker green on active */
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #34495E; /* Lighter Dark */
+    color: #ECF0F1;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    margin-top: 4rem;
+    font-size: 0.95rem;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .site-logo {
-        max-width: 200px; /* Smaller logo on mobile */
+        max-width: 280px; /* Adjusted logo size for tablets */
     }
     .tagline {
-        font-size: 1.2rem; /* Smaller tagline on mobile */
+        font-size: 1.2rem;
+    }
+    header h1 {
+        font-size: 2.5rem;
+    }
+    header p {
+        font-size: 1.1rem;
+    }
+    .intro-text, .cta-section {
+        padding: 2rem;
+    }
+    .intro-text p {
+        font-size: 1rem;
+    }
+    .course-list h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2.5rem;
+    }
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+    .course-item a {
+        padding: 1.5rem;
+    }
+    .course-item h3 {
+        font-size: 1.6rem;
+    }
+    .button {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+    .cta-section p {
+        font-size: 1.1rem;
     }
 }
 
 @media (max-width: 480px) {
     .site-logo {
-        max-width: 150px; /* Even smaller logo on very small screens */
+        max-width: 200px; /* Adjusted logo size for phones */
     }
     .tagline {
-        font-size: 1rem; /* Even smaller tagline on very small screens */
+        font-size: 1rem;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    header p {
+        font-size: 0.9rem;
+    }
+    .intro-text, .cta-section {
+        padding: 1.5rem;
+    }
+    .course-list h2 {
+        font-size: 1.8rem;
+    }
+    .course-item h3 {
+        font-size: 1.4rem;
     }
 }
