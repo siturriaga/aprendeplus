@@ -1,11 +1,13 @@
-/* Color Palette:
-   Primary Dark: #212F3D (Deep Charcoal Blue - matches logo's background)
-   Accent 1 (Cool): #00BCD4 (Vibrant Cyan)
-   Accent 2 (Warm/CTA): #FF7043 (Vibrant Orange)
-   Light Background: #F0F4F7 (Soft light blue-grey)
-   Pure White: #FFFFFF
-   Text Grey: #444444 (Darker grey for body text)
-   Subtle Shadow: rgba(0,0,0,0.08)
+/* Color Palette (Revised for Visual Impact):
+   Primary Dark:       #212F3D (Deep Charcoal Blue - matches logo's background for strong base)
+   Accent 1 (Cyan):    #00BCD4 (Vibrant Cyan - for links, strong text, borders, highlights)
+   Accent 2 (Orange):  #FF7043 (Vibrant Orange - for CTA buttons, strong calls to action)
+   Lightest Grey:      #F8F9FA (Very subtle off-white for main body background)
+   Section Background: #FFFFFF (Pure white for cards and distinct content blocks)
+   Subtle Tint:        #EAF7F8 (A very light, refreshing cyan tint for background sections like intro/CTA)
+   Text Color:         #343A40 (Darker grey for enhanced readability and modern feel)
+   Faded Text:         #6C757D (Slightly lighter grey for less prominent text)
+   Footer Background:  #2F3C4F (Slightly lighter dark for footer)
 */
 
 /* Basic Reset & Body Styling */
@@ -13,11 +15,23 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #F0F4F7; /* Updated: Soft light blue-grey background */
-    color: #444444; /* Updated: Darker grey for main text */
+    background-color: #F8F9FA; /* Updated: Very subtle off-white background for overall page */
+    color: #343A40; /* Updated: Darker grey for main body text */
     line-height: 1.7;
     scroll-behavior: smooth;
 }
+
+/* Global Link Styling */
+a {
+    color: #00BCD4; /* Accent Cyan for general links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #008BA1; /* Darker Cyan on hover */
+}
+
 
 /* Container for content width */
 .container {
@@ -28,21 +42,21 @@ body {
 
 /* Header Styling */
 header {
-    background-color: #212F3D; /* Updated: Deeper charcoal-blue to match logo background */
+    background-color: #212F3D; /* Primary Dark: Deeper charcoal-blue to match logo background */
     color: #fff;
-    padding: 1.5rem 0; /* Reduced vertical padding slightly for sleeker look */
+    padding: 1.5rem 0;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* More pronounced shadow for modern depth */
-    position: relative; /* Needed for positioning hamburger menu */
-    z-index: 1000; /* Ensure header is on top */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2); /* More prominent shadow for depth */
+    position: relative;
+    z-index: 1000;
 }
 
 /* Header Content for Flexbox alignment */
 .header-content {
     display: flex;
-    justify-content: space-between; /* Space out logo and nav */
-    align-items: center; /* Vertically align items */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 /* --- Logo and Tagline Styling --- */
@@ -52,19 +66,20 @@ header {
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: 0; /* Remove default margins */
+    margin: 0;
+    flex-shrink: 0; /* Prevent shrinking on smaller screens */
 }
 
 .site-logo {
-    max-width: 280px; /* Adjusted logo size: Slightly smaller for desktop to allow nav space */
+    max-width: 280px; /* Logo size: Adjusted for desktop balance */
     height: auto;
-    margin-bottom: 10px; /* Reduced space between logo and tagline */
+    margin-bottom: 10px;
     display: block;
 }
 
 .tagline {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.2rem; /* Slightly smaller tagline for better balance */
+    font-size: 1.2rem;
     color: #DDEEEE; /* Lighter white for contrast */
     margin: 0;
     font-weight: 400;
@@ -85,7 +100,7 @@ header {
 }
 
 .nav-links li {
-    margin-left: 30px; /* Space between menu items */
+    margin-left: 30px;
 }
 
 .nav-links a {
@@ -105,7 +120,7 @@ header {
     left: 0;
     bottom: 0;
     width: 0;
-    height: 3px; /* Underline thickness */
+    height: 3px;
     background-color: #00BCD4; /* Accent Cyan for underline */
     transition: width 0.3s ease;
     border-radius: 2px;
@@ -113,46 +128,47 @@ header {
 
 .nav-links a:hover {
     color: #00BCD4; /* Accent Cyan on hover */
-    transform: translateY(-2px); /* Subtle lift on hover */
+    transform: translateY(-2px);
 }
 
 .nav-links a:hover::after {
-    width: 100%; /* Expand underline on hover */
+    width: 100%;
 }
 
 /* Hamburger menu (hidden on desktop) */
 .hamburger-menu {
-    display: none; /* Hidden by default on desktop */
+    display: none;
     background: none;
     border: none;
     font-size: 2rem;
     color: #fff;
     cursor: pointer;
-    z-index: 1001; /* Ensure it's above other content */
+    z-index: 1001;
 }
 
 
-/* Main Content Section Padding */
+/* Main Content Section Styling */
 main {
-    padding: 3.5rem 0; /* General padding for main content */
-    background-color: #F0F4F7; /* Consistent light background */
+    padding: 3.5rem 0;
+    background-color: #F8F9FA; /* Main body background */
 }
 
 /* Intro Text Section */
 .intro-text {
-    background-color: #FFFFFF; /* Pure white for this section */
-    padding: 2.5rem 3rem;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* Refined shadow */
-    margin-bottom: 3.5rem;
+    background-color: #EAF7F8; /* Updated: Subtle light cyan tint for this section */
+    padding: 2.8rem 3rem; /* Slightly more padding */
+    border-radius: 20px; /* Slightly more rounded */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Softer, more spreading shadow */
+    margin-bottom: 3.8rem; /* More margin */
     text-align: center;
     line-height: 1.8;
-    font-size: 1.15rem;
-    color: #444444;
+    font-size: 1.2rem; /* Slightly larger text */
+    color: #343A40;
 }
 
 .intro-text strong {
     color: #00BCD4; /* Accent Cyan for strong text */
+    font-weight: 700; /* Make bold more prominent */
 }
 
 /* Course List Section */
@@ -160,11 +176,11 @@ main {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     color: #212F3D; /* Primary Dark */
-    font-size: 2.8rem;
-    margin-bottom: 3.5rem;
+    font-size: 3rem; /* Slightly larger heading */
+    margin-bottom: 4rem; /* More margin */
     position: relative;
-    padding-bottom: 15px;
-    letter-spacing: -0.2px;
+    padding-bottom: 18px; /* More space for underline */
+    letter-spacing: -0.5px; /* Tighter letter spacing for big headings */
     font-weight: 700;
 }
 
@@ -174,38 +190,38 @@ main {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 80px;
-    height: 5px;
+    width: 90px; /* Slightly wider underline */
+    height: 6px; /* Thicker underline */
     background-color: #00BCD4; /* Accent Cyan */
-    border-radius: 3px;
+    border-radius: 4px;
 }
 
 /* Grid for Course Items */
 .course-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.5rem;
+    gap: 3rem; /* More gap between cards */
 }
 
 /* Individual Course Item Card */
 .course-item {
     background-color: #FFFFFF; /* Pure white for cards */
-    border-radius: 18px; /* More rounded for modern feel */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Softer, more spreading shadow */
+    border-radius: 20px; /* More rounded for modern feel */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.1); /* Stronger, more elegant shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     overflow: hidden;
-    border: 2px solid transparent;
+    border: 3px solid transparent; /* Thicker transparent border for hover effect */
 }
 
 .course-item:hover {
-    transform: translateY(-10px); /* Slightly more lift on hover */
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15); /* More pronounced shadow on hover */
+    transform: translateY(-12px); /* More pronounced lift on hover */
+    box-shadow: 0 25px 60px rgba(0,0,0,0.2); /* More pronounced shadow on hover */
     border-color: #00BCD4; /* Accent Cyan border on hover */
 }
 
 .course-item a {
     display: block;
-    padding: 1.5rem; /* Reduced padding for smaller "bottoms" */
+    padding: 1.8rem; /* Increased padding slightly for content */
     text-decoration: none;
     color: inherit;
     height: 100%;
@@ -216,34 +232,34 @@ main {
     font-family: 'Montserrat', sans-serif;
     color: #212F3D; /* Primary Dark for headings */
     margin-top: 0;
-    font-size: 1.9rem;
-    font-weight: 600;
+    font-size: 2rem; /* Slightly larger heading in card */
+    font-weight: 700; /* Bolder headings */
     margin-bottom: 0.8rem;
-    letter-spacing: -0.2px;
+    letter-spacing: -0.5px;
 }
 
 .course-item p {
     font-size: 1.05rem;
-    color: #666;
+    color: #6C757D; /* Faded Text for descriptions */
     line-height: 1.7;
 }
 
 /* Call to Action (CTA) Section at the bottom */
 .cta-section {
     text-align: center;
-    margin-top: 4rem;
-    margin-bottom: 3rem;
-    background-color: #FFFFFF; /* Pure white for CTA background */
-    padding: 3rem; /* More padding for a bolder CTA */
-    border-radius: 18px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow */
+    margin-top: 5rem; /* More margin */
+    margin-bottom: 4rem;
+    background-color: #EAF7F8; /* Updated: Subtle light cyan tint for CTA background */
+    padding: 3.5rem; /* More padding for a bolder CTA */
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* Softer shadow */
 }
 
 .cta-section p {
-    font-size: 1.4rem; /* Larger CTA text */
+    font-size: 1.5rem; /* Larger CTA text */
     color: #212F3D; /* Primary Dark */
-    font-weight: 600;
-    margin-bottom: 1.5rem;
+    font-weight: 700; /* Bolder CTA text */
+    margin-bottom: 2rem; /* More space below text */
 }
 
 /* General Button Styling (for main CTA) */
@@ -251,21 +267,21 @@ main {
     display: inline-block;
     background-color: #FF7043; /* Updated: Vibrant Orange for CTA */
     color: #fff;
-    padding: 1.2rem 2.8rem;
+    padding: 1.4rem 3.2rem; /* Larger padding for a more impactful button */
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.4rem; /* Larger font size for button text */
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Stronger shadow for button pop */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25); /* Stronger shadow for button pop */
 }
 
 .button:hover {
     background-color: #E64A19; /* Darker orange on hover */
-    transform: translateY(-5px); /* More pronounced lift */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: translateY(-7px); /* More pronounced lift */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
 }
 
 .button:active {
@@ -276,30 +292,52 @@ main {
 
 /* Footer Styling */
 footer {
-    background-color: #2F3C4F; /* Updated: Slightly lighter dark for footer */
+    background-color: #2F3C4F; /* Slightly lighter dark for footer */
     color: #ECF0F1;
     text-align: center;
-    padding: 2.5rem 1.5rem; /* More padding */
-    margin-top: 4rem;
+    padding: 2.5rem 1.5rem;
+    margin-top: 5rem; /* More margin */
     font-size: 0.95rem;
 }
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
     .container {
-        padding: 0 1rem; /* Less padding on slightly smaller screens */
+        padding: 0 1rem;
     }
-    .main-nav {
-        order: 1; /* Puts nav below logo-and-tagline on wrap */
-        width: 100%;
-        margin-top: 1.5rem;
-        justify-content: center;
+    .header-content {
+        flex-direction: column; /* Stack logo and nav vertically on tablet/small desktop */
+        align-items: flex-start; /* Align header content to the left */
+        padding-top: 1rem; /* Adjust padding for stacked layout */
     }
-    .nav-links li {
-        margin: 0 15px; /* Adjust spacing for smaller horizontal nav */
+    .logo-and-tagline {
+        width: 100%; /* Make logo/tagline take full width */
+        align-items: center; /* Center logo and tagline for stacked layout */
+        margin-bottom: 1.5rem; /* Space below logo before nav appears */
     }
     .site-logo {
-        max-width: 250px; /* Slightly smaller logo */
+        max-width: 250px;
+    }
+    .main-nav {
+        width: 100%;
+        justify-content: center; /* Center nav links horizontally on wider mobile/tablet */
+    }
+    .nav-links li {
+        margin: 0 18px; /* Adjust spacing for tablet horizontal nav */
+    }
+    .intro-text, .cta-section {
+        padding: 2.2rem;
+        margin-bottom: 3rem;
+    }
+    .course-list h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+    .course-grid {
+        gap: 2rem;
+    }
+    .course-item a {
+        padding: 1.5rem;
     }
 }
 
@@ -307,112 +345,128 @@ footer {
 @media (max-width: 768px) {
     .header-content {
         flex-direction: row; /* Keep logo and hamburger on same row */
-        justify-content: space-between; /* Space out logo and hamburger */
+        justify-content: space-between;
         align-items: center;
+        padding: 1rem 1.5rem; /* Standard padding for mobile header */
     }
     .logo-and-tagline {
-        margin: 0;
         align-items: flex-start; /* Align logo/tagline left */
-        flex-grow: 1; /* Allow it to take available space */
+        flex-grow: 1;
+        margin-bottom: 0; /* Remove bottom margin here */
     }
     .site-logo {
-        max-width: 200px; /* Smaller logo for mobile */
-        margin-bottom: 5px; /* Less space to tagline */
+        max-width: 180px; /* Smaller logo for mobile */
+        margin-bottom: 5px;
     }
     .tagline {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     /* Show hamburger menu, hide nav links initially */
     .hamburger-menu {
-        display: block; /* Show hamburger */
-        margin-left: auto; /* Push to the right */
+        display: block;
+        margin-left: auto;
+    }
+
+    .main-nav {
+        position: fixed; /* Fix nav to viewport */
+        top: 0; /* Align to top */
+        right: 0; /* Align to right */
+        width: 280px; /* Width of the slide-in menu */
+        height: 100%; /* Full height */
+        background-color: #2F3C4F; /* Darker background for mobile menu */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3); /* Shadow for slide-in effect */
+        transform: translateX(100%); /* Hide off-screen initially */
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+        flex-direction: column; /* Stack nav items */
+        padding-top: 60px; /* Space for potentially fixed header */
+        align-items: center; /* Center links in mobile menu */
+    }
+
+    .main-nav.active { /* Class added by JS for active state */
+        transform: translateX(0); /* Slide in when active */
     }
 
     .nav-links {
         flex-direction: column; /* Stack vertically */
-        position: absolute;
-        top: 100%; /* Position below header */
-        left: 0;
         width: 100%;
-        background-color: #2F3C4F; /* Darker background for mobile menu */
-        border-top: 1px solid rgba(255,255,255,0.1);
-        padding: 20px 0;
-        transform: translateX(-100%); /* Hide off-screen initially */
-        transition: transform 0.3s ease-in-out;
-        z-index: 999; /* Below header, above main content */
-        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    }
-
-    .nav-links.active {
-        transform: translateX(0); /* Slide in when active */
     }
 
     .nav-links li {
-        margin: 10px 0;
-        text-align: center;
+        margin: 0; /* Remove horizontal margin */
+        width: 100%;
     }
 
     .nav-links a {
-        padding: 10px 20px;
-        font-size: 1.1rem;
+        padding: 15px 20px; /* Larger tap area */
+        font-size: 1.15rem;
         display: block; /* Make entire area clickable */
+        color: #ECF0F1; /* White links for mobile menu */
+        text-align: left; /* Align text to left */
     }
     .nav-links a::after {
         display: none; /* Hide underline on mobile menu */
     }
     .nav-links a:hover {
-        color: #FFFFFF; /* Brighter on hover for mobile */
-        background-color: rgba(0,0,0,0.2); /* Subtle background on hover */
-        transform: none; /* No lift on mobile hover */
+        background-color: rgba(0,0,0,0.15); /* Subtle background on hover */
+        color: #00BCD4; /* Accent color on hover */
+        transform: none; /* No lift */
     }
 
     /* General text and spacing adjustments for smaller screens */
     .intro-text, .cta-section {
-        padding: 2rem;
+        padding: 1.8rem;
     }
     .intro-text p {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     .course-list h2 {
-        font-size: 2.2rem;
-        margin-bottom: 2.5rem;
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
-    .course-grid {
-        grid-template-columns: 1fr;
+    .course-list h2::after {
+        width: 60px; /* Shorter underline */
+        height: 4px; /* Thinner underline */
     }
     .course-item a {
-        padding: 1.2rem;
+        padding: 1rem;
     }
     .course-item h3 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
     .button {
-        padding: 1rem 2rem;
-        font-size: 1.1rem;
+        padding: 1rem 2.2rem;
+        font-size: 1.2rem;
     }
     .cta-section p {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+    }
+    footer {
+        padding: 2rem 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .site-logo {
-        max-width: 160px; /* Even smaller logo on very small screens */
+        max-width: 140px; /* Even smaller logo */
     }
     .tagline {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     .hamburger-menu {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+    .main-nav {
+        width: 250px; /* Narrower menu for very small screens */
     }
     .intro-text, .cta-section {
-        padding: 1.5rem;
+        padding: 1.2rem;
     }
     .course-list h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
     .course-item h3 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 }
