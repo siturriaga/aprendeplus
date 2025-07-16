@@ -1,87 +1,83 @@
-from pathlib import Path
+# Translate the existing index.html code into Spanish
 
-index_html_content = """
+html_content_es = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#673AB7" />
-  <link rel="stylesheet" href="styles.css" />
+  <title>Aprendemas - Plataforma Educativa Online</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="images/icon-192.png" type="image/png" />
-  <title>Aprendemas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="aprende_logo.png" />
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <img src="images/aprende_logo.png" alt="Logo Aprendemas" class="logo" />
-      <nav class="nav">
-        <ul>
-          <li><a href="#cursos">Cursos</a></li>
-          <li><a href="#nosotros">Quiénes somos</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
+  <header class="main-header">
+    <div class="logo-container">
+      <img src="aprende_logo.png" alt="Logo Aprendemas" class="logo" />
+      <div class="tagline">Conocimiento sin fronteras</div>
     </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#courses">Cursos</a></li>
+        <li><a href="#about">Quiénes Somos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
     <section class="hero">
-      <h1>Aprende a tu ritmo, desde cualquier lugar</h1>
-      <p>Cursos personalizados y grupales en inglés, filosofía, ciencias políticas, historia y más.</p>
+      <h1>Bienvenidos a Aprendemas</h1>
+      <p>Tu espacio para aprender desde cualquier lugar. Explora filosofía, historia, inglés y mucho más con profesionales de alto nivel.</p>
     </section>
 
-    <section id="cursos" class="cursos">
-      <h2>Cursos disponibles</h2>
-      <div class="curso-grid">
-        <div class="curso-card">
-          <h3>Inglés (todos los niveles)</h3>
-          <p>Desde nivel A1 a C1. Conversación, gramática y comprensión auditiva.</p>
+    <section id="courses" class="courses">
+      <h2>Cursos Disponibles</h2>
+      <div class="course-list">
+        <div class="course-card">
+          <h3>Inglés (Todos los Niveles)</h3>
+          <p>Desde principiante hasta avanzado. Aprende lectura, escritura y habilidades conversacionales adaptadas a tus metas.</p>
         </div>
-        <div class="curso-card">
-          <h3>Filosofía: de Grecia a la Modernidad</h3>
-          <p>Explora el pensamiento de los grandes filósofos y su impacto actual.</p>
+        <div class="course-card">
+          <h3>Filosofía: De los Griegos a la Modernidad</h3>
+          <p>Explora los grandes pensadores, textos y conceptos desde la antigüedad hasta el siglo XXI.</p>
         </div>
-        <div class="curso-card">
-          <h3>Teoría crítica y Ciencias Políticas</h3>
-          <p>Estudia el poder, la sociedad y los movimientos sociales contemporáneos.</p>
+        <div class="course-card">
+          <h3>Teoría Crítica y Ciencia Política</h3>
+          <p>Analiza ideologías modernas, poder y justicia desde una perspectiva crítica.</p>
         </div>
-        <div class="curso-card">
+        <div class="course-card">
           <h3>Historia Universal y Contemporánea</h3>
-          <p>Conexiones globales desde la antigüedad hasta el presente.</p>
+          <p>Comprende los eventos globales, revoluciones y el mundo actual en el que vivimos.</p>
         </div>
-        <div class="curso-card">
-          <h3>Formación Docente Profesional</h3>
-          <p>Capacitación para educadores y profesionales de la enseñanza.</p>
+        <div class="course-card">
+          <h3>Formación Docente y Desarrollo Profesional</h3>
+          <p>Capacitación para educadores, abarcando métodos, pedagogía e innovación.</p>
         </div>
       </div>
-      <div class="precio-info">
-        <p><strong>Valor por clase:</strong> $20 CLP</p>
-        <p><strong>Clases grupales:</strong> disponibles con descuento.</p>
-      </div>
+      <p class="price-info">Cada clase cuesta 20 CLP. Se pueden organizar clases grupales con tarifa reducida.</p>
     </section>
 
-    <section id="nosotros" class="nosotros">
-      <h2>¿Quiénes somos?</h2>
-      <p>Somos una empresa con sede en EE.UU. compuesta por profesionales de la educación con títulos de licenciatura y posgrado, y más de 10 años de experiencia en docencia, investigación y desarrollo educativo.</p>
+    <section id="about" class="about-us">
+      <h2>Quiénes Somos</h2>
+      <p>Somos un equipo con sede en EE.UU., conformado por profesionales con experiencia en educación. Nuestro equipo posee títulos de Licenciatura, Maestría y Doctorado, con más de 10 años de experiencia en enseñanza y capacitación. Creemos en una educación accesible, equitativa y de impacto.</p>
     </section>
 
-    <section id="contacto" class="cta">
-      <h2>¿Te interesa un curso?</h2>
-      <p>Escríbenos para agendar tu primera clase o resolver dudas.</p>
-      <a href="mailto:contacto@aprendemas.net" class="btn">Contáctanos</a>
+    <section id="contact" class="contact">
+      <h2>Contáctanos</h2>
+      <p>¿Interesado en inscribirte o en clases grupales? Escríbenos a <a href="mailto:info@aprendemas.net">info@aprendemas.net</a></p>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
+    <p>&copy; 2025 Aprendemas. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
 """
 
-index_file_path = Path("/mnt/data/index.html")
-index_file_path.write_text(index_html_content, encoding="utf-8")
-
-index_file_path.name
+index_es_path = Path("/mnt/data/index.html")
+index_es_path.write_text(html_content_es, encoding="utf-8")
+index_es_path.name
