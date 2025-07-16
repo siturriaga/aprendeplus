@@ -1,76 +1,87 @@
+from pathlib import Path
+
+index_html_content = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aprendemas</title>
+  <meta name="theme-color" content="#673AB7" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="images/icon-192x192.png" sizes="192x192" />
+  <link rel="icon" href="images/icon-192.png" type="image/png" />
+  <title>Aprendemas</title>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-content container">
-      <div class="logo-container">
-        <img src="images/aprende_logo.png" alt="Logo Aprendemas" class="logo" />
-      </div>
-      <nav class="main-nav">
+  <header>
+    <div class="header-content">
+      <img src="images/aprende_logo.png" alt="Logo Aprendemas" class="logo" />
+      <nav class="nav">
         <ul>
           <li><a href="#cursos">Cursos</a></li>
-          <li><a href="#nosotros">Quiénes Somos</a></li>
+          <li><a href="#nosotros">Quiénes somos</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="intro-section">
-      <h1>Aprende con profesionales de verdad</h1>
-      <p>Explora nuestros cursos accesibles, críticos y actualizados. Desde inglés hasta filosofía y ciencias políticas.</p>
+  <main>
+    <section class="hero">
+      <h1>Aprende a tu ritmo, desde cualquier lugar</h1>
+      <p>Cursos personalizados y grupales en inglés, filosofía, ciencias políticas, historia y más.</p>
     </section>
 
-    <section id="cursos" class="course-section">
-      <h2>Cursos Ofrecidos</h2>
-      <div class="course-grid">
-        <div class="course-card">
+    <section id="cursos" class="cursos">
+      <h2>Cursos disponibles</h2>
+      <div class="curso-grid">
+        <div class="curso-card">
           <h3>Inglés (todos los niveles)</h3>
-          <p>Clases dinámicas y estructuradas para todos los niveles, desde A1 hasta C1.</p>
+          <p>Desde nivel A1 a C1. Conversación, gramática y comprensión auditiva.</p>
         </div>
-        <div class="course-card">
-          <h3>Filosofía</h3>
-          <p>Desde los griegos hasta la modernidad. Pensamiento crítico desde la raíz.</p>
+        <div class="curso-card">
+          <h3>Filosofía: de Grecia a la Modernidad</h3>
+          <p>Explora el pensamiento de los grandes filósofos y su impacto actual.</p>
         </div>
-        <div class="course-card">
-          <h3>Teoría Crítica y Ciencia Política</h3>
-          <p>Una mirada profunda y práctica sobre el poder, la política y la sociedad.</p>
+        <div class="curso-card">
+          <h3>Teoría crítica y Ciencias Políticas</h3>
+          <p>Estudia el poder, la sociedad y los movimientos sociales contemporáneos.</p>
         </div>
-        <div class="course-card">
+        <div class="curso-card">
           <h3>Historia Universal y Contemporánea</h3>
-          <p>Entiende el pasado y su conexión con los desafíos actuales.</p>
+          <p>Conexiones globales desde la antigüedad hasta el presente.</p>
         </div>
-        <div class="course-card">
-          <h3>Formación Docente</h3>
-          <p>Cursos de desarrollo profesional impartidos por expertos con más de 10 años de experiencia.</p>
+        <div class="curso-card">
+          <h3>Formación Docente Profesional</h3>
+          <p>Capacitación para educadores y profesionales de la enseñanza.</p>
         </div>
       </div>
-      <p class="price-info">Precio por clase: <strong>$20 CLP</strong>. Clases grupales disponibles con descuento.</p>
+      <div class="precio-info">
+        <p><strong>Valor por clase:</strong> $20 CLP</p>
+        <p><strong>Clases grupales:</strong> disponibles con descuento.</p>
+      </div>
     </section>
 
-    <section id="nosotros" class="about-section">
-      <h2>Quiénes Somos</h2>
-      <p>Aprendemas es una iniciativa con base en EE.UU. formada por un equipo diverso de profesionales en educación. Nuestro equipo incluye licenciados y posgraduados con más de 10 años de experiencia en la enseñanza y formación crítica.</p>
+    <section id="nosotros" class="nosotros">
+      <h2>¿Quiénes somos?</h2>
+      <p>Somos una empresa con sede en EE.UU. compuesta por profesionales de la educación con títulos de licenciatura y posgrado, y más de 10 años de experiencia en docencia, investigación y desarrollo educativo.</p>
     </section>
 
-    <section id="contacto" class="cta-section">
-      <h2>Contáctanos</h2>
-      <p>¿Tienes dudas? ¿Quieres agendar una clase grupal? Escríbenos hoy.</p>
-      <a href="mailto:info@aprendemas.net" class="button">Enviar mensaje</a>
+    <section id="contacto" class="cta">
+      <h2>¿Te interesa un curso?</h2>
+      <p>Escríbenos para agendar tu primera clase o resolver dudas.</p>
+      <a href="mailto:contacto@aprendemas.net" class="btn">Contáctanos</a>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Aprendemas. Todos los derechos reservados.</p>
+    <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
+"""
+
+index_file_path = Path("/mnt/data/index.html")
+index_file_path.write_text(index_html_content, encoding="utf-8")
+
+index_file_path.name
