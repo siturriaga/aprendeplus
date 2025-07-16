@@ -1,107 +1,87 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#673AB7" />
-
-  <!-- PWA & App Icons -->
-  <link rel="manifest" href="manifest.json" />
-  <link rel="apple-touch-icon" sizes="192x192" href="images/icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192x192.png" />
-
-  <!-- Fonts & Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aprendemas - Online education in English, philosophy, politics, and teacher training" />
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="images/icon-192x192.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/icon-512x512.png">
   <link rel="stylesheet" href="styles.css" />
+  <title>Aprendemas</title>
 </head>
-<body>
 
-  <!-- Header (Top Banner) -->
-  <header>
-    <div class="header-content">
-      <div class="logo-and-tagline">
-        <img src="aprende_logo.png" alt="Aprendemas Logo" class="site-logo" />
-        <p class="tagline">Aprende sin límites. Crece con propósito.</p>
-      </div>
-      <button class="hamburger-menu" aria-label="Menú">&#9776;</button>
-      <nav class="main-nav">
-        <ul class="nav-links">
-          <li><a href="#cursos">Cursos</a></li>
-          <li><a href="#quienes-somos">Quiénes Somos</a></li>
-          <li><a href="#">Contacto</a></li>
+<body>
+  <header class="top-banner">
+    <div class="container header-container">
+      <img src="images/aprende_logo.png" alt="Aprendemas Logo" class="site-logo">
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#about">Who We Are</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Intro Section -->
-  <main>
-    <section class="intro-text">
-      <p><strong>Aprendemas</strong> es tu espacio internacional de aprendizaje virtual. Descubre nuestros cursos y comienza hoy tu camino al éxito.</p>
-    </section>
+  <section class="intro">
+    <div class="container">
+      <h1>Welcome to Aprendemas</h1>
+      <p>Affordable online learning with professionals in education. Classes starting at just 20 CLP.</p>
+    </div>
+  </section>
 
-    <!-- Courses Section -->
-    <section id="cursos" class="course-list">
-      <h2>Cursos Destacados</h2>
+  <section id="courses" class="course-section">
+    <div class="container">
+      <h2>Our Courses</h2>
       <div class="course-grid">
-        <div class="course-item">
-          <a href="#">
-            <h3>Inglés (A1–C1)</h3>
-            <p>Clases virtuales en todos los niveles con interacción en vivo.</p>
-          </a>
+        <div class="course-card">
+          <h3>English (A1 to C1)</h3>
+          <p>Learn English at your level — beginner to advanced — with expert guidance.</p>
         </div>
-        <div class="course-item">
-          <a href="#">
-            <h3>Filosofía – De los griegos a la modernidad</h3>
-            <p>Recorre la historia del pensamiento filosófico desde Platón hasta hoy.</p>
-          </a>
+        <div class="course-card">
+          <h3>Philosophy</h3>
+          <p>Explore ideas from Ancient Greece to Modernity in engaging formats.</p>
         </div>
-        <div class="course-item">
-          <a href="#">
-            <h3>Teoría Crítica & Ciencia Política</h3>
-            <p>Análisis de poder, ideología y justicia en contextos actuales.</p>
-          </a>
+        <div class="course-card">
+          <h3>Critical Theory & Political Science</h3>
+          <p>Understand global systems, ideologies, and power through critical analysis.</p>
         </div>
-        <div class="course-item">
-          <a href="#">
-            <h3>Historia Universal y Contemporánea</h3>
-            <p>Conexiones entre eventos históricos globales y la realidad actual.</p>
-          </a>
+        <div class="course-card">
+          <h3>History</h3>
+          <p>Delve into universal and contemporary history with academic depth.</p>
         </div>
-        <div class="course-item">
-          <a href="#">
-            <h3>Formación Docente & Desarrollo Profesional</h3>
-            <p>Clases lideradas por profesionales: $20 CLP por clase. Grupos tienen descuento.</p>
-          </a>
+        <div class="course-card">
+          <h3>Teacher Training</h3>
+          <p>Professional development for educators, led by experienced instructors.</p>
         </div>
       </div>
-    </section>
+      <p class="discount-note">Group classes available at discounted rates!</p>
+    </div>
+  </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section">
-      <p>¿Listo para transformar tu aprendizaje?</p>
-      <a href="#cursos" class="button">Ver Cursos</a>
-    </section>
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>Who We Are</h2>
+      <p>Aprendemas is a USA-based educational platform with a team of qualified professionals holding Bachelor’s to advanced degrees. We bring over 10 years of experience in teaching and training educators worldwide.</p>
+    </div>
+  </section>
 
-    <!-- About Us Section -->
-    <section id="quienes-somos" class="intro-text" style="background-color: #FFFFFF; box-shadow: 0 6px 18px rgba(0,0,0,0.05);">
-      <h2>Quiénes Somos</h2>
-      <p>Somos una compañía con sede en EE.UU., compuesta por profesionales de la educación con títulos que van desde licenciaturas hasta posgrados, con más de 10 años de experiencia en enseñanza, investigación y desarrollo profesional.</p>
-    </section>
-  </main>
+  <section id="contact" class="cta">
+    <div class="container">
+      <h2>Interested in Joining?</h2>
+      <p>Reach out to us today and begin your learning journey!</p>
+      <a href="mailto:info@aprendemas.net" class="button">Contact Us</a>
+    </div>
+  </section>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Aprendemas. Todos los derechos reservados.</p>
+    <div class="container">
+      <p>&copy; 2025 Aprendemas. All rights reserved.</p>
+    </div>
   </footer>
-
-  <!-- Mobile Navigation Script -->
-  <script>
-    const menu = document.querySelector('.hamburger-menu');
-    const nav = document.querySelector('.main-nav');
-    menu.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
-  </script>
 </body>
+
 </html>
