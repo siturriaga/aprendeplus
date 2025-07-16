@@ -1,3 +1,10 @@
+Okay, you got it\! Here is the **complete and most up-to-date `styles.css` code** with all the color refinements, shape adjustments, logo sizing, and navigation menu styling.
+
+**Please replace the ENTIRE content of your existing `styles.css` file with this code block.**
+
+-----
+
+```css
 /* Color Palette (Revised for Visual Impact):
    Primary Dark:       #212F3D (Deep Charcoal Blue - matches logo's background for strong base)
    Accent 1 (Cyan):    #00BCD4 (Vibrant Cyan - for links, strong text, borders, highlights)
@@ -339,6 +346,16 @@ footer {
     .course-item a {
         padding: 1.5rem;
     }
+    .course-item h3 {
+        font-size: 1.6rem;
+    }
+    .button {
+        padding: 1rem 2.2rem;
+        font-size: 1.1rem;
+    }
+    .cta-section p {
+        font-size: 1.2rem;
+    }
 }
 
 
@@ -470,3 +487,4 @@ footer {
         font-size: 1.3rem;
     }
 }
+```
