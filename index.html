@@ -2,128 +2,71 @@
 title: " "
 ---
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aprende+</title>
-
-  <!-- Netlify CMS Visual Editor CSS -->
-
-  <link rel="stylesheet" href="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.css" />
-
-  <!-- Google Fonts for modern feel -->
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9fb;
-      color: #333;
-    }
-
-    header {
-      background-color: #2E2E48;
-      color: #ffffff;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-
-    main {
-      padding: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    section {
-      background: #ffffff;
-      border-radius: 10px;
-      padding: 2rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    }
-
-    section h2 {
-      color: #2E2E48;
-      margin-bottom: 1rem;
-    }
-
-    ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
-    }
-
-    footer {
-      background-color: #eeeeee;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      margin-top: 2rem;
-    }
-
-    .price {
-      font-weight: bold;
-      color: #e64a19;
-    }
-  </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Cursos Disponibles - Aprende y Crece</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Cursos Disponibles</h1>
+            <p>Amplía tus conocimientos y habilidades con nosotros.</p>
+        </div>
+    </header>
 
-<body> 
-  <header>
-    <h1>Aprende+</h1>
-    <p>Educación que suma</p>
-  </header>
+    <main>
+        <section class="intro-text container">
+            <p>Ofrecemos una variedad de cursos diseñados para expandir tu conocimiento y destrezas. Cada curso puede ser accedido **en vivo** para interacción directa o como **grabación** para aprender a tu propio ritmo. Todas nuestras clases están disponibles por solo <strong>$20 CLP</strong>, y ofrecemos instrucción en **español, inglés y creole haitiano** para adaptarnos mejor a tus necesidades.</p>
+        </section>
 
-  <main>
-    <section>
-      <h2>Cursos Disponibles</h2>
-      <ul>
-        <li>Inglés (niveles A1–C1, con enfoque en conversación y gramática)</li>
-        <li>Historia Universal y de América Latina</li>
-        <li>Filosofía y pensamiento crítico (occidental y latinoamericano)</li>
-        <li>Ciencia Política y ciudadanía contemporánea</li>
-      </ul>
-      <p class="price">Clases a $20  CLP— en vivo o grabadas, en español, inglés y creole haitiano. </p> 
-    </section> 
-  </main>
+        <section class="course-list container">
+            <h2>Nuestra Oferta Educativa:</h2>
 
-  <footer>
-    <p>© 2025 Aprende+. Todos los derechos reservados.</p>
-  </footer>
+            <div class="course-grid">
+                <div class="course-item">
+                    <a href="ingles.html">
+                        <h3>Inglés (Niveles A1-C1)</h3>
+                        <p>Haz clic para saber más sobre nuestros cursos de inglés, enfocados en conversación y gramática, diseñados para llevarte desde principiante hasta una fluidez avanzada.</p>
+                    </a>
+                </div>
 
-  <!-- Netlify Identity Widget -->
+                <div class="course-item">
+                    <a href="historia.html">
+                        <h3>Historia Universal y de América Latina</h3>
+                        <p>Haz clic para descubrir nuestros cursos de historia, donde explorarás el rico tapiz de los eventos universales junto con la narrativa única de América Latina.</p>
+                    </a>
+                </div>
 
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+                <div class="course-item">
+                    <a href="filosofia.html">
+                        <h3>Filosofía y Pensamiento Crítico</h3>
+                        <p>Haz clic para detalles sobre nuestros cursos de filosofía, que profundizan en el pensamiento occidental y latinoamericano para afinar tus habilidades de pensamiento crítico.</p>
+                    </a>
+                </div>
 
-  <!-- CMS Visual Editor Script -->
+                <div class="course-item">
+                    <a href="ciencia-politica.html">
+                        <h3>Ciencia Política y Ciudadanía Contemporánea</h3>
+                        <p>Haz clic para explorar nuestro curso de ciencia política, examinando la ciudadanía contemporánea y las complejidades de la política actual.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+        <section class="cta-section container">
+            <p>¿Listo para comenzar a aprender y transformar tu futuro?</p>
+            <a href="#course-list-section" class="button">¡Explora Nuestros Cursos Ahora!</a>
+        </section>
+    </main>
 
-  <!-- Netlify Identity Init -->
-
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", function (user) {
-        if (!user) {
-          window.netlifyIdentity.open();
-        }
-      });
-    }
-  </script>
-
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 [Tu Nombre de Organización]. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
