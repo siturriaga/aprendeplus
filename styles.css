@@ -1,8 +1,7 @@
-from pathlib import Path
+# Crear el archivo styles.css corregido con diseño atractivo y moderno
 
-# Full corrected styles.css
-styles_css = """
-/* === Reset y configuración global === */
+css_content = """
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -10,226 +9,158 @@ styles_css = """
 }
 
 body {
-  font-family: 'Segoe UI', 'Open Sans', sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background-color: #fdfbf7;
   color: #333;
   line-height: 1.6;
-  scroll-behavior: smooth;
 }
 
-/* === Encabezado con logo y fondo moderno === */
-header {
-  background: linear-gradient(to right, #673ab7, #8e24aa);
-  padding: 1.5rem 0;
+/* HEADER */
+.site-header {
+  background-color: #673AB7;
   color: #fff;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header-content {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1100px;
+  margin: auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  max-height: 80px;
+  margin-bottom: 10px;
 }
 
-.logo img {
-  height: 60px;
-  border-radius: 12px;
+.tagline {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 15px;
 }
 
-nav ul {
+.nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 20px;
 }
 
-nav a {
+.nav-links a {
   color: #fff;
-  font-weight: 500;
   text-decoration: none;
-  position: relative;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-nav a::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -3px;
-  left: 0;
-  background-color: #ffd54f;
-  transition: width 0.3s ease;
+.nav-links a:hover {
+  color: #FFC107;
 }
 
-nav a:hover::after {
-  width: 100%;
-}
-
-/* === Sección Intro === */
+/* HERO */
 .hero {
-  background-color: #f5f0fa;
-  padding: 3rem 1.5rem;
   text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(to right, #ede7f6, #fff);
 }
 
 .hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-  color: #673ab7;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 1.1rem;
-  color: #555;
+  font-size: 1.2rem;
   max-width: 700px;
   margin: 0 auto;
 }
 
-/* === Cursos === */
-.cursos {
-  padding: 4rem 2rem;
+/* COURSES */
+.courses {
   background-color: #fff;
-}
-
-.cursos h2 {
+  padding: 50px 20px;
   text-align: center;
-  font-size: 2.5rem;
-  color: #673ab7;
-  margin-bottom: 2rem;
 }
 
-.curso-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+.courses h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
 }
 
-.curso-card {
-  background-color: #fff;
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.course-card {
+  background-color: #f3f1fc;
   border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  padding: 1.8rem;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.price-info {
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+/* ABOUT */
+.about-us {
+  background-color: #ede7f6;
+  padding: 50px 20px;
   text-align: center;
-  transition: all 0.3s ease;
 }
 
-.curso-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.about-us h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-.curso-card h3 {
-  color: #8e24aa;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.curso-card p {
-  font-size: 1rem;
-  color: #555;
-}
-
-.precio-info {
-  text-align: center;
-  margin-top: 2rem;
+.about-us p {
+  max-width: 800px;
+  margin: auto;
   font-size: 1.1rem;
 }
 
-/* === Sección Quiénes Somos === */
-.about {
-  background-color: #f5f0fa;
-  padding: 3rem 2rem;
+/* CONTACT */
+.contact {
+  background-color: #fff;
+  padding: 50px 20px;
   text-align: center;
 }
 
-.about h2 {
+.contact h2 {
   font-size: 2rem;
-  margin-bottom: 1.2rem;
-  color: #673ab7;
+  margin-bottom: 20px;
 }
 
-.about p {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.05rem;
-  color: #444;
+.contact p a {
+  color: #673AB7;
+  text-decoration: underline;
 }
 
-/* === CTA y Footer === */
-.cta {
-  background-color: #ffd54f;
-  text-align: center;
-  padding: 3rem 2rem;
-}
-
-.cta h2 {
-  color: #4527a0;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.cta p {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 1.5rem;
-}
-
-.cta a.btn {
-  background-color: #4527a0;
-  color: #fff;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.cta a.btn:hover {
-  background-color: #673ab7;
-}
-
+/* FOOTER */
 footer {
-  background-color: #4527a0;
-  color: #e0e0e0;
+  background-color: #4527A0;
+  color: #fff;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 15px;
   font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .hero h2 {
-    font-size: 1.8rem;
-  }
-
-  .cursos h2,
-  .about h2 {
-    font-size: 2rem;
-  }
 }
 """
 
-styles_path = Path("/mnt/data/styles.css")
-styles_path.write_text(styles_css, encoding="utf-8")
+from pathlib import Path
 
-styles_path.name
+css_path = Path("/mnt/data/styles.css")
+css_path.write_text(css_content, encoding="utf-8")
+css_path.name
