@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Cursos de inglés, filosofía, historia, teoría crítica, ciencia política y más. Clases accesibles con profesionales experimentados." />
+  <title>Aprendemas</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="images/icon-192x192.png" type="image/png">
-  <title>Aprendemas</title>
+  <link rel="icon" href="images/icon-192x192.png" sizes="192x192" />
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="header-content container">
-      <div class="logo-banner">
-        <img src="images/aprende_logo.png" alt="Logo Aprendemas" class="logo-integrado" />
+      <div class="logo-container">
+        <img src="images/aprende_logo.png" alt="Logo Aprendemas" class="logo" />
       </div>
       <nav class="main-nav">
-        <ul class="nav-links">
+        <ul>
           <li><a href="#cursos">Cursos</a></li>
           <li><a href="#nosotros">Quiénes Somos</a></li>
           <li><a href="#contacto">Contacto</a></li>
@@ -25,46 +24,48 @@
     </div>
   </header>
 
-  <main>
-    <section class="intro-text">
-      <h1>Educación Accesible para Todos</h1>
-      <p><strong>Aprendemas</strong> ofrece formación en diversas disciplinas con clases a solo <strong>20 CLP</strong>. Grupos obtienen descuentos especiales. Aprende con profesionales apasionados y con experiencia real.</p>
+  <main class="container">
+    <section class="intro-section">
+      <h1>Aprende con profesionales de verdad</h1>
+      <p>Explora nuestros cursos accesibles, críticos y actualizados. Desde inglés hasta filosofía y ciencias políticas.</p>
     </section>
 
-    <section class="course-list" id="cursos">
-      <h2>Nuestros Cursos</h2>
+    <section id="cursos" class="course-section">
+      <h2>Cursos Ofrecidos</h2>
       <div class="course-grid">
-        <div class="course-item">
-          <h3>Inglés (Niveles A1–C1)</h3>
-          <p>Desde nivel básico hasta avanzado con enfoque práctico.</p>
+        <div class="course-card">
+          <h3>Inglés (todos los niveles)</h3>
+          <p>Clases dinámicas y estructuradas para todos los niveles, desde A1 hasta C1.</p>
         </div>
-        <div class="course-item">
-          <h3>Filosofía (De los griegos a la modernidad)</h3>
-          <p>Explora los fundamentos del pensamiento occidental.</p>
+        <div class="course-card">
+          <h3>Filosofía</h3>
+          <p>Desde los griegos hasta la modernidad. Pensamiento crítico desde la raíz.</p>
         </div>
-        <div class="course-item">
+        <div class="course-card">
           <h3>Teoría Crítica y Ciencia Política</h3>
-          <p>Aprende a analizar la sociedad desde múltiples perspectivas.</p>
+          <p>Una mirada profunda y práctica sobre el poder, la política y la sociedad.</p>
         </div>
-        <div class="course-item">
+        <div class="course-card">
           <h3>Historia Universal y Contemporánea</h3>
-          <p>Comprende los eventos que moldearon nuestro mundo.</p>
+          <p>Entiende el pasado y su conexión con los desafíos actuales.</p>
         </div>
-        <div class="course-item">
-          <h3>Formación Docente y Desarrollo Profesional</h3>
-          <p>Cursos diseñados para educadores y profesionales.</p>
+        <div class="course-card">
+          <h3>Formación Docente</h3>
+          <p>Cursos de desarrollo profesional impartidos por expertos con más de 10 años de experiencia.</p>
         </div>
       </div>
+      <p class="price-info">Precio por clase: <strong>$20 CLP</strong>. Clases grupales disponibles con descuento.</p>
     </section>
 
-    <section class="nosotros-section" id="nosotros">
+    <section id="nosotros" class="about-section">
       <h2>Quiénes Somos</h2>
-      <p>Aprendemas es una empresa con base en Estados Unidos, formada por un equipo diverso de profesionales en educación. Nuestro equipo cuenta con títulos de licenciatura, maestría y doctorado, y más de 10 años de experiencia en la práctica educativa.</p>
+      <p>Aprendemas es una iniciativa con base en EE.UU. formada por un equipo diverso de profesionales en educación. Nuestro equipo incluye licenciados y posgraduados con más de 10 años de experiencia en la enseñanza y formación crítica.</p>
     </section>
 
-    <section class="cta-section">
-      <p>¡Únete hoy y empieza a aprender con los mejores!</p>
-      <a href="#contacto" class="button">Contáctanos</a>
+    <section id="contacto" class="cta-section">
+      <h2>Contáctanos</h2>
+      <p>¿Tienes dudas? ¿Quieres agendar una clase grupal? Escríbenos hoy.</p>
+      <a href="mailto:info@aprendemas.net" class="button">Enviar mensaje</a>
     </section>
   </main>
 
