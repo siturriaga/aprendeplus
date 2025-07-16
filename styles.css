@@ -1,3 +1,7 @@
+from pathlib import Path
+
+# Full corrected styles.css
+styles_css = """
 /* === Reset y configuración global === */
 * {
   margin: 0;
@@ -21,7 +25,7 @@ header {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.header-container {
+.header-content {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
@@ -42,12 +46,6 @@ header {
   border-radius: 12px;
 }
 
-.logo h1 {
-  font-size: 1.8rem;
-  font-weight: 600;
-}
-
-/* === Navegación === */
 nav ul {
   list-style: none;
   display: flex;
@@ -83,7 +81,7 @@ nav a:hover::after {
   text-align: center;
 }
 
-.hero h2 {
+.hero h1 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
   color: #673ab7;
@@ -97,19 +95,19 @@ nav a:hover::after {
 }
 
 /* === Cursos === */
-.courses {
+.cursos {
   padding: 4rem 2rem;
   background-color: #fff;
 }
 
-.courses h2 {
+.cursos h2 {
   text-align: center;
   font-size: 2.5rem;
   color: #673ab7;
   margin-bottom: 2rem;
 }
 
-.course-grid {
+.curso-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
@@ -117,7 +115,7 @@ nav a:hover::after {
   margin: 0 auto;
 }
 
-.course-card {
+.curso-card {
   background-color: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -126,20 +124,26 @@ nav a:hover::after {
   transition: all 0.3s ease;
 }
 
-.course-card:hover {
+.curso-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.course-card h3 {
+.curso-card h3 {
   color: #8e24aa;
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
-.course-card p {
+.curso-card p {
   font-size: 1rem;
   color: #555;
+}
+
+.precio-info {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.1rem;
 }
 
 /* === Sección Quiénes Somos === */
@@ -181,7 +185,7 @@ nav a:hover::after {
   margin-bottom: 1.5rem;
 }
 
-.cta a.button {
+.cta a.btn {
   background-color: #4527a0;
   color: #fff;
   padding: 1rem 2rem;
@@ -191,11 +195,10 @@ nav a:hover::after {
   transition: all 0.3s ease;
 }
 
-.cta a.button:hover {
+.cta a.btn:hover {
   background-color: #673ab7;
 }
 
-/* === Footer === */
 footer {
   background-color: #4527a0;
   color: #e0e0e0;
@@ -204,9 +207,8 @@ footer {
   font-size: 0.9rem;
 }
 
-/* === Responsivo === */
 @media (max-width: 768px) {
-  .header-container {
+  .header-content {
     flex-direction: column;
     gap: 1rem;
   }
@@ -220,8 +222,14 @@ footer {
     font-size: 1.8rem;
   }
 
-  .courses h2,
+  .cursos h2,
   .about h2 {
     font-size: 2rem;
   }
 }
+"""
+
+styles_path = Path("/mnt/data/styles.css")
+styles_path.write_text(styles_css, encoding="utf-8")
+
+styles_path.name
