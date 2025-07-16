@@ -1,6 +1,10 @@
-# Crear un archivo index.html corregido completamente en español y con los arreglos indicados
+# Modificar el index.html para:
+# - Aumentar el tamaño del logo
+# - Cambiar el correo a adaprendemas@outlook.com
+# - Incluir botón de formulario que envía correo desde el sitio (via mailto)
+# - Mejorar estructura de diseño y mantener visual moderno
 
-index_html_fixed = """
+updated_index = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,7 +19,7 @@ index_html_fixed = """
 <body>
   <header class="site-header">
     <div class="header-content container">
-      <img src="aprende_logo.png" alt="Logo Aprendemas" class="logo" />
+      <img src="aprende_logo.png" alt="Logo Aprendemas" class="logo large-logo" />
       <div class="tagline">Conocimiento sin fronteras</div>
       <nav>
         <ul class="nav-links">
@@ -67,7 +71,8 @@ index_html_fixed = """
 
     <section id="contacto" class="contact">
       <h2>Contáctanos</h2>
-      <p>¿Te interesa unirte a un curso o formar un grupo? Escríbenos a <a href="mailto:info@aprendemas.net">info@aprendemas.net</a></p>
+      <p>¿Te interesa unirte a un curso o formar un grupo?</p>
+      <a href="mailto:adaprendemas@outlook.com" class="contact-button">Escríbenos por correo</a>
     </section>
   </main>
 
@@ -80,6 +85,6 @@ index_html_fixed = """
 
 index_path = "/mnt/data/index.html"
 with open(index_path, "w", encoding="utf-8") as f:
-    f.write(index_html_fixed)
+    f.write(updated_index)
 
 index_path
