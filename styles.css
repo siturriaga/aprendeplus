@@ -1,11 +1,10 @@
 /* Modern Aesthetic Colors:
-   Primary Dark: #2C3E50 (Deep Blue/Charcoal)
-   Accent Blue: #3498DB (Vibrant Sky Blue - slightly deeper now)
-   Soft Green (CTA): #2ECC71 (Emerald Green)
+   Primary Dark: #232B39 (Deep Blue/Charcoal - matches logo's background)
+   Accent Blue: #2980B9 (Stronger, more vibrant blue)
+   CTA Orange: #FF7043 (Vibrant orange/coral)
    Light Background: #F8F9FA (Off-White/Very Light Grey)
    Text Grey: #555 (Medium Grey)
-   Lighter Dark: #34495E (Slightly Lighter Deep Blue)
-   Success/Highlight: #27AE60 (Darker Emerald Green for hover)
+   Lighter Dark: #2F3C4F (Slightly lighter dark for footer)
 */
 
 /* Basic Reset & Body Styling */
@@ -15,7 +14,7 @@ body {
     padding: 0;
     background-color: #F8F9FA; /* Light, modern background */
     color: #333;
-    line-height: 1.7; /* Slightly more space between lines for readability */
+    line-height: 1.7; /* More space between lines for readability */
     scroll-behavior: smooth; /* Smooth scrolling for internal links */
 }
 
@@ -28,25 +27,11 @@ body {
 
 /* Header Styling */
 header {
-    background-color: #2C3E50; /* Primary Dark */
+    background-color: #232B39; /* Updated: Deeper dark blue to match logo background */
     color: #fff;
     padding: 2.5rem 0; /* Slightly less vertical padding with logo */
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-}
-
-header h1 {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    font-size: 3.2rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
-header p {
-    font-size: 1.3rem;
-    opacity: 0.9;
-    margin-top: 0.8rem;
 }
 
 /* --- Logo and Tagline Styling --- */
@@ -60,18 +45,18 @@ header p {
 }
 
 .site-logo {
-    max-width: 350px; /* INCREASED LOGO SIZE: Adjust this value as desired (e.g., 250px, 400px) */
+    max-width: 350px; /* Logo size: Adjust this value as desired */
     height: auto; /* Maintain aspect ratio */
     margin-bottom: 15px; /* Space between logo and tagline */
     display: block; /* Ensures margin works correctly */
 }
 
 .tagline {
-    font-family: 'Open Sans', sans-serif; /* Use your main text font */
-    font-size: 1.5rem; /* Adjust tagline size */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
     color: #ECF0F1; /* Light color for contrast on dark header */
-    margin: 0; /* Remove default paragraph margins */
-    font-weight: 400; /* Normal weight, or 600 for bolder */
+    margin: 0;
+    font-weight: 400;
     opacity: 0.9;
 }
 
@@ -84,24 +69,24 @@ main {
 .intro-text {
     background-color: #ffffff;
     padding: 2.5rem 3rem;
-    border-radius: 18px; /* Slightly more rounded corners for modern feel */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Slightly stronger but soft shadow */
+    border-radius: 18px; /* More rounded corners for modern feel */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Stronger but soft shadow */
     margin-bottom: 3rem;
     text-align: center;
     line-height: 1.8;
     font-size: 1.15rem;
-    color: #555; /* Medium Grey for body text */
+    color: #555;
 }
 
 .intro-text strong {
-    color: #2C3E50;
+    color: #232B39; /* Updated: Match new primary dark */
 }
 
 /* Course List Section */
 .course-list h2 {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    color: #2C3E50; /* Primary Dark */
+    color: #232B39; /* Updated: Match new primary dark */
     font-size: 2.8rem;
     margin-bottom: 3.5rem;
     position: relative;
@@ -117,7 +102,7 @@ main {
     transform: translateX(-50%);
     width: 80px;
     height: 5px;
-    background-color: #3498DB; /* Accent Blue */
+    background-color: #2980B9; /* Updated: Stronger accent blue */
     border-radius: 3px;
 }
 
@@ -131,22 +116,22 @@ main {
 /* Individual Course Item Card */
 .course-item {
     background-color: #ffffff;
-    border-radius: 15px; /* Slightly more rounded corners */
+    border-radius: 15px; /* More rounded corners */
     box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Stronger default shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Added border-color transition */
     overflow: hidden;
-    border: 2px solid transparent; /* Added transparent border by default */
+    border: 2px solid transparent; /* Added transparent border by default for hover effect */
 }
 
 .course-item:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.2); /* More pronounced shadow on hover */
-    border-color: #3498DB; /* Accent blue border on hover for interactivity */
+    border-color: #2980B9; /* Updated: Accent blue border on hover for interactivity */
 }
 
 .course-item a {
     display: block;
-    padding: 2rem;
+    padding: 1.5rem; /* Updated: Smaller padding for course item clickable area */
     text-decoration: none;
     color: inherit;
     height: 100%;
@@ -155,12 +140,12 @@ main {
 
 .course-item h3 {
     font-family: 'Montserrat', sans-serif;
-    color: #3498DB; /* Accent Blue for headings */
+    color: #2980B9; /* Updated: Stronger accent blue for headings */
     margin-top: 0;
     font-size: 1.9rem;
     font-weight: 600;
     margin-bottom: 0.8rem;
-    letter-spacing: -0.2px; /* Subtle negative letter-spacing */
+    letter-spacing: -0.2px;
 }
 
 .course-item p {
@@ -174,15 +159,15 @@ main {
     text-align: center;
     margin-top: 4rem;
     margin-bottom: 3rem;
-    background-color: #EBF4F7; /* Very light blue background for CTA */
+    background-color: #F0F4F7; /* Updated: Very light cool grey/blue for subtle distinction */
     padding: 2.5rem;
-    border-radius: 18px; /* Slightly more rounded corners */
+    border-radius: 18px; /* More rounded corners */
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .cta-section p {
     font-size: 1.3rem;
-    color: #2C3E50;
+    color: #232B39; /* Updated: Match new primary dark */
     font-weight: 600;
     margin-bottom: 1.5rem;
 }
@@ -190,7 +175,7 @@ main {
 /* General Button Styling (for main CTA) */
 .button {
     display: inline-block;
-    background-color: #2ECC71; /* Soft Green */
+    background-color: #FF7043; /* Updated: Vibrant orange/coral from logo aesthetic */
     color: #fff;
     padding: 1.2rem 2.8rem;
     border-radius: 50px; /* Pill shape */
@@ -204,21 +189,21 @@ main {
 }
 
 .button:hover {
-    background-color: #27AE60; /* Darker Emerald Green on hover */
+    background-color: #E64A19; /* Updated: Darker orange/coral on hover */
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 .button:active {
-    transform: translateY(0px); /* Move back down slightly on click */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Smaller shadow on click */
-    background-color: #1E8449; /* Even darker green on active */
+    transform: translateY(0px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background-color: #D32F2F; /* Updated: Even darker orange/red on active */
 }
 
 
 /* Footer Styling */
 footer {
-    background-color: #34495E; /* Lighter Dark */
+    background-color: #2F3C4F; /* Updated: Slightly lighter dark for footer */
     color: #ECF0F1;
     text-align: center;
     padding: 2rem 1.5rem;
@@ -254,7 +239,7 @@ footer {
         grid-template-columns: 1fr;
     }
     .course-item a {
-        padding: 1.5rem;
+        padding: 1.2rem; /* Adjusted for smaller screens too */
     }
     .course-item h3 {
         font-size: 1.6rem;
