@@ -1,9 +1,24 @@
  /* Reset y contenedor */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-.container { max-width: 1100px; margin: auto; padding: 0 20px; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1100px;
+  width: 100%;
+  margin: auto;
+  padding: 0 20px;
+}
 
 /* Fondos por página */
-body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; background: #f5f7fa; color: #333; transition: background-color .5s; }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background: #f5f7fa;
+  color: #333;
+  transition: background-color .5s ease;
+}
 body.curso-docente   { background: #f7f0fa; }
 body.curso-ingles    { background: #f0f8ff; }
 body.curso-filosofia { background: #fdf6e3; }
@@ -11,44 +26,169 @@ body.curso-politica  { background: #e8f8f5; }
 body.curso-historia  { background: #fef9f2; }
 
 /* Header */
-.site-header { background: linear-gradient(135deg, #673AB7, #8E24AA); padding: 1rem 0; color: #fff; }
-.header-content { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-.logo { max-height: 150px; transition: transform .3s ease; }
-.logo:hover { transform: scale(1.08); }
+.site-header {
+  position: relative;
+  z-index: 1000;
+  background: linear-gradient(135deg, #673AB7, #8E24AA);
+  padding: 1rem 0;
+  color: #fff;
+}
+.header-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+.logo {
+  max-height: 150px;
+  transition: transform .3s ease;
+}
+.logo:hover {
+  transform: scale(1.08);
+}
 
 /* Navegación */
-.nav-links { list-style: none; display: flex; gap: 1rem; }
-.nav-links a { color: #fff; text-decoration: none; font-weight: bold; position: relative; }
-.nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: #FFD54F; transition: width .3s; }
-.nav-links a:hover::after { width: 100%; }
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #FFD54F;
+  transition: width .3s ease;
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
 
 /* Dropdown */
-.dropdown { position: relative; }
-.dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: #8E24AA; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-.dropdown:hover .dropdown-content { display: block; }
-.dropdown-content li { list-style: none; }
-.dropdown-content a { display: block; padding: .5rem 1rem; color: #fff; text-decoration: none; transition: background .3s; }
-.dropdown-content a:hover { background: #9575CD; }
-
-/* Animación de entrada */
-.fade-in { opacity: 0; animation: fadeInUp .8s ease-out forwards; }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
+.dropdown {
+  position: relative;
+  z-index: 1001;
+}
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #8E24AA;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: opacity .3s ease, transform .3s ease, visibility 0s linear .3s;
+  z-index: 1002;
+}
+.dropdown:hover .dropdown-content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+.dropdown-content li {
+  list-style: none;
+}
+.dropdown-content a {
+  display: block;
+  padding: .5rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  transition: background .3s ease;
+}
+.dropdown-content a:hover {
+  background: #9575CD;
+}
 
 /* Hero */
-.hero { text-align: center; padding: 4rem 0; background: #f5f0fa; margin-bottom: 2rem; }
-.hero h1 { font-size: 2.5rem; color: #673AB7; }
-.hero p { font-size: 1.2rem; color: #555; max-width: 700px; margin: 1rem auto; }
+.hero {
+  position: relative;
+  z-index: 0;
+  text-align: center;
+  padding: 4rem 0;
+  background: #f5f0fa;
+  margin-bottom: 2rem;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  color: #673AB7;
+}
+.hero p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 700px;
+  margin: 1rem auto;
+}
+
+/* Fade-in */
+.fade-in {
+  opacity: 0;
+  animation: fadeInUp .8s ease-out forwards;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* Cursos */
-.courses { padding: 2rem 0; margin-bottom: 2rem; }
-.courses h2 { text-align: center; font-size: 2rem; color: #673AB7; margin-bottom: 1.5rem; }
-.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.5rem; }
-.course-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 1.5rem; text-align: center; transition: transform .3s, box-shadow .3s; }
-.course-card:hover { transform: translateY(-5px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
-.course-card h3 { margin-bottom: .75rem; color: #512DA8; }
-.course-card p { font-size: 1rem; color: #444; margin-bottom: 1rem; }
-
-/* Fondos de tarjetas */
+.courses {
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+.courses h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #673AB7;
+  margin-bottom: 1.5rem;
+}
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.course-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.course-card h3 {
+  margin-bottom: .75rem;
+  color: #512DA8;
+}
+.course-card p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+/* Fondos de tarjetas por curso */
 .course-card.curso-docente   { background: #f7f0fa; }
 .course-card.curso-ingles    { background: #f0f8ff; }
 .course-card.curso-filosofia { background: #fdf6e3; }
@@ -56,17 +196,62 @@ body.curso-historia  { background: #fef9f2; }
 .course-card.curso-historia  { background: #fef9f2; }
 
 /* Botón de curso */
-.course-button { display: inline-block; padding: .6rem 1.2rem; background: linear-gradient(135deg, #FFD54F, #FFCA28); color: #4527A0; border-radius: 50px; text-decoration: none; font-weight: bold; transition: background .3s, transform .3s; }
-.course-button:hover { background: linear-gradient(135deg, #FFCA28, #FFD54F); transform: scale(1.05); }
+.course-button {
+  display: inline-block;
+  padding: .6rem 1.2rem;
+  background: linear-gradient(135deg, #FFD54F, #FFCA28);
+  color: #4527A0;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background .3s ease, transform .3s ease;
+}
+.course-button:hover {
+  background: linear-gradient(135deg, #FFCA28, #FFD54F);
+  transform: scale(1.05);
+}
 
 /* Precio */
-.price-info { text-align: center; font-style: italic; color: #8E24AA; margin-top: 1.5rem; }
+.price-info {
+  text-align: center;
+  font-style: italic;
+  color: #8E24AA;
+  margin-top: 1.5rem;
+}
 
-/* Sección “Quiénes somos” y contacto */
-.about-us, .contact { text-align: center; padding: 2rem 0; margin-bottom: 2rem; }
-.about-us h2, .contact h2 { font-size: 2rem; color: #673AB7; margin-bottom: 1rem; }
-.contact-button { display: inline-block; padding: .8rem 1.2rem; background: #673AB7; color: #fff; border-radius: 6px; text-decoration: none; font-weight: bold; transition: background .3s, transform .3s; }
-.contact-button:hover { background: #5E35B1; transform: scale(1.03); }
+/* Sección “Quiénes somos” y “Contacto” */
+.about-us,
+.contact {
+  text-align: center;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+.about-us h2,
+.contact h2 {
+  font-size: 2rem;
+  color: #673AB7;
+  margin-bottom: 1rem;
+}
+.contact-button {
+  display: inline-block;
+  padding: .8rem 1.2rem;
+  background: #673AB7;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background .3s ease, transform .3s ease;
+}
+.contact-button:hover {
+  background: #5E35B1;
+  transform: scale(1.03);
+}
 
 /* Footer */
-footer { text-align: center; padding: 1rem 0; background: #4527A0; color: #fff; font-size: .9rem; }
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: #4527A0;
+  color: #fff;
+  font-size: .9rem;
+}
