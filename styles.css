@@ -1,10 +1,11 @@
-/* Modern Aesthetic Colors:
-   Primary Dark: #232B39 (Deep Blue/Charcoal - matches logo's background)
-   Accent Blue: #2980B9 (Stronger, more vibrant blue)
-   CTA Orange: #FF7043 (Vibrant orange/coral)
-   Light Background: #F8F9FA (Off-White/Very Light Grey)
-   Text Grey: #555 (Medium Grey)
-   Lighter Dark: #2F3C4F (Slightly lighter dark for footer)
+/* Color Palette:
+   Primary Dark: #212F3D (Deep Charcoal Blue - matches logo's background)
+   Accent 1 (Cool): #00BCD4 (Vibrant Cyan)
+   Accent 2 (Warm/CTA): #FF7043 (Vibrant Orange)
+   Light Background: #F0F4F7 (Soft light blue-grey)
+   Pure White: #FFFFFF
+   Text Grey: #444444 (Darker grey for body text)
+   Subtle Shadow: rgba(0,0,0,0.08)
 */
 
 /* Basic Reset & Body Styling */
@@ -12,86 +13,159 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #F8F9FA; /* Light, modern background */
-    color: #333;
-    line-height: 1.7; /* More space between lines for readability */
-    scroll-behavior: smooth; /* Smooth scrolling for internal links */
+    background-color: #F0F4F7; /* Updated: Soft light blue-grey background */
+    color: #444444; /* Updated: Darker grey for main text */
+    line-height: 1.7;
+    scroll-behavior: smooth;
 }
 
 /* Container for content width */
 .container {
-    max-width: 1000px;
+    max-width: 1100px; /* Slightly wider container for more space */
     margin: 0 auto;
     padding: 0 1.5rem;
 }
 
 /* Header Styling */
 header {
-    background-color: #232B39; /* Updated: Deeper dark blue to match logo background */
+    background-color: #212F3D; /* Updated: Deeper charcoal-blue to match logo background */
     color: #fff;
-    padding: 2.5rem 0; /* Slightly less vertical padding with logo */
+    padding: 1.5rem 0; /* Reduced vertical padding slightly for sleeker look */
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* More pronounced shadow for modern depth */
+    position: relative; /* Needed for positioning hamburger menu */
+    z-index: 1000; /* Ensure header is on top */
+}
+
+/* Header Content for Flexbox alignment */
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Space out logo and nav */
+    align-items: center; /* Vertically align items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 /* --- Logo and Tagline Styling --- */
-.logo-container {
+.logo-and-tagline {
     display: flex;
-    flex-direction: column; /* Stack logo and tagline vertically */
-    align-items: center;    /* Center them horizontally */
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     text-align: center;
-    margin-bottom: 1rem; /* Space below the logo block */
+    margin: 0; /* Remove default margins */
 }
 
 .site-logo {
-    max-width: 350px; /* Logo size: Adjust this value as desired */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: 15px; /* Space between logo and tagline */
-    display: block; /* Ensures margin works correctly */
+    max-width: 280px; /* Adjusted logo size: Slightly smaller for desktop to allow nav space */
+    height: auto;
+    margin-bottom: 10px; /* Reduced space between logo and tagline */
+    display: block;
 }
 
 .tagline {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.5rem;
-    color: #ECF0F1; /* Light color for contrast on dark header */
+    font-size: 1.2rem; /* Slightly smaller tagline for better balance */
+    color: #DDEEEE; /* Lighter white for contrast */
     margin: 0;
     font-weight: 400;
     opacity: 0.9;
 }
 
+/* --- Navigation Menu Styling --- */
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px; /* Space between menu items */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ECF0F1; /* Light color for navigation links */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px; /* Underline thickness */
+    background-color: #00BCD4; /* Accent Cyan for underline */
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-links a:hover {
+    color: #00BCD4; /* Accent Cyan on hover */
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+/* Hamburger menu (hidden on desktop) */
+.hamburger-menu {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other content */
+}
+
+
 /* Main Content Section Padding */
 main {
-    padding: 3rem 0; /* General padding for main content */
+    padding: 3.5rem 0; /* General padding for main content */
+    background-color: #F0F4F7; /* Consistent light background */
 }
 
 /* Intro Text Section */
 .intro-text {
-    background-color: #ffffff;
+    background-color: #FFFFFF; /* Pure white for this section */
     padding: 2.5rem 3rem;
-    border-radius: 18px; /* More rounded corners for modern feel */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Stronger but soft shadow */
-    margin-bottom: 3rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* Refined shadow */
+    margin-bottom: 3.5rem;
     text-align: center;
     line-height: 1.8;
     font-size: 1.15rem;
-    color: #555;
+    color: #444444;
 }
 
 .intro-text strong {
-    color: #232B39; /* Updated: Match new primary dark */
+    color: #00BCD4; /* Accent Cyan for strong text */
 }
 
 /* Course List Section */
 .course-list h2 {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    color: #232B39; /* Updated: Match new primary dark */
+    color: #212F3D; /* Primary Dark */
     font-size: 2.8rem;
     margin-bottom: 3.5rem;
     position: relative;
     padding-bottom: 15px;
-    letter-spacing: -0.2px; /* Subtle negative letter-spacing */
+    letter-spacing: -0.2px;
+    font-weight: 700;
 }
 
 .course-list h2::after {
@@ -102,7 +176,7 @@ main {
     transform: translateX(-50%);
     width: 80px;
     height: 5px;
-    background-color: #2980B9; /* Updated: Stronger accent blue */
+    background-color: #00BCD4; /* Accent Cyan */
     border-radius: 3px;
 }
 
@@ -115,23 +189,23 @@ main {
 
 /* Individual Course Item Card */
 .course-item {
-    background-color: #ffffff;
-    border-radius: 15px; /* More rounded corners */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Stronger default shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Added border-color transition */
+    background-color: #FFFFFF; /* Pure white for cards */
+    border-radius: 18px; /* More rounded for modern feel */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Softer, more spreading shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     overflow: hidden;
-    border: 2px solid transparent; /* Added transparent border by default for hover effect */
+    border: 2px solid transparent;
 }
 
 .course-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2); /* More pronounced shadow on hover */
-    border-color: #2980B9; /* Updated: Accent blue border on hover for interactivity */
+    transform: translateY(-10px); /* Slightly more lift on hover */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15); /* More pronounced shadow on hover */
+    border-color: #00BCD4; /* Accent Cyan border on hover */
 }
 
 .course-item a {
     display: block;
-    padding: 1.5rem; /* Updated: Smaller padding for course item clickable area */
+    padding: 1.5rem; /* Reduced padding for smaller "bottoms" */
     text-decoration: none;
     color: inherit;
     height: 100%;
@@ -140,7 +214,7 @@ main {
 
 .course-item h3 {
     font-family: 'Montserrat', sans-serif;
-    color: #2980B9; /* Updated: Stronger accent blue for headings */
+    color: #212F3D; /* Primary Dark for headings */
     margin-top: 0;
     font-size: 1.9rem;
     font-weight: 600;
@@ -159,15 +233,15 @@ main {
     text-align: center;
     margin-top: 4rem;
     margin-bottom: 3rem;
-    background-color: #F0F4F7; /* Updated: Very light cool grey/blue for subtle distinction */
-    padding: 2.5rem;
-    border-radius: 18px; /* More rounded corners */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background-color: #FFFFFF; /* Pure white for CTA background */
+    padding: 3rem; /* More padding for a bolder CTA */
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow */
 }
 
 .cta-section p {
-    font-size: 1.3rem;
-    color: #232B39; /* Updated: Match new primary dark */
+    font-size: 1.4rem; /* Larger CTA text */
+    color: #212F3D; /* Primary Dark */
     font-weight: 600;
     margin-bottom: 1.5rem;
 }
@@ -175,56 +249,125 @@ main {
 /* General Button Styling (for main CTA) */
 .button {
     display: inline-block;
-    background-color: #FF7043; /* Updated: Vibrant orange/coral from logo aesthetic */
+    background-color: #FF7043; /* Updated: Vibrant Orange for CTA */
     color: #fff;
     padding: 1.2rem 2.8rem;
-    border-radius: 50px; /* Pill shape */
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
     font-size: 1.3rem;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Stronger shadow for button pop */
 }
 
 .button:hover {
-    background-color: #E64A19; /* Updated: Darker orange/coral on hover */
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    background-color: #E64A19; /* Darker orange on hover */
+    transform: translateY(-5px); /* More pronounced lift */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .button:active {
     transform: translateY(0px);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    background-color: #D32F2F; /* Updated: Even darker orange/red on active */
+    background-color: #D32F2F; /* Even darker orange/red on active */
 }
-
 
 /* Footer Styling */
 footer {
     background-color: #2F3C4F; /* Updated: Slightly lighter dark for footer */
     color: #ECF0F1;
     text-align: center;
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 1.5rem; /* More padding */
     margin-top: 4rem;
     font-size: 0.95rem;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 1rem; /* Less padding on slightly smaller screens */
+    }
+    .main-nav {
+        order: 1; /* Puts nav below logo-and-tagline on wrap */
+        width: 100%;
+        margin-top: 1.5rem;
+        justify-content: center;
+    }
+    .nav-links li {
+        margin: 0 15px; /* Adjust spacing for smaller horizontal nav */
+    }
     .site-logo {
-        max-width: 280px; /* Adjusted logo size for tablets */
+        max-width: 250px; /* Slightly smaller logo */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: row; /* Keep logo and hamburger on same row */
+        justify-content: space-between; /* Space out logo and hamburger */
+        align-items: center;
+    }
+    .logo-and-tagline {
+        margin: 0;
+        align-items: flex-start; /* Align logo/tagline left */
+        flex-grow: 1; /* Allow it to take available space */
+    }
+    .site-logo {
+        max-width: 200px; /* Smaller logo for mobile */
+        margin-bottom: 5px; /* Less space to tagline */
     }
     .tagline {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
-    header h1 {
-        font-size: 2.5rem;
+
+    /* Show hamburger menu, hide nav links initially */
+    .hamburger-menu {
+        display: block; /* Show hamburger */
+        margin-left: auto; /* Push to the right */
     }
-    header p {
+
+    .nav-links {
+        flex-direction: column; /* Stack vertically */
+        position: absolute;
+        top: 100%; /* Position below header */
+        left: 0;
+        width: 100%;
+        background-color: #2F3C4F; /* Darker background for mobile menu */
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding: 20px 0;
+        transform: translateX(-100%); /* Hide off-screen initially */
+        transition: transform 0.3s ease-in-out;
+        z-index: 999; /* Below header, above main content */
+        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-links.active {
+        transform: translateX(0); /* Slide in when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .nav-links a {
+        padding: 10px 20px;
         font-size: 1.1rem;
+        display: block; /* Make entire area clickable */
     }
+    .nav-links a::after {
+        display: none; /* Hide underline on mobile menu */
+    }
+    .nav-links a:hover {
+        color: #FFFFFF; /* Brighter on hover for mobile */
+        background-color: rgba(0,0,0,0.2); /* Subtle background on hover */
+        transform: none; /* No lift on mobile hover */
+    }
+
+    /* General text and spacing adjustments for smaller screens */
     .intro-text, .cta-section {
         padding: 2rem;
     }
@@ -239,7 +382,7 @@ footer {
         grid-template-columns: 1fr;
     }
     .course-item a {
-        padding: 1.2rem; /* Adjusted for smaller screens too */
+        padding: 1.2rem;
     }
     .course-item h3 {
         font-size: 1.6rem;
@@ -255,16 +398,13 @@ footer {
 
 @media (max-width: 480px) {
     .site-logo {
-        max-width: 200px; /* Adjusted logo size for phones */
+        max-width: 160px; /* Even smaller logo on very small screens */
     }
     .tagline {
-        font-size: 1rem;
-    }
-    header h1 {
-        font-size: 2rem;
-    }
-    header p {
         font-size: 0.9rem;
+    }
+    .hamburger-menu {
+        font-size: 1.8rem;
     }
     .intro-text, .cta-section {
         padding: 1.5rem;
