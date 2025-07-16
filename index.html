@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#673AB7" />
   <title>Aprendemas</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="aprende_logo.png" type="image/png" />
 </head>
 <body>
   <header class="site-header">
     <div class="header-content container">
       <img src="aprende_logo.png" alt="Logo Aprendemas" class="logo large-logo" />
-      <div class="tagline">Conocimiento sin fronteras</div>
       <nav>
         <ul class="nav-links">
           <li class="dropdown">
-            <a href="#cursos">Cursos</a>
+            <a href="#">Cursos</a>
             <ul class="dropdown-content">
               <li><a href="formacion-docente.html">Formación Docente y Desarrollo Profesional</a></li>
-              <li><a href="ingles.html">Inglés - Todos los niveles</a></li>
-              <li><a href="filosofia.html">Filosofía: De los griegos a la modernidad</a></li>
+              <li><a href="ingles.html">Inglés (Todos los niveles)</a></li>
+              <li><a href="filosofia.html">Filosofía</a></li>
               <li><a href="ciencia-politica.html">Teoría Crítica y Ciencia Política</a></li>
               <li><a href="historia.html">Historia Universal y Contemporánea</a></li>
             </ul>
@@ -31,47 +32,57 @@
     </div>
   </header>
 
-  <section class="hero fade-in">
-    <h1>Educación de calidad desde cualquier lugar</h1>
-    <p>Clases online personalizadas y adaptadas a tus horarios. Aprende con expertos en su campo y fortalece tu futuro profesional.</p>
-  </section>
+  <main>
+    <section class="hero fade-in">
+      <h1>Bienvenidos a Aprendemas</h1>
+      <p>Tu espacio para aprender desde cualquier lugar. Cursos online personalizados en educación, idiomas, filosofía y ciencias sociales.</p>
+    </section>
 
-  <section id="cursos" class="courses fade-in">
-    <h2>Cursos disponibles</h2>
-    <div class="course-list">
-      <div class="course-card">
-        <h3><a href="formacion-docente.html">Formación Docente y Desarrollo Profesional</a></h3>
-        <p>Clases diseñadas por y para educadores. Prácticas, actuales y centradas en tus necesidades profesionales.</p>
+    <section id="cursos" class="courses fade-in">
+      <h2>Cursos Disponibles</h2>
+      <div class="course-list">
+        <div class="course-card">
+          <h3><a href="formacion-docente.html">Formación Docente y Desarrollo Profesional</a></h3>
+          <p>Capacitación avanzada para educadores.</p>
+        </div>
+        <div class="course-card">
+          <h3><a href="ingles.html">Inglés (Todos los niveles)</a></h3>
+          <p>Desde básico hasta avanzado, enfoque práctico.</p>
+        </div>
+        <div class="course-card">
+          <h3><a href="filosofia.html">Filosofía</a></h3>
+          <p>De los griegos a la modernidad, pensamiento crítico.</p>
+        </div>
+        <div class="course-card">
+          <h3><a href="ciencia-politica.html">Teoría Crítica y Ciencia Política</a></h3>
+          <p>Análisis de poder y sociedad.</p>
+        </div>
+        <div class="course-card">
+          <h3><a href="historia.html">Historia Universal y Contemporánea</a></h3>
+          <p>Entiende nuestro mundo a través de la historia.</p>
+        </div>
       </div>
-      <div class="course-card">
-        <h3><a href="ingles.html">Inglés</a></h3>
-        <p>Desde nivel básico a avanzado. Práctica conversacional, gramatical y comprensión de textos. Personalizado a tus metas.</p>
-      </div>
-      <div class="course-card">
-        <h3><a href="filosofia.html">Filosofía</a></h3>
-        <p>Explora el pensamiento desde los griegos hasta la actualidad con un enfoque crítico y contextualizado.</p>
-      </div>
-      <div class="course-card">
-        <h3><a href="ciencia-politica.html">Teoría Crítica y Ciencia Política</a></h3>
-        <p>Analiza el poder, el estado y la sociedad con herramientas de análisis modernas e históricas.</p>
-      </div>
-      <div class="course-card">
-        <h3><a href="historia.html">Historia Universal y Contemporánea</a></h3>
-        <p>Desde las grandes civilizaciones hasta los desafíos del siglo XXI. Comprende el presente desde el pasado.</p>
-      </div>
-    </div>
-    <p class="price-info">Cada clase dura 1 hora. Valor: $20 CLP. Clases grupales tienen descuento.</p>
-  </section>
+      <p class="price-info">
+        Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>. 
+        <br />Clases grupales con descuento disponible.
+      </p>
+    </section>
 
-  <section id="nosotros" class="about-us fade-in">
-    <h2>Quiénes somos</h2>
-    <p>Somos una organización con base en EE.UU., conformada por profesionales de la educación con títulos desde licenciatura hasta postgrado, con más de 10 años de experiencia en el aula, la universidad y la formación continua. Nuestro compromiso es entregar clases de calidad que se adapten a ti.</p>
-  </section>
+    <section id="nosotros" class="about-us fade-in">
+      <h2>Quiénes Somos</h2>
+      <p>
+        Somos una organización con sede en EE. UU. formada por profesionales de la educación con más de 10 años de experiencia, 
+        desde licenciaturas hasta doctorados. Nuestra misión es ofrecer aprendizaje accesible y de calidad.
+      </p>
+    </section>
 
-  <section id="contacto" class="contact fade-in">
-    <h2>Contáctanos</h2>
-    <a class="contact-button" href="mailto:adaprendemas@outlook.com">Enviar correo a Aprendemas</a>
-  </section>
+    <section id="contacto" class="contact fade-in">
+      <h2>Contáctanos</h2>
+      <a href="mailto:adaprendemas@outlook.com" class="contact-button">
+        Enviar mensaje
+      </a>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 Aprendemas. Todos los derechos reservados.</p>
