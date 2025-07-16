@@ -1,478 +1,253 @@
-/* Color Palette (Purple-Centric & Professional - FINAL):
-   Primary Deep Purple:    #673AB7   (Header, Main Headings, Strong Accents)
-   Accent Purple (Logo):   #8E24AA   (Links, Card Titles, Key Elements)
-   Subtle Purple Tint:     #F5F0FA   (Intro/CTA Backgrounds)
-   Vibrant Gold (CTA):     #FFD54F   (Buttons, Highlights)
-   Clean Background White: #FDFBF7   (Overall Page Background)
-   Pure White:             #FFFFFF   (Card Backgrounds)
-   Main Text:              #333333   (Dark, Highly Readable)
-   Secondary Text:         #666666   (Softer Grey for Descriptions)
-   Footer Dark Purple:     #4527A0   (Footer Background)
-*/
+/* Modern Stylish CSS Redesign - Elevated Professional Aesthetic */
 
-/* Basic Reset & Body Styling */
+/* =====================
+   🌈 Enhanced Color Palette
+   ===================== */
+:root {
+  --deep-purple: #673AB7;
+  --accent-purple: #8E24AA;
+  --subtle-purple: #F5F0FA;
+  --vibrant-gold: #FFD54F;
+  --vibrant-gold-hover: #FFC107;
+  --background: #FDFBF7;
+  --white: #FFFFFF;
+  --text-dark: #2A2A2A;
+  --text-soft: #666666;
+  --footer-bg: #4527A0;
+  --footer-text: #E0E0E0;
+  --card-shadow: rgba(0,0,0,0.08);
+}
+
+/* ========== Reset & Typography ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #FDFBF7; /* Clean background */
-    color: #333333; /* Dark text */
-    line-height: 1.7; /* Balanced line height */
-    scroll-behavior: smooth;
-    font-size: 1.05rem; /* Base font size */
+  font-family: 'Inter', 'Open Sans', sans-serif;
+  background-color: var(--background);
+  color: var(--text-dark);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  scroll-behavior: smooth;
 }
-
-/* Global Link Styling */
 a {
-    color: #8E24AA; /* Accent purple for links */
-    text-decoration: none;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
+  color: var(--accent-purple);
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
-
 a:hover {
-    color: #673AB7; /* Darker purple on hover */
-    text-decoration: underline;
-    text-underline-offset: 4px;
+  color: var(--deep-purple);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-/* Container for content width */
+/* ========== Layout Container ========== */
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2.5rem; /* Generous horizontal padding */
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 2rem;
 }
 
-/* Header Styling */
+/* ========== Header ========== */
 header {
-    background-color: #673AB7; /* Deep purple header */
-    color: #fff;
-    padding: 1.2rem 0; /* Slightly more compact header */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Refined shadow */
-    position: relative;
-    z-index: 1000;
+  background: var(--deep-purple);
+  color: var(--white);
+  padding: 1.2rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-
-/* Header Content for Flexbox alignment (Logo Left, Nav Right) */
 .header-content {
-    display: flex;
-    justify-content: space-between; /* Pushes logo left, nav right */
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
-
-/* --- Logo and Tagline Styling --- */
 .logo-and-tagline {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align logo/tagline to the left */
-    justify-content: center;
-    text-align: left;
-    margin: 0;
-    flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
 .site-logo {
-    max-width: 300px; /* Large, but fits the corner */
-    height: auto;
-    margin-bottom: 5px; /* Tighten space */
-    display: block;
+  max-width: 240px;
+  height: auto;
+  margin-bottom: 4px;
 }
-
 .tagline {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem; /* Smaller, subtle tagline */
-    color: #E0E0E0;
-    margin: 0;
-    font-weight: 400;
-    opacity: 0.95;
+  font-size: 0.95rem;
+  color: var(--footer-text);
+  opacity: 0.9;
 }
 
-/* --- Navigation Menu Styling --- */
+/* ========== Navigation ========== */
 .main-nav {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
-
 .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+  display: flex;
+  list-style: none;
+  gap: 1.8rem;
 }
-
-.nav-links li {
-    margin-left: 28px; /* Balanced spacing */
-}
-
 .nav-links a {
-    text-decoration: none;
-    color: #EFEFEF; /* Light text for nav */
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem; /* Standard nav link size */
-    padding: 6px 0;
-    position: relative;
-    transition: color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  color: #f9f9f9;
+  font-weight: 600;
+  position: relative;
+  padding: 0.5rem 0;
 }
-
 .nav-links a:hover {
-    color: #FFD54F; /* Gold accent on hover */
-    text-decoration: none; /* Keep clean, no underline on hover */
+  color: var(--vibrant-gold);
 }
 
-/* Hamburger menu (hidden on desktop) */
-.hamburger-menu {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.8rem; /* Hamburger icon size */
-    color: #fff;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-/* Main Content Section Styling */
-main {
-    padding: 5rem 0; /* More vertical padding for spaciousness */
-    background-color: #FDFBF7;
-}
-
-/* Intro Text Section (Hero Section) */
+/* ========== Hero / Intro ========== */
 .intro-text {
-    background-color: #F5F0FA; /* Subtle purple tint for intro section */
-    padding: 3.5rem 4rem; /* Generous padding */
-    border-radius: 10px; /* Modern rounded corners */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* Soft, elegant shadow */
-    margin-bottom: 5rem; /* More margin to next section */
-    text-align: center;
-    line-height: 1.8;
-    font-size: 1.25rem; /* Large, inviting intro text */
-    color: #333333;
-    max-width: 900px; /* Limit intro text width for readability on very wide screens */
-    margin-left: auto;
-    margin-right: auto;
+  background: var(--subtle-purple);
+  padding: 3rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 8px 24px var(--card-shadow);
+  margin: 3rem auto;
+  max-width: 900px;
+  font-size: 1.25rem;
+  color: var(--text-dark);
 }
-
 .intro-text strong {
-    color: #673AB7; /* Primary deep purple for strong text */
-    font-weight: 700;
+  color: var(--deep-purple);
 }
 
-/* Course List Section */
+/* ========== Course Section ========== */
 .course-list h2 {
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    color: #673AB7; /* Deep purple for H2 headings */
-    font-size: 3rem; /* Prominent heading size */
-    margin-bottom: 4rem;
-    position: relative;
-    padding-bottom: 18px;
-    letter-spacing: -0.5px;
-    font-weight: 700;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--deep-purple);
+  font-size: 2.8rem;
+  position: relative;
+  margin-bottom: 3rem;
+  font-weight: 700;
 }
-
 .course-list h2::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 80px; /* Balanced underline width */
-    height: 5px; /* Thicker underline */
-    background-color: #8E24AA; /* Accent purple for underline */
-    border-radius: 3px;
+  content: '';
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: var(--accent-purple);
+  border-radius: 2px;
+  margin: 1rem auto 0;
 }
 
-/* Grid for Course Items */
 .course-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.5rem; /* Balanced gap between cards */
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
-
-/* Individual Course Item Card */
 .course-item {
-    background-color: #FFFFFF; /* Pure white card background */
-    border-radius: 10px; /* Consistent modern roundedness */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Soft, elegant shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    overflow: hidden;
-    border: 1px solid #EDEDED; /* Subtle default border */
+  background: var(--white);
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px var(--card-shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #eaeaea;
 }
-
 .course-item:hover {
-    transform: translateY(-5px); /* Subtle lift on hover */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* More pronounced, but soft shadow on hover */
-    border-color: #8E24AA; /* Accent purple border on hover */
+  transform: translateY(-6px);
+  border-color: var(--accent-purple);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
-
 .course-item a {
-    display: block;
-    padding: 1.8rem; /* Generous padding within cards */
-    text-decoration: none;
-    color: inherit;
-    height: 100%;
-    box-sizing: border-box;
+  padding: 2rem;
+  display: block;
+  height: 100%;
+  color: inherit;
 }
-
 .course-item h3 {
-    font-family: 'Montserrat', sans-serif;
-    color: #8E24AA; /* Accent purple for card headings */
-    margin-top: 0;
-    font-size: 1.9rem; /* Card title font size */
-    font-weight: 600;
-    margin-bottom: 0.7rem;
-    letter-spacing: -0.2px;
+  font-size: 1.7rem;
+  color: var(--accent-purple);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
-
 .course-item p {
-    font-size: 1.0rem; /* Card description font size */
-    color: #666666; /* Secondary text color */
-    line-height: 1.6;
+  font-size: 1rem;
+  color: var(--text-soft);
 }
 
-/* Call to Action (CTA) Section at the bottom */
+/* ========== CTA Section ========== */
 .cta-section {
-    text-align: center;
-    margin-top: 5rem;
-    margin-bottom: 4rem;
-    background-color: #F5F0FA; /* Subtle purple tint for CTA background */
-    padding: 3.5rem; /* Generous padding */
-    border-radius: 10px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.05); /* Very light shadow */
+  background: var(--subtle-purple);
+  padding: 3rem;
+  border-radius: 1rem;
+  text-align: center;
+  margin-top: 4rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
 }
-
 .cta-section p {
-    font-size: 1.4rem; /* CTA text font size */
-    color: #333333;
-    font-weight: 700;
-    margin-bottom: 2rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
 }
-
-/* General Button Styling (for main CTA) */
 .button {
-    display: inline-block;
-    background-color: #FFD54F; /* Vibrant gold for CTA button */
-    color: #673AB7; /* Deep purple text on gold button */
-    padding: 1.2rem 2.8rem; /* Balanced padding */
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.3rem; /* Button text font size */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.3s ease;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Refined shadow */
+  background: var(--vibrant-gold);
+  color: var(--deep-purple);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-
 .button:hover {
-    background-color: #FFC107; /* Slightly darker gold on hover */
-    color: #4527A0; /* Darker purple text on hover */
-    transform: translateY(-4px); /* Moderate lift */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  background: var(--vibrant-gold-hover);
+  color: var(--footer-bg);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
 }
-
 .button:active {
-    transform: translateY(0px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    background-color: #FFA000;
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-/* Footer Styling */
+/* ========== Footer ========== */
 footer {
-    background-color: #4527A0; /* Darker purple for footer */
-    color: #E0E0E0; /* Light text for footer */
-    text-align: center;
-    padding: 2.5rem 2rem;
-    margin-top: 5rem;
-    font-size: 0.9rem;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+  font-size: 0.9rem;
 }
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 992px) {
-    .container {
-        padding: 0 1.8rem;
-    }
-    header {
-        padding: 1rem 0;
-    }
-    .site-logo {
-        max-width: 250px; /* Logo size for larger tablets */
-    }
-    .tagline {
-        font-size: 0.9rem;
-    }
-    .main-nav {
-        justify-content: flex-end; /* Keep nav to the right on tablet for horizontal layout */
-    }
-    .nav-links li {
-        margin-left: 20px;
-    }
-    .nav-links a {
-        font-size: 0.9rem;
-    }
-    body {
-        font-size: 0.95rem; /* Base font size adjustment */
-    }
-    .intro-text {
-        padding: 2.5rem 3rem;
-        font-size: 1.15rem;
-    }
-    .course-list h2 {
-        font-size: 2.6rem;
-        margin-bottom: 3.5rem;
-    }
-    .course-grid {
-        gap: 2rem;
-    }
-    .course-item a {
-        padding: 1.5rem;
-    }
-    .course-item h3 {
-        font-size: 1.7rem;
-    }
-    .course-item p {
-        font-size: 0.9rem;
-    }
-    .cta-section {
-        padding: 2.8rem;
-    }
-    .cta-section p {
-        font-size: 1.25rem;
-    }
-    .button {
-        padding: 1rem 2.5rem;
-        font-size: 1.15rem;
-    }
-}
-
+/* ========== Responsive ========== */
 @media (max-width: 768px) {
-    .header-content {
-        flex-direction: row; /* Keep logo and hamburger on same row */
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.8rem 1.5rem;
-    }
-    .logo-and-tagline {
-        align-items: flex-start;
-        flex-grow: 1;
-        margin-bottom: 0;
-    }
-    .site-logo {
-        max-width: 180px; /* Logo size for mobile landscape/tablet portrait */
-    }
-    .tagline {
-        font-size: 0.8rem;
-    }
-
-    /* Mobile Navigation (Hamburger Menu) */
-    .hamburger-menu {
-        display: block;
-        margin-left: auto;
-    }
-    .main-nav {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 260px; /* Mobile menu width */
-        height: 100%;
-        background-color: #4527A0; /* Darker purple for mobile menu */
-        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 999;
-        flex-direction: column;
-        padding-top: 60px;
-        align-items: center;
-    }
-    .main-nav.active {
-        transform: translateX(0);
-    }
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-    }
-    .nav-links li {
-        margin: 0;
-        width: 100%;
-    }
-    .nav-links a {
-        padding: 12px 20px;
-        font-size: 1.05rem;
-        display: block;
-        color: #EFEFEF;
-        text-align: left;
-    }
-    .nav-links a:hover {
-        background-color: rgba(255,213,79,0.1); /* Subtle gold tint on hover */
-        color: #FFD54F; /* Gold text on hover for mobile */
-    }
-
-    /* General text and spacing adjustments for smaller screens */
-    body {
-        font-size: 0.88rem;
-    }
-    .intro-text, .cta-section {
-        padding: 1rem 1.5rem;
-    }
-    .intro-text p {
-        font-size: 1rem;
-    }
-    .course-list h2 {
-        font-size: 2rem;
-        margin-bottom: 2.5rem;
-    }
-    .course-list h2::after {
-        width: 50px;
-        height: 3px;
-    }
-    .course-item a {
-        padding: 1rem;
-    }
-    .course-item h3 {
-        font-size: 1.5rem;
-    }
-    .course-item p {
-        font-size: 0.85rem;
-    }
-    .button {
-        padding: 0.9rem 2rem;
-        font-size: 1.05rem;
-    }
-    .cta-section p {
-        font-size: 1.1rem;
-    }
-    footer {
-        padding: 1.8rem 1rem;
-        font-size: 0.8rem;
-    }
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .intro-text, .cta-section {
+    padding: 2rem 1.2rem;
+  }
+  .course-list h2 {
+    font-size: 2.2rem;
+  }
+  .button {
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
+  }
 }
-
 @media (max-width: 480px) {
-    .site-logo {
-        max-width: 150px; /* Logo size for very small phones */
-    }
-    .tagline {
-        font-size: 0.7rem;
-    }
-    .hamburger-menu {
-        font-size: 1.5rem;
-    }
-    .main-nav {
-        width: 220px;
-    }
-    .nav-links a {
-        font-size: 0.95rem;
-        padding: 10px 12px;
-    }
-    .intro-text {
-        font-size: 0.9rem;
-        padding: 0.8rem 1rem;
-    }
-    .course-list h2 {
-        font-size: 1.6rem;
-    }
-    .course-item h3 {
-        font-size: 1.3rem;
-    }
+  .site-logo {
+    max-width: 160px;
+  }
+  .tagline {
+    font-size: 0.75rem;
+  }
+  .course-item h3 {
+    font-size: 1.4rem;
+  }
 }
