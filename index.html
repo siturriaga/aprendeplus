@@ -1,218 +1,107 @@
-/* Aprendemas - Enhanced Visual Integration & Styling */
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#673AB7" />
 
-:root {
-  --deep-purple: #673AB7;
-  --accent-purple: #8E24AA;
-  --subtle-purple: #F5F0FA;
-  --vibrant-gold: #FFD54F;
-  --vibrant-gold-hover: #FFC107;
-  --background: #FDFBF7;
-  --white: #FFFFFF;
-  --text-dark: #2A2A2A;
-  --text-soft: #666666;
-  --footer-bg: #4527A0;
-  --footer-text: #E0E0E0;
-  --card-shadow: rgba(0,0,0,0.08);
-}
+  <!-- PWA & App Icons -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" sizes="192x192" href="images/icon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192x192.png" />
 
-body {
-  font-family: 'Inter', 'Open Sans', sans-serif;
-  background-color: var(--background);
-  color: var(--text-dark);
-  font-size: 1.05rem;
-  line-height: 1.7;
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
-/* Header with Logo Integration */
-header {
-  background: linear-gradient(135deg, var(--deep-purple), var(--accent-purple));
-  color: var(--white);
-  padding: 1.8rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-}
+  <!-- Header (Top Banner) -->
+  <header>
+    <div class="header-content">
+      <div class="logo-and-tagline">
+        <img src="aprende_logo.png" alt="Aprendemas Logo" class="site-logo" />
+        <p class="tagline">Aprende sin límites. Crece con propósito.</p>
+      </div>
+      <button class="hamburger-menu" aria-label="Menú">&#9776;</button>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="#cursos">Cursos</a></li>
+          <li><a href="#quienes-somos">Quiénes Somos</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
+  <!-- Intro Section -->
+  <main>
+    <section class="intro-text">
+      <p><strong>Aprendemas</strong> es tu espacio internacional de aprendizaje virtual. Descubre nuestros cursos y comienza hoy tu camino al éxito.</p>
+    </section>
 
-.logo-and-tagline {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
+    <!-- Courses Section -->
+    <section id="cursos" class="course-list">
+      <h2>Cursos Destacados</h2>
+      <div class="course-grid">
+        <div class="course-item">
+          <a href="#">
+            <h3>Inglés (A1–C1)</h3>
+            <p>Clases virtuales en todos los niveles con interacción en vivo.</p>
+          </a>
+        </div>
+        <div class="course-item">
+          <a href="#">
+            <h3>Filosofía – De los griegos a la modernidad</h3>
+            <p>Recorre la historia del pensamiento filosófico desde Platón hasta hoy.</p>
+          </a>
+        </div>
+        <div class="course-item">
+          <a href="#">
+            <h3>Teoría Crítica & Ciencia Política</h3>
+            <p>Análisis de poder, ideología y justicia en contextos actuales.</p>
+          </a>
+        </div>
+        <div class="course-item">
+          <a href="#">
+            <h3>Historia Universal y Contemporánea</h3>
+            <p>Conexiones entre eventos históricos globales y la realidad actual.</p>
+          </a>
+        </div>
+        <div class="course-item">
+          <a href="#">
+            <h3>Formación Docente & Desarrollo Profesional</h3>
+            <p>Clases lideradas por profesionales: $20 CLP por clase. Grupos tienen descuento.</p>
+          </a>
+        </div>
+      </div>
+    </section>
 
-.site-logo {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
-  border-radius: 50%;
-  background-color: var(--white);
-  padding: 0.2rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <p>¿Listo para transformar tu aprendizaje?</p>
+      <a href="#cursos" class="button">Ver Cursos</a>
+    </section>
 
-.tagline {
-  font-size: 1rem;
-  color: var(--white);
-  opacity: 0.95;
-  margin: 0;
-  font-weight: 500;
-}
+    <!-- About Us Section -->
+    <section id="quienes-somos" class="intro-text" style="background-color: #FFFFFF; box-shadow: 0 6px 18px rgba(0,0,0,0.05);">
+      <h2>Quiénes Somos</h2>
+      <p>Somos una compañía con sede en EE.UU., compuesta por profesionales de la educación con títulos que van desde licenciaturas hasta posgrados, con más de 10 años de experiencia en enseñanza, investigación y desarrollo profesional.</p>
+    </section>
+  </main>
 
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Aprendemas. Todos los derechos reservados.</p>
+  </footer>
 
-.nav-links a {
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 1rem;
-  font-family: 'Montserrat', sans-serif;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: var(--vibrant-gold);
-}
-
-.hamburger-menu {
-  display: none;
-}
-
-/* Sections */
-.intro-text, .cta-section, #quienes-somos {
-  border-radius: 1rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-  padding: 3rem 2rem;
-  margin: 3rem auto;
-  max-width: 1000px;
-  text-align: center;
-  background-color: var(--subtle-purple);
-}
-
-.intro-text p, #quienes-somos p {
-  font-size: 1.2rem;
-  color: var(--text-dark);
-}
-
-.cta-section {
-  background: var(--vibrant-gold);
-  color: var(--deep-purple);
-}
-
-.cta-section p {
-  font-weight: 700;
-  font-size: 1.3rem;
-}
-
-.button {
-  background-color: var(--white);
-  color: var(--deep-purple);
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  font-size: 1.15rem;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.button:hover {
-  background-color: var(--vibrant-gold-hover);
-  color: var(--footer-bg);
-  transform: translateY(-3px);
-}
-
-.course-list h2 {
-  font-size: 2.5rem;
-  color: var(--deep-purple);
-  font-weight: 700;
-  margin-bottom: 2rem;
-}
-
-.course-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-.course-item {
-  background-color: var(--white);
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
-}
-
-.course-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.course-item h3 {
-  font-size: 1.4rem;
-  color: var(--accent-purple);
-  margin-bottom: 0.6rem;
-}
-
-.course-item p {
-  font-size: 1rem;
-  color: var(--text-soft);
-}
-
-footer {
-  background-color: var(--footer-bg);
-  color: var(--footer-text);
-  text-align: center;
-  padding: 2rem;
-  margin-top: 4rem;
-  font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .hamburger-menu {
-    display: block;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: white;
-    margin-top: 1rem;
-  }
-
-  .main-nav {
-    display: none;
-  }
-
-  .main-nav.active {
-    display: block;
-  }
-}
+  <!-- Mobile Navigation Script -->
+  <script>
+    const menu = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('.main-nav');
+    menu.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
