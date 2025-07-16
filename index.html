@@ -1,98 +1,86 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprende+ | Educación que Suma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#673AB7" />
+  <title>Aprendemas</title>
+
+  <!-- PWA Support -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png" />
+  <link rel="icon" type="image/png" href="icons/icon-192x192.png" />
+
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <div class="logo-and-tagline">
-                <img src="aprende_logo.png" alt="Aprende+ Logo" class="site-logo">
-                <p class="tagline">Educación que suma.</p>
-            </div>
 
-            <nav class="main-nav">
-                <button class="hamburger-menu" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="ingles.html">Inglés</a></li>
-                    <li><a href="historia.html">Historia</a></li>
-                    <li><a href="filosofia.html">Filosofía</a></li>
-                    <li><a href="ciencia-politica.html">Ciencia Política</a></li>
-                    <li><a href="#contacto">Contacto</a></li> </ul>
-            </nav>
+  <header>
+    <div class="container header-content">
+      <div class="logo-and-tagline">
+        <img src="icons/icon-192x192.png" alt="Aprendemas Logo" class="site-logo" />
+        <p class="tagline">Aprende sin límites. Crece con propósito.</p>
+      </div>
+      <button class="hamburger-menu" aria-label="Menú">&#9776;</button>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Cursos</a></li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro-text">
+      <p><strong>Aprendemas</strong> es tu espacio moderno de aprendizaje. Explora nuestros cursos y empieza hoy tu camino al éxito.</p>
+    </section>
+
+    <section class="course-list container">
+      <h2>Cursos Destacados</h2>
+      <div class="course-grid">
+        <div class="course-item">
+          <a href="#">
+            <h3>Inglés para Principiantes</h3>
+            <p>Empieza a comunicarte en inglés desde cero con nuestro curso interactivo.</p>
+          </a>
         </div>
-    </header>
-
-    <main>
-        <section class="intro-text container">
-            <p>Cursos flexibles para tu crecimiento. Clases en vivo o grabadas, <strong>$20 CLP</strong> cada una. Disponible en <strong>español, inglés y creole haitiano</strong>.</p>
-        </section>
-
-        <section class="course-list container" id="course-list-section">
-            <h2>Nuestra Oferta Educativa:</h2>
-
-            <div class="course-grid">
-                <div class="course-item">
-                    <a href="ingles.html">
-                        <h3>Inglés (Niveles A1-C1)</h3>
-                        <p>Explora cursos de inglés (A1-C1) enfocados en conversación y gramática para fluidez avanzada.</p>
-                    </a>
-                </div>
-
-                <div class="course-item">
-                    <a href="historia.html">
-                        <h3>Historia Universal y de América Latina</h3>
-                        <p>Descubre cursos de historia universal y latinoamericana, explorando eventos y narrativas únicas.</p>
-                    </a>
-                </div>
-
-                <div class="course-item">
-                    <a href="filosofia.html">
-                        <h3>Filosofía y Pensamiento Crítico</h3>
-                        <p>Profundiza en filosofía occidental y latinoamericana para afinar tu pensamiento crítico.</p>
-                    </a>
-                </div>
-
-                <div class="course-item">
-                    <a href="ciencia-politica.html">
-                        <h3>Ciencia Política y Ciudadanía Contemporánea</h3>
-                        <p>Examina la ciudadanía contemporánea y las complejidades de la política actual.</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section container">
-            <p>¿Listo para comenzar a aprender y transformar tu futuro?</p>
-            <a href="#course-list-section" class="button">¡Explora Nuestros Cursos Ahora!</a>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Aprende+. Todos los derechos reservados.</p>
+        <div class="course-item">
+          <a href="#">
+            <h3>Emprendimiento Digital</h3>
+            <p>Aprende cómo lanzar tu propio negocio en línea desde casa.</p>
+          </a>
         </div>
-    </footer>
+        <div class="course-item">
+          <a href="#">
+            <h3>Historia Crítica de América Latina</h3>
+            <p>Explora narrativas alternativas y conecta con tu identidad cultural.</p>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger-menu');
-            const navLinks = document.querySelector('.nav-links');
+    <section class="cta-section container">
+      <p>¿Listo para comenzar tu camino de aprendizaje?</p>
+      <a href="#" class="button">Explora los cursos</a>
+    </section>
+  </main>
 
-            if (hamburger && navLinks) {
-                hamburger.addEventListener('click', function() {
-                    navLinks.classList.toggle('active'); // Toggles the 'active' class on the nav-links
-                });
-            }
-        });
-    </script>
+  <footer>
+    <p>&copy; 2025 Aprendemas. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Mobile Toggle Script -->
+  <script>
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('.main-nav');
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
