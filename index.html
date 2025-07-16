@@ -1,87 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Aprendemas - Online education in English, philosophy, politics, and teacher training" />
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" href="images/icon-192x192.png" type="image/png">
-  <link rel="apple-touch-icon" href="images/icon-512x512.png">
+  <meta name="description" content="Cursos de inglés, filosofía, historia, teoría crítica, ciencia política y más. Clases accesibles con profesionales experimentados." />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="images/icon-192x192.png" type="image/png">
   <title>Aprendemas</title>
 </head>
-
 <body>
-  <header class="top-banner">
-    <div class="container header-container">
-      <img src="images/aprende_logo.png" alt="Aprendemas Logo" class="site-logo">
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="#courses">Courses</a></li>
-          <li><a href="#about">Who We Are</a></li>
-          <li><a href="#contact">Contact</a></li>
+  <header>
+    <div class="header-content container">
+      <div class="logo-banner">
+        <img src="images/aprende_logo.png" alt="Logo Aprendemas" class="logo-integrado" />
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="#cursos">Cursos</a></li>
+          <li><a href="#nosotros">Quiénes Somos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <section class="intro">
-    <div class="container">
-      <h1>Welcome to Aprendemas</h1>
-      <p>Affordable online learning with professionals in education. Classes starting at just 20 CLP.</p>
-    </div>
-  </section>
+  <main>
+    <section class="intro-text">
+      <h1>Educación Accesible para Todos</h1>
+      <p><strong>Aprendemas</strong> ofrece formación en diversas disciplinas con clases a solo <strong>20 CLP</strong>. Grupos obtienen descuentos especiales. Aprende con profesionales apasionados y con experiencia real.</p>
+    </section>
 
-  <section id="courses" class="course-section">
-    <div class="container">
-      <h2>Our Courses</h2>
+    <section class="course-list" id="cursos">
+      <h2>Nuestros Cursos</h2>
       <div class="course-grid">
-        <div class="course-card">
-          <h3>English (A1 to C1)</h3>
-          <p>Learn English at your level — beginner to advanced — with expert guidance.</p>
+        <div class="course-item">
+          <h3>Inglés (Niveles A1–C1)</h3>
+          <p>Desde nivel básico hasta avanzado con enfoque práctico.</p>
         </div>
-        <div class="course-card">
-          <h3>Philosophy</h3>
-          <p>Explore ideas from Ancient Greece to Modernity in engaging formats.</p>
+        <div class="course-item">
+          <h3>Filosofía (De los griegos a la modernidad)</h3>
+          <p>Explora los fundamentos del pensamiento occidental.</p>
         </div>
-        <div class="course-card">
-          <h3>Critical Theory & Political Science</h3>
-          <p>Understand global systems, ideologies, and power through critical analysis.</p>
+        <div class="course-item">
+          <h3>Teoría Crítica y Ciencia Política</h3>
+          <p>Aprende a analizar la sociedad desde múltiples perspectivas.</p>
         </div>
-        <div class="course-card">
-          <h3>History</h3>
-          <p>Delve into universal and contemporary history with academic depth.</p>
+        <div class="course-item">
+          <h3>Historia Universal y Contemporánea</h3>
+          <p>Comprende los eventos que moldearon nuestro mundo.</p>
         </div>
-        <div class="course-card">
-          <h3>Teacher Training</h3>
-          <p>Professional development for educators, led by experienced instructors.</p>
+        <div class="course-item">
+          <h3>Formación Docente y Desarrollo Profesional</h3>
+          <p>Cursos diseñados para educadores y profesionales.</p>
         </div>
       </div>
-      <p class="discount-note">Group classes available at discounted rates!</p>
-    </div>
-  </section>
+    </section>
 
-  <section id="about" class="about-section">
-    <div class="container">
-      <h2>Who We Are</h2>
-      <p>Aprendemas is a USA-based educational platform with a team of qualified professionals holding Bachelor’s to advanced degrees. We bring over 10 years of experience in teaching and training educators worldwide.</p>
-    </div>
-  </section>
+    <section class="nosotros-section" id="nosotros">
+      <h2>Quiénes Somos</h2>
+      <p>Aprendemas es una empresa con base en Estados Unidos, formada por un equipo diverso de profesionales en educación. Nuestro equipo cuenta con títulos de licenciatura, maestría y doctorado, y más de 10 años de experiencia en la práctica educativa.</p>
+    </section>
 
-  <section id="contact" class="cta">
-    <div class="container">
-      <h2>Interested in Joining?</h2>
-      <p>Reach out to us today and begin your learning journey!</p>
-      <a href="mailto:info@aprendemas.net" class="button">Contact Us</a>
-    </div>
-  </section>
+    <section class="cta-section">
+      <p>¡Únete hoy y empieza a aprender con los mejores!</p>
+      <a href="#contacto" class="button">Contáctanos</a>
+    </section>
+  </main>
 
   <footer>
-    <div class="container">
-      <p>&copy; 2025 Aprendemas. All rights reserved.</p>
-    </div>
+    <p>&copy; 2025 Aprendemas. Todos los derechos reservados.</p>
   </footer>
 </body>
-
 </html>
