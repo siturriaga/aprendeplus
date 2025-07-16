@@ -1,49 +1,13 @@
-You're right, my apologies\! It sounds like the colors I've been working with don't match your actual logo, and that's critical for a professional, cohesive look. My previous assumptions about the logo's color were incorrect.
-
-**Here's what we're going to do to address everything:**
-
-1.  **New Color Palette (Based on Purple Logo):** I will now assume your logo has a dominant rich purple color (like `#7B1FA2` from a common purple spectrum) and build a harmonious palette around it. This is **the most important change** for visual attractiveness and professionalism.
-2.  **Modern & Visually Attractive:** With the correct colors, I'll refine shadows, spacing, typography, and transitions to give it a truly polished and contemporary feel.
-3.  **Logo Placement (Corner):** We will move the logo to the **top-left corner** of the header, which is a very common and professional layout. The navigation will align to the right. This requires significant changes to the header's internal structure in CSS.
-4.  **Logo Size:** It will be proportionally large but fit gracefully within its new corner position.
-5.  **"Nothing changes" - Critical Step:** This is almost always a **browser caching issue**. After updating the files, you **MUST perform a hard refresh** in your browser.
-      * **Windows/Linux:** `Ctrl + Shift + R`
-      * **macOS:** `Cmd + Shift + R`
-      * Also, try opening the page in an **Incognito/Private window** (which usually bypasses cache).
-
------
-
-### **New Color Palette (Purple-centric):**
-
-  * **Primary Purple:** `#7B1FA2` (Deep, rich purple – for header, main headings)
-  * **Accent 1 (Lighter Purple/Magenta):** `#AB47BC` (Brighter purple – for links, highlights)
-  * **Accent 2 (Complementary Yellow/Gold):** `#FFD54F` (Vibrant contrast for CTA)
-  * **Lightest Background:** `#FDFBF7` (Very subtle warm off-white)
-  * **Section Background:** `#FFFFFF` (Crisp white for cards)
-  * **Subtle Section Tint:** `#F5F0FA` (Very light purple tint for intro/CTA backgrounds)
-  * **Main Text Color:** `#3C3C3C` (Darker, slightly warmer grey)
-  * **Secondary Text:** `#757575` (Medium grey)
-  * **Footer Background:** `#4A148C` (Even darker, rich purple for footer)
-
------
-
-### **Complete, Overhauled `styles.css` File**
-
-This CSS file has been **completely re-evaluated** with the new purple palette and the new header layout.
-
-**Please replace the ENTIRE content of your `styles.css` file with this code block:**
-
-```css
-/* Color Palette (Purple-Centric & Professional):
-   Primary Purple:       #7B1FA2 (Deep, rich purple - brand color, header, main headings)
-   Accent 1 (Magenta-ish): #AB47BC (Brighter purple - links, hover, subtle highlights)
-   Accent 2 (Vibrant Gold):  #FFD54F (Complementary yellow/gold - CTA buttons)
-   Lightest Background:  #FDFBF7 (Very subtle warm off-white)
-   Section White:        #FFFFFF (Crisp white for cards and distinct content blocks)
-   Subtle Purple Tint:   #F5F0FA (Very light purple tint for sections like intro/CTA)
-   Main Text Color:      #3C3C3C (Dark, highly readable grey)
-   Secondary Text:       #757575 (Medium grey for descriptions, less prominent text)
-   Footer Dark Purple:   #4A148C (Even darker, rich purple for footer)
+/* Color Palette (Purple-Centric & Professional - FINAL):
+   Primary Deep Purple:    #673AB7   (Header, Main Headings, Strong Accents)
+   Accent Purple (Logo):   #8E24AA   (Links, Card Titles, Key Elements)
+   Subtle Purple Tint:     #F5F0FA   (Intro/CTA Backgrounds)
+   Vibrant Gold (CTA):     #FFD54F   (Buttons, Highlights)
+   Clean Background White: #FDFBF7   (Overall Page Background)
+   Pure White:             #FFFFFF   (Card Backgrounds)
+   Main Text:              #333333   (Dark, Highly Readable)
+   Secondary Text:         #666666   (Softer Grey for Descriptions)
+   Footer Dark Purple:     #4527A0   (Footer Background)
 */
 
 /* Basic Reset & Body Styling */
@@ -51,39 +15,39 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #FDFBF7; /* New: Very subtle warm off-white */
-    color: #3C3C3C; /* New: Darker, warmer grey for main body text */
-    line-height: 1.8; /* Generous line height for readability */
+    background-color: #FDFBF7; /* Clean background */
+    color: #333333; /* Dark text */
+    line-height: 1.7; /* Balanced line height */
     scroll-behavior: smooth;
     font-size: 1.05rem; /* Base font size */
 }
 
 /* Global Link Styling */
 a {
-    color: #AB47BC; /* New: Lighter purple accent for links */
+    color: #8E24AA; /* Accent purple for links */
     text-decoration: none;
     transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 a:hover {
-    color: #7B1FA2; /* New: Darker purple on hover */
+    color: #673AB7; /* Darker purple on hover */
     text-decoration: underline;
-    text-underline-offset: 4px; /* Space out underline for clean look */
+    text-underline-offset: 4px;
 }
 
 /* Container for content width */
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 2.5rem; /* Increased horizontal padding for more breathing room */
+    padding: 0 2.5rem; /* Generous horizontal padding */
 }
 
 /* Header Styling */
 header {
-    background-color: #7B1FA2; /* New: Primary purple for header background */
+    background-color: #673AB7; /* Deep purple header */
     color: #fff;
-    padding: 1.5rem 0; /* Adjusted padding */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.25); /* More prominent, refined shadow */
+    padding: 1.2rem 0; /* Slightly more compact header */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Refined shadow */
     position: relative;
     z-index: 1000;
 }
@@ -93,14 +57,14 @@ header {
     display: flex;
     justify-content: space-between; /* Pushes logo left, nav right */
     align-items: center;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    flex-wrap: wrap;
 }
 
 /* --- Logo and Tagline Styling --- */
 .logo-and-tagline {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align content to the left */
+    align-items: flex-start; /* Align logo/tagline to the left */
     justify-content: center;
     text-align: left;
     margin: 0;
@@ -108,16 +72,16 @@ header {
 }
 
 .site-logo {
-    max-width: 320px; /* Adjusted logo size for corner placement - big but balanced */
+    max-width: 300px; /* Large, but fits the corner */
     height: auto;
-    margin-bottom: 8px; /* Slightly reduced space */
+    margin-bottom: 5px; /* Tighten space */
     display: block;
 }
 
 .tagline {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.1rem; /* Slightly adjusted tagline font size */
-    color: #E0E0E0; /* Lighter white for contrast against purple */
+    font-size: 1rem; /* Smaller, subtle tagline */
+    color: #E0E0E0;
     margin: 0;
     font-weight: 400;
     opacity: 0.95;
@@ -137,23 +101,23 @@ header {
 }
 
 .nav-links li {
-    margin-left: 30px; /* Standard spacing */
+    margin-left: 28px; /* Balanced spacing */
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #F3E5F5; /* Lighter purple/white for nav links */
+    color: #EFEFEF; /* Light text for nav */
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 1rem;
-    padding: 8px 0;
+    font-size: 0.95rem; /* Standard nav link size */
+    padding: 6px 0;
     position: relative;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #FFD54F; /* New: Gold accent on hover for nav links */
-    text-decoration: none; /* No underline on nav hover for sleekness */
+    color: #FFD54F; /* Gold accent on hover */
+    text-decoration: none; /* Keep clean, no underline on hover */
 }
 
 /* Hamburger menu (hidden on desktop) */
@@ -161,7 +125,7 @@ header {
     display: none;
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 1.8rem; /* Hamburger icon size */
     color: #fff;
     cursor: pointer;
     z-index: 1001;
@@ -173,21 +137,24 @@ main {
     background-color: #FDFBF7;
 }
 
-/* Intro Text Section */
+/* Intro Text Section (Hero Section) */
 .intro-text {
-    background-color: #F5F0FA; /* New: Subtle purple tint for intro section */
+    background-color: #F5F0FA; /* Subtle purple tint for intro section */
     padding: 3.5rem 4rem; /* Generous padding */
-    border-radius: 10px; /* Slightly less rounded, more modern */
+    border-radius: 10px; /* Modern rounded corners */
     box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* Soft, elegant shadow */
-    margin-bottom: 5rem; /* More margin */
+    margin-bottom: 5rem; /* More margin to next section */
     text-align: center;
-    line-height: 1.85;
-    font-size: 1.25rem;
-    color: #3C3C3C;
+    line-height: 1.8;
+    font-size: 1.25rem; /* Large, inviting intro text */
+    color: #333333;
+    max-width: 900px; /* Limit intro text width for readability on very wide screens */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .intro-text strong {
-    color: #7B1FA2; /* New: Primary purple for strong text */
+    color: #673AB7; /* Primary deep purple for strong text */
     font-weight: 700;
 }
 
@@ -195,11 +162,11 @@ main {
 .course-list h2 {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    color: #7B1FA2; /* New: Primary purple for H2 headings */
-    font-size: 3.2rem;
-    margin-bottom: 4.5rem;
+    color: #673AB7; /* Deep purple for H2 headings */
+    font-size: 3rem; /* Prominent heading size */
+    margin-bottom: 4rem;
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: 18px;
     letter-spacing: -0.5px;
     font-weight: 700;
 }
@@ -210,9 +177,9 @@ main {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 85px; /* Slightly wider underline */
-    height: 6px; /* Thicker underline */
-    background-color: #AB47BC; /* New: Lighter purple for underline */
+    width: 80px; /* Balanced underline width */
+    height: 5px; /* Thicker underline */
+    background-color: #8E24AA; /* Accent purple for underline */
     border-radius: 3px;
 }
 
@@ -220,28 +187,28 @@ main {
 .course-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem; /* Good gap between cards */
+    gap: 2.5rem; /* Balanced gap between cards */
 }
 
 /* Individual Course Item Card */
 .course-item {
-    background-color: #FFFFFF; /* Crisp white for cards */
-    border-radius: 10px; /* Consistent, modern roundedness */
-    box-shadow: 0 5px 18px rgba(0,0,0,0.07); /* Lighter, more subtle shadow */
+    background-color: #FFFFFF; /* Pure white card background */
+    border-radius: 10px; /* Consistent modern roundedness */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Soft, elegant shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     overflow: hidden;
-    border: 1px solid #EDEDED; /* Very subtle default border */
+    border: 1px solid #EDEDED; /* Subtle default border */
 }
 
 .course-item:hover {
-    transform: translateY(-8px); /* Subtle lift */
-    box-shadow: 0 12px 35px rgba(0,0,0,0.15); /* More pronounced, but soft shadow on hover */
-    border-color: #AB47BC; /* New: Lighter purple border on hover */
+    transform: translateY(-5px); /* Subtle lift on hover */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* More pronounced, but soft shadow on hover */
+    border-color: #8E24AA; /* Accent purple border on hover */
 }
 
 .course-item a {
     display: block;
-    padding: 2rem; /* Generous padding within cards */
+    padding: 1.8rem; /* Generous padding within cards */
     text-decoration: none;
     color: inherit;
     height: 100%;
@@ -250,75 +217,75 @@ main {
 
 .course-item h3 {
     font-family: 'Montserrat', sans-serif;
-    color: #7B1FA2; /* New: Primary purple for card headings */
+    color: #8E24AA; /* Accent purple for card headings */
     margin-top: 0;
-    font-size: 2.1rem;
+    font-size: 1.9rem; /* Card title font size */
     font-weight: 600;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.7rem;
     letter-spacing: -0.2px;
 }
 
 .course-item p {
-    font-size: 1.0rem;
-    color: #757575; /* New: Secondary text color for descriptions */
-    line-height: 1.7;
+    font-size: 1.0rem; /* Card description font size */
+    color: #666666; /* Secondary text color */
+    line-height: 1.6;
 }
 
 /* Call to Action (CTA) Section at the bottom */
 .cta-section {
     text-align: center;
-    margin-top: 5.5rem;
-    margin-bottom: 4.5rem;
-    background-color: #F5F0FA; /* New: Subtle purple tint for CTA background */
-    padding: 4rem; /* Generous padding */
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+    background-color: #F5F0FA; /* Subtle purple tint for CTA background */
+    padding: 3.5rem; /* Generous padding */
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Very light shadow */
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05); /* Very light shadow */
 }
 
 .cta-section p {
-    font-size: 1.5rem;
-    color: #3C3C3C;
+    font-size: 1.4rem; /* CTA text font size */
+    color: #333333;
     font-weight: 700;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 /* General Button Styling (for main CTA) */
 .button {
     display: inline-block;
-    background-color: #FFD54F; /* New: Vibrant gold for CTA button */
-    color: #7B1FA2; /* New: Purple text on gold button */
-    padding: 1.3rem 3rem; /* Generous padding for button */
+    background-color: #FFD54F; /* Vibrant gold for CTA button */
+    color: #673AB7; /* Deep purple text on gold button */
+    padding: 1.2rem 2.8rem; /* Balanced padding */
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.3rem; /* Button text font size */
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.3s ease;
     border: none;
     cursor: pointer;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2); /* Refined shadow */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Refined shadow */
 }
 
 .button:hover {
     background-color: #FFC107; /* Slightly darker gold on hover */
-    color: #4A148C; /* New: Darker purple text on hover */
-    transform: translateY(-6px); /* Moderate lift */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    color: #4527A0; /* Darker purple text on hover */
+    transform: translateY(-4px); /* Moderate lift */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .button:active {
     transform: translateY(0px);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    background-color: #FFA000; /* Even darker gold on active */
+    background-color: #FFA000;
 }
 
 /* Footer Styling */
 footer {
-    background-color: #4A148C; /* New: Darker purple for footer */
-    color: #F3E5F5; /* New: Lighter purple/white for footer text */
+    background-color: #4527A0; /* Darker purple for footer */
+    color: #E0E0E0; /* Light text for footer */
     text-align: center;
-    padding: 2.8rem 2rem;
-    margin-top: 6rem;
-    font-size: 0.95rem;
+    padding: 2.5rem 2rem;
+    margin-top: 5rem;
+    font-size: 0.9rem;
 }
 
 /* --- Responsive Adjustments --- */
@@ -327,66 +294,55 @@ footer {
         padding: 0 1.8rem;
     }
     header {
-        padding: 1.2rem 0;
-    }
-    .header-content {
-        flex-direction: column; /* Stack logo and nav vertically */
-        align-items: flex-start; /* Align header content to the left */
-        padding-top: 1rem;
-    }
-    .logo-and-tagline {
-        width: 100%;
-        align-items: center; /* Center logo and tagline for stacked layout */
-        margin-bottom: 1.5rem;
+        padding: 1rem 0;
     }
     .site-logo {
-        max-width: 280px; /* Logo size for larger tablets */
+        max-width: 250px; /* Logo size for larger tablets */
     }
     .tagline {
-        font-size: 1.0rem;
+        font-size: 0.9rem;
     }
     .main-nav {
-        width: 100%;
-        justify-content: center; /* Center nav links horizontally on wider mobile/tablet */
+        justify-content: flex-end; /* Keep nav to the right on tablet for horizontal layout */
     }
     .nav-links li {
-        margin: 0 18px;
+        margin-left: 20px;
     }
     .nav-links a {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
     body {
-        font-size: 1rem; /* Base font size adjustment */
+        font-size: 0.95rem; /* Base font size adjustment */
     }
     .intro-text {
-        padding: 2.8rem 3.5rem;
+        padding: 2.5rem 3rem;
         font-size: 1.15rem;
     }
     .course-list h2 {
-        font-size: 2.8rem;
+        font-size: 2.6rem;
         margin-bottom: 3.5rem;
     }
     .course-grid {
-        gap: 2.5rem;
+        gap: 2rem;
     }
     .course-item a {
-        padding: 1.8rem;
+        padding: 1.5rem;
     }
     .course-item h3 {
-        font-size: 1.9rem;
+        font-size: 1.7rem;
     }
     .course-item p {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
     .cta-section {
-        padding: 3.2rem;
+        padding: 2.8rem;
     }
     .cta-section p {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
     }
     .button {
-        padding: 1.1rem 2.8rem;
-        font-size: 1.25rem;
+        padding: 1rem 2.5rem;
+        font-size: 1.15rem;
     }
 }
 
@@ -395,7 +351,7 @@ footer {
         flex-direction: row; /* Keep logo and hamburger on same row */
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 1.5rem;
+        padding: 0.8rem 1.5rem;
     }
     .logo-and-tagline {
         align-items: flex-start;
@@ -403,131 +359,120 @@ footer {
         margin-bottom: 0;
     }
     .site-logo {
-        max-width: 200px; /* Logo size for typical mobile landscape/tablet portrait */
-        margin-bottom: 5px;
+        max-width: 180px; /* Logo size for mobile landscape/tablet portrait */
     }
     .tagline {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
-    /* Mobile Navigation */
+    /* Mobile Navigation (Hamburger Menu) */
     .hamburger-menu {
         display: block;
         margin-left: auto;
     }
-
     .main-nav {
         position: fixed;
         top: 0;
         right: 0;
-        width: 280px; /* Mobile menu width */
+        width: 260px; /* Mobile menu width */
         height: 100%;
-        background-color: #4A148C; /* New: Darker purple for mobile menu */
-        box-shadow: -6px 0 18px rgba(0,0,0,0.3);
+        background-color: #4527A0; /* Darker purple for mobile menu */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
         z-index: 999;
         flex-direction: column;
-        padding-top: 70px;
+        padding-top: 60px;
         align-items: center;
     }
-
     .main-nav.active {
         transform: translateX(0);
     }
-
     .nav-links {
         flex-direction: column;
         width: 100%;
     }
-
     .nav-links li {
         margin: 0;
         width: 100%;
     }
-
     .nav-links a {
-        padding: 15px 20px;
-        font-size: 1.15rem;
+        padding: 12px 20px;
+        font-size: 1.05rem;
         display: block;
-        color: #F3E5F5;
+        color: #EFEFEF;
         text-align: left;
     }
     .nav-links a:hover {
-        background-color: rgba(255,213,79,0.15); /* New: Subtle gold tint on hover */
-        color: #FFD54F; /* New: Gold text on hover for mobile */
-        text-decoration: none;
+        background-color: rgba(255,213,79,0.1); /* Subtle gold tint on hover */
+        color: #FFD54F; /* Gold text on hover for mobile */
     }
 
     /* General text and spacing adjustments for smaller screens */
     body {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
     }
     .intro-text, .cta-section {
-        padding: 1.2rem;
+        padding: 1rem 1.5rem;
     }
     .intro-text p {
-        font-size: 1.0rem;
+        font-size: 1rem;
     }
     .course-list h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
         margin-bottom: 2.5rem;
     }
     .course-list h2::after {
-        width: 60px;
-        height: 4px;
+        width: 50px;
+        height: 3px;
     }
     .course-item a {
-        padding: 1.2rem;
+        padding: 1rem;
     }
     .course-item h3 {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
     }
     .course-item p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     .button {
-        padding: 1rem 2.2rem;
-        font-size: 1.15rem;
+        padding: 0.9rem 2rem;
+        font-size: 1.05rem;
     }
     .cta-section p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     footer {
-        padding: 2rem 1rem;
-        font-size: 0.85rem;
+        padding: 1.8rem 1rem;
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
     .site-logo {
-        max-width: 160px; /* Logo size for very small phones */
+        max-width: 150px; /* Logo size for very small phones */
     }
     .tagline {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
     }
     .hamburger-menu {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
     .main-nav {
-        width: 240px;
+        width: 220px;
     }
     .nav-links a {
-        font-size: 1.0rem;
-        padding: 12px 15px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
     }
     .intro-text {
         font-size: 0.9rem;
+        padding: 0.8rem 1rem;
     }
     .course-list h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
     .course-item h3 {
-        font-size: 1.5rem;
-    }
-    .button {
-        font-size: 1.05rem;
-        padding: 0.9rem 2rem;
+        font-size: 1.3rem;
     }
 }
-```
