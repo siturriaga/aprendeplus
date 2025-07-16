@@ -1,131 +1,184 @@
+ /* styles.css - Aprendemas (Versión Español) */
+
+/* Paleta de colores profesional y moderna */
+:root {
+  --morado-principal: #673AB7;
+  --morado-acento: #8E24AA;
+  --morado-suave: #F5F0FA;
+  --oro-vibrante: #FFD54F;
+  --blanco-fondo: #FDFBF7;
+  --blanco-puro: #FFFFFF;
+  --texto-principal: #333333;
+  --texto-secundario: #666666;
+  --morado-footer: #4527A0;
+}
+
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin: 0;
-  background-color: #fdfbf7;
-  color: #333;
+  padding: 0;
+  background-color: var(--blanco-fondo);
+  color: var(--texto-principal);
+  line-height: 1.7;
+  font-size: 1rem;
+  scroll-behavior: smooth;
+}
+
+header {
+  background: linear-gradient(to right, var(--morado-principal), var(--morado-acento));
+  padding: 1.5rem 0;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: auto;
-  padding: 2rem 0;
+  margin: 0 auto;
 }
 
-.top-banner {
-  background: linear-gradient(135deg, #673AB7, #8E24AA);
-  color: white;
-  padding: 1.5rem 0;
-  border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-}
-
-.header-container {
+.header-content {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
 }
 
-.site-logo {
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  background-color: #fff;
-  padding: 4px;
+.logo {
+  display: flex;
+  align-items: center;
 }
 
-.nav-menu {
+.logo img {
+  height: 65px;
+  width: auto;
+  border-radius: 50%;
+  margin-right: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.logo h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+nav ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 0;
   margin: 0;
 }
 
-.nav-menu li a {
+nav a {
   color: white;
   text-decoration: none;
   font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
 
-.intro h1 {
-  font-size: 2.2rem;
-  color: #4a148c;
+nav a:hover {
+  color: var(--oro-vibrante);
 }
 
-.intro p {
+.hero {
+  text-align: center;
+  background-color: var(--morado-suave);
+  padding: 4rem 2rem;
+  border-radius: 15px;
+  margin: 3rem auto;
+  max-width: 1000px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--morado-principal);
+}
+
+.hero p {
   font-size: 1.2rem;
-  margin-top: 1rem;
+  color: var(--texto-secundario);
 }
 
-.course-section h2,
-.about-section h2,
-.cta h2 {
-  font-size: 1.8rem;
+.seccion {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.seccion h3 {
+  font-size: 2rem;
+  color: var(--morado-principal);
   margin-bottom: 1rem;
 }
 
-.course-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin-top: 2rem;
+.cursos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
 }
 
-.course-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.card {
+  background: var(--blanco-puro);
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 290px;
+  transition: transform 0.3s;
 }
 
-.course-card h3 {
-  margin-top: 0;
-  color: #5e35b1;
+.card:hover {
+  transform: translateY(-8px);
 }
 
-.discount-note {
-  text-align: center;
-  margin-top: 2rem;
-  font-style: italic;
+.card h4 {
+  color: var(--morado-acento);
+  margin-bottom: 1rem;
 }
 
-.about-section {
-  background: #f3f0fa;
-  border-radius: 1rem;
-  padding: 3rem 2rem;
-  margin-top: 2rem;
+.card p {
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
-.cta {
-  text-align: center;
-  padding: 2rem 0;
-  background: #ede7f6;
-  margin-top: 3rem;
-  border-radius: 1rem;
-}
-
-.button {
-  display: inline-block;
-  background: #7e57c2;
-  color: white;
-  padding: 0.75rem 1.5rem;
+.precio {
+  font-weight: 700;
   margin-top: 1rem;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s ease;
+  color: var(--morado-principal);
 }
 
-.button:hover {
-  background: #5e35b1;
-}
-
-footer {
+.footer {
+  background-color: var(--morado-footer);
+  color: #eee;
   text-align: center;
-  padding: 1rem;
-  background: #f2f2f2;
+  padding: 2rem;
   font-size: 0.9rem;
+  margin-top: 4rem;
+}
+
+.btn {
+  background: var(--oro-vibrante);
+  color: var(--morado-principal);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: inline-block;
   margin-top: 2rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn:hover {
+  background: #FFC107;
+  transform: translateY(-3px);
 }
