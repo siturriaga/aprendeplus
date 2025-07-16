@@ -1,136 +1,93 @@
-/* Modern Stylish CSS Redesign - Aprendemás Custom Banner Style */
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#673AB7" />
 
-:root {
-  --deep-purple: #673AB7;
-  --accent-purple: #8E24AA;
-  --subtle-purple: #F5F0FA;
-  --vibrant-gold: #FFD54F;
-  --vibrant-gold-hover: #FFC107;
-  --background: #FDFBF7;
-  --white: #FFFFFF;
-  --text-dark: #2A2A2A;
-  --text-soft: #666666;
-  --footer-bg: #4527A0;
-  --footer-text: #E0E0E0;
-  --card-shadow: rgba(0,0,0,0.08);
-}
+  <!-- Manifest & Icons -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png" />
+  <link rel="icon" type="image/png" href="icons/icon-192x192.png" />
 
-body {
-  font-family: 'Inter', 'Open Sans', sans-serif;
-  background-color: var(--background);
-  color: var(--text-dark);
-  font-size: 1.05rem;
-  line-height: 1.7;
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
-/* Header with Rounded Banner Effect */
-header {
-  background: var(--deep-purple);
-  color: var(--white);
-  padding: 1.5rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-}
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo-and-tagline">
+        <img src="aprende_logo.png" alt="Aprendemas Logo" class="site-logo" />
+        <p class="tagline">Aprende sin límites. Crece con propósito.</p>
+      </div>
+      <button class="hamburger-menu" aria-label="Menú">&#9776;</button>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="#cursos">Cursos</a></li>
+          <li><a href="#quienes-somos">Quiénes Somos</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
+  <!-- Intro -->
+  <main>
+    <section class="intro-text">
+      <p><strong>Aprendemas</strong> es tu espacio moderno de aprendizaje. Explora nuestros cursos y empieza hoy tu camino al éxito.</p>
+    </section>
 
-.logo-and-tagline {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
+    <!-- Cursos Destacados -->
+    <section id="cursos" class="course-list container">
+      <h2>Cursos Destacados</h2>
+      <div class="course-grid">
+        <div class="course-item">
+          <a href="#"><h3>Inglés en Diferentes Niveles</h3><p>Desde principiante hasta avanzado. Mejora tu inglés de forma efectiva.</p></a>
+        </div>
+        <div class="course-item">
+          <a href="#"><h3>Filosofía: De los Griegos a la Modernidad</h3><p>Explora el pensamiento desde Sócrates hasta Foucault.</p></a>
+        </div>
+        <div class="course-item">
+          <a href="#"><h3>Teoría Crítica y Ciencia Política</h3><p>Analiza poder, ideología y justicia en el mundo actual.</p></a>
+        </div>
+        <div class="course-item">
+          <a href="#"><h3>Historia Universal y Contemporánea</h3><p>Conecta eventos pasados con los desafíos actuales.</p></a>
+        </div>
+        <div class="course-item">
+          <a href="#"><h3>Formación Docente y Desarrollo Profesional</h3><p>Clases por expertos. $20 CLP por clase. Descuentos grupales disponibles.</p></a>
+        </div>
+      </div>
+    </section>
 
-.site-logo {
-  width: 60px;
-  height: auto;
-}
+    <!-- CTA -->
+    <section class="cta-section container">
+      <p>¿Listo para comenzar tu camino de aprendizaje?</p>
+      <a href="#cursos" class="button">Explora los cursos</a>
+    </section>
 
-.tagline {
-  font-size: 0.9rem;
-  color: var(--footer-text);
-  opacity: 0.9;
-  margin: 0;
-}
+    <!-- Quiénes Somos -->
+    <section id="quienes-somos" class="intro-text" style="background-color: #ffffff;">
+      <h2>Quiénes Somos</h2>
+      <p>Somos una compañía con sede en EE.UU., compuesta por profesionales de la educación con títulos desde licenciaturas hasta posgrados y más de 10 años de experiencia en enseñanza, investigación y desarrollo profesional.</p>
+    </section>
+  </main>
 
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Aprendemas. Todos los derechos reservados.</p>
+  </footer>
 
-.nav-links a {
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 1rem;
-  font-family: 'Montserrat', sans-serif;
-  transition: color 0.3s ease;
-}
+  <!-- Mobile Nav Toggle -->
+  <script>
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('.main-nav');
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
 
-.nav-links a:hover {
-  color: var(--vibrant-gold);
-}
-
-.hamburger-menu {
-  display: none;
-}
-
-/* Responsive Header */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .hamburger-menu {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    color: #fff;
-    cursor: pointer;
-    margin-left: auto;
-  }
-
-  .main-nav {
-    width: 100%;
-    background: var(--footer-bg);
-    transform: translateY(-200%);
-    transition: transform 0.3s ease;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    padding: 1rem 2rem;
-    border-bottom-left-radius: 2rem;
-    border-bottom-right-radius: 2rem;
-  }
-
-  .main-nav.active {
-    transform: translateY(0);
-  }
-
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
-  }
-
-  .nav-links a {
-    color: #fdfbf7;
-    font-size: 1rem;
-  }
-}
+</body>
+</html>
