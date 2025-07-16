@@ -1,43 +1,35 @@
- /* styles.css - Aprendemas (Versión Español) */
-
-/* Paleta de colores profesional y moderna */
 :root {
-  --morado-principal: #673AB7;
-  --morado-acento: #8E24AA;
-  --morado-suave: #F5F0FA;
-  --oro-vibrante: #FFD54F;
-  --blanco-fondo: #FDFBF7;
-  --blanco-puro: #FFFFFF;
-  --texto-principal: #333333;
-  --texto-secundario: #666666;
-  --morado-footer: #4527A0;
+  --primary: #673ab7;
+  --accent: #8e24aa;
+  --light-bg: #f5f0fa;
+  --white-bg: #fdfbf7;
+  --cta: #ffd54f;
+  --dark: #333;
+  --text-muted: #666;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: var(--blanco-fondo);
-  color: var(--texto-principal);
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--white-bg);
+  color: var(--dark);
   line-height: 1.7;
-  font-size: 1rem;
-  scroll-behavior: smooth;
+  font-size: 1.05rem;
 }
 
-header {
-  background: linear-gradient(to right, var(--morado-principal), var(--morado-acento));
-  padding: 1.5rem 0;
+/* Header */
+.site-header {
+  background-color: var(--primary);
+  padding: 1rem 0;
   color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .header-content {
@@ -47,138 +39,118 @@ header {
   flex-wrap: wrap;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
+.logo-container .logo {
+  height: 60px;
 }
 
-.logo img {
-  height: 65px;
-  width: auto;
-  border-radius: 50%;
-  margin-right: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-.logo h1 {
-  font-size: 1.7rem;
-  font-weight: 700;
-  margin: 0;
-}
-
-nav ul {
+/* Navigation */
+.main-nav ul {
   list-style: none;
   display: flex;
   gap: 1.5rem;
-  padding: 0;
-  margin: 0;
 }
 
-nav a {
-  color: white;
+.main-nav a {
+  color: #fff;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: color 0.3s;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  transition: color 0.3s ease;
 }
 
-nav a:hover {
-  color: var(--oro-vibrante);
+.main-nav a:hover {
+  color: var(--cta);
 }
 
-.hero {
+/* Intro Section */
+.intro-section {
   text-align: center;
-  background-color: var(--morado-suave);
-  padding: 4rem 2rem;
-  border-radius: 15px;
-  margin: 3rem auto;
-  max-width: 1000px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  padding: 4rem 1rem;
+  background-color: var(--light-bg);
+  border-radius: 12px;
+  margin: 3rem 0;
 }
 
-.hero h2 {
+.intro-section h1 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--morado-principal);
+  color: var(--primary);
 }
 
-.hero p {
-  font-size: 1.2rem;
-  color: var(--texto-secundario);
-}
-
-.seccion {
-  margin: 4rem 0;
+/* Courses */
+.course-section h2,
+.about-section h2,
+.cta-section h2 {
   text-align: center;
+  font-size: 2.2rem;
+  color: var(--primary);
+  margin-bottom: 2rem;
 }
 
-.seccion h3 {
-  font-size: 2rem;
-  color: var(--morado-principal);
-  margin-bottom: 1rem;
-}
-
-.cursos {
-  display: flex;
-  flex-wrap: wrap;
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
-  justify-content: center;
 }
 
-.card {
-  background: var(--blanco-puro);
-  border-radius: 20px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  width: 290px;
+.course-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-8px);
+.course-card:hover {
+  transform: translateY(-5px);
 }
 
-.card h4 {
-  color: var(--morado-acento);
-  margin-bottom: 1rem;
+.course-card h3 {
+  color: var(--accent);
+  margin-top: 0;
 }
 
-.card p {
-  color: var(--texto-secundario);
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.precio {
-  font-weight: 700;
-  margin-top: 1rem;
-  color: var(--morado-principal);
-}
-
-.footer {
-  background-color: var(--morado-footer);
-  color: #eee;
+.price-info {
   text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  margin-top: 4rem;
+  font-size: 1.2rem;
+  margin-top: 2rem;
 }
 
-.btn {
-  background: var(--oro-vibrante);
-  color: var(--morado-principal);
-  padding: 0.8rem 2rem;
-  border-radius: 50px;
+/* About */
+.about-section {
+  padding: 3rem 0;
+}
+
+/* CTA */
+.cta-section {
+  background-color: var(--light-bg);
+  padding: 3rem;
+  text-align: center;
+  border-radius: 15px;
+  margin: 4rem 0;
+}
+
+.button {
+  background-color: var(--cta);
+  color: var(--primary);
+  padding: 1rem 2rem;
   text-decoration: none;
+  border-radius: 50px;
   font-weight: bold;
   font-size: 1.1rem;
-  display: inline-block;
-  margin-top: 2rem;
-  transition: all 0.3s;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
 }
 
-.btn:hover {
-  background: #FFC107;
+.button:hover {
   transform: translateY(-3px);
+  background-color: #ffc107;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #4527a0;
+  color: #eee;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
 }
