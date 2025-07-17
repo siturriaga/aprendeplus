@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <meta name="theme-color" content="#673AB7"/>
   <title>Aprendemas</title>
   <link rel="stylesheet" href="styles.css"/>
@@ -17,7 +17,7 @@
       <a href="index.html" class="logo-link">
         <img src="aprende_logo.png" alt="Aprendemas" class="logo"/>
       </a>
-      <nav>
+      <nav class="nav-main">
         <ul class="nav-links">
           <li><a href="index.html">Inicio</a></li>
           <li class="dropdown">
@@ -31,16 +31,16 @@
             </ul>
           </li>
           <li><a href="#nosotros">Quiénes somos</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="faq.html">FAQ</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
+        <button class="nav-toggle" aria-label="Mostrar menú">☰</button>
       </nav>
-      <button class="nav-toggle" aria-label="Mostrar menú">☰</button>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero fade-in">
+  <section class="hero section-alt fade-in">
     <div class="hero-content container">
       <h1>Bienvenidos a Aprendemas</h1>
       <p>Cursos online personalizados con profesionales de primer nivel.</p>
@@ -49,7 +49,7 @@
   </section>
 
   <!-- Cursos -->
-  <section id="cursos" class="courses fade-in container">
+  <section id="cursos" class="courses section-light fade-in container">
     <h2>Cursos Disponibles</h2>
     <div class="course-grid">
       <div class="course-card curso-docente">
@@ -74,43 +74,28 @@
       </div>
       <div class="course-card curso-historia">
         <h3>Historia Universal</h3>
-        <p>Recorre hitos desde la antigüedad hasta los retos del siglo XXI.</p>
+        <p>Recorre hitos desde la antigüedad hasta los retos del siglo XXI.</p>
         <a href="historia.html" class="btn-link">Más info</a>
       </div>
     </div>
     <p class="price-info">
-      Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br/>
+      Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br/>
       Clases grupales con descuento disponible.
     </p>
   </section>
 
   <!-- Quiénes Somos -->
-  <section id="nosotros" class="about-us fade-in container">
+  <section id="nosotros" class="about-us section-alt fade-in container">
     <h2>Quiénes Somos</h2>
     <p>
-      Somos una organización con sede en EE. UU., formada por profesionales
-      de la educación (de licenciatura a doctorado) con más de 10 años de experiencia.
-      Nuestra misión es ofrecer aprendizaje accesible y de calidad.
+      Plataforma con sede en EE. UU., formada por profesionales con licenciaturas,
+      maestrías y doctorados, y más de 10 años de práctica en educación.
+      Nuestra misión: aprendizaje accesible, moderno y de excelencia.
     </p>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="faq fade-in container">
-    <h2>Preguntas Frecuentes</h2>
-    <dl>
-      <dt>¿Cómo me inscribo?</dt>
-      <dd>Haz clic en “Más info”, completa el formulario y recibirás confirmación.</dd>
-      <dt>¿Qué métodos de pago?</dt>
-      <dd>Tarjeta, PayPal, Stripe o transferencia bancaria.</dd>
-      <dt>¿Puedo reprogramar una clase?</dt>
-      <dd>Sí, sin costo si avisas con 24 h de antelación.</dd>
-      <dt>¿Ofrecen fines de semana?</dt>
-      <dd>Sí, sábados y domingos según tu disponibilidad.</dd>
-    </dl>
-  </section>
-
   <!-- Contacto -->
-  <section id="contacto" class="contact fade-in container">
+  <section id="contacto" class="contact section-light fade-in container">
     <h2>Contáctanos</h2>
     <form name="contacto" method="POST" data-netlify="true" class="contact-form">
       <input type="hidden" name="form-name" value="contacto"/>
@@ -129,14 +114,14 @@
   </section>
 
   <!-- Footer -->
-  <footer class="site-footer">
+  <footer class="site-footer section-light">
     <div class="container">
       <nav class="footer-nav">
         <a href="index.html">Inicio</a> ·
         <a href="index.html#cursos">Cursos</a> ·
         <a href="index.html#nosotros">Quiénes somos</a>
       </nav>
-      <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
+      <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
     </div>
   </footer>
 
