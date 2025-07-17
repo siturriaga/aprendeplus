@@ -80,28 +80,22 @@
       <h2>Quiénes Somos</h2>
       <p>Equipo con sede en EE. UU., profesionales con títulos de licenciatura a doctorado y más de 10 años de experiencia en educación.</p>
     </section>
-<section id="contacto" class="contact">
+<section id="contacto" class="contact fade-in container">
   <h2>Contáctanos</h2>
-  <form name="contacto" method="POST" data-netlify="true">
+  <form name="contacto" method="POST" data-netlify="true" class="contact-form">
     <input type="hidden" name="form-name" value="contacto">
+    
+    <label for="name">Nombre</label>
+    <input type="text" id="name" name="name" required />
 
-    <label>
-      Nombre:<br>
-      <input type="text" name="name" required>
-    </label><br>
+    <label for="email">Correo</label>
+    <input type="email" id="email" name="email" required />
 
-    <label>
-      Correo:<br>
-      <input type="email" name="email" required>
-    </label><br>
+    <label for="message">Mensaje</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
 
-    <label>
-      Mensaje:<br>
-      <textarea name="message" rows="4" required></textarea>
-    </label><br>
-
-    <!-- Campo oculto anti-spam -->
-    <input type="text" name="_gotcha" style="display:none">
+    <!-- Honeypot anti-spam -->
+    <input type="text" name="_gotcha" style="display:none" />
 
     <button type="submit" class="contact-button">Enviar mensaje</button>
   </form>
