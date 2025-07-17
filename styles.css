@@ -328,3 +328,65 @@ h2 {
 #home-button {
   right: 4.5rem;
 }
+/* —————————————————————————————
+   1) Espacio para el header fijo
+   ————————————————————————————— */
+:root {
+  --header-height: 100px; /* Ajusta según lo alto que quieras tu header */
+}
+
+/* Forzar que el body reserve espacio arriba */
+body {
+  padding-top: var(--header-height);
+}
+
+/* Fija la altura del header para respetar el padding del body */
+.site-header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+}
+
+/* —————————————————————————————
+   2) Ocultar nav-toggle en escritorio
+   ————————————————————————————— */
+.nav-toggle {
+  display: none !important;
+}
+
+/* Mostrar botón solo en móvil */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block !important;
+  }
+  /* Ocultar enlaces en móvil por defecto */
+  .nav-links {
+    display: none !important;
+    flex-direction: column;
+    background: var(--primary-purple);
+    position: fixed;
+    top: var(--header-height);
+    right: 0;
+    width: 240px;
+    height: calc(100% - var(--header-height));
+    padding-top: 1rem;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  }
+  /* Cuando esté activo, mostrar */
+  .nav-main.active .nav-links {
+    display: flex !important;
+  }
+}
+
+/* —————————————————————————————
+   3) Ajustar hero para no quedar bajo el header
+   ————————————————————————————— */
+.hero {
+  margin-top: calc(var(--header-height) * -1);
+  padding-top: calc(var(--header-height) + 4rem);
+}
+
+/* Si tu header es transparente y quieres un push extra */
+.hero-content {
+  margin-top: var(--header-height);
+}
