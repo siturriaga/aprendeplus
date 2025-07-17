@@ -1,14 +1,17 @@
 :root {
+  /* Altura total del header (logo grande + padding) */
+  --header-height: 260px;
+
   /* Paleta de colores */
-  --primary-purple:   #673AB7;  /* Deep Purple */
-  --accent-purple:    #8E24AA;  /* Logo & links */
-  --subtle-purple:    #F5F0FA;  /* Fondos secciones alternas */
-  --gold:             #FFD54F;  /* Botones CTA */
-  --bg-white:         #FDFBF7;  /* Fondo general */
-  --pure-white:       #FFFFFF;  /* Fondos de tarjetas */
-  --text-primary:     #333333;  /* Texto principal */
-  --text-secondary:   #666666;  /* Texto secundario */
-  --footer-purple:    #4527A0;  /* Fondo footer */
+  --primary-purple:   #673AB7;
+  --accent-purple:    #8E24AA;
+  --subtle-purple:    #F5F0FA;
+  --gold:             #FFD54F;
+  --bg-white:         #FDFBF7;
+  --pure-white:       #FFFFFF;
+  --text-primary:     #333333;
+  --text-secondary:   #666666;
+  --footer-purple:    #4527A0;
 
   /* Tipografía modular */
   --font-scale-h1: clamp(2rem, 5vw, 2.8rem);
@@ -29,6 +32,8 @@ body {
   color: var(--text-primary);
   background: linear-gradient(135deg, var(--subtle-purple) 0%, var(--bg-white) 70%);
   scroll-behavior: smooth;
+  /* Reserva espacio arriba para el header fijo */
+  padding-top: var(--header-height);
   position: relative;
 }
 body::after {
@@ -43,6 +48,21 @@ body::after {
   max-width: 1100px;
   margin: auto;
   padding: 0 20px;
+}
+
+/* Header fijo */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: var(--primary-purple);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Espaciado uniforme */
@@ -64,29 +84,17 @@ h2 {
   margin-bottom: 2rem;
 }
 
-/* Header y navegación */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--primary-purple);
-  padding: 1.5rem 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+/* Logo */
 .logo {
   max-height: 220px;
-  width: auto;
   transition: transform .3s ease;
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
 }
 .logo:hover {
   transform: scale(1.03);
 }
+
+/* Navegación */
 .nav-links, .dropdown-content {
   list-style: none;
   margin: 0;
@@ -169,6 +177,8 @@ h2 {
   background: var(--accent-purple) url('images/hero-bg.jpg') center/cover no-repeat;
   position: relative;
   overflow: hidden;
+  margin-top: 0; /* Anula márgenes previos */
+  padding-top: calc(var(--header-height) + 4rem);
 }
 .hero::before {
   content: '';
@@ -193,7 +203,7 @@ h2 {
 .hero-content h1 { animation-delay: .3s; }
 .hero-content p  { animation-delay: .6s; }
 
-/* Botones CTA */
+/* CTA Buttons */
 .btn-cta {
   display: inline-block;
   margin-top: 1.2rem;
@@ -263,7 +273,7 @@ h2 {
   margin: auto;
 }
 
-/* Formulario de contacto */
+/* Contact Form */
 .contact-form {
   display: grid;
   gap: 1.5rem;
@@ -327,66 +337,4 @@ h2 {
 }
 #home-button {
   right: 4.5rem;
-}
-/* —————————————————————————————
-   1) Espacio para el header fijo
-   ————————————————————————————— */
-:root {
-  --header-height: 100px; /* Ajusta según lo alto que quieras tu header */
-}
-
-/* Forzar que el body reserve espacio arriba */
-body {
-  padding-top: var(--header-height);
-}
-
-/* Fija la altura del header para respetar el padding del body */
-.site-header {
-  height: var(--header-height);
-  display: flex;
-  align-items: center;
-}
-
-/* —————————————————————————————
-   2) Ocultar nav-toggle en escritorio
-   ————————————————————————————— */
-.nav-toggle {
-  display: none !important;
-}
-
-/* Mostrar botón solo en móvil */
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: block !important;
-  }
-  /* Ocultar enlaces en móvil por defecto */
-  .nav-links {
-    display: none !important;
-    flex-direction: column;
-    background: var(--primary-purple);
-    position: fixed;
-    top: var(--header-height);
-    right: 0;
-    width: 240px;
-    height: calc(100% - var(--header-height));
-    padding-top: 1rem;
-    box-shadow: -2px 0 8px rgba(0,0,0,0.2);
-  }
-  /* Cuando esté activo, mostrar */
-  .nav-main.active .nav-links {
-    display: flex !important;
-  }
-}
-
-/* —————————————————————————————
-   3) Ajustar hero para no quedar bajo el header
-   ————————————————————————————— */
-.hero {
-  margin-top: calc(var(--header-height) * -1);
-  padding-top: calc(var(--header-height) + 4rem);
-}
-
-/* Si tu header es transparente y quieres un push extra */
-.hero-content {
-  margin-top: var(--header-height);
 }
