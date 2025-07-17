@@ -1,18 +1,27 @@
-// Detect scroll to show/hide buttons
-const backToTop = document.getElementById('back-to-top');
-const homeBtn = document.getElementById('home-button');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTop.style.display = 'block';
-    homeBtn.style.display = 'block';
-  } else {
-    backToTop.style.display = 'none';
-    homeBtn.style.display = 'none';
-  }
-});
-
-// Scroll suave al top
-backToTop.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+{
+  "name": "Aprendemas",
+  "short_name": "Aprendemas",
+  "lang": "es",
+  "start_url": "index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FDFBF7",
+  "theme_color": "#673AB7",
+  "icons": [
+    {
+      "src": "aprende_logo.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
