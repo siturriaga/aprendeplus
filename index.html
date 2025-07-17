@@ -48,6 +48,14 @@
     </div>
   </section>
 
+  <!-- Divider -->
+  <div class="divider">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z"
+            fill="var(--bg-white)"></path>
+    </svg>
+  </div>
+
   <!-- Cursos -->
   <section id="cursos" class="courses section-light fade-in container">
     <h2>Cursos Disponibles</h2>
@@ -79,10 +87,18 @@
       </div>
     </div>
     <p class="price-info">
-      Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br/>
+      Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br/>
       Clases grupales con descuento disponible.
     </p>
   </section>
+
+  <!-- Divider -->
+  <div class="divider flip">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+      <path d="M0,60 C600,-40 600,60 1200,0 L1200,60 L0,60 Z"
+            fill="var(--subtle-purple)"></path>
+    </svg>
+  </div>
 
   <!-- Quiénes Somos -->
   <section id="nosotros" class="about-us section-alt fade-in container">
@@ -94,6 +110,14 @@
     </p>
   </section>
 
+  <!-- Divider -->
+  <div class="divider">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z"
+            fill="var(--bg-white)"></path>
+    </svg>
+  </div>
+
   <!-- Contacto -->
   <section id="contacto" class="contact section-light fade-in container">
     <h2>Contáctanos</h2>
@@ -101,29 +125,31 @@
       <input type="hidden" name="form-name" value="contacto"/>
       <label for="name">Nombre</label>
       <input id="name" type="text" name="name" required/>
-
       <label for="email">Correo</label>
       <input id="email" type="email" name="email" required/>
-
       <label for="message">Mensaje</label>
       <textarea id="message" name="message" rows="5" required></textarea>
-
       <input type="text" name="_gotcha" style="display:none"/>
       <button type="submit" class="btn-cta">Enviar mensaje</button>
     </form>
   </section>
 
+  <!-- Back to Top & Home Buttons -->
+  <button id="back-to-top" title="Volver arriba">⬆</button>
+  <a href="index.html" id="home-button" title="Inicio">🏠</a>
+
   <!-- Footer -->
-  <footer class="site-footer section-light">
+  <footer class="site-footer section-alt">
     <div class="container">
       <nav class="footer-nav">
         <a href="index.html">Inicio</a> ·
-        <a href="index.html#cursos">Cursos</a> ·
-        <a href="index.html#nosotros">Quiénes somos</a>
+        <a href="#cursos">Cursos</a> ·
+        <a href="#nosotros">Quiénes somos</a>
       </nav>
       <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
     </div>
   </footer>
 
+  <script src="main.js"></script>
 </body>
 </html>
