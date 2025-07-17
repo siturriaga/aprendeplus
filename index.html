@@ -80,11 +80,33 @@
       <h2>Quiénes Somos</h2>
       <p>Equipo con sede en EE. UU., profesionales con títulos de licenciatura a doctorado y más de 10 años de experiencia en educación.</p>
     </section>
+<section id="contacto" class="contact">
+  <h2>Contáctanos</h2>
+  <form name="contacto" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="contacto">
 
-    <section id="contacto" class="contact">
-      <h2>Contáctanos</h2>
-      <a href="mailto:adaprendemas@outlook.com" class="contact-button">Enviar mensaje</a>
-    </section>
+    <label>
+      Nombre:<br>
+      <input type="text" name="name" required>
+    </label><br>
+
+    <label>
+      Correo:<br>
+      <input type="email" name="email" required>
+    </label><br>
+
+    <label>
+      Mensaje:<br>
+      <textarea name="message" rows="4" required></textarea>
+    </label><br>
+
+    <!-- Campo oculto anti-spam -->
+    <input type="text" name="_gotcha" style="display:none">
+
+    <button type="submit" class="contact-button">Enviar mensaje</button>
+  </form>
+</section>
+    
   </main>
 
   <footer>
