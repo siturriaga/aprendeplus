@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8"/>
@@ -51,8 +51,7 @@
   <!-- Divider -->
   <div class="divider">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z"
-            fill="var(--bg-white)"></path>
+      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="var(--bg-white)"></path>
     </svg>
   </div>
 
@@ -82,12 +81,12 @@
       </div>
       <div class="course-card curso-historia">
         <h3>Historia Universal</h3>
-        <p>Recorre hitos desde la antigüedad hasta los retos del siglo XXI.</p>
+        <p>Recorre hitos desde la antigüedad hasta los retos del siglo XXI.</p>
         <a href="historia.html" class="btn-link">Más info</a>
       </div>
     </div>
     <p class="price-info">
-      Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br/>
+      Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br/>
       Clases grupales con descuento disponible.
     </p>
   </section>
@@ -95,8 +94,7 @@
   <!-- Divider -->
   <div class="divider flip">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,60 C600,-40 600,60 1200,0 L1200,60 L0,60 Z"
-            fill="var(--subtle-purple)"></path>
+      <path d="M0,60 C600,-40 600,60 1200,0 L1200,60 L0,60 Z" fill="var(--subtle-purple)"></path>
     </svg>
   </div>
 
@@ -104,8 +102,8 @@
   <section id="nosotros" class="about-us section-alt fade-in container">
     <h2>Quiénes Somos</h2>
     <p>
-      Plataforma con sede en EE. UU., formada por profesionales con licenciaturas,
-      maestrías y doctorados, y más de 10 años de práctica en educación.
+      Plataforma con sede en EE. UU., formada por profesionales con licenciaturas,
+      maestrías y doctorados, y más de 10 años de práctica en educación.
       Nuestra misión: aprendizaje accesible, moderno y de excelencia.
     </p>
   </section>
@@ -113,8 +111,7 @@
   <!-- Divider -->
   <div class="divider">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z"
-            fill="var(--bg-white)"></path>
+      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="var(--bg-white)"></path>
     </svg>
   </div>
 
@@ -134,9 +131,27 @@
     </form>
   </section>
 
-  <!-- Back to Top & Home Buttons -->
+  <!-- Botones flotantes -->
   <button id="back-to-top" title="Volver arriba">⬆</button>
   <a href="index.html" id="home-button" title="Inicio">🏠</a>
+
+  <!-- Script Inline -->
+  <script>
+    const backToTop = document.getElementById('back-to-top');
+    const homeBtn    = document.getElementById('home-button');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = 'block';
+        homeBtn.style.display    = 'block';
+      } else {
+        backToTop.style.display = 'none';
+        homeBtn.style.display    = 'none';
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 
   <!-- Footer -->
   <footer class="site-footer section-alt">
@@ -146,10 +161,9 @@
         <a href="#cursos">Cursos</a> ·
         <a href="#nosotros">Quiénes somos</a>
       </nav>
-      <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
+      <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <script src="main.js"></script>
 </body>
 </html>
