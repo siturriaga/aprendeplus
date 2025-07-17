@@ -1,9 +1,8 @@
- {
+{
   "name": "Aprendemas",
   "short_name": "Aprendemas",
-  "description": "Plataforma educativa con cursos de inglés, filosofía, teoría crítica, ciencia política e historia.",
   "lang": "es",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#FDFBF7",
   "theme_color": "#673AB7",
@@ -20,4 +19,4 @@
     }
   ]
 }
-```0
+
