@@ -255,3 +255,47 @@ footer {
   color: #fff;
   font-size: .9rem;
 }
+/* ================================= */
+/* Estilos para el formulario de contacto */
+/* ================================= */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: #4527A0;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #EDEDED;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #8E24AA;
+  box-shadow: 0 0 8px rgba(142, 36, 170, 0.2);
+}
+
+.contact-form .contact-button {
+  justify-self: start;
+  padding: 0.8rem 1.6rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 0 1rem;
+  }
+}
