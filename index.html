@@ -31,9 +31,10 @@
             </ul>
           </li>
           <li><a href="#nosotros">Quiénes somos</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="faq.html">FAQ</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
+        <button class="nav-toggle" aria-label="Mostrar menú">☰</button>
       </nav>
     </div>
   </header>
@@ -46,11 +47,14 @@
       <a href="#cursos" class="btn-cta">Ver Cursos</a>
     </div>
   </section>
+
+  <!-- Divider -->
   <div class="divider">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="#FDFBF7"/>
+      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="var(--bg-white)"></path>
     </svg>
   </div>
+
   <!-- Cursos -->
   <section id="cursos" class="courses section-light fade-in container">
     <h2>Cursos Disponibles</h2>
@@ -88,52 +92,31 @@
   </section>
 
   <!-- Divider -->
-  <p class="price-info">
-    Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br/>
-    Clases grupales con descuento disponible.
-  </p>
-</section>
-
-  
-
-  <!-- Quiénes Somos (con parallax) -->
-  <section id="nosotros" class="about-us section-alt fade-in container">
-    <h2>Quiénes Somos</h2>
-    <p>Plataforma con sede en EE. UU., profesionales con licenciaturas, maestrías y doctorados, y más de 10 años de práctica en educación.</p>
-  </section>
-  <div class="divider">
+  <div class="divider flip">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="#FDFBF7"/>
+      <path d="M0,60 C600,-40 600,60 1200,0 L1200,60 L0,60 Z" fill="var(--subtle-purple)"></path>
     </svg>
   </div>
 
-  <!-- FAQ Accordion -->
-  <section id="faq" class="faq section-light fade-in container">
-    <h2>Preguntas Frecuentes</h2>
-    <div class="accordion">
-      <div class="accordion-item">
-        <button class="accordion-header">
-          ¿Cómo me inscribo?
-          <span class="icon">+</span>
-        </button>
-        <div class="accordion-body">
-          Haz clic en “Más info”, completa el formulario y recibirás confirmación.
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          ¿Métodos de pago?
-          <span class="icon">+</span>
-        </button>
-        <div class="accordion-body">
-          Tarjeta, PayPal, Stripe o transferencia bancaria.
-        </div>
-      </div>
-    </div>
+  <!-- Quiénes Somos -->
+  <section id="nosotros" class="about-us section-alt fade-in container">
+    <h2>Quiénes Somos</h2>
+    <p>
+      Plataforma con sede en EE. UU., formada por profesionales con licenciaturas,
+      maestrías y doctorados, y más de 10 años de práctica en educación.
+      Nuestra misión: aprendizaje accesible, moderno y de excelencia.
+    </p>
   </section>
 
+  <!-- Divider -->
+  <div class="divider">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="var(--bg-white)"></path>
+    </svg>
+  </div>
+
   <!-- Contacto -->
-  <section id="contacto" class="contact section-alt fade-in container">
+  <section id="contacto" class="contact section-light fade-in container">
     <h2>Contáctanos</h2>
     <form name="contacto" method="POST" data-netlify="true" class="contact-form">
       <input type="hidden" name="form-name" value="contacto"/>
@@ -142,10 +125,33 @@
       <label for="email">Correo</label>
       <input id="email" type="email" name="email" required/>
       <label for="message">Mensaje</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      <input type="text" name="_gotcha" style="display:none"/>
       <button type="submit" class="btn-cta">Enviar mensaje</button>
     </form>
   </section>
+
+  <!-- Botones flotantes -->
+  <button id="back-to-top" title="Volver arriba">⬆</button>
+  <a href="index.html" id="home-button" title="Inicio">🏠</a>
+
+  <!-- Script Inline -->
+  <script>
+    const backToTop = document.getElementById('back-to-top');
+    const homeBtn    = document.getElementById('home-button');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = 'block';
+        homeBtn.style.display    = 'block';
+      } else {
+        backToTop.style.display = 'none';
+        homeBtn.style.display    = 'none';
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 
   <!-- Footer -->
   <footer class="site-footer section-alt">
@@ -155,10 +161,9 @@
         <a href="#cursos">Cursos</a> ·
         <a href="#nosotros">Quiénes somos</a>
       </nav>
-      <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
+      <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <script src="main.js"></script>
 </body>
 </html>
