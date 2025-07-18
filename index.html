@@ -1,172 +1,228 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <meta name="theme-color" content="#673AB7"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="theme-color" content="#673AB7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="aprende_logo.png">
   <title>Aprendemas</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <link rel="manifest" href="manifest.json"/>
-  <link rel="icon" href="aprende_logo.png" type="image/png"/>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="aprende_logo.png" type="image/png">
 </head>
 <body>
+
   <!-- Header -->
   <header class="site-header">
     <div class="header-content container">
       <a href="index.html" class="logo-link">
-        <img src="aprende_logo.png" alt="Aprendemas" class="logo"/>
+        <img src="aprende_logo.png" alt="Aprendemas" class="logo">
       </a>
       <nav class="nav-main">
         <ul class="nav-links">
           <li><a href="index.html">Inicio</a></li>
           <li class="dropdown">
-            <a href="#">Cursos</a>
+            <a href="#">Cursos ▼</a>
             <ul class="dropdown-content">
-              <li><a href="formacion-docente.html">Formación Docente</a></li>
-              <li><a href="ingles.html">Inglés</a></li>
-              <li><a href="filosofia.html">Filosofía</a></li>
-              <li><a href="ciencia-politica.html">Ciencia Política</a></li>
-              <li><a href="historia.html">Historia Universal</a></li>
+              <li>
+                <a href="formacion-docente.html">
+                  <img src="images/icons/icon-docente.png" alt="" class="menu-icon">
+                  Formación Docente
+                </a>
+              </li>
+              <li>
+                <a href="ingles.html">
+                  <img src="images/icons/icon-ingles.png" alt="" class="menu-icon">
+                  Inglés
+                </a>
+              </li>
+              <li>
+                <a href="filosofia.html">
+                  <img src="images/icons/icon-filosofia.png" alt="" class="menu-icon">
+                  Filosofía
+                </a>
+              </li>
+              <li>
+                <a href="ciencia-politica.html">
+                  <img src="images/icons/icon-politica.png" alt="" class="menu-icon">
+                  Ciencia Política
+                </a>
+              </li>
+              <li>
+                <a href="historia.html">
+                  <img src="images/icons/icon-historia.png" alt="" class="menu-icon">
+                  Historia Universal
+                </a>
+              </li>
             </ul>
           </li>
           <li><a href="#nosotros">Quiénes somos</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="faq.html">FAQ</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
+        <div class="header-buttons">
+          <button id="theme-toggle" class="btn-icon" aria-label="Cambiar tema">
+            <img src="images/icons/toggle-sun.png" alt="" id="theme-icon">
+          </button>
+          <button class="nav-toggle btn-icon" aria-label="Mostrar menú">☰</button>
+        </div>
       </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero section-alt fade-in">
-    <div class="hero-content container">
+  <section class="hero section-alt">
+    <div class="hero-content container reveal">
       <h1>Bienvenidos a Aprendemas</h1>
       <p>Cursos online personalizados con profesionales de primer nivel.</p>
       <a href="#cursos" class="btn-cta">Ver Cursos</a>
     </div>
   </section>
+
+  <!-- Divider -->
   <div class="divider">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="var(--bg-white)"/>
-    </svg>
+    <img src="images/divider-wave.svg" alt="">
   </div>
 
   <!-- Cursos -->
-  <section id="cursos" class="courses section-light fade-in container">
-    <h2>Cursos Disponibles</h2>
+  <section id="cursos" class="courses section-light container">
+    <h2 class="reveal">Cursos Disponibles</h2>
     <div class="course-grid">
-      <div class="course-card">
-        <h3>Formación Docente y Desarrollo Profesional</h3>
-        <p>Capacitación avanzada para educadores. Mínimo 2 clases semanales.</p>
+      <div class="course-card reveal">
+        <img src="images/icons/icon-docente.png" alt="" class="card-icon">
+        <h3>Formación Docente</h3>
+        <p>Capacitación avanzada para educadores y desarrollo profesional.</p>
         <a href="formacion-docente.html" class="btn-link">Más info</a>
       </div>
-      <div class="course-card">
+      <div class="course-card reveal">
+        <img src="images/icons/icon-ingles.png" alt="" class="card-icon">
         <h3>Inglés (Todos los niveles)</h3>
-        <p>Desde A1 hasta C1, clases 100% online y personalizadas.</p>
+        <p>Desde A1 hasta C1, mejora tu fluidez con docentes nativos.</p>
         <a href="ingles.html" class="btn-link">Más info</a>
       </div>
-      <div class="course-card">
-        <h3>Filosofía: de Grecia a la modernidad</h3>
-        <p>Pensamiento crítico y su evolución histórica.</p>
+      <div class="course-card reveal">
+        <img src="images/icons/icon-filosofia.png" alt="" class="card-icon">
+        <h3>Filosofía</h3>
+        <p>Pensamiento crítico desde Grecia hasta la modernidad.</p>
         <a href="filosofia.html" class="btn-link">Más info</a>
       </div>
-      <div class="course-card">
+      <div class="course-card reveal">
+        <img src="images/icons/icon-politica.png" alt="" class="card-icon">
         <h3>Ciencia Política</h3>
-        <p>Análisis de poder y sociedad en el mundo contemporáneo.</p>
+        <p>Análisis de poder y sociedad con perspectiva contemporánea.</p>
         <a href="ciencia-politica.html" class="btn-link">Más info</a>
       </div>
-      <div class="course-card">
-        <h3>Historia Universal y Contemporánea</h3>
-        <p>Desde la antigüedad hasta los desafíos del siglo XXI.</p>
+      <div class="course-card reveal">
+        <img src="images/icons/icon-historia.png" alt="" class="card-icon">
+        <h3>Historia Universal</h3>
+        <p>Recorre hitos desde la antigüedad hasta los retos del siglo XXI.</p>
         <a href="historia.html" class="btn-link">Más info</a>
       </div>
     </div>
-    <p class="price-info">
-      Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br/>
+    <p class="price-info reveal">
+      Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br>
       Clases grupales con descuento disponible.
     </p>
   </section>
+
+  <!-- Divider flipped -->
   <div class="divider flip">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,60 C600,-40 600,60 1200,0 L1200,60 L0,60 Z" fill="var(--subtle-purple)"/>
-    </svg>
+    <img src="images/divider-wave.svg" alt="">
   </div>
 
   <!-- Quiénes Somos -->
-  <section id="nosotros" class="about-us section-alt fade-in container">
+  <section id="nosotros" class="about-us section-alt container reveal">
     <h2>Quiénes Somos</h2>
     <p>
-      Plataforma con sede en EE. UU., profesionales con licenciaturas, maestrías y doctorados,
-      y más de 10 años de práctica en educación. Nuestra misión: aprendizaje accesible y de excelencia.
+      Plataforma con sede en EE. UU., formada por profesionales con licenciaturas,
+      maestrías y doctorados, y más de 10 años de práctica en educación.
+      Nuestra misión: aprendizaje accesible, moderno y de excelencia.
     </p>
   </section>
+
+  <!-- Divider -->
   <div class="divider">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="var(--bg-white)"/>
-    </svg>
+    <img src="images/divider-wave.svg" alt="">
   </div>
 
-  <!-- FAQ -->
-  <section id="faq" class="faq section-light fade-in container">
-    <h2>Preguntas Frecuentes</h2>
-    <div class="accordion">
-      <div class="accordion-item">
-        <button class="accordion-header">
-          ¿Cómo me inscribo?
-          <span class="icon">+</span>
-        </button>
-        <div class="accordion-body">
-          Haz clic en “Más info” en el curso deseado, completa el formulario y recibirás confirmación.
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          ¿Métodos de pago?
-          <span class="icon">+</span>
-        </button>
-        <div class="accordion-body">
-          Aceptamos tarjeta, PayPal, Stripe y transferencia bancaria.
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          ¿Hay clases los fines de semana?
-          <span class="icon">+</span>
-        </button>
-        <div class="accordion-body">
-          Sí, ofrecemos modalidad de fin de semana para adaptarnos.
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Contacto -->
-  <section id="contacto" class="contact section-alt fade-in container">
+  <section id="contacto" class="contact section-light container reveal">
     <h2>Contáctanos</h2>
     <form name="contacto" method="POST" data-netlify="true" class="contact-form">
-      <input type="hidden" name="form-name" value="contacto"/>
+      <input type="hidden" name="form-name" value="contacto">
       <label for="name">Nombre</label>
-      <input id="name" type="text" name="name" required/>
+      <input id="name" type="text" name="name" required>
       <label for="email">Correo</label>
-      <input id="email" type="email" name="email" required/>
+      <input id="email" type="email" name="email" required>
       <label for="message">Mensaje</label>
       <textarea id="message" name="message" rows="5" required></textarea>
+      <input type="text" name="_gotcha" style="display:none">
       <button type="submit" class="btn-cta">Enviar mensaje</button>
     </form>
   </section>
 
-  <!-- Footer -->
-  <footer class="site-footer section-alt">
-    <div class="container">
-      <nav class="footer-nav">
-        <a href="index.html">Inicio</a> ·
-        <a href="#cursos">Cursos</a> ·
-        <a href="#nosotros">Quiénes somos</a>
-      </nav>
-      <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+  <!-- Floating Buttons -->
+  <button id="back-to-top" class="btn-float" title="Volver arriba">⬆</button>
+  <a href="index.html" id="home-button" class="btn-float" title="Inicio">🏠</a>
 
-  <script src="main.js"></script>
+  <!-- Inline Scripts -->
+  <script>
+    // Theme Toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const rootEl = document.documentElement;
+    const stored = localStorage.getItem('theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let current = stored || (systemDark ? 'dark' : 'light');
+    function applyTheme(t) {
+      rootEl.setAttribute('data-theme', t);
+      themeIcon.src = t === 'dark'
+        ? 'images/icons/toggle-moon.png'
+        : 'images/icons/toggle-sun.png';
+    }
+    applyTheme(current);
+    themeBtn.addEventListener('click', () => {
+      current = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', current);
+      applyTheme(current);
+    });
+
+    // IntersectionObserver Reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    reveals.forEach(el => io.observe(el));
+
+    // Scroll To Top & Home Buttons
+    const backToTop = document.getElementById('back-to-top');
+    const homeBtn = document.getElementById('home-button');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = 'block';
+        homeBtn.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+        homeBtn.style.display = 'none';
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Mobile Nav Toggle
+    document.querySelector('.nav-toggle')
+      .addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('open');
+      });
+  </script>
+
 </body>
 </html>
