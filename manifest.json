@@ -2,8 +2,8 @@
   "name": "Aprendemas",
   "short_name": "Aprendemas",
   "lang": "es",
-  "start_url": "index.html",
-  "scope": "/",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#FDFBF7",
   "theme_color": "#673AB7",
@@ -14,13 +14,38 @@
       "type": "image/png"
     },
     {
-      "src": "images/icon-192x192.png",
-      "sizes": "192x192",
+      "src": "images/icons/toggle-sun.png",
+      "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "images/icon-512x512.png",
-      "sizes": "512x512",
+      "src": "images/icons/icon-docente.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-ingles.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-filosofia.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-politica.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-historia.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/toggle-moon.png",
+      "sizes": "32x32",
       "type": "image/png"
     }
   ]
