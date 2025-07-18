@@ -34,7 +34,6 @@
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
-        <button class="nav-toggle" aria-label="Mostrar menú">☰</button>
       </nav>
     </div>
   </header>
@@ -51,7 +50,7 @@
   <!-- Divider -->
   <div class="divider">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="var(--bg-white)"></path>
+      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="var(--bg-white)"/>
     </svg>
   </div>
 
@@ -59,34 +58,39 @@
   <section id="cursos" class="courses section-light fade-in container">
     <h2>Cursos Disponibles</h2>
     <div class="course-grid">
-      <div class="course-card curso-docente">
-        <h3>Formación Docente</h3>
-        <p>Capacitación avanzada para educadores y desarrollo profesional.</p>
+      <!-- Formación Docente -->
+      <div class="course-card">
+        <h3>Formación Docente y Desarrollo Profesional</h3>
+        <p>Capacitación avanzada para educadores. Mínimo 2 clases semanales.</p>
         <a href="formacion-docente.html" class="btn-link">Más info</a>
       </div>
-      <div class="course-card curso-ingles">
+      <!-- Inglés -->
+      <div class="course-card">
         <h3>Inglés (Todos los niveles)</h3>
-        <p>Desde A1 hasta C1, mejora tu fluidez con docentes nativos.</p>
+        <p>Desde A1 hasta C1, clases 100% online y personalizadas.</p>
         <a href="ingles.html" class="btn-link">Más info</a>
       </div>
-      <div class="course-card curso-filosofia">
-        <h3>Filosofía</h3>
-        <p>Pensamiento crítico desde Grecia hasta la modernidad.</p>
+      <!-- Filosofía -->
+      <div class="course-card">
+        <h3>Filosofía: de Grecia a la modernidad</h3>
+        <p>Pensamiento crítico y su evolución histórica.</p>
         <a href="filosofia.html" class="btn-link">Más info</a>
       </div>
-      <div class="course-card curso-politica">
+      <!-- Ciencia Política -->
+      <div class="course-card">
         <h3>Ciencia Política</h3>
-        <p>Análisis de poder y sociedad con perspectiva contemporánea.</p>
+        <p>Análisis de poder y sociedad en el mundo contemporáneo.</p>
         <a href="ciencia-politica.html" class="btn-link">Más info</a>
       </div>
-      <div class="course-card curso-historia">
-        <h3>Historia Universal</h3>
-        <p>Recorre hitos desde la antigüedad hasta los retos del siglo XXI.</p>
+      <!-- Historia -->
+      <div class="course-card">
+        <h3>Historia Universal y Contemporánea</h3>
+        <p>Desde la antigüedad hasta los desafíos del siglo XXI.</p>
         <a href="historia.html" class="btn-link">Más info</a>
       </div>
     </div>
     <p class="price-info">
-      Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br/>
+      Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br/>
       Clases grupales con descuento disponible.
     </p>
   </section>
@@ -94,7 +98,7 @@
   <!-- Divider -->
   <div class="divider flip">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,60 C600,-40 600,60 1200,0 L1200,60 L0,60 Z" fill="var(--subtle-purple)"></path>
+      <path d="M0,60 C600,-40 600,60 1200,0 L1200,60 L0,60 Z" fill="var(--subtle-purple)"/>
     </svg>
   </div>
 
@@ -102,18 +106,19 @@
   <section id="nosotros" class="about-us section-alt fade-in container">
     <h2>Quiénes Somos</h2>
     <p>
-      Plataforma con sede en EE. UU., formada por profesionales con licenciaturas,
-      maestrías y doctorados, y más de 10 años de práctica en educación.
-      Nuestra misión: aprendizaje accesible, moderno y de excelencia.
+      Plataforma con sede en EE. UU., profesionales con licenciaturas, maestrías y doctorados,
+      y más de 10 años de práctica en educación. Nuestra misión: aprendizaje accesible y de excelencia.
     </p>
   </section>
 
   <!-- Divider -->
   <div class="divider">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="var(--bg-white)"></path>
+      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="var(--bg-white)"/>
     </svg>
   </div>
+
+  <!-- FAQ en su propia página (enlace arriba) -->
 
   <!-- Contacto -->
   <section id="contacto" class="contact section-light fade-in container">
@@ -131,28 +136,6 @@
     </form>
   </section>
 
-  <!-- Botones flotantes -->
-  <button id="back-to-top" title="Volver arriba">⬆</button>
-  <a href="index.html" id="home-button" title="Inicio">🏠</a>
-
-  <!-- Script Inline -->
-  <script>
-    const backToTop = document.getElementById('back-to-top');
-    const homeBtn    = document.getElementById('home-button');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTop.style.display = 'block';
-        homeBtn.style.display    = 'block';
-      } else {
-        backToTop.style.display = 'none';
-        homeBtn.style.display    = 'none';
-      }
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
-
   <!-- Footer -->
   <footer class="site-footer section-alt">
     <div class="container">
@@ -161,9 +144,10 @@
         <a href="#cursos">Cursos</a> ·
         <a href="#nosotros">Quiénes somos</a>
       </nav>
-      <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
+      <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
     </div>
   </footer>
 
+  <script src="main.js"></script>
 </body>
 </html>
