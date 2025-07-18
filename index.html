@@ -10,7 +10,6 @@
   <link rel="icon" href="aprende_logo.png" type="image/png"/>
 </head>
 <body>
-
   <!-- Header -->
   <header class="site-header">
     <div class="header-content container">
@@ -31,7 +30,7 @@
             </ul>
           </li>
           <li><a href="#nosotros">Quiénes somos</a></li>
-          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
@@ -46,8 +45,6 @@
       <a href="#cursos" class="btn-cta">Ver Cursos</a>
     </div>
   </section>
-
-  <!-- Divider -->
   <div class="divider">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
       <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="var(--bg-white)"/>
@@ -58,34 +55,29 @@
   <section id="cursos" class="courses section-light fade-in container">
     <h2>Cursos Disponibles</h2>
     <div class="course-grid">
-      <!-- Formación Docente -->
       <div class="course-card">
         <h3>Formación Docente y Desarrollo Profesional</h3>
         <p>Capacitación avanzada para educadores. Mínimo 2 clases semanales.</p>
         <a href="formacion-docente.html" class="btn-link">Más info</a>
       </div>
-      <!-- Inglés -->
       <div class="course-card">
         <h3>Inglés (Todos los niveles)</h3>
         <p>Desde A1 hasta C1, clases 100% online y personalizadas.</p>
         <a href="ingles.html" class="btn-link">Más info</a>
       </div>
-      <!-- Filosofía -->
       <div class="course-card">
         <h3>Filosofía: de Grecia a la modernidad</h3>
         <p>Pensamiento crítico y su evolución histórica.</p>
         <a href="filosofia.html" class="btn-link">Más info</a>
       </div>
-      <!-- Ciencia Política -->
       <div class="course-card">
         <h3>Ciencia Política</h3>
         <p>Análisis de poder y sociedad en el mundo contemporáneo.</p>
         <a href="ciencia-politica.html" class="btn-link">Más info</a>
       </div>
-      <!-- Historia -->
       <div class="course-card">
         <h3>Historia Universal y Contemporánea</h3>
-        <p>Desde la antigüedad hasta los desafíos del siglo XXI.</p>
+        <p>Desde la antigüedad hasta los desafíos del siglo XXI.</p>
         <a href="historia.html" class="btn-link">Más info</a>
       </div>
     </div>
@@ -94,8 +86,6 @@
       Clases grupales con descuento disponible.
     </p>
   </section>
-
-  <!-- Divider -->
   <div class="divider flip">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
       <path d="M0,60 C600,-40 600,60 1200,0 L1200,60 L0,60 Z" fill="var(--subtle-purple)"/>
@@ -110,18 +100,48 @@
       y más de 10 años de práctica en educación. Nuestra misión: aprendizaje accesible y de excelencia.
     </p>
   </section>
-
-  <!-- Divider -->
   <div class="divider">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
       <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="var(--bg-white)"/>
     </svg>
   </div>
 
-  <!-- FAQ en su propia página (enlace arriba) -->
+  <!-- FAQ -->
+  <section id="faq" class="faq section-light fade-in container">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-header">
+          ¿Cómo me inscribo?
+          <span class="icon">+</span>
+        </button>
+        <div class="accordion-body">
+          Haz clic en “Más info” en el curso deseado, completa el formulario y recibirás confirmación.
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          ¿Métodos de pago?
+          <span class="icon">+</span>
+        </button>
+        <div class="accordion-body">
+          Aceptamos tarjeta, PayPal, Stripe y transferencia bancaria.
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          ¿Hay clases los fines de semana?
+          <span class="icon">+</span>
+        </button>
+        <div class="accordion-body">
+          Sí, ofrecemos modalidad de fin de semana para adaptarnos.
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Contacto -->
-  <section id="contacto" class="contact section-light fade-in container">
+  <section id="contacto" class="contact section-alt fade-in container">
     <h2>Contáctanos</h2>
     <form name="contacto" method="POST" data-netlify="true" class="contact-form">
       <input type="hidden" name="form-name" value="contacto"/>
@@ -131,7 +151,6 @@
       <input id="email" type="email" name="email" required/>
       <label for="message">Mensaje</label>
       <textarea id="message" name="message" rows="5" required></textarea>
-      <input type="text" name="_gotcha" style="display:none"/>
       <button type="submit" class="btn-cta">Enviar mensaje</button>
     </form>
   </section>
