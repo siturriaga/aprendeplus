@@ -88,3 +88,183 @@ body {
 }
 
 img { max-width:100%; display:block; }
+
+/* =========================================================
+   PATCH RESPONSIVE – Reducción de escala y espacios
+   Añadir al final de styles.css
+   ========================================================= */
+
+/* --- Ajuste de escalas tipográficas --- */
+:root {
+  --font-h1: clamp(1.9rem, 4.2vw, 2.55rem);
+  --font-h2: clamp(1.35rem, 3.2vw, 1.95rem);
+  --font-h3: 1.05rem;
+  --font-body: 0.95rem;
+}
+
+body {
+  line-height: 1.55;
+}
+
+/* Limitar ancho del H1 */
+.hero-content h1 {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: -.25px;
+}
+
+/* Logo escalonado */
+.logo {
+  max-height: 160px;
+}
+@media (max-width: 900px){
+  .logo { max-height: 140px; }
+}
+@media (max-width: 760px){
+  .logo { max-height: 120px; }
+}
+@media (max-width: 520px){
+  .logo { max-height: 100px; }
+}
+
+/* Hero más compacto */
+.hero {
+  min-height: 340px;
+  padding: 2.2rem 0 2.6rem;
+}
+@media (max-width: 760px){
+  .hero { min-height: 300px; padding: 2rem 0 2.2rem; }
+}
+@media (max-width: 520px){
+  .hero { min-height: 270px; padding: 1.7rem 0 1.9rem; }
+}
+
+.subhero {
+  font-size: .85rem;
+  letter-spacing: .4px;
+}
+
+/* Menú: reducir gaps */
+.nav-links {
+  gap: 1rem;
+}
+.header-content {
+  gap: 1rem;
+}
+
+/* Botones icono un poco más pequeños */
+.btn-icon,
+#navToggle {
+  width: 42px; height: 42px;
+}
+.btn-icon .theme-label {
+  font-size: .55rem;
+  bottom: -0.9rem;
+}
+
+/* Secciones: menos padding vertical */
+.courses,
+.about-us,
+.contact {
+  padding: 3.2rem 0;
+}
+@media (max-width: 760px){
+  .courses,
+  .about-us,
+  .contact {
+    padding: 2.6rem 0;
+  }
+}
+
+/* Cards más compactas */
+.course-card {
+  padding: 1.35rem 1.1rem 1.5rem;
+  border-radius: 14px;
+}
+.course-card .card-icon {
+  width: 52px; height: 52px;
+  margin-bottom: .75rem;
+}
+.course-card h3 {
+  font-size: .98rem;
+  margin-bottom: .5rem;
+}
+.course-card p {
+  font-size: .83rem;
+  line-height: 1.45;
+  min-height: auto;
+  margin-bottom: .8rem;
+}
+.btn-link {
+  font-size: .78rem;
+}
+
+/* Grid: menor separación en móvil */
+@media (max-width: 760px){
+  .course-grid {
+    gap: 1.4rem;
+  }
+}
+
+/* Precio / info: ajustar */
+.price-info {
+  font-size: .8rem;
+  margin-top: 1.8rem;
+}
+
+/* About / Contacto textos */
+.about-us p {
+  font-size: .95rem;
+  line-height: 1.55;
+}
+.contact-form {
+  padding: 1.6rem 1.4rem 1.9rem;
+  gap: 1rem;
+}
+.contact-form label {
+  font-size: .7rem;
+  letter-spacing: .4px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: .7rem .85rem;
+  font-size: .88rem;
+}
+
+/* Botones flotantes más pequeños */
+.btn-float {
+  width: 46px; height: 46px;
+  font-size: 1.05rem;
+  bottom: 1rem;
+  right: 1rem;
+}
+#home-button {
+  right: 4rem;
+}
+
+/* Footer compacto */
+.site-footer {
+  padding: 3rem 0 2.4rem;
+}
+.site-footer p {
+  font-size: .7rem;
+}
+
+/* Dropdown móvil más compacto */
+@media (max-width: 820px){
+  .nav-links {
+    padding: 1rem 1.1rem 1.3rem;
+    width: min(90vw, 320px);
+    max-height: 70vh;
+  }
+  .dropdown-content {
+    margin-top: .2rem;
+    padding: .15rem 0 .4rem;
+  }
+  .dropdown-content li a {
+    padding: .55rem .85rem;
+    font-size: .85rem;
+  }
+}
+
