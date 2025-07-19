@@ -1,65 +1,81 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-  <meta name="theme-color" content="#673AB7"/>
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
-  <link rel="icon" href="aprende_logo.png" type="image/png"/>
-  <link rel="apple-touch-icon" href="aprende_logo.png"/>
-  <link rel="manifest" href="manifest.json"/>
-  <link rel="stylesheet" href="styles.css"/>
-  <title>Aprendemas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Aprendemas – Formación Personalizada Online</title>
+  <meta name="description" content="Cursos online personalizados: formación docente, inglés, filosofía, ciencia política e historia. Clases 1 hora por $20 CLP, descuentos grupales.">
+  <meta name="theme-color" content="#673AB7">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Favicon / Icons (asegúrate de subir los archivos reales) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- CSS principal (cache-buster ?v=1) -->
+  <link rel="stylesheet" href="styles.css?v=1">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Aprendemas – Formación Personalizada Online">
+  <meta property="og:description" content="Formación docente, inglés, filosofía, ciencia política e historia. Profesionales con +10 años de experiencia.">
+  <meta property="og:image" content="og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aprendemas – Formación Personalizada Online">
+  <meta name="twitter:description" content="Clases en vivo, personalizadas y con descuentos grupales.">
+  <meta name="twitter:image" content="twitter-card.jpg">
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- ============= HEADER / NAV ============= -->
   <header class="site-header">
     <div class="header-content container">
-      <a href="index.html" class="logo-link">
-        <img src="aprende_logo.png" alt="Aprendemas" class="logo"/>
+      <a href="index.html" class="logo-link" aria-label="Inicio">
+        <!-- LOGO: reemplaza src por tu archivo real (ej: aprende_logo.png) -->
+        <img src="aprende_logo.png" alt="Aprendemas" class="logo">
       </a>
-      <nav class="nav-main">
-        <ul class="nav-links">
+
+      <nav class="nav-main" aria-label="Navegación principal">
+        <ul class="nav-links" id="primary-nav">
           <li><a href="index.html">Inicio</a></li>
           <li class="dropdown">
-            <a href="#">Cursos ▼</a>
-            <ul class="dropdown-content">
-              <li><a href="formacion-docente.html">
-                <img src="images/icon-docente.png" class="menu-icon" alt=""> Formación Docente
-              </a></li>
-              <li><a href="ingles.html">
-                <img src="images/icon-ingles.png" class="menu-icon" alt=""> Inglés
-              </a></li>
-              <li><a href="filosofia.html">
-                <img src="images/icon-filosofia.png" class="menu-icon" alt=""> Filosofía
-              </a></li>
-              <li><a href="ciencia-politica.html">
-                <img src="images/icon-politica.png" class="menu-icon" alt=""> Ciencia Política
-              </a></li>
-              <li><a href="historia.html">
-                <img src="images/icon-historia.png" class="menu-icon" alt=""> Historia Universal
-              </a></li>
+            <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">Cursos ▼</button>
+            <ul class="dropdown-content" aria-label="Submenú cursos">
+              <li><a href="formacion-docente.html">Formación Docente</a></li>
+              <li><a href="ingles.html">Inglés</a></li>
+              <li><a href="filosofia.html">Filosofía</a></li>
+              <li><a href="ciencia-politica.html">Ciencia Política</a></li>
+              <li><a href="historia.html">Historia Universal</a></li>
             </ul>
           </li>
           <li><a href="#nosotros">Quiénes somos</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
+
         <div class="header-buttons">
-          <button id="theme-toggle" class="btn-icon" aria-label="Cambiar tema">
-            <svg id="theme-icon" class="toggle-icon" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="5" fill="gold"/>
+          <button id="theme-toggle" class="btn-icon" aria-label="Cambiar modo claro/oscuro">
+            <span class="theme-label">Modo</span>
+            <svg id="theme-icon" viewBox="0 0 24 24" width="20" height="20">
+              <circle cx="12" cy="12" r="5" fill="gold"></circle>
             </svg>
           </button>
-          <button class="nav-toggle btn-icon" aria-label="Mostrar menú">☰</button>
+          <button class="nav-toggle btn-icon" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-nav">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- ============= HERO ============= -->
   <section class="hero">
     <div class="hero-content container reveal">
       <h1>Bienvenidos a Aprendemas</h1>
@@ -68,78 +84,76 @@
     </div>
   </section>
 
-  <!-- Divider -->
   <div class="divider">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,0 C300,50 900,0 1200,40 L1200,0 L0,0 Z" fill="var(--bg-white)"></path>
+      <path d="M0,0 C300,50 900,0 1200,40 L1200,0 L0,0 Z" fill="var(--bg-white)"/>
     </svg>
   </div>
 
-  <!-- Cursos -->
+  <!-- ============= CURSOS ============= -->
   <section id="cursos" class="courses container">
     <h2 class="reveal">Cursos Disponibles</h2>
     <div class="course-grid">
-      <div class="course-card reveal">
+      <div class="course-card color-1 reveal">
         <img src="images/icon-docente.png" alt="" class="card-icon">
         <h3>Formación Docente</h3>
-        <p>Capacitación avanzada para educadores y desarrollo profesional.</p>
+        <p>Capacitación avanzada y desarrollo profesional de educadores.</p>
         <a href="formacion-docente.html" class="btn-link">Más info</a>
       </div>
-      <div class="course-card reveal">
+      <div class="course-card color-2 reveal">
         <img src="images/icon-ingles.png" alt="" class="card-icon">
         <h3>Inglés (Todos los niveles)</h3>
-        <p>Desde A1 hasta C1, mejora tu fluidez con docentes nativos.</p>
+        <p>Desde A1 hasta C1, mejora tu fluidez con docentes expertos.</p>
         <a href="ingles.html" class="btn-link">Más info</a>
       </div>
-      <div class="course-card reveal">
+      <div class="course-card color-3 reveal">
         <img src="images/icon-filosofia.png" alt="" class="card-icon">
         <h3>Filosofía</h3>
         <p>Pensamiento crítico desde Grecia hasta la modernidad.</p>
         <a href="filosofia.html" class="btn-link">Más info</a>
       </div>
-      <div class="course-card reveal">
+      <div class="course-card color-4 reveal">
         <img src="images/icon-politica.png" alt="" class="card-icon">
         <h3>Ciencia Política</h3>
-        <p>Análisis de poder y sociedad con perspectiva contemporánea.</p>
+        <p>Instituciones, poder y análisis sociopolítico contemporáneo.</p>
         <a href="ciencia-politica.html" class="btn-link">Más info</a>
       </div>
-      <div class="course-card reveal">
+      <div class="course-card color-5 reveal">
         <img src="images/icon-historia.png" alt="" class="card-icon">
         <h3>Historia Universal</h3>
-        <p>Recorre hitos desde la antigüedad hasta los retos del siglo XXI.</p>
+        <p>De la antigüedad a los retos del siglo XXI con contexto global.</p>
         <a href="historia.html" class="btn-link">Más info</a>
       </div>
     </div>
     <p class="price-info reveal">
-      Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br>Clases grupales con descuento disponible.
+      Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br>
+      Clases grupales con descuento disponible (mínimo 2 veces por semana).
     </p>
   </section>
 
-  <!-- Divider Flip -->
   <div class="divider flip">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,60 C300,10 900,60 1200,20 L1200,60 L0,60 Z" fill="var(--subtle-purple)"></path>
+      <path d="M0,60 C300,10 900,60 1200,20 L1200,60 L0,60 Z" fill="var(--subtle-purple)"/>
     </svg>
   </div>
 
-  <!-- Nosotros -->
+  <!-- ============= QUIÉNES SOMOS ============= -->
   <section id="nosotros" class="about-us section-alt container reveal">
     <h2>Quiénes Somos</h2>
     <p>
-      Plataforma con sede en EE. UU., formada por profesionales con licenciaturas,
-      maestrías y doctorados, y más de 10 años de práctica en educación.
-      Nuestra misión: aprendizaje accesible, moderno y de excelencia.
+      Plataforma con sede en EE. UU., integrada por profesionales en educación con
+      licenciaturas, maestrías y doctorados, más de 10 años de práctica y experiencia
+      docente. Clases en vivo, online y personalizadas para tus objetivos.
     </p>
   </section>
 
-  <!-- Divider -->
   <div class="divider">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,0 C300,50 900,0 1200,40 L1200,0 L0,0 Z" fill="var(--bg-white)"></path>
+      <path d="M0,0 C300,50 900,0 1200,40 L1200,0 L0,0 Z" fill="var(--bg-white)"/>
     </svg>
   </div>
 
-  <!-- Contacto -->
+  <!-- ============= CONTACTO ============= -->
   <section id="contacto" class="contact container reveal">
     <h2>Contáctanos</h2>
     <form name="contacto" method="POST" data-netlify="true" class="contact-form">
@@ -159,68 +173,122 @@
   <button id="back-to-top" class="btn-float" title="Volver arriba">⬆</button>
   <a href="index.html" id="home-button" class="btn-float" title="Inicio">🏠</a>
 
-  <!-- Footer -->
+  <!-- ============= FOOTER ============= -->
   <footer class="site-footer">
     <div class="container">
       <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- ============= SCRIPT ============= -->
   <script>
-    // Toggle Tema
-    const themeBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const rootEl = document.documentElement;
-    const stored = localStorage.getItem('theme');
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    let current = stored || (systemDark ? 'dark' : 'light');
-    function applyTheme(t) {
-      rootEl.setAttribute('data-theme', t);
-      themeIcon.innerHTML = t === 'dark'
-        ? '<circle cx="12" cy="12" r="5" fill="currentColor"/>'
-        : '<circle cx="12" cy="12" r="5" fill="gold"/>';
-    }
-    applyTheme(current);
-    themeBtn.addEventListener('click', () => {
-      current = current === 'light' ? 'dark' : 'light';
-      localStorage.setItem('theme', current);
-      applyTheme(current);
-    });
+  /* Tema Dark/Light */
+  const themeBtn  = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const rootEl    = document.documentElement;
+  const stored    = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let currentTheme = stored || (prefersDark ? 'dark' : 'light');
+  function applyTheme(t){
+    rootEl.setAttribute('data-theme', t);
+    themeIcon.innerHTML = t === 'dark'
+      ? '<circle cx="12" cy="12" r="5" fill="currentColor"/>'
+      : '<circle cx="12" cy="12" r="5" fill="gold"/>';
+  }
+  applyTheme(currentTheme);
+  themeBtn.addEventListener('click', () => {
+    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('theme', currentTheme);
+    applyTheme(currentTheme);
+  });
 
-    // Reveal on Scroll (Intersection Observer)
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('is-visible');
-          io.unobserve(e.target);
+  /* Menú móvil */
+  const navToggle = document.getElementById('navToggle');
+  const navLinks  = document.getElementById('primary-nav');
+  function closeMenu(){
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('active');
+    navToggle.setAttribute('aria-expanded','false');
+    document.body.classList.remove('menu-open');
+  }
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('active', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.classList.toggle('menu-open', isOpen);
+  });
+  navLinks.addEventListener('click', e => {
+    const a = e.target.closest('a');
+    if(!a) return;
+    const h = a.getAttribute('href') || '';
+    if(h.startsWith('#') || h.endsWith('.html')) closeMenu();
+  });
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 820 && navLinks.classList.contains('open')) closeMenu();
+  });
+  window.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && navLinks.classList.contains('open')) closeMenu();
+  });
+
+  /* Dropdown Cursos en móvil */
+  const dropdownTrigger = document.querySelector('.dropdown-trigger');
+  const dropdownMenu    = document.querySelector('.dropdown-content');
+  if(dropdownTrigger && dropdownMenu){
+    dropdownTrigger.addEventListener('click', e => {
+      if(window.innerWidth <= 820){
+        e.preventDefault();
+        dropdownMenu.classList.toggle('open');
+        const expanded = dropdownTrigger.getAttribute('aria-expanded') === 'true';
+        dropdownTrigger.setAttribute('aria-expanded', (!expanded).toString());
+      }
+    });
+  }
+
+  /* Reveal on Scroll */
+  const reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
         }
       });
     }, { threshold: 0.2 });
     reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('is-visible'));
+  }
 
-    // Scroll Top / Home buttons
-    const backToTop = document.getElementById('back-to-top');
-    const homeBtn = document.getElementById('home-button');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTop.style.display = 'block';
-        homeBtn.style.display = 'block';
-      } else {
-        backToTop.style.display = 'none';
-        homeBtn.style.display = 'none';
+  /* Botones flotantes */
+  const backToTop = document.getElementById('back-to-top');
+  const homeBtn   = document.getElementById('home-button');
+  function toggleFloats(){
+    if(window.scrollY > 300){
+      backToTop.style.display='block';
+      homeBtn.style.display='block';
+    } else {
+      backToTop.style.display='none';
+      homeBtn.style.display='none';
+    }
+  }
+  window.addEventListener('scroll', toggleFloats);
+  toggleFloats();
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* Scroll suave anclas */
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const id = a.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
       }
     });
-    backToTop.addEventListener('click', () =>
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    );
-
-    // Mobile nav toggle
-    document.querySelector('.nav-toggle')
-      .addEventListener('click', () =>
-        document.querySelector('.nav-links').classList.toggle('open')
-      );
+  });
   </script>
 </body>
 </html>
