@@ -1,330 +1,95 @@
-/* =========================================================
-   Aprendemas – styles.css (sin imágenes externas)
-   ========================================================= */
+/* ================================
+   Fondos Profesionales por Sección
+   ================================ */
 
-/* Design Tokens */
-:root {
-  --primary-purple:   #673AB7;
-  --accent-purple:    #8E24AA;
-  --deep-purple:      #4527A0;
-  --gold:             #FFD54F;
-  --bg-white:         #FDFBF7;
-  --pure-white:       #FFFFFF;
-  --subtle-purple:    #F5F0FA;
-  --text-primary:     #2F2F35;
-  --text-secondary:   #666666;
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
-  --radius-pill: 999px;
-  --shadow-sm: 0 2px 6px rgba(0,0,0,.08);
-  --shadow-md: 0 6px 18px rgba(0,0,0,.15);
-  --shadow-lg: 0 12px 36px -6px rgba(32,16,72,.35);
-  --ease: cubic-bezier(.4,.16,.25,.98);
-  --fast: .25s var(--ease);
-  --med:  .5s var(--ease);
-  --font-h1: clamp(1.9rem, 4.2vw, 2.55rem);
-  --font-h2: clamp(1.35rem, 3.2vw, 1.95rem);
-  --font-h3: 1.05rem;
-  --font-body: .95rem;
-}
-
-/* Dark Mode */
-html[data-theme="dark"] {
-  --bg-white: #1F1E24;
-  --pure-white: #2A2831;
-  --subtle-purple: #322845;
-  --text-primary: #F4F3F7;
-  --text-secondary: #B9B6C5;
-}
-
-/* Base Reset */
-* { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
-body {
-  font: var(--font-body)/1.55 'Open Sans', sans-serif;
-  background: linear-gradient(120deg, var(--subtle-purple), var(--bg-white) 60%) fixed;
-  color: var(--text-primary);
-  -webkit-font-smoothing: antialiased;
-}
-img { max-width:100%; display:block; }
-a { color: var(--accent-purple); text-decoration:none; }
-a:hover { color: var(--primary-purple); }
-::selection { background: var(--accent-purple); color:#fff; }
-section[id], .courses, .about-us, .contact { scroll-margin-top:110px; }
-
-/* Focus */
-a:focus-visible, button:focus-visible,
-input:focus-visible, textarea:focus-visible {
-  outline:3px solid var(--gold); outline-offset:2px; border-radius:var(--radius-sm);
-}
-
-/* Container */
-.container { max-width:1140px; margin:0 auto; padding:0 24px; }
-
-/* Site-wide Background Decorations for Cursos */
-#cursos {
-  position:relative; overflow:hidden; z-index:0; padding:3.2rem 0 2.8rem;
-}
-#cursos::before {
-  content:''; position:absolute; top:-20%; left:-10%;
-  width:120%; height:140%;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB3…"); /* Pon tu SVG base64 aquí */
-  opacity:0.08; transform:rotate(15deg); pointer-events:none; z-index:-1;
-}
-
-/* Header & Nav */
-.site-header {
-  position:sticky; top:0; z-index:1000;
-  background: var(--primary-purple);
-  background-image: radial-gradient(circle at 20% 30%, rgba(255,213,79,.35), rgba(255,213,79,0) 55%);
-  padding:1rem 0 1.2rem;
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(8px);
-}
-.header-content {
-  display:flex; align-items:flex-start; justify-content:space-between; gap:1rem;
-}
-.logo {
-  max-height:160px; transition: transform var(--fast), filter var(--fast);
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
-}
-.logo:hover { transform:scale(1.03); filter:drop-shadow(0 6px 16px rgba(0,0,0,.45)); }
-.nav-main { display:flex; align-items:flex-start; gap:.75rem; }
-
-/* Nav Links & Dropdown */
-.nav-links, .dropdown-content { list-style:none; }
-.nav-links {
-  display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap;
-}
-.nav-links a, .dropdown-trigger {
-  color:#FFF; font-weight:600; font-size:.9rem; letter-spacing:.4px;
-  position:relative; padding:.35rem .2rem; display:inline-flex; align-items:center; gap:.3rem;
-  transition: color var(--fast);
-}
-.nav-links a::after, .dropdown-trigger::after {
-  content:''; position:absolute; left:0; bottom:-4px; width:0; height:2px;
-  background:var(--gold); transition: width var(--fast); border-radius:2px;
-}
-.nav-links a:hover::after, .dropdown-trigger:hover::after, .nav-links a.active::after {
-  width:100%;
-}
-
-.header-actions {
-  display:flex; align-items:center; gap:.55rem; margin-top:.4rem;
-}
-.btn-icon {
-  background: linear-gradient(90deg,#FFD54F,#FFB347 60%,#FFD54F);
-  background-size:200% 100%; border:none; color: var(--primary-purple);
-  width:42px; height:42px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center; position:relative;
-  box-shadow: var(--shadow-sm); cursor:pointer;
-  transition: background-position var(--med), transform var(--fast), box-shadow var(--fast);
-}
-.btn-icon:hover { background-position:100% 0; transform:translateY(-3px); box-shadow: var(--shadow-md); }
-.btn-icon .icon-label {
-  position:absolute; bottom:-0.85rem; left:50%; transform:translateX(-50%);
-  font: .5rem/1 sans-serif; background:rgba(0,0,0,.45); color:#fff; padding:2px 5px;
-  border-radius:8px; letter-spacing:.5px; pointer-events:none;
-}
-.nav-toggle .icon-close { display:none; }
-.nav-toggle.active .icon-open { display:none; }
-.nav-toggle.active .icon-close { display:block; }
-
-.dropdown { position:relative; }
-.dropdown-trigger { background:transparent; border:none; cursor:pointer; }
-.dropdown-content {
-  position:absolute; top:100%; left:0; background:var(--accent-purple);
-  border-radius: var(--radius-lg); padding:.5rem 0; min-width:210px;
-  box-shadow: var(--shadow-lg); opacity:0; visibility:hidden;
-  transform: translateY(-10px); transition: var(--fast); z-index:1001;
-  backdrop-filter: blur(6px);
-}
-.dropdown:hover .dropdown-content,
-.dropdown-content.open {
-  opacity:1; visibility:visible; transform:translateY(0);
-}
-.dropdown-content li a {
-  display:flex; align-items:center; gap:.6rem; padding:.55rem .9rem;
-  color:#FFF; font-weight:500; font-size:.85rem;
-  transition: background var(--fast), padding-left var(--fast);
-}
-.dropdown-content li a:hover {
-  background: rgba(255,255,255,.12); padding-left:1.15rem; border-radius:8px;
-}
-
-/* Mobile Nav */
-@media (max-width:820px){
-  .nav-links {
-    display:none; flex-direction:column;
-    background: linear-gradient(160deg,#673AB7,#4527A0 70%);
-    padding:1rem 1.1rem 1.3rem; border-radius:20px;
-    position:absolute; right:1rem; top:100%; box-shadow: var(--shadow-lg);
-    width: min(90vw,320px); max-height:70vh; overflow-y:auto;
-    scrollbar-width: thin; scrollbar-color: var(--accent-purple) transparent;
-    animation: menuFade .4s var(--ease);
-    z-index:2000;
-  }
-  .nav-links.open { display:flex; }
-  @keyframes menuFade {
-    from { opacity:0; transform: translateY(-10px) scale(.96); }
-    to   { opacity:1; transform: translateY(0) scale(1); }
-  }
-  body.menu-open { overflow:hidden; }
-
-  .dropdown-content {
-    position:static; opacity:1!important; visibility:visible!important;
-    transform:none!important; box-shadow:none;
-    background: linear-gradient(160deg,#8E24AA,#673AB7);
-    margin-top:.3rem; padding:.2rem 0 .4rem; border-radius:16px;
-  }
-  .dropdown-trigger::after { display:none; }
-}
-
-/* Hero */
+/* 1. Hero: degradado dinámico + overlay de partículas sutil */
 .hero {
-  position:relative; min-height:340px; display:flex; align-items:center;
-  background: linear-gradient(135deg,#8E24AA 0%,#673AB7 55%,#4527A0 100%);
-  color:#FFF; padding:2.2rem 0 2.6rem; overflow:hidden;
+  background: linear-gradient(135deg, rgba(103,58,183,0.85), rgba(142,36,170,0.85)), 
+              url('data:image/svg+xml;utf8,\
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.04">\
+                  <circle cx="50" cy="50" r="2" fill="%23FFFFFF"/>\
+                  <circle cx="20" cy="80" r="1.5" fill="%23FFFFFF"/>\
+                  <circle cx="80" cy="20" r="1" fill="%23FFFFFF"/>\
+                </svg>') center/200px auto repeat;
+  color: #FFF;
+  position: relative;
+  overflow: hidden;
 }
-.hero-content { text-align:center; width:100%; margin:0 auto; }
-.hero-content h1 {
-  font: var(--font-h1) 'Montserrat',sans-serif; margin-bottom:.8rem;
-  max-width:760px; animation: fadeDown .8s var(--ease);
-}
-.hero-content .subhero {
-  font-size:.85rem; opacity:0; transform:translateY(10px);
-  animation: fadeUp .9s .25s var(--ease) forwards;
-}
-@keyframes fadeDown { from{opacity:0;transform:translateY(-12px);} to{opacity:1;transform:translateY(0);} }
-@keyframes fadeUp   { to{opacity:1;transform:translateY(0);} }
 
-/* Buttons */
-.btn-cta {
-  display:inline-block; margin-top:1.3rem; padding:.85rem 1.9rem;
-  font-weight:700; letter-spacing:.5px; font-size:.88rem;
-  border-radius: var(--radius-pill);
-  background: linear-gradient(90deg,#FFD54F,#FFB347 60%,#FFD54F);
-  background-size:220% 100%;
-  color: var(--primary-purple); box-shadow: 0 6px 20px -4px rgba(0,0,0,.35);
-  position:relative; overflow:hidden;
-  transition: background-position var(--med), transform var(--fast), box-shadow var(--fast);
+/* 2. Cursos: patrón diagonal sutil + degradado blanco */
+#cursos {
+  background: linear-gradient(180deg, rgba(245,240,250,0.9), rgba(253,251,247,0.9)),
+              url('data:image/svg+xml;utf8,\
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" opacity="0.06">\
+                  <path d="M0 0 L8 8 M8 0 L0 8" stroke="%236732AA" stroke-width="0.5"/>\
+                </svg>') center/8px 8px repeat;
+  padding: 3rem 0 2.5rem;
+  border-radius: 20px;
+  margin: 2rem 0;
 }
-.btn-cta::after {
-  content:''; position:absolute; inset:0;
-  background: radial-gradient(circle at30%30%, rgba(255,255,255,.5), transparent55%);
-  opacity:0; transition: opacity var(--fast); mix-blend-mode:overlay;
-}
-.btn-cta:hover { background-position:100% 0; transform:translateY(-4px); box-shadow: var(--shadow-lg); }
-.btn-cta:hover::after { opacity:.65; }
 
-/* Floating Buttons */
-.btn-float {
-  position:fixed; bottom:1rem; right:1rem;
-  width:46px;height:46px;display:flex;align-items:center;justify-content:center;
-  background: linear-gradient(140deg,var(--gold),#FFC15A);
-  border:none;border-radius:50%;color:var(--primary-purple);
-  font-size:1.05rem;cursor:pointer;box-shadow: var(--shadow-lg);
-  transition: transform var(--fast), box-shadow var(--fast);
-  z-index:1200; display:none;
+/* 3. Quiénes Somos: degradado ligero + textura de papel */
+#nosotros {
+  background: linear-gradient(120deg, rgba(242,243,246,0.8), rgba(255,255,255,0.8)),
+              url('data:image/svg+xml;utf8,\
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.02">\
+                  <filter id="noise"><feTurbulence baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter>\
+                  <rect width="100%" height="100%" filter="url(%23noise)"/>\
+                </svg>') center/300px auto repeat;
+  padding: 2.5rem 0;
 }
-.btn-float:hover { transform:scale(1.12); }
-#home-button { right:4rem; }
 
-/* Reveal */
-.reveal { opacity:0; transform:translateY(26px) scale(.98);
-  transition: opacity .75s var(--ease), transform .75s var(--ease);
+/* 4. Contacto: degradado frío + overlay de líneas */
+#contacto {
+  background: linear-gradient(150deg, rgba(255,213,79,0.2), rgba(103,58,183,0.1)),
+              url('data:image/svg+xml;utf8,\
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" opacity="0.04">\
+                  <path d="M0 8 L16 8 M8 0 L8 16" stroke="%236732AA" stroke-width="0.3"/>\
+                </svg>') center/16px 16px repeat;
+  padding: 3rem 0;
+  border-radius: 16px;
 }
-.reveal.is-visible { opacity:1; transform:translateY(0) scale(1); }
 
-/* Courses */
-.courses {
-  margin-top:2rem; background: linear-gradient(180deg,rgba(245,240,250,.85),rgba(253,251,247,.9));
-  border-radius:24px; padding:2.6rem 0; position:relative; overflow:hidden;
+/* Ajustes generales para que el fondo de cada sección tenga separación */
+section {
+  position: relative;
+  z-index: 0;
 }
-.courses h2 {
-  font: var(--font-h2) 'Montserrat',sans-serif; text-align:center; margin-bottom:1.8rem;
-}
-.courses h2::after {
-  content:''; display:block; width:68px; height:4px; margin:1rem auto 0;
-  background: linear-gradient(90deg,var(--accent-purple),var(--primary-purple));
-  border-radius:2px;
-}
-.course-grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.8rem;
-}
-.course-card {
-  background: var(--pure-white); border-radius:14px;
-  padding:1.15rem .95rem 1.3rem; box-shadow: var(--shadow-md);
-  display:flex; flex-direction:column; align-items:center; text-align:center;
-  position:relative; overflow:hidden;
-  transition: transform var(--fast), box-shadow var(--fast);
-  border:1px solid rgba(103,58,183,.15);
-}
-.course-card::before {
-  content:''; position:absolute; inset:0;
-  background: linear-gr…  
-  opacity:0; transition: opacity var(--med); z-index:0;
-}
-.course-card:hover { transform:translateY(-6px); box-shadow: var(--shadow-lg); }
-.course-card:hover::before { opacity:1; }
-.course-icon { width:56px;height:56px;margin-bottom:.75rem; }
-.course-icon .ci { width:100%;height:100%; }
-.course-card h3 { font-size:.98rem; color:var(--accent-purple); margin-bottom:.5rem; z-index:1; }
-.course-card p { font-size:.83rem; color:var(--text-secondary); margin-bottom:.8rem; z-index:1; }
-.tags { display:flex; gap:.4rem; flex-wrap:wrap; justify-content:center; margin-bottom:.7rem; }
-.tags span { background: linear-gradient(90deg,#FFD54F,#FFB347); color:#43206E; font-size:.6rem; font-weight:700; padding:.25rem .55rem; border-radius:var(--radius-pill); text-transform:uppercase; letter-spacing:.6px; }
-.btn-link { font-size:.75rem; font-weight:600; color:var(--accent-purple); position:relative; padding-bottom:3px; }
-.btn-link::after { content:''; position:absolute; left:0; bottom:0; width:0; height:2px; background:currentColor; transition: width var(--fast); border-radius:2px; }
-.btn-link:hover::after { width:100%; }
-.price-info { text-align:center; font-size:.8rem; color:var(--text-secondary); margin-top:1.8rem; }
 
-/* About Us */
-.about-us { padding:2.6rem 0; }
-.about-us h2 { font: var(--font-h2) 'Montserrat',sans-serif; text-align:center; margin-bottom:1.4rem; }
-.about-us p { max-width:760px; margin:0 auto; font-size:.95rem; line-height:1.55; color:var(--text-secondary); text-align:center; }
-
-/* Contact */
-.contact { padding:2.6rem 0; }
-.contact h2 { font: var(--font-h2) 'Montserrat',sans-serif; text-align:center; margin-bottom:1.4rem; }
-.contact-form {
-  display:grid; gap:1rem; max-width:640px; margin:0 auto;
-  background: linear-gradient(135deg,rgba(142,36,170,.08),rgba(103,58,183,.08));
-  padding:1.4rem 1.2rem 1.6rem; border-radius:20px; box-shadow:var(--shadow-md); backdrop-filter:blur(4px);
+/* Asegurar que el contenido flote sobre el fondo */
+section > .container {
+  position: relative;
+  z-index: 1;
 }
-.contact-form label { font-size:.7rem; font-weight:600; letter-spacing:.4px; text-transform:uppercase; color:var(--accent-purple); }
-.contact-form input, .contact-form textarea { width:100%; padding:.7rem .85rem; border:2px solid #E4DFEE; border-radius:var(--radius-md); background:var(--pure-white); font:inherit; color:var(--text-primary); transition: border-color var(--fast), box-shadow var(--fast); }
-html[data-theme="dark"] .contact-form input, html[data-theme="dark"] .contact-form textarea { border:2px solid #564B6D; }
-.contact-form input:focus, .contact-form textarea:focus { border-color:var(--accent-purple); box-shadow:0 0 0 4px rgba(142,36,170,.2); outline:none; }
-.contact-form textarea { resize:vertical; min-height:140px; }
 
-/* Footer */
-.site-footer { background:var(--deep-purple); color:#FFF; text-align:center; padding:2.8rem 0 2.2rem; box-shadow:0 -4px 18px -6px rgba(0,0,0,.4); }
-.site-footer p { font-size:.7rem; letter-spacing:.6px; opacity:.85; }
-.site-footer a { color:var(--gold); font-weight:600; }
-.site-footer a:hover { text-decoration:underline; }
+/* =============================
+   Transiciones y Animaciones
+   ============================= */
 
-/* Responsive Patches */
-@media (max-width:900px){ .logo{max-height:135px;} }
-@media (max-width:760px){
-  .hero{min-height:300px; padding:1.9rem 0 2rem;}
-  .course-grid{gap:1.4rem;}
-  .course-card{padding:1.05rem .9rem 1.15rem;}
-  .contact-form{padding:1.2rem 1rem 1.4rem;}
+/* Suavizar scroll de gradientes en hover de tarjetas */
+.course-card:hover {
+  background: linear-gradient(140deg, rgba(142,36,170,0.1), rgba(103,58,183,0.1));
+  transition: background 0.4s ease;
 }
-@media (max-width:520px){
-  .logo{max-height:110px;}
-  .hero{min-height:270px; padding:1.6rem 0 1.7rem;}
-  .course-card{padding:.95rem .85rem 1rem;}
-  .btn-cta{padding:.7rem 1.45rem; font-size:.8rem;}
-  .contact-form{padding:1rem .9rem 1.3rem;}
+
+/* Pequeño efecto parallax en Hero */
+@media (prefers-reduced-motion: no-preference) {
+  .hero {
+    background-attachment: fixed;
+  }
 }
-@media (max-width:400px){
-  :root{--font-h1:clamp(1.7rem,6vw,2.1rem);--font-h2:clamp(1.2rem,5vw,1.55rem);}
-  .hero{min-height:250px;padding:1.3rem 0 1.5rem;}
-  .logo{max-height:95px;}
-  .btn-cta{padding:.65rem 1.2rem;font-size:.75rem;}
-  .course-card h3{font-size:.9rem;}
-  .course-card p{font-size:.74rem;}
-  .contact-form{padding:.9rem .8rem 1.2rem;}
+
+/* =============================
+   Utilidades de Background
+   ============================= */
+
+/* Clases genéricas por si quieres aplicarlas a otros contenedores */
+.bg-gradient-light {
+  background: linear-gradient(135deg, #F5F0FA, #FDFBF7);
+}
+.bg-pattern-dots {
+  background: url('data:image/svg+xml;utf8,\
+    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" opacity="0.05">\
+      <circle cx="5" cy="5" r="2" fill="%236732AA"/>\
+    </svg>') center/10px repeat;
 }
