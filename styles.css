@@ -1,3 +1,63 @@
+/* ----------------------------------------------------
+   Fondo global: degradado + patrón SVG sutil
+   ---------------------------------------------------- */
+
+/* 1. Sobreescribe el background del body */
+body {
+  /* Degradado diagonal suave */
+  background: 
+    linear-gradient(135deg,
+      rgba(103,58,183,0.12) 0%,
+      rgba(142,36,170,0.08) 25%,
+      rgba(103,58,183,0.04) 75%,
+      rgba(245,240,250,0.02) 100%
+    ),
+    /* Patrón de líneas diagonales muy tenue */
+    url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" opacity="0.03">\
+  <path d="M0 8 L8 0" stroke="%236732AA" stroke-width="0.5"/>\
+</svg>') 
+    top left / 8px 8px repeat;
+  background-attachment: fixed;
+}
+
+/* 2. Asegúrate de que los contenedores interiores sean semitransparentes
+       para dejar ver el patrón de fondo */
+.container,
+.hero,
+.courses,
+.about-us,
+.contact,
+.site-footer {
+  background-color: rgba(255,255,255,0.92); /* casi blanco pero deja ver texturas */
+}
+
+/* 3. En dark mode, ajusta el matiz */
+html[data-theme="dark"] body {
+  background: 
+    linear-gradient(135deg,
+      rgba(50,40,69,0.12) 0%,
+      rgba(70,60,100,0.08) 25%,
+      rgba(50,40,69,0.04) 75%,
+      rgba(30,30,36,0.02) 100%
+    ),
+    url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" opacity="0.05">\
+  <path d="M0 8 L8 0" stroke="%23FFFFFF" stroke-width="0.4"/>\
+</svg>') top left / 8px 8px repeat;
+}
+
+/* 4. Opcional: un ligero filtro para suavizar todo */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(1px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+
 /* =========================================================
    Aprendemas – styles.css (sin imágenes externas)
    ========================================================= */
