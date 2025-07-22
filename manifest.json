@@ -1,20 +1,17 @@
 {
   "name": "Aprendemas",
   "short_name": "Aprendemas",
-  "start_url": "/",
+  "lang": "es",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#673AB7",
+  "background_color": "#FDFBF7",
   "theme_color": "#673AB7",
+  "description": "Cursos online personalizados: formación docente, inglés, filosofía, ciencia política e historia.",
   "icons": [
-    {
-      "src": "images/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "images/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
   ]
 }
