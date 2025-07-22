@@ -1,60 +1,36 @@
-// Theme Toggle
+// Theme toggle
 const root = document.documentElement;
-const saved = localStorage.getItem('theme');
-if (saved) root.setAttribute('data-theme', saved);
-
-document.getElementById('theme-toggle').addEventListener('click', () => {
+const btnTheme = document.getElementById('theme-toggle');
+btnTheme.addEventListener('click', ()=>{
   const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
   root.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
+  btnTheme.querySelector('use').setAttribute('href', next==='light'?'#icon-sun':'#icon-moon');
 });
 
-// Mobile Menu Toggle
+// Mobile menu
 const navToggle = document.getElementById('navToggle');
-const navLinks  = document.getElementById('primary-nav');
-navToggle.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
-  navToggle.classList.toggle('active', open);
+const nav = document.getElementById('primary-nav');
+navToggle.addEventListener('click', ()=>{
+  const open = nav.classList.toggle('open');
   navToggle.setAttribute('aria-expanded', open);
 });
-navLinks.querySelectorAll('a').forEach(link =>
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.classList.remove('active');
-  })
-);
 
-// Accordion
-document.querySelectorAll('.accordion-trigger').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const open = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', !open);
-    const content = btn.nextElementSibling;
-    content.style.maxHeight = !open ? content.scrollHeight + 'px' : 0;
-  });
-});
-
-// Reveal on Scroll
-const reveals = document.querySelectorAll('.reveal');
-if ('IntersectionObserver' in window) {
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
-      }
+// Reveal on scroll
+document.querySelectorAll('.reveal').forEach(el=>{
+  new IntersectionObserver((entries, obs)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
     });
-  }, { threshold: .18 });
-  reveals.forEach(r => io.observe(r));
-} else {
-  reveals.forEach(r => r.classList.add('is-visible'));
-}
+  },{threshold:.2}).observe(el);
+});
 
-// Back to Top Button
-const backTop = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => {
-  backTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+// Floating buttons
+const back = document.getElementById('back-to-top');
+const home = document.getElementById('home-button');
+window.addEventListener('scroll', ()=>{
+  const show = window.scrollY>300;
+  back.style.display = show?'flex':'none';
+  home.style.display = show?'flex':'none';
 });
-backTop.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+back.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
+home.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
