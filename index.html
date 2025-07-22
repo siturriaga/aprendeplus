@@ -1,30 +1,196 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Aprendemas – Formación Personalizada Online</title>
-  <meta name="description" content="Formación docente, inglés, filosofía, ciencia política e historia. Clases online personalizadas con profesionales experimentados.">
-  <meta name="theme-color" content="#673AB7">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="favicon-32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=3">
-  <meta property="og:title" content="Aprendemas – Formación Personalizada">
-  <meta property="og:description" content="Cursos en vivo: formación docente, inglés, filosofía, ciencia política e historia.">
-  <meta property="og:image" content="og-image.jpg">
-  <meta property="og:type" content="website">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendemas - Cursos Online</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
 
-  <!-- (SVG sprite + header/nav as before) -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="#" class="logo-link" aria-label="Aprendemas Inicio">
+                <img src="https://via.placeholder.com/150x60?text=Logo+Aprendemas" alt="Logo de Aprendemas" class="logo">
+            </a>
+            <nav class="nav-main">
+                <ul class="nav-links">
+                    <li><a href="#cursos" class="active">Cursos</a></li>
+                    <li class="dropdown">
+                        <button class="dropdown-trigger" aria-expanded="false" aria-controls="categorias-menu">
+                            Categorías <span class="icon-arrow-down">&#9660;</span>
+                        </button>
+                        <ul id="categorias-menu" class="dropdown-content">
+                            <li><a href="#categoria-idiomas"><span class="icon-globe">&#127760;</span> Idiomas</a></li>
+                            <li><a href="#categoria-programacion"><span class="icon-code">&#128187;</span> Programación</a></li>
+                            <li><a href="#categoria-diseno"><span class="icon-palette">&#127912;</span> Diseño Gráfico</a></li>
+                            <li><a href="#categoria-marketing"><span class="icon-megaphone">&#128227;</span> Marketing Digital</a></li>
+                            <li><a href="#categoria-negocios"><span class="icon-briefcase">&#128188;</span> Negocios</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="header-actions">
+                    <button class="btn-icon" aria-label="Buscar cursos">
+                        <span class="icon-search">&#128269;</span>
+                        <span class="icon-label">Buscar</span>
+                    </button>
+                    <button class="btn-icon nav-toggle" aria-label="Abrir menú de navegación">
+                        <span class="icon-open">&#9776;</span>
+                        <span class="icon-close" style="display: none;">&#10006;</span>
+                        <span class="icon-label">Menú</span>
+                    </button>
+                    <button class="btn-icon theme-toggle" aria-label="Cambiar tema (claro/oscuro)">
+                        <span class="icon-sun">&#9728;</span>
+                        <span class="icon-label">Tema</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-  <main id="main-content">
-    <!-- hero, cursos, nosotros, contacto sections… -->
-  </main>
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1 class="reveal">Transforma Tu Futuro con Nuestros Cursos Online</h1>
+                <p class="subhero reveal">Aprende nuevas habilidades, avanza en tu carrera o descubre una nueva pasión.</p>
+                <a href="#cursos" class="btn-cta reveal">Explora Nuestros Cursos</a>
+            </div>
+        </section>
 
-  <!-- back-to-top, home-button, footer, scripts… -->
-  <script src="main.js"></script>
+        <section id="cursos" class="courses container" aria-labelledby="cursos-title">
+            <h2 id="cursos-title" class="reveal">Nuestros Cursos Disponibles</h2>
+            <div class="course-grid">
+                <article class="course-card reveal">
+                    <div class="course-icon">
+                        <img src="https://via.placeholder.com/56x56?text=Icon1" alt="Icono de Curso de Idiomas" class="ci">
+                    </div>
+                    <h3>Inglés para Negocios</h3>
+                    <p>Dominar el inglés es clave. Nuestro curso te prepara para el entorno empresarial global.</p>
+                    <div class="tags">
+                        <span>Negocios</span>
+                        <span>Idiomas</span>
+                        <span>B2/C1</span>
+                    </div>
+                    <a href="#" class="btn-link">Más Información &rarr;</a>
+                    <p class="price-info">Desde <strong>$29.99/mes</strong> o pago único.</p>
+                </article>
+
+                <article class="course-card color-2 reveal">
+                    <div class="course-icon">
+                        <img src="https://via.placeholder.com/56x56?text=Icon2" alt="Icono de Curso de Programación" class="ci">
+                    </div>
+                    <h3>Desarrollo Web Fullstack</h3>
+                    <p>Aprende a construir aplicaciones web completas con las tecnologías más demandadas.</p>
+                    <div class="tags">
+                        <span>Programación</span>
+                        <span>Front-end</span>
+                        <span>Back-end</span>
+                    </div>
+                    <a href="#" class="btn-link">Más Información &rarr;</a>
+                    <p class="price-info">Desde <strong>$49.99/mes</strong> o pago único.</p>
+                </article>
+
+                <article class="course-card color-3 reveal">
+                    <div class="course-icon">
+                        <img src="https://via.placeholder.com/56x56?text=Icon3" alt="Icono de Curso de Diseño Gráfico" class="ci">
+                    </div>
+                    <h3>Diseño Gráfico Profesional</h3>
+                    <p>Libera tu creatividad y domina las herramientas esenciales del diseño gráfico.</p>
+                    <div class="tags">
+                        <span>Diseño</span>
+                        <span>Creatividad</span>
+                        <span>Adobe</span>
+                    </div>
+                    <a href="#" class="btn-link">Más Información &rarr;</a>
+                    <p class="price-info">Desde <strong>$34.99/mes</strong> o pago único.</p>
+                </article>
+
+                <article class="course-card color-4 reveal">
+                    <div class="course-icon">
+                        <img src="https://via.placeholder.com/56x56?text=Icon4" alt="Icono de Curso de Marketing Digital" class="ci">
+                    </div>
+                    <h3>Estrategias de Marketing Digital</h3>
+                    <p>Conoce las últimas tendencias y técnicas para destacar en el mundo digital.</p>
+                    <div class="tags">
+                        <span>Marketing</span>
+                        <span>SEO</span>
+                        <span>Redes</span>
+                    </div>
+                    <a href="#" class="btn-link">Más Información &rarr;</a>
+                    <p class="price-info">Desde <strong>$39.99/mes</strong> o pago único.</p>
+                </article>
+
+                <article class="course-card color-5 reveal">
+                    <div class="course-icon">
+                        <img src="https://via.placeholder.com/56x56?text=Icon5" alt="Icono de Curso de Finanzas" class="ci">
+                    </div>
+                    <h3>Gestión Financiera para Emprendedores</h3>
+                    <p>Aprende a manejar tus finanzas y hacer crecer tu negocio con confianza.</p>
+                    <div class="tags">
+                        <span>Negocios</span>
+                        <span>Finanzas</span>
+                        <span>Emprendimiento</span>
+                    </div>
+                    <a href="#" class="btn-link">Más Información &rarr;</a>
+                    <p class="price-info">Desde <strong>$24.99/mes</strong> o pago único.</p>
+                </article>
+
+                <article class="course-card reveal">
+                    <div class="course-icon">
+                        <img src="https://via.placeholder.com/56x56?text=Icon6" alt="Icono de Curso de Ciberseguridad" class="ci">
+                    </div>
+                    <h3>Fundamentos de Ciberseguridad</h3>
+                    <p>Protege tus datos y sistemas. Un curso esencial para el mundo conectado de hoy.</p>
+                    <div class="tags">
+                        <span>Tecnología</span>
+                        <span>Seguridad</span>
+                        <span>IT</span>
+                    </div>
+                    <a href="#" class="btn-link">Más Información &rarr;</a>
+                    <p class="price-info">Desde <strong>$44.99/mes</strong> o pago único.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="sobre-nosotros" class="about-us container" aria-labelledby="about-us-title">
+            <h2 id="about-us-title" class="reveal">Sobre Nosotros</h2>
+            <p class="reveal">En Aprendemas, creemos que el conocimiento es poder. Nuestra misión es democratizar el acceso a una educación de calidad, ofreciendo cursos online flexibles y de vanguardia, impartidos por expertos en cada campo. Estamos comprometidos con tu crecimiento personal y profesional, brindándote las herramientas para que alcances tus metas, a tu propio ritmo y desde cualquier lugar.</p>
+        </section>
+
+        <section id="contacto" class="contact container" aria-labelledby="contact-title">
+            <h2 id="contact-title" class="reveal">Contáctanos</h2>
+            <form class="contact-form reveal">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+
+                <button type="submit" class="btn-cta">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Aprendemas. Todos los derechos reservados.</p>
+            <p>Diseñado con <span style="color: red;">&hearts;</span> por <a href="#" target="_blank">Tu Nombre/Marca</a></p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="btn-float hide" aria-label="Volver arriba">
+        <span class="icon-arrow-up">&#9650;</span>
+    </button>
+    <button id="home-button" class="btn-float hide" aria-label="Ir a inicio">
+        <span class="icon-home">&#8962;</span>
+    </button>
+
+    <script src="script.js"></script>
 </body>
 </html>
