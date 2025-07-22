@@ -19,7 +19,12 @@
 
   <!-- SVG sprite -->
   <svg style="display:none" aria-hidden="true">
-    <!-- … existing symbols … -->
+    <!-- existing icons… -->
+    <symbol id="icon-menu" viewBox="0 0 24 24">…</symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">…</symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24">…</symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24">…</symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24">…</symbol>
     <symbol id="icon-instagram" viewBox="0 0 24 24">…</symbol>
     <symbol id="icon-linkedin" viewBox="0 0 24 24">…</symbol>
     <symbol id="icon-facebook" viewBox="0 0 24 24">…</symbol>
@@ -47,10 +52,10 @@
             </ul>
           </li>
           <li><a href="#nosotros" data-spy>Quiénes somos</a></li>
+          <li><a href="#testimonials" data-spy>Testimonios</a></li>
           <li><a href="#contacto" data-spy>Contacto</a></li>
           <li><a href="faq.html">FAQ</a></li>
         </ul>
-
         <div class="header-actions">
           <button id="theme-toggle" class="btn-icon" aria-label="Cambiar modo">
             <svg class="icon theme-icon"><use href="#icon-sun"></use></svg>
@@ -77,9 +82,9 @@
   <section id="cursos" class="courses container">
     <h2>Cursos Disponibles</h2>
     <div class="course-grid">
-      <!-- … your course cards … -->
+      <!-- tu grid de cursos aquí -->
     </div>
-    <p class="price-info">Clases de 1h – <strong>$20 000 CLP</strong> – Mínimo 2 veces/semana</p>
+    <p class="price-info">Clases de 1 h – <strong>$20 000 CLP</strong> – Mínimo 2 veces/semana</p>
   </section>
 
   <!-- ABOUT -->
@@ -93,14 +98,14 @@
     <h2>Lo que dicen nuestros estudiantes</h2>
     <div class="testimonial-slider">
       <blockquote>
-        <p>“Las clases con Aprendemas cambiaron mi forma de ver el inglés. ¡Excelente!”</p>
+        <p>“Las clases con Aprendemas cambiaron mi forma de ver el inglés.”</p>
         <footer>— María Pérez, Profesora</footer>
       </blockquote>
       <blockquote>
-        <p>“La formación docente me permitió aplicar nuevas estrategias en mi aula al instante.”</p>
+        <p>“La formación docente me permitió aplicar nuevas estrategias en mi aula.”</p>
         <footer>— Juan Rojas, Educador</footer>
       </blockquote>
-      <!-- Add more as needed -->
+      <!-- Más testimonios -->
     </div>
   </section>
 
@@ -130,14 +135,19 @@
     </form>
   </section>
 
+  <!-- BACK TO TOP -->
+  <button id="back-to-top" class="btn-float" title="Volver arriba" aria-label="Volver arriba">
+    <svg width="24" height="24"><use href="#icon-arrow-up"></use></svg>
+  </button>
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="social-links">
         <h3>Síguenos</h3>
-        <a href="#" aria-label="Instagram"><svg><use href="#icon-instagram"></use></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
-        <a href="#" aria-label="Facebook"><svg><use href="#icon-facebook"></use></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="24" height="24"><use href="#icon-instagram"></use></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg width="24" height="24"><use href="#icon-linkedin"></use></svg></a>
+        <a href="#" aria-label="Facebook"><svg width="24" height="24"><use href="#icon-facebook"></use></svg></a>
       </div>
       <div class="trust-seals">
         <img src="seal-secure.png" alt="Pago Seguro">
@@ -148,7 +158,6 @@
   </footer>
 
   <!-- SCRIPTS -->
-  <script src="main.js"></script>
   <script>
     // Theme toggle
     const root = document.documentElement;
@@ -177,6 +186,13 @@
         c.style.maxHeight = !open ? c.scrollHeight + 'px' : 0;
       });
     });
+
+    // Back to top
+    const backTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
 </body>
 </html>
