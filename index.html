@@ -1,214 +1,221 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+
+<html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Aprendemas – Formación Personalizada Online</title>
-  <meta name="description" content="Formación docente, inglés, filosofía, ciencia política e historia. Clases online personalizadas con profesionales experimentados.">
-  <meta name="theme-color" content="#673AB7">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon"        href="favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <!-- Updated to v5 so browser fetches latest CSS -->
-  <link rel="stylesheet" href="styles.css?v=5">
-  <meta property="og:title"       content="Aprendemas – Formación Personalizada">
-  <meta property="og:description" content="Cursos en vivo: formación docente, inglés, filosofía, ciencia política e historia.">
-  <meta property="og:image"       content="og-image.jpg">
-  <meta property="og:type"        content="website">
+
+  <meta charset="UTF-8"/>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+
+  <meta http-equiv="Pragma"        content="no-cache"/>
+
+  <meta http-equiv="Expires"       content="0"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta name="theme-color" content="#673AB7"/>
+
+  <title>Aprendemas</title>
+
+  <link rel="stylesheet" href="styles.css?v=3.2"/>
+
+  <link rel="manifest" href="manifest.json"/>
+
+  <link rel="icon" href="aprende_logo.png" type="image/png"/>
+
 </head>
+
 <body>
 
-  <!-- SVG sprite: includes all used icons -->
-  <svg style="display:none" aria-hidden="true">
-    <symbol id="icon-menu" viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-close" viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-sun" viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-moon" viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-arrow-up" viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-instagram" viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-linkedin"  viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-facebook"  viewBox="0 0 24 24">…</symbol>
-  </svg>
+  <header class="site-header">
 
-  <!-- HEADER -->
-  <header class="site-header" id="top">
     <div class="header-content container">
-      <a href="index.html" class="logo-wrap" aria-label="Inicio">
-        <img src="aprende_logo.png" alt="Aprendemas" class="logo">
-      </a>
-      <nav class="nav-main" aria-label="Navegación principal">
-        <ul class="nav-links" id="primary-nav">
-          <li><a href="#top" data-spy>Inicio</a></li>
+
+      <img src="aprende_logo.png" alt="Logo Aprendemas" class="logo large-logo"/>
+
+      <nav>
+
+        <ul class="nav-links">
+
           <li class="dropdown">
-            <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-              Cursos ▼
-            </button>
+
+            <a href="#">Cursos</a>
+
             <ul class="dropdown-content">
+
               <li><a href="formacion-docente.html">Formación Docente</a></li>
+
               <li><a href="ingles.html">Inglés</a></li>
+
               <li><a href="filosofia.html">Filosofía</a></li>
+
               <li><a href="ciencia-politica.html">Ciencia Política</a></li>
+
               <li><a href="historia.html">Historia Universal</a></li>
+
             </ul>
+
           </li>
-          <li><a href="#nosotros"    data-spy>Quiénes somos</a></li>
-          <li><a href="#testimonials" data-spy>Testimonios</a></li>
-          <li><a href="#contacto"    data-spy>Contacto</a></li>
-          <li><a href="faq.html">FAQ</a></li>
+
+          <li><a href="#nosotros">Quiénes somos</a></li>
+
+          <li><a href="#contacto">Contacto</a></li>
+
         </ul>
-        <div class="header-actions">
-          <button id="theme-toggle" class="btn-icon" aria-label="Cambiar modo">
-            <svg class="icon theme-icon"><use href="#icon-sun"></use></svg>
-          </button>
-          <button id="navToggle" class="btn-icon nav-toggle"
-                  aria-label="Menú" aria-expanded="false" aria-controls="primary-nav">
-            <svg class="icon icon-open"><use href="#icon-menu"></use></svg>
-            <svg class="icon icon-close"><use href="#icon-close"></use></svg>
-          </button>
-        </div>
+
       </nav>
+
     </div>
+
   </header>
 
-  <!-- HERO -->
-  <section class="hero container">
-    <div class="hero-content">
-      <h1>Aprendizaje que se adapta a ti</h1>
-      <p class="subhero">
-        Clases online personalizadas • Profesionales con +20 años de experiencia • Grupos y descuentos
+ 
+
+  <main class="fade-in container">
+
+    <section class="hero">
+
+      <h1>Bienvenidos a Aprendemas</h1>
+
+      <p>Tu espacio para aprender desde cualquier lugar con cursos personalizados y profesionales de primer nivel.</p>
+
+    </section>
+
+ 
+
+    <section id="cursos" class="courses">
+
+      <h2>Cursos Disponibles</h2>
+
+      <div class="course-grid">
+
+        <div class="course-card curso-docente">
+
+          <h3>Formación Docente</h3>
+
+          <p>Capacitación avanzada para educadores y desarrollo profesional.</p>
+
+          <a href="formacion-docente.html" class="course-button">Ver más</a>
+
+        </div>
+
+        <div class="course-card curso-ingles">
+
+          <h3>Inglés (Todos los niveles)</h3>
+
+          <p>Desde A1 hasta C1, mejora tu fluidez con docentes nativos.</p>
+
+          <a href="ingles.html" class="course-button">Ver más</a>
+
+        </div>
+
+        <div class="course-card curso-filosofia">
+
+          <h3>Filosofía</h3>
+
+          <p>Pensamiento crítico desde Grecia hasta la modernidad.</p>
+
+          <a href="filosofia.html" class="course-button">Ver más</a>
+
+        </div>
+
+        <div class="course-card curso-politica">
+
+          <h3>Ciencia Política</h3>
+
+          <p>Análisis de poder y sociedad con perspectiva contemporánea.</p>
+
+          <a href="ciencia-politica.html" class="course-button">Ver más</a>
+
+        </div>
+
+        <div class="course-card curso-historia">
+
+          <h3>Historia Universal</h3>
+
+          <p>Recorre hitos desde la antigüedad hasta los retos del siglo XXI.</p>
+
+          <a href="historia.html" class="course-button">Ver más</a>
+
+        </div>
+
+      </div>
+
+      <p class="price-info">
+
+        Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br/>
+
+        Clases grupales con descuento disponible.
+
       </p>
-      <a href="#cursos" class="btn-cta">Explorar Cursos</a>
-    </div>
-  </section>
 
-  <!-- COURSES -->
-  <section id="cursos" class="courses container">
-    <h2>Cursos Disponibles</h2>
-    <div class="course-grid">
-      <!-- your course cards here -->
-    </div>
-    <p class="price-info">
-      Clases de 1 h – <strong>$20 000 CLP</strong> – Mínimo 2 veces/semana
-    </p>
-  </section>
+    </section>
 
-  <!-- ABOUT -->
-  <section id="nosotros" class="about-us container">
-    <h2>Quiénes Somos</h2>
-    <p>
-      Somos un equipo de educadores con licenciaturas, maestrías y doctorados, con más de 20 años de experiencia.
-      Aprendizaje personalizado, enfocado en tus objetivos reales.
-    </p>
-  </section>
+ 
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="testimonials container">
-    <h2>Lo que dicen nuestros estudiantes</h2>
-    <div class="testimonial-slider">
-      <blockquote>
-        <p>“Las clases con Aprendemas cambiaron mi forma de ver el inglés.”</p>
-        <footer>— María Pérez, Profesora</footer>
-      </blockquote>
-      <blockquote>
-        <p>“La formación docente me permitió aplicar nuevas estrategias en mi aula.”</p>
-        <footer>— Juan Rojas, Educador</footer>
-      </blockquote>
-    </div>
-  </section>
+    <section id="nosotros" class="about-us">
 
-  <!-- FAQ PREVIEW -->
-  <section id="faq-preview" class="faq-preview container">
-    <h2>Preguntas Frecuentes</h2>
-    <div class="accordion">
-      <button class="accordion-trigger" aria-expanded="false">
-        ¿Cómo funciona la suscripción?
-      </button>
-      <div class="accordion-content">
-        <p>Accedes a todos los cursos y materiales tras suscribirte.</p>
-      </div>
-      <button class="accordion-trigger" aria-expanded="false">
-        ¿Qué métodos de pago aceptan?
-      </button>
-      <div class="accordion-content">
-        <p>Visa, Mastercard, PayPal y transferencias bancarias.</p>
-      </div>
-    </div>
-  </section>
+      <h2>Quiénes Somos</h2>
 
-  <!-- CONTACT -->
-  <section id="contacto" class="contact container">
-    <h2>Contáctanos</h2>
-    <form name="contacto" method="POST" data-netlify="true" class="contact-form">
-      <input type="hidden" name="form-name" value="contacto">
-      <label for="name">Nombre</label>
-      <input id="name" name="name" required>
-      <label for="email">Correo</label>
-      <input id="email" name="email" type="email" required>
-      <label for="message">Mensaje</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-      <button type="submit" class="btn-cta">Enviar mensaje</button>
-    </form>
-  </section>
+      <p>Equipo con sede en EE. UU., profesionales con títulos de licenciatura a doctorado y más de 10 años de experiencia en educación.</p>
 
-  <!-- BACK TO TOP -->
-  <button id="back-to-top" class="btn-float" title="Volver arriba" aria-label="Volver arriba">
-    <svg width="24" height="24"><use href="#icon-arrow-up"></use></svg>
-  </button>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="social-links">
-        <h3>Síguenos</h3>
-        <a href="#" aria-label="Instagram"><svg width="24" height="24"><use href="#icon-instagram"></use></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg width="24" height="24"><use href="#icon-linkedin"></use></svg></a>
-        <a href="#" aria-label="Facebook"><svg width="24" height="24"><use href="#icon-facebook"></use></svg></a>
-      </div>
-      <div class="trust-seals">
-        <img src="seal-secure.png" alt="Pago Seguro">
-        <img src="seal-netlify.png" alt="Netlify Forms via HTTPS">
-      </div>
-    </div>
-    <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
+<section id="contacto" class="contact fade-in container">
+
+  <h2>Contáctanos</h2>
+
+  <form name="contacto" method="POST" data-netlify="true" class="contact-form">
+
+    <input type="hidden" name="form-name" value="contacto">
+
+   
+
+    <label for="name">Nombre</label>
+
+    <input type="text" id="name" name="name" required />
+
+ 
+
+    <label for="email">Correo</label>
+
+    <input type="email" id="email" name="email" required />
+
+ 
+
+    <label for="message">Mensaje</label>
+
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+ 
+
+    <!-- Honeypot anti-spam -->
+
+    <input type="text" name="_gotcha" style="display:none" />
+
+ 
+
+    <button type="submit" class="contact-button">Enviar mensaje</button>
+
+  </form>
+
+</section>
+
+   
+
+  </main>
+
+ 
+
+  <footer>
+
+    <p>&copy; 2025 Aprendemas. Todos los derechos reservados.</p>
+
   </footer>
 
-  <!-- SCRIPTS -->
-  <script>
-    // Theme toggle
-    const root = document.documentElement;
-    document.getElementById('theme-toggle').addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-    });
-
-    // Mobile menu toggle
-    const navToggle = document.getElementById('navToggle'),
-          navLinks  = document.getElementById('primary-nav');
-    navToggle.addEventListener('click', () => {
-      const opened = navLinks.classList.toggle('open');
-      navToggle.classList.toggle('active', opened);
-      navToggle.setAttribute('aria-expanded', opened);
-    });
-
-    // Accordion
-    document.querySelectorAll('.accordion-trigger').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const open = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', !open);
-        const content = btn.nextElementSibling;
-        content.style.maxHeight = !open ? content.scrollHeight + 'px' : 0;
-      });
-    });
-
-    // Back-to-top button
-    const backTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      backTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
-    });
-    backTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
 </body>
+
 </html>
+
+ 
