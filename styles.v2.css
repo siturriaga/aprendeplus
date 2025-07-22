@@ -1,0 +1,107 @@
+/* ----------------------------------------------------
+   Aprendemas – styles.v2.css
+   Gradiente global, noise, glassmorphism, waves
+   ---------------------------------------------------- */
+
+/* Tokens */
+:root {
+  --primary-purple: #673AB7;
+  --accent-purple: #8E24AA;
+  --gold: #FFD54F;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --radius: 12px;
+  --shadow: 0 4px 15px rgba(0,0,0,0.1);
+  --ease: cubic-bezier(.4,.16,.25,.98);
+}
+
+/* Base */
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+  font-family:'Open Sans',sans-serif;
+  color: var(--text-primary);
+  background:
+    linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-purple) 50%, var(--gold) 100%),
+    url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" opacity="0.03">\
+  <filter id="noise"><feTurbulence baseFrequency="0.8" numOctaves="4"/></filter>\
+  <rect width="100%" height="100%" filter="url(%23noise)"/>\
+</svg>') repeat;
+  background-attachment: fixed;
+  scroll-behavior: smooth;
+}
+
+/* Containers glass effect */
+.container,
+.hero,
+.courses,
+.about-us,
+.contact,
+.site-footer {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  margin: 1.5rem auto;
+  padding: 2rem;
+  max-width: 1140px;
+}
+
+/* Divider waves */
+.divider { width:100%; overflow:hidden; line-height:0; }
+.divider img { width:100%; display:block; }
+.divider.flip img { transform: scaleY(-1); }
+
+/* Header */
+.site-header {
+  position:sticky; top:0; z-index:1000;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+  padding:1rem 0;
+  box-shadow: var(--shadow);
+}
+.header-content { display:flex; align-items:center; justify-content:space-between; }
+.logo { max-height:80px; }
+.nav-links { list-style:none; display:flex; gap:1rem; }
+.nav-links a { color:#fff; text-decoration:none; font-weight:600; }
+.header-actions .btn-icon { background:none; box-shadow:none; color:#fff; }
+
+/* Hero */
+.hero { text-align:center; padding:4rem 0; }
+.hero h1 { color:#fff; font-size:2.5rem; margin-bottom:1rem; }
+.hero .subhero { color:#eee; margin-bottom:2rem; }
+.btn-cta {
+  background: var(--gold); color: var(--primary-purple);
+  padding:.75rem 1.5rem; border:none; border-radius:50px;
+  font-weight:700; transition:transform .3s var(--ease);
+}
+.btn-cta:hover { transform: translateY(-3px); }
+
+/* Cursos */
+.courses h2 { text-align:center; margin-bottom:2rem; color:var(--primary-purple); }
+.course-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem;
+}
+.course-card {
+  padding:1.5rem; box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.8);
+}
+.course-card h3 { margin-bottom:.5rem; color:var(--accent-purple); }
+.btn-link { color:var(--accent-purple); text-decoration:underline; }
+
+/* Floating buttons */
+.btn-float {
+  position:fixed; bottom:1rem; right:1rem;
+  background:var(--gold); color:var(--primary-purple);
+  width:48px; height:48px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: var(--shadow); cursor:pointer; display:none;
+}
+
+/* Reveal */
+.reveal { opacity:0; transform:translateY(20px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* About Us & Contact y Footer básicos */
