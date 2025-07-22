@@ -1,82 +1,103 @@
-/* Reset & Base */
-*,
-*::before,
-*::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-family: Inter, system-ui, sans-serif; scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--fg); transition: background .3s, color .3s; line-height: 1.6; }
+/* ----------------------------------------------------
+   Aprendemas – styles.css (gradiente, noise, glassmorphism)
+   ---------------------------------------------------- */
 
-/* Theme Variables */
-:root[data-theme="light"] {
-  --bg: #ffffff; --fg: #333333; --primary: #2575fc; --accent: #6a11cb;
-}
-:root[data-theme="dark"] {
-  --bg: #1e1e2f; --fg: #e0e0e0; --primary: #4e8cff; --accent: #8e24aa;
-}
-
-/* Utility Classes */
-.container { max-width: 1200px; margin-inline: auto; padding-inline: 1rem; }
-.bg-gradient { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: #fff; }
-.bg-light    { background: #f9f9fb; }
-.bg-white    { background: #ffffff; }
-
-/* Logo */
-.logo { max-height: 60px; width: auto; }
-
-/* Typography & Sections */
-.section-title { font-size: 2.25rem; margin-bottom: 1rem; font-weight: 600; }
-.hero-title    { font-size: 3rem; margin-bottom: .5rem; line-height: 1.2; }
-.hero-sub      { font-size: 1.25rem; margin-bottom: 1.5rem; }
-section        { padding: 4rem 0; }
-
-/* Buttons */
-.btn-cta {
-  display: inline-block; background: var(--primary); color: #fff;
-  padding: .75rem 1.5rem; border-radius: .5rem; text-decoration: none;
-  font-weight: 600; transition: background .2s;
-}
-.btn-cta:hover { background: var(--accent); }
-
-/* Grid */
-.course-grid {
-  display: grid; gap: 1.5rem; grid-template-columns: 1fr;
-}
-@media (min-width: 768px) {
-  .course-grid { grid-template-columns: repeat(3,1fr); }
+/* Tokens */
+:root {
+  --primary-purple: #673AB7;
+  --accent-purple: #8E24AA;
+  --gold: #FFD54F;
+  --bg-white: #FDFBF7;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --radius: 12px;
+  --shadow: 0 4px 15px rgba(0,0,0,0.1);
+  --ease: cubic-bezier(.4,.16,.25,.98);
 }
 
-/* Nav Toggle */
-.nav-links { display: none; flex-direction: column; }
-.nav-links.open { display: flex; }
-.nav-toggle .icon-open { opacity: 1; transition: opacity .2s; }
-.nav-toggle .icon-close { opacity: 0; transition: opacity .2s; }
-.nav-toggle.active .icon-open { opacity: 0; }
-.nav-toggle.active .icon-close { opacity: 1; }
-
-/* Accordion */
-.accordion { max-width: 800px; margin-inline: auto; }
-.accordion-trigger {
-  width: 100%; text-align: left; padding: 1rem; background: var(--primary);
-  color: #fff; border: none; border-radius: .5rem; cursor: pointer; margin-bottom: .5rem;
-}
-.accordion-content {
-  max-height: 0; overflow: hidden; transition: max-height .3s;
-  background: rgba(0,0,0,0.05); padding: 0 1rem; border-radius: 0 0 .5rem .5rem; margin-bottom:1.5rem;
+/* Global background */
+body {
+  margin:0; padding:0;
+  font-family:'Open Sans',sans-serif;
+  color: var(--text-primary);
+  background:
+    linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-purple) 50%, var(--gold) 100%),
+    url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" opacity="0.03">\
+  <filter id="noise"><feTurbulence baseFrequency="0.8" numOctaves="4"/></filter>\
+  <rect width="100%" height="100%" filter="url(%23noise)"/>\
+</svg>') repeat;
+  background-attachment: fixed;
+  scroll-behavior: smooth;
 }
 
-/* Back to Top */
-.btn-float {
-  position: fixed; bottom:1.5rem; right:1.5rem; width:3rem; height:3rem;
-  background: var(--primary); color:#fff; border-radius:50%; display:none;
-  align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.2); z-index:200;
-}
-
-/* Footer */
+/* Container glass effect */
+.container,
+.hero,
+.courses,
+.about-us,
+.contact,
 .site-footer {
-  background: var(--bg); color: var(--fg); text-align:center; padding:4rem 1rem 2rem;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  margin: 1.5rem auto;
+  padding: 2rem;
 }
-.footer-grid {
-  display:flex; justify-content: space-between; flex-wrap:wrap; align-items:center;
-  gap:2rem; max-width:1200px; margin-inline:auto;
+
+/* Divider wave */
+.divider {
+  width:100%; overflow:hidden; line-height:0;
 }
-.social-links a { margin-right:1rem; font-size:1.5rem; color:var(--fg); }
-.trust-seals img { height:3rem; margin-right:1rem; }
+.divider img { width:100%; display:block; }
+.divider.flip img { transform: scaleY(-1); }
+
+/* Header */
+.site-header {
+  position:sticky; top:0; z-index:1000;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+  padding:1rem 0;
+  box-shadow: var(--shadow);
+}
+.logo { max-height:80px; }
+.nav-links { list-style:none; display:flex; gap:1rem; }
+.nav-links a { color:#fff; text-decoration:none; font-weight:600; }
+.header-actions .btn-icon { background:none; box-shadow:none; color:#fff; }
+
+/* Hero */
+.hero {
+  position:relative; text-align:center;
+  padding:4rem 0;
+}
+.hero h1 { color:#fff; font-size:2.5rem; margin-bottom:1rem; }
+.hero .subhero { color:#eee; margin-bottom:2rem; }
+.btn-cta {
+  background: var(--gold); color: var(--primary-purple);
+  padding:.75rem 1.5rem; border:none; border-radius:50px;
+  font-weight:700; transition:transform .3s var(--ease);
+}
+.btn-cta:hover { transform: translateY(-3px); }
+
+/* Cursos */
+.courses h2 { text-align:center; margin-bottom:2rem; color:var(--primary-purple); }
+.course-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem;
+}
+.course-card {
+  padding:1.5rem; box-shadow: var(--shadow);
+  border-radius: var(--radius);
+}
+.course-card h3 { margin-bottom:.5rem; color:var(--accent-purple); }
+.btn-link { color:var(--accent-purple); text-decoration:underline; }
+
+/* Floating buttons */
+.btn-float {
+  position:fixed; bottom:1rem; right:1rem;
+  background:var(--gold); color:var(--primary-purple);
+  width:48px; height:48px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: var(--shadow); cursor:pointer; display:none;
+}
