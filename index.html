@@ -9,7 +9,7 @@
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
   <meta property="og:title" content="Aprendemas – Formación Personalizada">
   <meta property="og:description" content="Cursos en vivo: formación docente, inglés, filosofía, ciencia política e historia.">
   <meta property="og:image" content="og-image.jpg">
@@ -17,7 +17,15 @@
 </head>
 <body>
 
-  <!-- SVG sprite + header/nav -->
+  <!-- SVG sprite -->
+  <svg style="display:none" aria-hidden="true">
+    <!-- … existing symbols … -->
+    <symbol id="icon-instagram" viewBox="0 0 24 24">…</symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24">…</symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24">…</symbol>
+  </svg>
+
+  <!-- HEADER -->
   <header class="site-header" id="top">
     <div class="header-content container">
       <a href="index.html" class="logo-wrap" aria-label="Inicio">
@@ -30,7 +38,7 @@
             <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
               Cursos ▼
             </button>
-            <ul class="dropdown-content" aria-label="Submenú cursos">
+            <ul class="dropdown-content">
               <li><a href="formacion-docente.html">Formación Docente</a></li>
               <li><a href="ingles.html">Inglés</a></li>
               <li><a href="filosofia.html">Filosofía</a></li>
@@ -38,66 +46,99 @@
               <li><a href="historia.html">Historia Universal</a></li>
             </ul>
           </li>
-          <!-- Removed duplicate Cursos link -->
           <li><a href="#nosotros" data-spy>Quiénes somos</a></li>
           <li><a href="#contacto" data-spy>Contacto</a></li>
           <li><a href="faq.html">FAQ</a></li>
         </ul>
+
         <div class="header-actions">
           <button id="theme-toggle" class="btn-icon" aria-label="Cambiar modo">
-            <svg class="icon theme-icon" width="24" height="24">
-              <use href="#icon-sun"></use>
-            </svg>
-            <span class="icon-label">Modo</span>
+            <svg class="icon theme-icon"><use href="#icon-sun"></use></svg>
           </button>
-          <button id="navToggle" class="btn-icon nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-nav">
-            <svg class="icon icon-open" width="24" height="24"><use href="#icon-menu"></use></svg>
-            <svg class="icon icon-close" width="24" height="24"><use href="#icon-close"></use></svg>
+          <button id="navToggle" class="btn-icon nav-toggle" aria-label="Menú" aria-expanded="false" aria-controls="primary-nav">
+            <svg class="icon icon-open"><use href="#icon-menu"></use></svg>
+            <svg class="icon icon-close"><use href="#icon-close"></use></svg>
           </button>
         </div>
       </nav>
     </div>
   </header>
 
-  <main id="main-content">
-    <!-- hero, cursos, nosotros, contacto sections… -->
+  <!-- HERO -->
+  <section class="hero container">
+    <div class="hero-content">
+      <h1>Aprendizaje que se adapta a ti</h1>
+      <p class="subhero">Clases online personalizadas • Profesionales con +20 años de experiencia • Grupos y descuentos</p>
+      <a href="#cursos" class="btn-cta">Explorar Cursos</a>
+    </div>
+  </section>
 
-    <!-- FAQ Preview Accordion -->
-    <section id="faq-preview" class="faq-preview container" aria-labelledby="faq-preview-title">
-      <h2 id="faq-preview-title">Preguntas Frecuentes</h2>
-      <div class="accordion">
-        <button class="accordion-trigger" aria-expanded="false">
-          ¿Cómo funciona la suscripción?
-        </button>
-        <div class="accordion-content">
-          <p>Una vez te suscribes, recibes acceso instantáneo a todos los cursos y materiales.</p>
-        </div>
-        <button class="accordion-trigger" aria-expanded="false">
-          ¿Qué métodos de pago aceptan?
-        </button>
-        <div class="accordion-content">
-          <p>Aceptamos tarjetas de crédito, PayPal y transferencias bancarias seguras.</p>
-        </div>
-      </div>
-    </section>
-  </main>
+  <!-- COURSES -->
+  <section id="cursos" class="courses container">
+    <h2>Cursos Disponibles</h2>
+    <div class="course-grid">
+      <!-- … your course cards … -->
+    </div>
+    <p class="price-info">Clases de 1h – <strong>$20 000 CLP</strong> – Mínimo 2 veces/semana</p>
+  </section>
 
-  <!-- Back to Top -->
-  <button id="back-to-top" class="btn-float" title="Volver arriba" aria-label="Volver arriba">
-    <svg width="24" height="24"><use href="#icon-arrow-up"></use></svg>
-  </button>
+  <!-- ABOUT -->
+  <section id="nosotros" class="about-us container">
+    <h2>Quiénes Somos</h2>
+    <p>Somos un equipo de educadores con licenciaturas, maestrías y doctorados, 20+ años de experiencia. Aprendizaje personalizado, enfocado en tus objetivos reales.</p>
+  </section>
 
-  <!-- Footer with Social Proof and Trust Seals -->
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonials container">
+    <h2>Lo que dicen nuestros estudiantes</h2>
+    <div class="testimonial-slider">
+      <blockquote>
+        <p>“Las clases con Aprendemas cambiaron mi forma de ver el inglés. ¡Excelente!”</p>
+        <footer>— María Pérez, Profesora</footer>
+      </blockquote>
+      <blockquote>
+        <p>“La formación docente me permitió aplicar nuevas estrategias en mi aula al instante.”</p>
+        <footer>— Juan Rojas, Educador</footer>
+      </blockquote>
+      <!-- Add more as needed -->
+    </div>
+  </section>
+
+  <!-- FAQ PREVIEW -->
+  <section id="faq-preview" class="faq-preview container">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="accordion">
+      <button class="accordion-trigger" aria-expanded="false">¿Cómo funciona la suscripción?</button>
+      <div class="accordion-content"><p>Accedes a todos los cursos y materiales tras suscribirte.</p></div>
+      <button class="accordion-trigger" aria-expanded="false">¿Qué métodos de pago aceptan?</button>
+      <div class="accordion-content"><p>Visa, Mastercard, PayPal y transferencias bancarias.</p></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contacto" class="contact container">
+    <h2>Contáctanos</h2>
+    <form name="contacto" method="POST" data-netlify="true" class="contact-form">
+      <input type="hidden" name="form-name" value="contacto">
+      <label for="name">Nombre</label>
+      <input id="name" name="name" required>
+      <label for="email">Correo</label>
+      <input id="email" name="email" type="email" required>
+      <label for="message">Mensaje</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      <button type="submit" class="btn-cta">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-grid">
-      <!-- Social Proof Links -->
       <div class="social-links">
         <h3>Síguenos</h3>
-        <a href="#" aria-label="Instagram"><svg width="24" height="24"><use href="#icon-instagram"></use></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg width="24" height="24"><use href="#icon-linkedin"></use></svg></a>
-        <a href="#" aria-label="Facebook"><svg width="24" height="24"><use href="#icon-facebook"></use></svg></a>
+        <a href="#" aria-label="Instagram"><svg><use href="#icon-instagram"></use></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+        <a href="#" aria-label="Facebook"><svg><use href="#icon-facebook"></use></svg></a>
       </div>
-      <!-- Trust Seals -->
       <div class="trust-seals">
         <img src="seal-secure.png" alt="Pago Seguro">
         <img src="seal-netlify.png" alt="Netlify Forms via HTTPS">
@@ -106,15 +147,34 @@
     <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
   </footer>
 
+  <!-- SCRIPTS -->
   <script src="main.js"></script>
   <script>
-    // Accordion behavior
+    // Theme toggle
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn.addEventListener('click', () => {
+      const t = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('primary-nav');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('active', open);
+      navToggle.setAttribute('aria-expanded', open);
+    });
+
+    // Accordion
     document.querySelectorAll('.accordion-trigger').forEach(btn => {
       btn.addEventListener('click', () => {
-        const isOpen = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', !isOpen);
-        const content = btn.nextElementSibling;
-        content.style.maxHeight = !isOpen ? content.scrollHeight + 'px' : 0;
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !open);
+        const c = btn.nextElementSibling;
+        c.style.maxHeight = !open ? c.scrollHeight + 'px' : 0;
       });
     });
   </script>
