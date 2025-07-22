@@ -12,8 +12,8 @@
   <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles.css?v=2">
+  <!-- CSS Versionado para evitar caché -->
+  <link rel="stylesheet" href="styles.v2.css">
 </head>
 <body>
 
@@ -76,6 +76,7 @@
       </div>
     </section>
 
+    <!-- Divider Wave -->
     <div class="divider">
       <img src="images/divider-wave.svg" alt="" aria-hidden="true">
     </div>
@@ -85,7 +86,7 @@
       <div class="container">
         <h2 class="reveal">Cursos Disponibles</h2>
         <div class="course-grid">
-          <!-- Artículo ejemplo; duplica para los 5 cursos -->
+          <!-- Repite un bloque por curso -->
           <article class="course-card reveal">
             <h3>Formación Docente</h3>
             <p>Capacitación avanzada y desarrollo profesional para educadores.</p>
@@ -105,7 +106,7 @@
     <section id="nosotros" class="about-us">
       <div class="container">
         <h2>Quiénes Somos</h2>
-        <p>Plataforma con sede en EE. UU.…</p>
+        <p>Plataforma con sede en EE. UU. formada por profesionales de la educación (licenciaturas, maestrías y doctorados) con más de 10 años de experiencia. Ofrecemos aprendizaje vivo, personalizado y orientado a objetivos reales.</p>
       </div>
     </section>
 
@@ -133,12 +134,8 @@
   </main>
 
   <!-- BOTONES FLOTANTES -->
-  <button id="back-to-top" class="btn-float" aria-label="Volver arriba">
-    <svg><use href="#icon-arrow-up"/></svg>
-  </button>
-  <a href="#top" id="home-button" class="btn-float" aria-label="Inicio">
-    <svg><use href="#icon-home"/></svg>
-  </a>
+  <button id="back-to-top" class="btn-float" aria-label="Volver arriba"><svg><use href="#icon-arrow-up"/></svg></button>
+  <a href="#top" id="home-button" class="btn-float" aria-label="Inicio"><svg><use href="#icon-home"/></svg></a>
 
   <!-- FOOTER -->
   <footer class="site-footer">
