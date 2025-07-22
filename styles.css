@@ -1,6 +1,108 @@
-/* … existing CSS … */
+/* Base & Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+  font-family: system-ui, sans-serif;
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+  transition: background .3s, color .3s;
+}
 
-/* 5. FAQ Accordion */
+/* Theme Variables */
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --fg: #333333;
+  --primary: #673AB7;
+  --accent: #FFD54F;
+}
+:root[data-theme="dark"] {
+  --bg: #1e1e1e;
+  --fg: #dddddd;
+  --primary: #8E24AA;
+  --accent: #FFD54F;
+}
+
+/* Container */
+.container {
+  width: min(90%, 1200px);
+  margin: 0 auto;
+}
+
+/* Buttons */
+.btn-cta {
+  background: var(--primary);
+  color: #fff;
+  padding: .75rem 1.5rem;
+  border-radius: .5rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Header */
+.site-header {
+  background: var(--bg);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+/* Nav */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+}
+.nav-toggle .icon-open { opacity: 1; }
+.nav-toggle .icon-close { opacity: 0; }
+.nav-toggle.active .icon-open { opacity: 0; }
+.nav-toggle.active .icon-close { opacity: 1; }
+
+/* Hero */
+.hero {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 0;
+}
+
+/* Courses Grid */
+.course-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+}
+
+/* Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity .6s, transform .6s;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FAQ Accordion */
 .accordion {
   margin: 2rem 0;
 }
@@ -8,51 +110,63 @@
   width: 100%;
   text-align: left;
   padding: 1rem;
-  font-size: 1rem;
   background: var(--primary);
   color: #fff;
   border: none;
-  cursor: pointer;
   border-radius: .5rem;
+  cursor: pointer;
   margin-bottom: .5rem;
 }
 .accordion-content {
-  overflow: hidden;
   max-height: 0;
-  transition: max-height .3s ease;
+  overflow: hidden;
+  transition: max-height .3s;
   background: rgba(0,0,0,0.03);
   padding: 0 1rem;
   border-radius: 0 0 .5rem .5rem;
   margin-bottom: 1rem;
 }
 
-/* 7. Subtle Background Pattern */
+/* Floating Button */
+.btn-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 200;
+}
+
+/* Footer */
 footer.site-footer {
   background-image: url('pattern-footer.svg');
   background-size: cover;
   background-position: center;
   padding-top: 2rem;
+  color: var(--fg);
+  text-align: center;
 }
-
-/* 9. Social Proof */
 .footer-grid {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
   gap: 2rem;
 }
 .social-links h3 {
   margin-bottom: .5rem;
-  color: var(--fg);
 }
 .social-links a {
   margin-right: 1rem;
   font-size: 1.5rem;
-  color: var(--fg);
 }
-
-/* 10. Trust Seals */
 .trust-seals img {
   height: 3rem;
   margin-right: 1rem;
