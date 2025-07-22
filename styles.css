@@ -1,212 +1,603 @@
-/* ===== Reset & Base ===== */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* Reset y contenedor */
+
+* {
+
   margin: 0;
+
   padding: 0;
-}
-html {
-  font-family: Inter, system-ui, sans-serif;
-  scroll-behavior: smooth;
-}
-body {
-  background: var(--bg);
-  color: var(--fg);
-  transition: background .3s, color .3s;
-  line-height: 1.6;
+
+  box-sizing: border-box;
+
 }
 
-/* ===== Themes ===== */
-:root[data-theme="light"] {
-  --bg: #ffffff;
-  --fg: #333333;
-  --primary: #673AB7;
-  --accent: #FFD54F;
-}
-:root[data-theme="dark"] {
-  --bg: #1e1e1e;
-  --fg: #dddddd;
-  --primary: #8E24AA;
-  --accent: #FFD54F;
-}
-
-/* ===== Utility ===== */
 .container {
-  width: min(90%, 1200px);
-  margin-inline: auto;
-}
-.btn-cta {
-  display: inline-block;
-  background: var(--primary);
-  color: #fff;
-  padding: .75rem 1.5rem;
-  border-radius: .5rem;
-  text-decoration: none;
-  font-weight: 600;
-  margin-top: 1rem;
-}
 
-/* ===== Header ===== */
-.site-header {
-  background: var(--bg);
-  border-bottom: 1px solid rgba(0,0,0,.05);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 0;
-}
+  max-width: 1100px;
 
-/* ===== Nav ===== */
-.nav-links {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-}
-.nav-links.open {
-  display: flex;
-  flex-direction: column;
-}
-.nav-toggle .icon-open { opacity: 1; transition: opacity .2s; }
-.nav-toggle .icon-close { opacity: 0; transition: opacity .2s; }
-.nav-toggle.active .icon-open { opacity: 0; }
-.nav-toggle.active .icon-close { opacity: 1; }
-
-/* ===== Hero ===== */
-.hero {
-  background: url('hero-bg.jpg') center/cover no-repeat;
-  position: relative;
-  color: #fff;
-  padding: 6rem 0;
-  text-align: center;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-}
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 600px;
-  margin-inline: auto;
-}
-.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-.hero .subhero { font-size: 1.125rem; margin-bottom: 1.5rem; }
-
-/* ===== Sections ===== */
-section { padding: 4rem 0; }
-h2 { font-size: 2rem; margin-bottom: 1.5rem; }
-
-/* ===== Courses ===== */
-.course-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-}
-.price-info { margin-top: 1.5rem; font-weight: 500; }
-
-/* ===== About ===== */
-.about-us p {
-  max-width: 800px;
-  margin-inline: auto;
-}
-
-/* ===== Testimonials ===== */
-.testimonials blockquote {
-  background: var(--bg);
-  padding: 2rem;
-  border-radius: .75rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,.1);
-  margin-bottom: 2rem;
-}
-.testimonials footer {
-  margin-top: 1rem;
-  font-weight: 600;
-}
-
-/* ===== FAQ Accordion ===== */
-.accordion {
-  max-width: 800px;
-  margin-inline: auto;
-}
-.accordion-trigger {
   width: 100%;
-  text-align: left;
-  padding: 1rem;
-  background: var(--primary);
+
+  margin: auto;
+
+  padding: 0 20px;
+
+}
+
+ 
+
+/* Fondos por página */
+
+body {
+
+  font-family: 'Segoe UI', sans-serif;
+
+  line-height: 1.6;
+
+  background: #f5f7fa;
+
+  color: #333;
+
+  transition: background-color .5s ease;
+
+}
+
+body.curso-docente   { background: #f7f0fa; }
+
+body.curso-ingles    { background: #f0f8ff; }
+
+body.curso-filosofia { background: #fdf6e3; }
+
+body.curso-politica  { background: #e8f8f5; }
+
+body.curso-historia  { background: #fef9f2; }
+
+ 
+
+/* Header */
+
+.site-header {
+
+  position: relative;
+
+  z-index: 1000;
+
+  background: linear-gradient(135deg, #673AB7, #8E24AA);
+
+  padding: 1rem 0;
+
   color: #fff;
-  border: none;
-  border-radius: .5rem;
-  cursor: pointer;
-  margin-bottom: .5rem;
-}
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .3s;
-  background: rgba(0,0,0,.05);
-  padding: 0 1rem;
-  border-radius: 0 0 .5rem .5rem;
-  margin-bottom: 1.5rem;
+
 }
 
-/* ===== Contact Form ===== */
-.contact-form {
-  max-width: 600px;
-  margin-inline: auto;
-  display: grid;
-  gap: 1rem;
-}
-.contact-form input,
-.contact-form textarea {
-  padding: .75rem;
-  border: 1px solid #ccc;
-  border-radius: .5rem;
-}
-.contact-form button {
-  justify-self: start;
-}
+.header-content {
 
-/* ===== Back to Top ===== */
-.btn-float {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  width: 3rem;
-  height: 3rem;
-  background: var(--primary);
-  color: #fff;
-  border-radius: 50%;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,.2);
-  z-index: 200;
-}
-
-/* ===== Footer ===== */
-footer.site-footer {
-  background: url('pattern-footer.svg') center/cover;
-  padding: 4rem 0 2rem;
-  text-align: center;
-  color: var(--fg);
-}
-.footer-grid {
   display: flex;
-  justify-content: space-between;
+
   flex-wrap: wrap;
+
   align-items: center;
-  gap: 2rem;
-  max-width: 1200px;
-  margin-inline: auto 0 2rem;
+
+  justify-content: space-between;
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding: 0 20px;
+
 }
-.social-links h3 { margin-bottom: .5rem; }
-.social-links a { margin-right: 1rem; font-size: 1.5rem; color: var(--fg); }
-.trust-seals img { height: 3rem; margin-right: 1rem; }
+
+.logo {
+
+  max-height: 150px;
+
+  transition: transform .3s ease;
+
+}
+
+.logo:hover {
+
+  transform: scale(1.08);
+
+}
+
+ 
+
+/* Navegación */
+
+.nav-links {
+
+  list-style: none;
+
+  display: flex;
+
+  gap: 1rem;
+
+}
+
+.nav-links a {
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  position: relative;
+
+}
+
+.nav-links a::after {
+
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -4px;
+
+  width: 0;
+
+  height: 2px;
+
+  background: #FFD54F;
+
+  transition: width .3s ease;
+
+}
+
+.nav-links a:hover::after {
+
+  width: 100%;
+
+}
+
+ 
+
+/* Dropdown */
+
+.dropdown {
+
+  position: relative;
+
+  z-index: 1001;
+
+}
+
+.dropdown-content {
+
+  position: absolute;
+
+  top: 100%;
+
+  left: 0;
+
+  min-width: 220px;
+
+  background: #8E24AA;
+
+  border-radius: 6px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+  opacity: 0;
+
+  transform: translateY(-10px);
+
+  visibility: hidden;
+
+  transition: opacity .3s ease, transform .3s ease, visibility 0s linear .3s;
+
+  z-index: 1002;
+
+}
+
+.dropdown:hover .dropdown-content {
+
+  visibility: visible;
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0s;
+
+}
+
+.dropdown-content li {
+
+  list-style: none;
+
+}
+
+.dropdown-content a {
+
+  display: block;
+
+  padding: .5rem 1rem;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  transition: background .3s ease;
+
+}
+
+.dropdown-content a:hover {
+
+  background: #9575CD;
+
+}
+
+ 
+
+/* Hero */
+
+.hero {
+
+  position: relative;
+
+  z-index: 0;
+
+  text-align: center;
+
+  padding: 4rem 0;
+
+  background: #f5f0fa;
+
+  margin-bottom: 2rem;
+
+}
+
+.hero h1 {
+
+  font-size: 2.5rem;
+
+  color: #673AB7;
+
+}
+
+.hero p {
+
+  font-size: 1.2rem;
+
+  color: #555;
+
+  max-width: 700px;
+
+  margin: 1rem auto;
+
+}
+
+ 
+
+/* Fade-in */
+
+.fade-in {
+
+  opacity: 0;
+
+  animation: fadeInUp .8s ease-out forwards;
+
+}
+
+@keyframes fadeInUp {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+ 
+
+/* Cursos */
+
+.courses {
+
+  padding: 2rem 0;
+
+  margin-bottom: 2rem;
+
+}
+
+.courses h2 {
+
+  text-align: center;
+
+  font-size: 2rem;
+
+  color: #673AB7;
+
+  margin-bottom: 1.5rem;
+
+}
+
+.course-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+  gap: 1.5rem;
+
+}
+
+.course-card {
+
+  background: #fff;
+
+  border-radius: 12px;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  padding: 1.5rem;
+
+  text-align: center;
+
+  transition: transform .3s ease, box-shadow .3s ease;
+
+}
+
+.course-card:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+
+}
+
+.course-card h3 {
+
+  margin-bottom: .75rem;
+
+  color: #512DA8;
+
+}
+
+.course-card p {
+
+  font-size: 1rem;
+
+  color: #444;
+
+  margin-bottom: 1rem;
+
+}
+
+/* Fondos de tarjetas por curso */
+
+.course-card.curso-docente   { background: #f7f0fa; }
+
+.course-card.curso-ingles    { background: #f0f8ff; }
+
+.course-card.curso-filosofia { background: #fdf6e3; }
+
+.course-card.curso-politica  { background: #e8f8f5; }
+
+.course-card.curso-historia  { background: #fef9f2; }
+
+ 
+
+/* Botón de curso */
+
+.course-button {
+
+  display: inline-block;
+
+  padding: .6rem 1.2rem;
+
+  background: linear-gradient(135deg, #FFD54F, #FFCA28);
+
+  color: #4527A0;
+
+  border-radius: 50px;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  transition: background .3s ease, transform .3s ease;
+
+}
+
+.course-button:hover {
+
+  background: linear-gradient(135deg, #FFCA28, #FFD54F);
+
+  transform: scale(1.05);
+
+}
+
+ 
+
+/* Precio */
+
+.price-info {
+
+  text-align: center;
+
+  font-style: italic;
+
+  color: #8E24AA;
+
+  margin-top: 1.5rem;
+
+}
+
+ 
+
+/* Sección “Quiénes somos” y “Contacto” */
+
+.about-us,
+
+.contact {
+
+  text-align: center;
+
+  padding: 2rem 0;
+
+  margin-bottom: 2rem;
+
+}
+
+.about-us h2,
+
+.contact h2 {
+
+  font-size: 2rem;
+
+  color: #673AB7;
+
+  margin-bottom: 1rem;
+
+}
+
+.contact-button {
+
+  display: inline-block;
+
+  padding: .8rem 1.2rem;
+
+  background: #673AB7;
+
+  color: #fff;
+
+  border-radius: 6px;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  transition: background .3s ease, transform .3s ease;
+
+}
+
+.contact-button:hover {
+
+  background: #5E35B1;
+
+  transform: scale(1.03);
+
+}
+
+ 
+
+/* Footer */
+
+footer {
+
+  text-align: center;
+
+  padding: 1rem 0;
+
+  background: #4527A0;
+
+  color: #fff;
+
+  font-size: .9rem;
+
+}
+
+/* ================================= */
+
+/* Estilos para el formulario de contacto */
+
+/* ================================= */
+
+.contact-form {
+
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  gap: 1rem;
+
+}
+
+ 
+
+.contact-form label {
+
+  font-weight: 600;
+
+  color: #4527A0;
+
+}
+
+ 
+
+.contact-form input[type="text"],
+
+.contact-form input[type="email"],
+
+.contact-form textarea {
+
+  width: 100%;
+
+  padding: 0.8rem 1rem;
+
+  border: 2px solid #EDEDED;
+
+  border-radius: 8px;
+
+  font-size: 1rem;
+
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+ 
+
+.contact-form input:focus,
+
+.contact-form textarea:focus {
+
+  outline: none;
+
+  border-color: #8E24AA;
+
+  box-shadow: 0 0 8px rgba(142, 36, 170, 0.2);
+
+}
+
+ 
+
+.contact-form .contact-button {
+
+  justify-self: start;
+
+  padding: 0.8rem 1.6rem;
+
+}
+
+ 
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .contact-form {
+
+    padding: 0 1rem;
+
+  }
+
+}
+
+ 
