@@ -1,22 +1,11 @@
-/* Base & Reset */
+/* ====== Reset & Base ====== */
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html {
-  scroll-behavior: smooth;
-  font-family: system-ui, sans-serif;
-}
-body {
-  background: var(--bg);
-  color: var(--fg);
-  transition: background .3s, color .3s;
-}
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-family: Inter, system-ui, sans-serif; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--fg); transition: background .3s, color .3s; line-height: 1.6; }
 
-/* Theme Variables */
+/* ====== Themes ====== */
 :root[data-theme="light"] {
   --bg: #ffffff;
   --fg: #333333;
@@ -30,144 +19,94 @@ body {
   --accent: #FFD54F;
 }
 
-/* Container */
-.container {
-  width: min(90%, 1200px);
-  margin: 0 auto;
-}
-
-/* Buttons */
+/* ====== Utilities ====== */
+.container { width: min(90%, 1200px); margin: 0 auto; }
 .btn-cta {
+  display: inline-block;
   background: var(--primary);
   color: #fff;
   padding: .75rem 1.5rem;
   border-radius: .5rem;
   text-decoration: none;
   font-weight: 600;
+  margin-top: 1rem;
 }
 
-/* Header */
-.site-header {
-  background: var(--bg);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 0;
-}
+/* ====== Header ====== */
+.site-header { background: var(--bg); border-bottom: 1px solid rgba(0,0,0,.05); position: sticky; top: 0; z-index: 100; }
+.header-content { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
 
-/* Nav */
-.nav-links {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-}
-.nav-links.open {
-  display: flex;
-  flex-direction: column;
-}
-.nav-toggle .icon-open { opacity: 1; }
-.nav-toggle .icon-close { opacity: 0; }
+/* ====== Nav ====== */
+.nav-links { display: flex; gap: 1rem; list-style: none; }
+.nav-links.open { display: flex; flex-direction: column; }
+.nav-toggle .icon-open { opacity: 1; transition: opacity .2s; }
+.nav-toggle .icon-close { opacity: 0; transition: opacity .2s; }
 .nav-toggle.active .icon-open { opacity: 0; }
 .nav-toggle.active .icon-close { opacity: 1; }
 
-/* Hero */
-.hero {
-  background: var(--primary);
-  color: #fff;
-  text-align: center;
-  padding: 4rem 0;
+/* ====== Hero ====== */
+.hero { background: url('hero-bg.jpg') center/cover no-repeat; color: #fff; padding: 6rem 0; text-align: center; position: relative; }
+.hero::after {
+  content: '';
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
 }
+.hero-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.hero .subhero { font-size: 1.125rem; margin-bottom: 1.5rem; }
 
-/* Courses Grid */
-.course-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-}
+/* ====== Sections ====== */
+section { padding: 4rem 0; }
+h2 { font-size: 2rem; margin-bottom: 1.5rem; }
 
-/* Reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(1rem);
-  transition: opacity .6s, transform .6s;
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* ====== Courses ====== */
+.course-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); }
+.price-info { margin-top: 1.5rem; font-weight: 500; }
 
-/* FAQ Accordion */
-.accordion {
-  margin: 2rem 0;
+/* ====== About ====== */
+.about-us p { max-width: 800px; margin: 0 auto; }
+
+/* ====== Testimonials ====== */
+.testimonials blockquote {
+  position: relative; padding: 2rem; background: var(--bg); border-radius: .75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1); margin-bottom: 2rem;
 }
+.testimonials footer { margin-top: 1rem; font-weight: 600; }
+
+/* ====== FAQ Accordion ====== */
+.accordion { max-width: 800px; margin: 0 auto; }
 .accordion-trigger {
-  width: 100%;
-  text-align: left;
-  padding: 1rem;
-  background: var(--primary);
-  color: #fff;
-  border: none;
-  border-radius: .5rem;
-  cursor: pointer;
-  margin-bottom: .5rem;
+  width: 100%; text-align: left; padding: 1rem; background: var(--primary);
+  color: #fff; border: none; border-radius: .5rem; cursor: pointer;
+  margin-bottom: .5rem; font-size: 1rem;
 }
 .accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .3s;
-  background: rgba(0,0,0,0.03);
-  padding: 0 1rem;
-  border-radius: 0 0 .5rem .5rem;
-  margin-bottom: 1rem;
+  max-height: 0; overflow: hidden; transition: max-height .3s;
+  background: rgba(0,0,0,.05); padding: 0 1rem; border-radius: 0 0 .5rem .5rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Floating Button */
-.btn-float {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  width: 3rem;
-  height: 3rem;
-  background: var(--primary);
-  color: #fff;
-  border-radius: 50%;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  z-index: 200;
-}
+/* ====== Contact Form ====== */
+.contact-form { max-width: 600px; margin: 0 auto; display: grid; gap: 1rem; }
+.contact-form input,
+.contact-form textarea { padding: .75rem; border: 1px solid #ccc; border-radius: .5rem; }
+.contact-form button { justify-self: start; }
 
-/* Footer */
+/* ====== Footer ====== */
 footer.site-footer {
-  background-image: url('pattern-footer.svg');
-  background-size: cover;
-  background-position: center;
-  padding-top: 2rem;
-  color: var(--fg);
-  text-align: center;
+  background: url('pattern-footer.svg') center/cover;
+  color: var(--fg); text-align: center; padding: 4rem 0 2rem;
 }
-.footer-grid {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 2rem;
-}
-.social-links h3 {
-  margin-bottom: .5rem;
-}
-.social-links a {
-  margin-right: 1rem;
-  font-size: 1.5rem;
-}
-.trust-seals img {
-  height: 3rem;
-  margin-right: 1rem;
+.footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; gap: 2rem; max-width: 1200px; margin: 0 auto 2rem; }
+.social-links h3 { margin-bottom: .5rem; }
+.social-links a { margin-right: 1rem; font-size: 1.5rem; color: var(--fg); }
+.trust-seals img { height: 3rem; margin-right: 1rem; }
+
+/* ====== Floating Btn ====== */
+.btn-float {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  width: 3rem; height: 3rem; background: var(--primary);
+  color: #fff; border-radius: 50%; display: none;
+  align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2); z-index: 200;
 }
