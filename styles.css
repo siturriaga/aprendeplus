@@ -1,4 +1,6 @@
-/* ===== Reset & Base ===== */
+/* styles.css */
+
+/* ----- Base & Reset ----- */
 *,
 *::before,
 *::after {
@@ -6,24 +8,27 @@
   margin: 0;
   padding: 0;
 }
+
 html {
-  font-family: Inter, system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
   scroll-behavior: smooth;
 }
+
 body {
   background: var(--bg);
   color: var(--fg);
   transition: background .3s, color .3s;
-  line-height: 1.6;
 }
 
-/* ===== Themes ===== */
+/* ----- Theme Variables ----- */
 :root[data-theme="light"] {
   --bg: #ffffff;
   --fg: #333333;
   --primary: #673AB7;
   --accent: #FFD54F;
 }
+
 :root[data-theme="dark"] {
   --bg: #1e1e1e;
   --fg: #dddddd;
@@ -31,11 +36,12 @@ body {
   --accent: #FFD54F;
 }
 
-/* ===== Utilities ===== */
+/* ----- Utility Classes ----- */
 .container {
   width: min(90%, 1200px);
-  margin: 0 auto;
+  margin-inline: auto;
 }
+
 .btn-cta {
   display: inline-block;
   background: var(--primary);
@@ -44,7 +50,98 @@ body {
   border-radius: .5rem;
   text-decoration: none;
   font-weight: 600;
-  margin-top: 1rem;
 }
 
-/* ==*
+/* ----- Header ----- */
+.site-header {
+  background: var(--bg);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+/* ----- Navigation ----- */
+.nav-main .nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--fg);
+  text-decoration: none;
+  padding: .5rem;
+}
+.nav-links a.active {
+  border-bottom: 2px solid var(--primary);
+}
+
+/* Mobile toggle */
+.nav-links.open {
+  display: block;
+}
+
+/* ----- Hero ----- */
+.hero {
+  position: relative;
+  padding: 4rem 0;
+  text-align: center;
+  background: var(--primary);
+  color: #fff;
+}
+.hero .subhero {
+  margin: 1rem 0 2rem;
+}
+
+/* ----- Courses Grid ----- */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.course-card {
+  background: var(--bg);
+  border-radius: .75rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.course-card h3 {
+  color: var(--primary);
+}
+.course-card .tags span {
+  background: var(--accent);
+  color: #000;
+  padding: .25rem .5rem;
+  margin-right: .5rem;
+  border-radius: .25rem;
+  font-size: .75rem;
+}
+
+/* ----- Reveal Animations ----- */
+.reveal {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----- Footer ----- */
+.site-footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: .875rem;
+  color: rgba(0,0,0,0.6);
+}
