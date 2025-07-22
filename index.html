@@ -27,7 +27,9 @@
         <ul class="nav-links" id="primary-nav">
           <li><a href="#top" data-spy>Inicio</a></li>
           <li class="dropdown">
-            <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">Cursos ▼</button>
+            <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+              Cursos ▼
+            </button>
             <ul class="dropdown-content" aria-label="Submenú cursos">
               <li><a href="formacion-docente.html">Formación Docente</a></li>
               <li><a href="ingles.html">Inglés</a></li>
@@ -43,7 +45,9 @@
         </ul>
         <div class="header-actions">
           <button id="theme-toggle" class="btn-icon" aria-label="Cambiar modo">
-            <svg class="icon theme-icon" width="24" height="24"><use href="#icon-sun"></use></svg>
+            <svg class="icon theme-icon" width="24" height="24">
+              <use href="#icon-sun"></use>
+            </svg>
             <span class="icon-label">Modo</span>
           </button>
           <button id="navToggle" class="btn-icon nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-nav">
@@ -58,15 +62,19 @@
   <main id="main-content">
     <!-- hero, cursos, nosotros, contacto sections… -->
 
-    <!-- 5. FAQ Preview Accordion -->
+    <!-- FAQ Preview Accordion -->
     <section id="faq-preview" class="faq-preview container" aria-labelledby="faq-preview-title">
       <h2 id="faq-preview-title">Preguntas Frecuentes</h2>
       <div class="accordion">
-        <button class="accordion-trigger" aria-expanded="false">¿Cómo funciona la suscripción?</button>
+        <button class="accordion-trigger" aria-expanded="false">
+          ¿Cómo funciona la suscripción?
+        </button>
         <div class="accordion-content">
           <p>Una vez te suscribes, recibes acceso instantáneo a todos los cursos y materiales.</p>
         </div>
-        <button class="accordion-trigger" aria-expanded="false">¿Qué métodos de pago aceptan?</button>
+        <button class="accordion-trigger" aria-expanded="false">
+          ¿Qué métodos de pago aceptan?
+        </button>
         <div class="accordion-content">
           <p>Aceptamos tarjetas de crédito, PayPal y transferencias bancarias seguras.</p>
         </div>
@@ -82,14 +90,14 @@
   <!-- Footer with Social Proof and Trust Seals -->
   <footer class="site-footer">
     <div class="container footer-grid">
-      <!-- 9. Social Proof Links -->
+      <!-- Social Proof Links -->
       <div class="social-links">
         <h3>Síguenos</h3>
         <a href="#" aria-label="Instagram"><svg width="24" height="24"><use href="#icon-instagram"></use></svg></a>
         <a href="#" aria-label="LinkedIn"><svg width="24" height="24"><use href="#icon-linkedin"></use></svg></a>
         <a href="#" aria-label="Facebook"><svg width="24" height="24"><use href="#icon-facebook"></use></svg></a>
       </div>
-      <!-- 10. Trust Seals -->
+      <!-- Trust Seals -->
       <div class="trust-seals">
         <img src="seal-secure.png" alt="Pago Seguro">
         <img src="seal-netlify.png" alt="Netlify Forms via HTTPS">
@@ -103,10 +111,10 @@
     // Accordion behavior
     document.querySelectorAll('.accordion-trigger').forEach(btn => {
       btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', !expanded);
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !isOpen);
         const content = btn.nextElementSibling;
-        content.style.maxHeight = !expanded ? content.scrollHeight + 'px' : 0;
+        content.style.maxHeight = !isOpen ? content.scrollHeight + 'px' : 0;
       });
     });
   </script>
