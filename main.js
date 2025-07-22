@@ -1,13 +1,13 @@
-// Theme toggle
+// Tema
 const root = document.documentElement;
 const btnTheme = document.getElementById('theme-toggle');
-btnTheme.addEventListener('click', ()=>{
+btnTheme.addEventListener('click', ()=> {
   const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
   root.setAttribute('data-theme', next);
   btnTheme.querySelector('use').setAttribute('href', next==='light'?'#icon-sun':'#icon-moon');
 });
 
-// Mobile menu
+// Menú móvil
 const navToggle = document.getElementById('navToggle');
 const nav = document.getElementById('primary-nav');
 navToggle.addEventListener('click', ()=>{
@@ -17,18 +17,18 @@ navToggle.addEventListener('click', ()=>{
 
 // Reveal on scroll
 document.querySelectorAll('.reveal').forEach(el=>{
-  new IntersectionObserver((entries, obs)=>{
-    entries.forEach(e=>{
+  new IntersectionObserver((ents, obs)=>{
+    ents.forEach(e=>{
       if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
     });
-  },{threshold:.2}).observe(el);
+  },{threshold: .2}).observe(el);
 });
 
-// Floating buttons
+// Botones flotantes
 const back = document.getElementById('back-to-top');
 const home = document.getElementById('home-button');
 window.addEventListener('scroll', ()=>{
-  const show = window.scrollY>300;
+  const show = window.scrollY > 300;
   back.style.display = show?'flex':'none';
   home.style.display = show?'flex':'none';
 });
