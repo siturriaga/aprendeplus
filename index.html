@@ -4,41 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Aprendemas – Formación Personalizada Online</title>
-  <meta name="description" content="Formación docente, inglés, filosofía, ciencia política e historia. Clases online personalizadas con profesionales experimentados.">
+  <meta name="description" content="Cursos online personalizados: formación docente, inglés, filosofía, ciencia política e historia. Clases 1 hora por $20 CLP, descuentos grupales.">
   <meta name="theme-color" content="#673AB7">
 
-  <!-- PWA & Favicons -->
+  <!-- Manifest -->
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-  <!-- CSS Versionado para evitar caché -->
-  <link rel="stylesheet" href="styles.v2.css">
+  <!-- Favicon / Icons (asegúrate de subir los archivos reales) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- CSS principal (cache-buster ?v=1) -->
+  <link rel="stylesheet" href="styles.css?v=1">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Aprendemas – Formación Personalizada Online">
+  <meta property="og:description" content="Formación docente, inglés, filosofía, ciencia política e historia. Profesionales con +10 años de experiencia.">
+  <meta property="og:image" content="og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aprendemas – Formación Personalizada Online">
+  <meta name="twitter:description" content="Clases en vivo, personalizadas y con descuentos grupales.">
+  <meta name="twitter:image" content="twitter-card.jpg">
 </head>
 <body>
 
-  <!-- SVG Sprite -->
-  <svg style="display:none" aria-hidden="true">
-    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2"/></symbol>
-    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="2"/></symbol>
-    <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2" stroke="currentColor" stroke-width="1.5"/></symbol>
-    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M15.2 2.5a8.5 8.5 0 1 0 6.3 11.7A7 7 0 0 1 15.2 2.5z" fill="currentColor"/></symbol>
-    <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2"/></symbol>
-    <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-8.5z" fill="currentColor"/></symbol>
-  </svg>
-
-  <!-- HEADER -->
-  <header class="site-header" id="top">
+  <!-- ============= HEADER / NAV ============= -->
+  <header class="site-header">
     <div class="header-content container">
-      <a href="#top" class="logo-wrap" aria-label="Inicio">
-        <img src="images/aprende_logo.png" alt="Aprendemas" class="logo">
+      <a href="index.html" class="logo-link" aria-label="Inicio">
+        <!-- LOGO: reemplaza src por tu archivo real (ej: aprende_logo.png) -->
+        <img src="aprende_logo.png" alt="Aprendemas" class="logo">
       </a>
+
       <nav class="nav-main" aria-label="Navegación principal">
         <ul class="nav-links" id="primary-nav">
-          <li><a href="#top" data-spy>Inicio</a></li>
+          <li><a href="index.html">Inicio</a></li>
           <li class="dropdown">
             <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">Cursos ▼</button>
-            <ul class="dropdown-content">
+            <ul class="dropdown-content" aria-label="Submenú cursos">
               <li><a href="formacion-docente.html">Formación Docente</a></li>
               <li><a href="ingles.html">Inglés</a></li>
               <li><a href="filosofia.html">Filosofía</a></li>
@@ -46,105 +53,242 @@
               <li><a href="historia.html">Historia Universal</a></li>
             </ul>
           </li>
-          <li><a href="#nosotros" data-spy>Quiénes somos</a></li>
-          <li><a href="#contacto" data-spy>Contacto</a></li>
+          <li><a href="#nosotros">Quiénes somos</a></li>
           <li><a href="faq.html">FAQ</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
-        <div class="header-actions">
-          <button id="theme-toggle" class="btn-icon" aria-label="Cambiar modo">
-            <svg class="icon theme-icon"><use href="#icon-sun"/></svg>
-            <span class="icon-label">Modo</span>
+
+        <div class="header-buttons">
+          <button id="theme-toggle" class="btn-icon" aria-label="Cambiar modo claro/oscuro">
+            <span class="theme-label">Modo</span>
+            <svg id="theme-icon" viewBox="0 0 24 24" width="20" height="20">
+              <circle cx="12" cy="12" r="5" fill="gold"></circle>
+            </svg>
           </button>
-          <button id="navToggle" class="btn-icon nav-toggle" aria-label="Abrir menú" aria-controls="primary-nav">
-            <svg class="icon icon-open"><use href="#icon-menu"/></svg>
-            <svg class="icon icon-close"><use href="#icon-close"/></svg>
+          <button class="nav-toggle btn-icon" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-nav">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
           </button>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main id="main-content">
-
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="hero-content container">
-        <h1>Aprendizaje que se adapta a ti</h1>
-        <p class="subhero">Clases online personalizadas — Profesionales con +10 años de experiencia — Descuentos para grupos.</p>
-        <a href="#cursos" class="btn-cta">Explorar Cursos</a>
-      </div>
-    </section>
-
-    <!-- Divider Wave -->
-    <div class="divider">
-      <img src="images/divider-wave.svg" alt="" aria-hidden="true">
+  <!-- ============= HERO ============= -->
+  <section class="hero">
+    <div class="hero-content container reveal">
+      <h1>Bienvenidos a Aprendemas</h1>
+      <p class="subhero">Formación personalizada • Clases en vivo • Descuentos para grupos</p>
+      <a href="#cursos" class="btn-cta">Ver Cursos</a>
     </div>
+  </section>
 
-    <!-- CURSOS -->
-    <section id="cursos" class="courses">
-      <div class="container">
-        <h2 class="reveal">Cursos Disponibles</h2>
-        <div class="course-grid">
-          <!-- Repite un bloque por curso -->
-          <article class="course-card reveal">
-            <h3>Formación Docente</h3>
-            <p>Capacitación avanzada y desarrollo profesional para educadores.</p>
-            <a href="formacion-docente.html" class="btn-link">Más info</a>
-          </article>
-          <!-- …otros 4 cursos… -->
-        </div>
-        <p class="price-info">Clases de 1 hora – <strong>$20 CLP</strong> – Descuentos para grupos – Mínimo 2 veces/semana.</p>
+  <div class="divider">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+      <path d="M0,0 C300,50 900,0 1200,40 L1200,0 L0,0 Z" fill="var(--bg-white)"/>
+    </svg>
+  </div>
+
+  <!-- ============= CURSOS ============= -->
+  <section id="cursos" class="courses container">
+    <h2 class="reveal">Cursos Disponibles</h2>
+    <div class="course-grid">
+      <div class="course-card color-1 reveal">
+        <img src="images/icon-docente.png" alt="" class="card-icon">
+        <h3>Formación Docente</h3>
+        <p>Capacitación avanzada y desarrollo profesional de educadores.</p>
+        <a href="formacion-docente.html" class="btn-link">Más info</a>
       </div>
-    </section>
-
-    <div class="divider flip">
-      <img src="images/divider-wave.svg" alt="" aria-hidden="true">
+      <div class="course-card color-2 reveal">
+        <img src="images/icon-ingles.png" alt="" class="card-icon">
+        <h3>Inglés (Todos los niveles)</h3>
+        <p>Desde A1 hasta C1, mejora tu fluidez con docentes expertos.</p>
+        <a href="ingles.html" class="btn-link">Más info</a>
+      </div>
+      <div class="course-card color-3 reveal">
+        <img src="images/icon-filosofia.png" alt="" class="card-icon">
+        <h3>Filosofía</h3>
+        <p>Pensamiento crítico desde Grecia hasta la modernidad.</p>
+        <a href="filosofia.html" class="btn-link">Más info</a>
+      </div>
+      <div class="course-card color-4 reveal">
+        <img src="images/icon-politica.png" alt="" class="card-icon">
+        <h3>Ciencia Política</h3>
+        <p>Instituciones, poder y análisis sociopolítico contemporáneo.</p>
+        <a href="ciencia-politica.html" class="btn-link">Más info</a>
+      </div>
+      <div class="course-card color-5 reveal">
+        <img src="images/icon-historia.png" alt="" class="card-icon">
+        <h3>Historia Universal</h3>
+        <p>De la antigüedad a los retos del siglo XXI con contexto global.</p>
+        <a href="historia.html" class="btn-link">Más info</a>
+      </div>
     </div>
+    <p class="price-info reveal">
+      Cada clase dura 1 hora y cuesta <strong>$20 CLP</strong>.<br>
+      Clases grupales con descuento disponible (mínimo 2 veces por semana).
+    </p>
+  </section>
 
-    <!-- QUIÉNES SOMOS -->
-    <section id="nosotros" class="about-us">
-      <div class="container">
-        <h2>Quiénes Somos</h2>
-        <p>Plataforma con sede en EE. UU. formada por profesionales de la educación (licenciaturas, maestrías y doctorados) con más de 10 años de experiencia. Ofrecemos aprendizaje vivo, personalizado y orientado a objetivos reales.</p>
-      </div>
-    </section>
+  <div class="divider flip">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+      <path d="M0,60 C300,10 900,60 1200,20 L1200,60 L0,60 Z" fill="var(--subtle-purple)"/>
+    </svg>
+  </div>
 
-    <div class="divider">
-      <img src="images/divider-wave.svg" alt="" aria-hidden="true">
-    </div>
+  <!-- ============= QUIÉNES SOMOS ============= -->
+  <section id="nosotros" class="about-us section-alt container reveal">
+    <h2>Quiénes Somos</h2>
+    <p>
+      Plataforma con sede en EE. UU., integrada por profesionales en educación con
+      licenciaturas, maestrías y doctorados, más de 10 años de práctica y experiencia
+      docente. Clases en vivo, online y personalizadas para tus objetivos.
+    </p>
+  </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="contact">
-      <div class="container">
-        <h2>Contáctanos</h2>
-        <form name="contacto" method="POST" data-netlify="true" class="contact-form">
-          <input type="hidden" name="form-name" value="contacto">
-          <label for="name">Nombre</label>
-          <input id="name" name="name" required>
-          <label for="email">Correo</label>
-          <input id="email" name="email" type="email" required>
-          <label for="message">Mensaje</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-          <button type="submit" class="btn-cta">Enviar mensaje</button>
-        </form>
-      </div>
-    </section>
+  <div class="divider">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+      <path d="M0,0 C300,50 900,0 1200,40 L1200,0 L0,0 Z" fill="var(--bg-white)"/>
+    </svg>
+  </div>
 
-  </main>
+  <!-- ============= CONTACTO ============= -->
+  <section id="contacto" class="contact container reveal">
+    <h2>Contáctanos</h2>
+    <form name="contacto" method="POST" data-netlify="true" class="contact-form">
+      <input type="hidden" name="form-name" value="contacto">
+      <label for="name">Nombre</label>
+      <input id="name" type="text" name="name" required>
+      <label for="email">Correo</label>
+      <input id="email" type="email" name="email" required>
+      <label for="message">Mensaje</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      <input type="text" name="_gotcha" style="display:none">
+      <button type="submit" class="btn-cta">Enviar mensaje</button>
+    </form>
+  </section>
 
-  <!-- BOTONES FLOTANTES -->
-  <button id="back-to-top" class="btn-float" aria-label="Volver arriba"><svg><use href="#icon-arrow-up"/></svg></button>
-  <a href="#top" id="home-button" class="btn-float" aria-label="Inicio"><svg><use href="#icon-home"/></svg></a>
+  <!-- Botones flotantes -->
+  <button id="back-to-top" class="btn-float" title="Volver arriba">⬆</button>
+  <a href="index.html" id="home-button" class="btn-float" title="Inicio">🏠</a>
 
-  <!-- FOOTER -->
+  <!-- ============= FOOTER ============= -->
   <footer class="site-footer">
     <div class="container">
-      <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
+      <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <!-- JS -->
-  <script src="main.js"></script>
+  <!-- ============= SCRIPT ============= -->
+  <script>
+  /* Tema Dark/Light */
+  const themeBtn  = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const rootEl    = document.documentElement;
+  const stored    = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let currentTheme = stored || (prefersDark ? 'dark' : 'light');
+  function applyTheme(t){
+    rootEl.setAttribute('data-theme', t);
+    themeIcon.innerHTML = t === 'dark'
+      ? '<circle cx="12" cy="12" r="5" fill="currentColor"/>'
+      : '<circle cx="12" cy="12" r="5" fill="gold"/>';
+  }
+  applyTheme(currentTheme);
+  themeBtn.addEventListener('click', () => {
+    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('theme', currentTheme);
+    applyTheme(currentTheme);
+  });
+
+  /* Menú móvil */
+  const navToggle = document.getElementById('navToggle');
+  const navLinks  = document.getElementById('primary-nav');
+  function closeMenu(){
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('active');
+    navToggle.setAttribute('aria-expanded','false');
+    document.body.classList.remove('menu-open');
+  }
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('active', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.classList.toggle('menu-open', isOpen);
+  });
+  navLinks.addEventListener('click', e => {
+    const a = e.target.closest('a');
+    if(!a) return;
+    const h = a.getAttribute('href') || '';
+    if(h.startsWith('#') || h.endsWith('.html')) closeMenu();
+  });
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 820 && navLinks.classList.contains('open')) closeMenu();
+  });
+  window.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && navLinks.classList.contains('open')) closeMenu();
+  });
+
+  /* Dropdown Cursos en móvil */
+  const dropdownTrigger = document.querySelector('.dropdown-trigger');
+  const dropdownMenu    = document.querySelector('.dropdown-content');
+  if(dropdownTrigger && dropdownMenu){
+    dropdownTrigger.addEventListener('click', e => {
+      if(window.innerWidth <= 820){
+        e.preventDefault();
+        dropdownMenu.classList.toggle('open');
+        const expanded = dropdownTrigger.getAttribute('aria-expanded') === 'true';
+        dropdownTrigger.setAttribute('aria-expanded', (!expanded).toString());
+      }
+    });
+  }
+
+  /* Reveal on Scroll */
+  const reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('is-visible'));
+  }
+
+  /* Botones flotantes */
+  const backToTop = document.getElementById('back-to-top');
+  const homeBtn   = document.getElementById('home-button');
+  function toggleFloats(){
+    if(window.scrollY > 300){
+      backToTop.style.display='block';
+      homeBtn.style.display='block';
+    } else {
+      backToTop.style.display='none';
+      homeBtn.style.display='none';
+    }
+  }
+  window.addEventListener('scroll', toggleFloats);
+  toggleFloats();
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* Scroll suave anclas */
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const id = a.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+  </script>
 </body>
 </html>
