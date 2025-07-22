@@ -1,7 +1,7 @@
-// ===== Theme Toggle =====
+// Theme Toggle
 const root = document.documentElement;
-const stored = localStorage.getItem('theme');
-if (stored) root.setAttribute('data-theme', stored);
+const saved = localStorage.getItem('theme');
+if (saved) root.setAttribute('data-theme', saved);
 
 document.getElementById('theme-toggle').addEventListener('click', () => {
   const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
@@ -9,7 +9,7 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
   localStorage.setItem('theme', next);
 });
 
-// ===== Mobile Menu Toggle =====
+// Mobile Menu Toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks  = document.getElementById('primary-nav');
 navToggle.addEventListener('click', () => {
@@ -24,7 +24,7 @@ navLinks.querySelectorAll('a').forEach(link =>
   })
 );
 
-// ===== Accordion =====
+// Accordion
 document.querySelectorAll('.accordion-trigger').forEach(btn => {
   btn.addEventListener('click', () => {
     const open = btn.getAttribute('aria-expanded') === 'true';
@@ -34,7 +34,7 @@ document.querySelectorAll('.accordion-trigger').forEach(btn => {
   });
 });
 
-// ===== Reveal on Scroll =====
+// Reveal on Scroll
 const reveals = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver(entries => {
@@ -50,7 +50,7 @@ if ('IntersectionObserver' in window) {
   reveals.forEach(r => r.classList.add('is-visible'));
 }
 
-// ===== Back to Top Button =====
+// Back to Top Button
 const backTop = document.getElementById('back-to-top');
 window.addEventListener('scroll', () => {
   backTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
