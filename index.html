@@ -6,42 +6,38 @@
   <title>Aprendemas – Formación Personalizada Online</title>
   <meta name="description" content="Formación docente, inglés, filosofía, ciencia política e historia. Clases online personalizadas con profesionales experimentados.">
   <meta name="theme-color" content="#673AB7">
+
+  <!-- PWA & Favicons -->
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=5">
-  <meta property="og:title"       content="Aprendemas – Formación Personalizada">
-  <meta property="og:description" content="Cursos en vivo: formación docente, inglés, filosofía, ciencia política e historia.">
-  <meta property="og:image"       content="og-image.jpg">
-  <meta property="og:type"        content="website">
+  <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <!-- SVG Sprite -->
   <svg style="display:none" aria-hidden="true">
-    <symbol id="icon-menu"       viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-close"      viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-sun"        viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-moon"       viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-arrow-up"   viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-instagram"  viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-linkedin"   viewBox="0 0 24 24">…</symbol>
-    <symbol id="icon-facebook"   viewBox="0 0 24 24">…</symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M15.2 2.5a8.5 8.5 0 1 0 6.3 11.7A7 7 0 0 1 15.2 2.5z" fill="currentColor"/></symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-8.5z" fill="currentColor"/></symbol>
   </svg>
 
   <!-- HEADER -->
   <header class="site-header" id="top">
     <div class="header-content container">
-      <a href="index.html" class="logo-wrap" aria-label="Inicio">
-        <img src="aprende_logo.png" alt="Aprendemas" class="logo">
+      <a href="#top" class="logo-wrap" aria-label="Inicio">
+        <img src="images/aprende_logo.png" alt="Aprendemas" class="logo">
       </a>
       <nav class="nav-main" aria-label="Navegación principal">
         <ul class="nav-links" id="primary-nav">
           <li><a href="#top" data-spy>Inicio</a></li>
           <li class="dropdown">
-            <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-              Cursos ▼
-            </button>
+            <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">Cursos ▼</button>
             <ul class="dropdown-content">
               <li><a href="formacion-docente.html">Formación Docente</a></li>
               <li><a href="ingles.html">Inglés</a></li>
@@ -50,111 +46,108 @@
               <li><a href="historia.html">Historia Universal</a></li>
             </ul>
           </li>
-          <li><a href="#nosotros"     data-spy>Quiénes somos</a></li>
-          <li><a href="#testimonials" data-spy>Testimonios</a></li>
-          <li><a href="#contacto"     data-spy>Contacto</a></li>
+          <li><a href="#nosotros" data-spy>Quiénes somos</a></li>
+          <li><a href="#contacto" data-spy>Contacto</a></li>
           <li><a href="faq.html">FAQ</a></li>
         </ul>
         <div class="header-actions">
           <button id="theme-toggle" class="btn-icon" aria-label="Cambiar modo">
-            <svg class="icon theme-icon"><use href="#icon-sun"></use></svg>
+            <svg class="icon theme-icon"><use href="#icon-sun"/></svg>
+            <span class="icon-label">Modo</span>
           </button>
-          <button id="navToggle" class="btn-icon nav-toggle"
-                  aria-label="Menú" aria-expanded="false" aria-controls="primary-nav">
-            <svg class="icon icon-open"><use href="#icon-menu"></use></svg>
-            <svg class="icon icon-close"><use href="#icon-close"></use></svg>
+          <button id="navToggle" class="btn-icon nav-toggle" aria-label="Abrir menú" aria-controls="primary-nav">
+            <svg class="icon icon-open"><use href="#icon-menu"/></svg>
+            <svg class="icon icon-close"><use href="#icon-close"/></svg>
           </button>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero container bg-gradient">
-    <div class="hero-content">
-      <h1 class="hero-title">Aprendizaje que se adapta a ti</h1>
-      <p class="hero-sub">Clases online personalizadas • Profesionales con +20 años de experiencia • Grupos y descuentos</p>
-      <a href="#cursos" class="btn-cta">Explorar Cursos</a>
+  <!-- MAIN -->
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-content container">
+        <h1>Aprendizaje que se adapta a ti</h1>
+        <p class="subhero">Clases online personalizadas — Profesionales con +10 años de experiencia — Descuentos para grupos.</p>
+        <a href="#cursos" class="btn-cta">Explorar Cursos</a>
+      </div>
+    </section>
+
+    <div class="divider">
+      <img src="images/divider-wave.svg" alt="" aria-hidden="true">
     </div>
-  </section>
 
-  <!-- COURSES -->
-  <section id="cursos" class="courses container bg-light">
-    <h2 class="section-title">Cursos Disponibles</h2>
-    <div class="course-grid">
-      <!-- TU GRID DE CURSOS -->
+    <!-- CURSOS -->
+    <section id="cursos" class="courses">
+      <div class="container">
+        <h2 class="reveal">Cursos Disponibles</h2>
+        <div class="course-grid">
+          <!-- Artículo ejemplo; duplica para los 5 cursos -->
+          <article class="course-card reveal">
+            <h3>Formación Docente</h3>
+            <p>Capacitación avanzada y desarrollo profesional para educadores.</p>
+            <a href="formacion-docente.html" class="btn-link">Más info</a>
+          </article>
+          <!-- …otros 4 cursos… -->
+        </div>
+        <p class="price-info">Clases de 1 hora – <strong>$20 CLP</strong> – Descuentos para grupos – Mínimo 2 veces/semana.</p>
+      </div>
+    </section>
+
+    <div class="divider flip">
+      <img src="images/divider-wave.svg" alt="" aria-hidden="true">
     </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="nosotros" class="about-us container bg-white">
-    <h2 class="section-title">Quiénes Somos</h2>
-    <p>Somos un equipo de educadores con licenciaturas, maestrías y doctorados, 20+ años de experiencia. Aprendizaje personalizado, orientado a tus objetivos.</p>
-  </section>
+    <!-- QUIÉNES SOMOS -->
+    <section id="nosotros" class="about-us">
+      <div class="container">
+        <h2>Quiénes Somos</h2>
+        <p>Plataforma con sede en EE. UU.…</p>
+      </div>
+    </section>
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="testimonials container bg-light">
-    <h2 class="section-title">Lo que dicen nuestros estudiantes</h2>
-    <div class="testimonial-slider">
-      <blockquote>
-        <p>“Las clases con Aprendemas cambiaron mi forma de ver el inglés.”</p>
-        <footer>— María Pérez, Profesora</footer>
-      </blockquote>
-      <blockquote>
-        <p>“La formación docente me permitió aplicar nuevas estrategias en el aula.”</p>
-        <footer>— Juan Rojas, Educador</footer>
-      </blockquote>
+    <div class="divider">
+      <img src="images/divider-wave.svg" alt="" aria-hidden="true">
     </div>
-  </section>
 
-  <!-- FAQ PREVIEW -->
-  <section id="faq-preview" class="faq-preview container bg-white">
-    <h2 class="section-title">Preguntas Frecuentes</h2>
-    <div class="accordion">
-      <button class="accordion-trigger" aria-expanded="false">¿Cómo funciona la suscripción?</button>
-      <div class="accordion-content"><p>Accedes a todos los cursos y materiales tras suscribirte.</p></div>
-      <button class="accordion-trigger" aria-expanded="false">¿Qué métodos de pago aceptan?</button>
-      <div class="accordion-content"><p>Visa, Mastercard, PayPal y transferencias bancarias.</p></div>
-    </div>
-  </section>
+    <!-- CONTACTO -->
+    <section id="contacto" class="contact">
+      <div class="container">
+        <h2>Contáctanos</h2>
+        <form name="contacto" method="POST" data-netlify="true" class="contact-form">
+          <input type="hidden" name="form-name" value="contacto">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" required>
+          <label for="email">Correo</label>
+          <input id="email" name="email" type="email" required>
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <button type="submit" class="btn-cta">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contacto" class="contact container bg-light">
-    <h2 class="section-title">Contáctanos</h2>
-    <form name="contacto" method="POST" data-netlify="true" class="contact-form">
-      <input type="hidden" name="form-name" value="contacto">
-      <label for="name">Nombre</label>
-      <input id="name" name="name" required>
-      <label for="email">Correo</label>
-      <input id="email" name="email" type="email" required>
-      <label for="message">Mensaje</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-      <button type="submit" class="btn-cta">Enviar mensaje</button>
-    </form>
-  </section>
+  </main>
 
-  <!-- BACK TO TOP -->
+  <!-- BOTONES FLOTANTES -->
   <button id="back-to-top" class="btn-float" aria-label="Volver arriba">
-    <svg width="24" height="24"><use href="#icon-arrow-up"></use></svg>
+    <svg><use href="#icon-arrow-up"/></svg>
   </button>
+  <a href="#top" id="home-button" class="btn-float" aria-label="Inicio">
+    <svg><use href="#icon-home"/></svg>
+  </a>
 
   <!-- FOOTER -->
-  <footer class="site-footer bg-white">
-    <div class="container footer-grid">
-      <div class="social-links">
-        <h3>Síguenos</h3>
-        <a href="#" aria-label="Instagram"><svg width="24"><use href="#icon-instagram"></use></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg width="24"><use href="#icon-linkedin"></use></svg></a>
-        <a href="#" aria-label="Facebook"><svg width="24"><use href="#icon-facebook"></use></svg></a>
-      </div>
-      <div class="trust-seals">
-        <img src="seal-secure.png" alt="Pago Seguro">
-        <img src="seal-netlify.png" alt="Netlify Forms via HTTPS">
-      </div>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
     </div>
-    <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
   </footer>
 
+  <!-- JS -->
   <script src="main.js"></script>
 </body>
 </html>
