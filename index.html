@@ -6,10 +6,28 @@
   <title>Aprendemas – Formación Personalizada Online</title>
   <meta name="description" content="Formación docente, inglés, filosofía, ciencia política e historia. Clases online personalizadas con profesionales experimentados.">
   <meta name="theme-color" content="#673AB7">
+
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- main stylesheet -->
   <link rel="stylesheet" href="styles.css?v=3">
+
+  <!-- UPDATED: Inject background‑collage into the .courses section -->
+  <style>
+    .courses {
+      padding: 3.2rem 0;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(245,240,250, .85), rgba(253,251,247, .9)),
+        url('images/background.png') no-repeat center center;
+      background-size: cover;
+      border-radius: 24px;
+      margin-top: 2rem;
+    }
+  </style>
+
   <meta property="og:title" content="Aprendemas – Formación Personalizada">
   <meta property="og:description" content="Cursos en vivo: formación docente, inglés, filosofía, ciencia política e historia.">
   <meta property="og:image" content="og-image.jpg">
@@ -49,7 +67,7 @@
       <ul class="nav-links" id="primary-nav">
         <li><a href="#top" data-spy>Inicio</a></li>
         <li class="dropdown">
-          <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">Cursos </button>
+          <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">Cursos</button>
           <ul class="dropdown-content" aria-label="Submenú cursos">
             <li><a href="formacion-docente.html">Formación Docente</a></li>
             <li><a href="ingles.html">Inglés</a></li>
@@ -58,7 +76,6 @@
             <li><a href="historia.html">Historia Universal</a></li>
           </ul>
         </li>
-      
         <li><a href="#nosotros" data-spy>Quiénes somos</a></li>
         <li><a href="#contacto" data-spy>Contacto</a></li>
         <li><a href="faq.html">FAQ</a></li>
@@ -181,7 +198,7 @@
     <p>
       Plataforma con sede en EE. UU. formada por profesionales de la educación
       (licenciaturas, maestrías y doctorados) con más de 20 años de experiencia.
-      Ofrecemos aprendizaje vivo, personalizado y orientado a objetivos reales.
+      Ofrecemos aprendizaje vivo, personalizado y orientado a objetivos reales.
     </p>
   </section>
 
