@@ -297,11 +297,11 @@ input:focus-visible, textarea:focus-visible {
   content:'';
   position:absolute; inset:0;
   background:
-    radial-gradient(circle at 25% 35%, rgba(255,213,79,.35), transparent 60%),
+    radial-gradient(circle at 25% 35%, rgba(255,213,79,.35), transparent 60%),  
     radial-gradient(circle at 78% 70%, rgba(255,255,255,.16), transparent 55%);
-  mix-blend-mode: screen;
-  animation: heroGlow 14s linear infinite alternate;
-  pointer-events:none;
+  mix-blend-mode: screen;  
+  animation: heroGlow 14s linear infinite alternate;  
+  pointer-events:none;  
 }
 .hero::after {
   animation-duration: 18s;
@@ -406,13 +406,19 @@ input:focus-visible, textarea:focus-visible {
   transform: translateY(0) scale(1);
 }
 
-/* ------------ Courses Section ------------ */
+/* ------------ Courses Section (with background collage) ------------ */
 .courses {
   padding:3.2rem 0;
-  position:relative;
-  background: linear-gradient(180deg,rgba(245,240,250,.85),rgba(253,251,247,.9));
+  position: relative;
+
+  /* semi‑opaque gradient over your /images/background.png */
+  background:
+    linear-gradient(180deg, rgba(245,240,250,.85), rgba(253,251,247,.9)),
+    url('images/background.png') no-repeat center center;
+  background-size: cover;
+
   border-radius: 24px;
-  margin-top:2rem;
+  margin-top: 2rem;
 }
 
 .courses h2 {
