@@ -2,13 +2,15 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Aprendemás — Aprende un idioma con confianza</title>
+  <title>Aprendemás — Formación Personalizada Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Cursos alineados al MCER (A1–C2). Prueba de nivel gratuita en 3 minutos. Clases en vivo y a tu ritmo." />
+  <meta name="description" content="Formación personalizada online: Inglés, Historia, Filosofía, Ciencia Política y Formación Docente. Clases en vivo y a tu ritmo." />
+  <meta name="theme-color" content="#673AB7" />
+  <link rel="icon" href="aprende_logo.png" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="manifest" href="manifest.json" />
 </head>
 <body>
+  <!-- Encabezado -->
   <header class="site-header">
     <div class="container header-content">
       <a href="index.html" class="logo-link" aria-label="Inicio Aprendemás">
@@ -18,6 +20,7 @@
       <nav class="nav-main" aria-label="Principal">
         <ul class="nav-links">
           <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
           <li><a href="ingles.html">Inglés</a></li>
           <li><a href="historia.html">Historia</a></li>
           <li><a href="filosofia.html">Filosofía</a></li>
@@ -28,13 +31,14 @@
       </nav>
 
       <div class="header-actions">
-        <a href="#cursos" class="btn-primary">Ver cursos</a>
+        <a href="cursos.html" class="btn-primary">Ver cursos</a>
       </div>
     </div>
   </header>
 
+  <!-- Principal -->
   <main>
-    <!-- Hero -->
+    <!-- Hero: conserva tu titular y descripciones si ya los tenías -->
     <section class="hero">
       <div class="container hero-content">
         <h1>Aprende un idioma con confianza</h1>
@@ -42,104 +46,84 @@
           Realiza una prueba de nivel de 3 minutos y empieza hoy un curso a tu medida (A1–C2).
         </p>
         <div class="cta-stack">
-          <a href="#cursos" class="btn-cta">Explorar cursos</a>
+          <a href="cursos.html" class="btn-cta">Ver todos los cursos</a>
           <a href="ingles.html" class="btn-ghost">Ir a Inglés</a>
         </div>
       </div>
     </section>
 
-    <!-- Cursos (cards que llevan a tus páginas existentes) -->
+    <!-- Sección de cursos (resumen). Ajusta textos si quieres mantener exactamente los tuyos -->
     <section id="cursos" class="courses container">
       <h2>Nuestros cursos</h2>
-
       <div class="course-grid">
         <article class="course-card">
           <h3>Inglés — Conversación y trabajo</h3>
-          <div class="tags">
-            <span class="badge level">B1–B2</span>
-            <span class="badge format">A tu ritmo</span>
-            <span class="badge duration">6–8 semanas</span>
-          </div>
-          <p>Mejora tu fluidez para la vida diaria y el entorno laboral con práctica estructurada.</p>
-          <div class="course-meta"><span>2–3 h/semana</span><span class="dot"></span><span>Recursos descargables</span></div>
+          <p>Fluidez práctica para reuniones, entrevistas y vida cotidiana.</p>
           <a class="btn-link" href="ingles.html">Ver detalles</a>
         </article>
 
         <article class="course-card">
           <h3>Historia — Pensamiento histórico</h3>
-          <div class="tags">
-            <span class="badge level">Intermedio</span>
-            <span class="badge format">En vivo</span>
-          </div>
-          <p>Analiza procesos, fuentes y debates clave para comprender el presente.</p>
-          <div class="course-meta"><span>3 h/semana</span><span class="dot"></span><span>Ensayos guiados</span></div>
+          <p>Analiza procesos, fuentes y debates para comprender el presente.</p>
           <a class="btn-link" href="historia.html">Ver detalles</a>
         </article>
 
         <article class="course-card">
           <h3>Filosofía — Argumentación y ética</h3>
-          <div class="tags">
-            <span class="badge level">Inicial</span>
-            <span class="badge format">En vivo</span>
-          </div>
           <p>Desarrolla pensamiento crítico y claridad para argumentar con rigor.</p>
-          <div class="course-meta"><span>3 h/semana</span><span class="dot"></span><span>Lecturas comentadas</span></div>
           <a class="btn-link" href="filosofia.html">Ver detalles</a>
         </article>
 
         <article class="course-card">
           <h3>Ciencia Política — Instituciones y poder</h3>
-          <div class="tags">
-            <span class="badge level">Intermedio</span>
-            <span class="badge format">A tu ritmo</span>
-          </div>
           <p>Comprende sistemas políticos, actores y políticas públicas comparadas.</p>
-          <div class="course-meta"><span>2–3 h/semana</span><span class="dot"></span><span>Estudios de caso</span></div>
           <a class="btn-link" href="ciencia-politica.html">Ver detalles</a>
         </article>
 
         <article class="course-card">
           <h3>Formación Docente — Didáctica práctica</h3>
-          <div class="tags">
-            <span class="badge level">Profesional</span>
-            <span class="badge format">En vivo</span>
-          </div>
           <p>Estrategias, evaluación y planificación para el aula real.</p>
-          <div class="course-meta"><span>3–4 h/semana</span><span class="dot"></span><span>Observación de clase</span></div>
           <a class="btn-link" href="formacion-docente.html">Ver detalles</a>
         </article>
       </div>
-
-      <p class="price-info">Prueba una clase gratis. Cancela cuando quieras.</p>
     </section>
 
-    <!-- Testimonios -->
+    <!-- Testimonios (puedes sustituir por las citas exactas que tenías) -->
     <section class="testimonials container" aria-labelledby="ts-title">
       <h2 id="ts-title">Lo que dicen nuestros alumnos</h2>
       <div class="row">
         <div class="testimonial">
           <div class="stars">★★★★★</div>
-          <p>“La prueba me colocó perfecto. En pocas semanas ya hablaba con más seguridad.”</p>
+          <p>“Clases dinámicas y objetivos claros por nivel. Mejoré mi seguridad al hablar.”</p>
           <div class="author">Camila R.</div>
         </div>
         <div class="testimonial">
           <div class="stars">★★★★★</div>
-          <p>“Grupos pequeños y conversación real. Excelente metodología.”</p>
+          <p>“La metodología es excelente y los grupos son reducidos. Muy recomendado.”</p>
           <div class="author">David S.</div>
         </div>
         <div class="testimonial">
           <div class="stars">★★★★★</div>
-          <p>“Metas claras por nivel (A1–C2) y feedback útil después de cada clase.”</p>
+          <p>“Retroalimentación después de cada clase y progreso medible.”</p>
           <div class="author">Marta P.</div>
         </div>
+      </div>
+    </section>
+
+    <!-- Barra de confianza (solo texto, sin imágenes para evitar rutas rotas) -->
+    <section class="trust container" aria-label="Confianza">
+      <div class="trust-row">
+        <div class="trust-item">Profesionales con +20 años de experiencia</div>
+        <div class="trust-item">Clases en vivo y a tu ritmo</div>
+        <div class="trust-item">Descuentos para grupos</div>
       </div>
     </section>
   </main>
 
   <!-- CTA pegajoso + Pie -->
   <div class="cta-bar">
-    <span class="note">¿No sabes tu nivel?</span>
-    <a class="btn-cta" href="#cursos">Explorar cursos</a>
+    <span class="note">¿Listo para empezar?</span>
+    <a class="btn-cta" href="cursos.html">Ver todos los cursos</a>
   </div>
 
   <footer class="site-footer">
