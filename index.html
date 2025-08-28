@@ -1,103 +1,115 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Aprendemás — Aprende un idioma con confianza</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cursos de idiomas alineados al MCER (A1–C2). Prueba de nivel gratuita en 3 minutos.">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Cursos alineados al MCER (A1–C2). Prueba de nivel gratuita en 3 minutos. Clases en vivo y a tu ritmo." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
 </head>
 <body>
-  <!-- Encabezado -->
   <header class="site-header">
     <div class="container header-content">
-      <a href="index.html"><img src="/images/logo.png" class="logo" alt="Logo de Aprendemás"></a>
-      <nav class="nav-main">
+      <a href="index.html" class="logo-link" aria-label="Inicio Aprendemás">
+        <img src="aprende_logo.png" class="logo" alt="Logo de Aprendemás" />
+      </a>
+
+      <nav class="nav-main" aria-label="Principal">
         <ul class="nav-links">
           <li><a href="index.html" class="active">Inicio</a></li>
-          <li><a href="courses.html">Cursos</a></li>
-          <li><a href="about.html">Quiénes somos</a></li>
-          <li><a href="contact.html">Contacto</a></li>
+          <li><a href="ingles.html">Inglés</a></li>
+          <li><a href="historia.html">Historia</a></li>
+          <li><a href="filosofia.html">Filosofía</a></li>
+          <li><a href="ciencia-politica.html">Ciencia Política</a></li>
+          <li><a href="formacion-docente.html">Formación Docente</a></li>
+          <li><a href="contacto.html" class="hide">Contacto</a></li>
         </ul>
       </nav>
+
       <div class="header-actions">
-        <select class="lang-switch" aria-label="Idioma">
-          <option value="es" selected>ES</option>
-          <option value="en">EN</option>
-          <option value="fr">FR</option>
-        </select>
-        <a href="/placement" class="btn-primary">Comenzar</a>
+        <a href="#cursos" class="btn-primary">Ver cursos</a>
       </div>
     </div>
   </header>
 
-  <!-- Principal -->
   <main>
     <!-- Hero -->
-    <section class="hero" id="home">
+    <section class="hero">
       <div class="container hero-content">
         <h1>Aprende un idioma con confianza</h1>
         <p class="subhero max-w-prose">
           Realiza una prueba de nivel de 3 minutos y empieza hoy un curso a tu medida (A1–C2).
         </p>
         <div class="cta-stack">
-          <a href="/placement" class="btn-cta">Hacer prueba de nivel</a>
-          <a href="courses.html" class="btn-ghost">Ver cursos</a>
+          <a href="#cursos" class="btn-cta">Explorar cursos</a>
+          <a href="ingles.html" class="btn-ghost">Ir a Inglés</a>
         </div>
       </div>
     </section>
 
-    <!-- Cursos destacados -->
-    <section class="courses container" id="courses">
+    <!-- Cursos (cards que llevan a tus páginas existentes) -->
+    <section id="cursos" class="courses container">
       <h2>Nuestros cursos</h2>
-      <div class="course-grid">
-        <article class="course-card" aria-labelledby="curso-espanol-a2">
-          <div class="course-icon"><img src="/icons/spanish.svg" width="56" height="56" alt=""></div>
-          <h3 id="curso-espanol-a2">Español A2 — Conversación cotidiana</h3>
-          <div class="tags">
-            <span class="badge level">A2</span>
-            <span class="badge format">En vivo</span>
-            <span class="badge duration">8 semanas</span>
-            <span class="badge cert">Certificado</span>
-          </div>
-          <p>Gana seguridad para hablar en situaciones reales con práctica guiada y retroalimentación.</p>
-          <div class="course-meta">
-            <span>3–4 h/semana</span><span class="dot"></span><span>Máx. 10 alumnos</span><span class="dot"></span><span>Alineado al MCER</span>
-          </div>
-          <a class="btn-link" href="courses.html#spanish-a2">Ver detalles</a>
-        </article>
 
-        <article class="course-card" aria-labelledby="curso-ingles-b1">
-          <div class="course-icon"><img src="/icons/english.svg" width="56" height="56" alt=""></div>
-          <h3 id="curso-ingles-b1">Inglés B1 — Conversación y trabajo</h3>
+      <div class="course-grid">
+        <article class="course-card">
+          <h3>Inglés — Conversación y trabajo</h3>
           <div class="tags">
-            <span class="badge level">B1</span>
+            <span class="badge level">B1–B2</span>
             <span class="badge format">A tu ritmo</span>
-            <span class="badge duration">6 semanas</span>
+            <span class="badge duration">6–8 semanas</span>
           </div>
           <p>Mejora tu fluidez para la vida diaria y el entorno laboral con práctica estructurada.</p>
-          <div class="course-meta">
-            <span>2–3 h/semana</span><span class="dot"></span><span>Recursos descargables</span>
-          </div>
-          <a class="btn-link" href="courses.html#english-b1">Ver detalles</a>
+          <div class="course-meta"><span>2–3 h/semana</span><span class="dot"></span><span>Recursos descargables</span></div>
+          <a class="btn-link" href="ingles.html">Ver detalles</a>
         </article>
 
-        <article class="course-card" aria-labelledby="curso-frances-a1">
-          <div class="course-icon"><img src="/icons/french.svg" width="56" height="56" alt=""></div>
-          <h3 id="curso-frances-a1">Francés A1 — Fundamentos</h3>
+        <article class="course-card">
+          <h3>Historia — Pensamiento histórico</h3>
           <div class="tags">
-            <span class="badge level">A1</span>
+            <span class="badge level">Intermedio</span>
             <span class="badge format">En vivo</span>
-            <span class="badge duration">8 semanas</span>
           </div>
-          <p>Empieza desde cero: pronunciación, frases esenciales y cultura.</p>
-          <div class="course-meta">
-            <span>3 h/semana</span><span class="dot"></span><span>Grupos reducidos</span>
+          <p>Analiza procesos, fuentes y debates clave para comprender el presente.</p>
+          <div class="course-meta"><span>3 h/semana</span><span class="dot"></span><span>Ensayos guiados</span></div>
+          <a class="btn-link" href="historia.html">Ver detalles</a>
+        </article>
+
+        <article class="course-card">
+          <h3>Filosofía — Argumentación y ética</h3>
+          <div class="tags">
+            <span class="badge level">Inicial</span>
+            <span class="badge format">En vivo</span>
           </div>
-          <a class="btn-link" href="courses.html#french-a1">Ver detalles</a>
+          <p>Desarrolla pensamiento crítico y claridad para argumentar con rigor.</p>
+          <div class="course-meta"><span>3 h/semana</span><span class="dot"></span><span>Lecturas comentadas</span></div>
+          <a class="btn-link" href="filosofia.html">Ver detalles</a>
+        </article>
+
+        <article class="course-card">
+          <h3>Ciencia Política — Instituciones y poder</h3>
+          <div class="tags">
+            <span class="badge level">Intermedio</span>
+            <span class="badge format">A tu ritmo</span>
+          </div>
+          <p>Comprende sistemas políticos, actores y políticas públicas comparadas.</p>
+          <div class="course-meta"><span>2–3 h/semana</span><span class="dot"></span><span>Estudios de caso</span></div>
+          <a class="btn-link" href="ciencia-politica.html">Ver detalles</a>
+        </article>
+
+        <article class="course-card">
+          <h3>Formación Docente — Didáctica práctica</h3>
+          <div class="tags">
+            <span class="badge level">Profesional</span>
+            <span class="badge format">En vivo</span>
+          </div>
+          <p>Estrategias, evaluación y planificación para el aula real.</p>
+          <div class="course-meta"><span>3–4 h/semana</span><span class="dot"></span><span>Observación de clase</span></div>
+          <a class="btn-link" href="formacion-docente.html">Ver detalles</a>
         </article>
       </div>
+
       <p class="price-info">Prueba una clase gratis. Cancela cuando quieras.</p>
     </section>
 
@@ -107,28 +119,19 @@
       <div class="row">
         <div class="testimonial">
           <div class="stars">★★★★★</div>
-          <p>“La prueba me colocó perfecto. En 4 semanas ya hablaba con más seguridad.”</p>
+          <p>“La prueba me colocó perfecto. En pocas semanas ya hablaba con más seguridad.”</p>
           <div class="author">Camila R.</div>
         </div>
         <div class="testimonial">
           <div class="stars">★★★★★</div>
-          <p>“Grupos pequeños y conversación real. El mejor curso online que he tomado.”</p>
+          <p>“Grupos pequeños y conversación real. Excelente metodología.”</p>
           <div class="author">David S.</div>
         </div>
         <div class="testimonial">
           <div class="stars">★★★★★</div>
-          <p>“Metas claras por nivel (A1–C2) y excelente feedback en cada clase.”</p>
+          <p>“Metas claras por nivel (A1–C2) y feedback útil después de cada clase.”</p>
           <div class="author">Marta P.</div>
         </div>
-      </div>
-    </section>
-
-    <!-- Aliados -->
-    <section class="partners container" aria-label="Aliados y medios">
-      <div class="logos">
-        <img src="/logos/partner1.svg" width="120" height="28" alt="Aliado 1">
-        <img src="/logos/partner2.svg" width="120" height="28" alt="Aliado 2">
-        <img src="/logos/partner3.svg" width="120" height="28" alt="Aliado 3">
       </div>
     </section>
   </main>
@@ -136,12 +139,13 @@
   <!-- CTA pegajoso + Pie -->
   <div class="cta-bar">
     <span class="note">¿No sabes tu nivel?</span>
-    <a class="btn-cta" href="/placement">Haz la prueba en 3 minutos</a>
+    <a class="btn-cta" href="#cursos">Explorar cursos</a>
   </div>
 
   <footer class="site-footer">
-    <p>© 2025 Aprendemás. Todos los derechos reservados. <a href="about.html">Quiénes somos</a> · <a href="contact.html">Contacto</a></p>
+    <p>© 2025 Aprendemás. Todos los derechos reservados.</p>
   </footer>
-  <script src="scripts/main.js" defer></script>
+
+  <script src="main.js" defer></script>
 </body>
 </html>
