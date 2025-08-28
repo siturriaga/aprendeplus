@@ -1,43 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teoría Crítica y Ciencia Política | Aprendemas</title>
+  <meta charset="UTF-8">
+  <title>Ciencia Política — Aprendemás</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Curso de Ciencia Política: instituciones, actores y políticas públicas comparadas." />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="curso-politica">
+<body>
   <header class="site-header">
-    <div class="header-content container">
-      <img src="aprende_logo.png" alt="Logo Aprendemas" class="logo large-logo" />
-      <div class="tagline">Conocimiento sin fronteras</div>
-      <nav>
+    <div class="container header-content">
+      <a href="index.html"><img src="aprende_logo.png" class="logo" alt="Logo de Aprendemás" /></a>
+      <nav class="nav-main">
         <ul class="nav-links">
-          <li><a href="index.html#cursos">Cursos</a></li>
-          <li><a href="index.html#nosotros">Quiénes somos</a></li>
-          <li><a href="index.html#contacto">Contacto</a></li>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="ingles.html">Inglés</a></li>
+          <li><a href="historia.html">Historia</a></li>
+          <li><a href="filosofia.html">Filosofía</a></li>
+          <li><a href="ciencia-politica.html" class="active">Ciencia Política</a></li>
+          <li><a href="formacion-docente.html">Formación Docente</a></li>
         </ul>
       </nav>
+      <div class="header-actions"><a href="#inscripcion" class="btn-primary">Inscribirme</a></div>
     </div>
   </header>
 
-  <main class="fade-in container">
-    <h1>Teoría Crítica y Ciencia Política</h1>
-    <p>Análisis del poder, las ideologías y las estructuras sociales desde una óptica crítica y contemporánea.</p>
-    <ul class="course-details">
-      <li><strong>Duración:</strong> 1 hora por clase</li>
-      <li><strong>Precio:</strong> $20 CLP por clase</li>
-      <li><strong>Modalidad:</strong> Online y personalizada</li>
-      <li><strong>Frecuencia mínima:</strong> 2 veces por semana</li>
-      <li><strong>Disponibilidad:</strong> También fines de semana</li>
-      <li><strong>Descuentos:</strong> Para clases grupales</li>
-      <li><strong>Instructores:</strong> Politólogos y académicos con amplia experiencia</li>
-    </ul>
-    <a href="mailto:adaprendemas@outlook.com" class="contact-button">Inscribirme / Más información</a>
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <h1>Ciencia Política — Instituciones y poder</h1>
+        <p class="subhero max-w-prose">Comprende sistemas, partidos y políticas públicas con enfoque comparado.</p>
+      </div>
+    </section>
+
+    <section class="courses container">
+      <h2>Unidades</h2>
+      <article class="course-card">
+        <h3>Temario</h3>
+        <p>Regímenes y sistemas electorales, actores políticos, diseño institucional, políticas públicas, opinión y medios.</p>
+        <div class="course-meta"><span>2–3 h/semana</span><span class="dot"></span><span>Modalidad a tu ritmo</span></div>
+      </article>
+
+      <article class="course-card" id="inscripcion">
+        <h3>Inscripción</h3>
+        <p>Incluye estudios de caso y análisis de datos básicos.</p>
+        <a class="btn-link" href="index.html#cursos">Volver a cursos</a>
+      </article>
+    </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Aprendemas. Todos los derechos reservados.</p>
+  <div class="cta-bar">
+    <span class="note">¿Te llama la atención?</span>
+    <a class="btn-cta" href="#inscripcion">Inscribirme</a>
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2025 Aprendemás. Todos los derechos reservados.</p>
   </footer>
+
+  <script src="main.js" defer></script>
 </body>
 </html>
