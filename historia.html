@@ -1,43 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Historia Universal y Contemporánea | Aprendemas</title>
+  <meta charset="UTF-8">
+  <title>Historia — Aprendemás</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Curso de Historia: pensamiento histórico, fuentes y debates para comprender el presente." />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="curso-historia">
+<body>
   <header class="site-header">
-    <div class="header-content container">
-      <img src="aprende_logo.png" alt="Logo Aprendemas" class="logo large-logo" />
-      <div class="tagline">Conocimiento sin fronteras</div>
-      <nav>
+    <div class="container header-content">
+      <a href="index.html"><img src="aprende_logo.png" class="logo" alt="Logo de Aprendemás" /></a>
+      <nav class="nav-main">
         <ul class="nav-links">
-          <li><a href="index.html#cursos">Cursos</a></li>
-          <li><a href="index.html#nosotros">Quiénes somos</a></li>
-          <li><a href="index.html#contacto">Contacto</a></li>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="ingles.html">Inglés</a></li>
+          <li><a href="historia.html" class="active">Historia</a></li>
+          <li><a href="filosofia.html">Filosofía</a></li>
+          <li><a href="ciencia-politica.html">Ciencia Política</a></li>
+          <li><a href="formacion-docente.html">Formación Docente</a></li>
         </ul>
       </nav>
+      <div class="header-actions"><a href="#inscripcion" class="btn-primary">Inscribirme</a></div>
     </div>
   </header>
 
-  <main class="fade-in container">
-    <h1>Historia Universal y Contemporánea</h1>
-    <p>Recorrido desde las primeras civilizaciones hasta los retos del siglo XXI, con un enfoque crítico y contextual.</p>
-    <ul class="course-details">
-      <li><strong>Duración:</strong> 1 hora por clase</li>
-      <li><strong>Precio:</strong> $20 CLP por clase</li>
-      <li><strong>Modalidad:</strong> Online y personalizada</li>
-      <li><strong>Frecuencia mínima:</strong> 2 veces por semana</li>
-      <li><strong>Disponibilidad:</strong> También fines de semana</li>
-      <li><strong>Descuentos:</strong> Para clases grupales</li>
-      <li><strong>Instructores:</strong> Historiadores y profesores universitarios con trayectoria</li>
-    </ul>
-    <a href="mailto:adaprendemas@outlook.com" class="contact-button">Inscribirme / Más información</a>
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <h1>Historia — Pensamiento histórico</h1>
+        <p class="subhero max-w-prose">Analiza fuentes, debates y procesos para comprender el presente con rigor.</p>
+      </div>
+    </section>
+
+    <section class="courses container">
+      <h2>Contenido</h2>
+      <article class="course-card">
+        <h3>Temas</h3>
+        <p>Metodología, fuentes primarias, historiografía, perspectivas comparadas, memoria y cultura.</p>
+        <div class="course-meta"><span>3 h/semana</span><span class="dot"></span><span>Clases en vivo</span></div>
+      </article>
+
+      <article class="course-card" id="inscripcion">
+        <h3>Inscripción</h3>
+        <p>Incluye ensayos guiados y retroalimentación personalizada.</p>
+        <a class="btn-link" href="index.html#cursos">Volver a cursos</a>
+      </article>
+    </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Aprendemas. Todos los derechos reservados.</p>
+  <div class="cta-bar">
+    <span class="note">¿Preparado/a?</span>
+    <a class="btn-cta" href="#inscripcion">Inscribirme</a>
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2025 Aprendemás. Todos los derechos reservados.</p>
   </footer>
+
+  <script src="main.js" defer></script>
 </body>
 </html>
