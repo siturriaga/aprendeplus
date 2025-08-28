@@ -1,365 +1,147 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Aprendemas – Formación Personalizada Online</title>
-  <meta name="description" content="Formación docente, inglés, filosofía, ciencia política e historia. Clases online personalizadas con profesionales experimentados.">
-  <meta name="theme-color" content="#673AB7">
-
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-  <!-- main stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=3">
-
-  <!-- UPDATED: Inject background‑collage into the .courses section -->
-  <style>
-    .courses {
-      padding: 3.2rem 0;
-      position: relative;
-      background:
-        linear-gradient(180deg, rgba(245,240,250, .85), rgba(253,251,247, .9)),
-        url('images/background.png') no-repeat center center;
-      background-size: cover;
-      border-radius: 24px;
-      margin-top: 2rem;
-    }
-  </style>
-
-  <meta property="og:title" content="Aprendemas – Formación Personalizada">
-  <meta property="og:description" content="Cursos en vivo: formación docente, inglés, filosofía, ciencia política e historia.">
-  <meta property="og:image" content="og-image.jpg">
-  <meta property="og:type" content="website">
+  <title>Aprendemás — Aprende un idioma con confianza</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cursos de idiomas alineados al MCER (A1–C2). Prueba de nivel gratuita en 3 minutos.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.webmanifest">
 </head>
 <body>
-
-<!-- ===== Sprite de íconos UI (no requiere archivos extra) ===== -->
-<svg style="display:none" aria-hidden="true">
-  <symbol id="icon-menu" viewBox="0 0 24 24">
-    <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  </symbol>
-  <symbol id="icon-close" viewBox="0 0 24 24">
-    <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  </symbol>
-  <symbol id="icon-sun" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="5" fill="currentColor"/>
-    <path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6L19 19M5 19l1.4-1.4M17.6 6.4L19 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-  </symbol>
-  <symbol id="icon-moon" viewBox="0 0 24 24">
-    <path d="M15.2 2.5a8.5 8.5 0 1 0 6.3 11.7A7 7 0 0 1 15.2 2.5z" fill="currentColor"/>
-  </symbol>
-  <symbol id="icon-arrow-up" viewBox="0 0 24 24">
-    <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  </symbol>
-  <symbol id="icon-home" viewBox="0 0 24 24">
-    <path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-8.5z" fill="currentColor"/>
-  </symbol>
-</svg>
-
-<header class="site-header" id="top">
-  <div class="header-content container">
-    <a href="index.html" class="logo-wrap" aria-label="Inicio">
-      <img src="aprende_logo.png" alt="Aprendemas" class="logo" loading="eager" decoding="async">
-    </a>
-    <nav class="nav-main" aria-label="Navegación principal">
-      <ul class="nav-links" id="primary-nav">
-        <li><a href="#top" data-spy>Inicio</a></li>
-        <li class="dropdown">
-          <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">Cursos</button>
-          <ul class="dropdown-content" aria-label="Submenú cursos">
-            <li><a href="formacion-docente.html">Formación Docente</a></li>
-            <li><a href="ingles.html">Inglés</a></li>
-            <li><a href="filosofia.html">Filosofía</a></li>
-            <li><a href="ciencia-politica.html">Ciencia Política</a></li>
-            <li><a href="historia.html">Historia Universal</a></li>
-          </ul>
-        </li>
-        <li><a href="#nosotros" data-spy>Quiénes somos</a></li>
-        <li><a href="#contacto" data-spy>Contacto</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-      </ul>
+  <!-- Encabezado -->
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="index.html"><img src="/images/logo.png" class="logo" alt="Logo de Aprendemás"></a>
+      <nav class="nav-main">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="courses.html">Cursos</a></li>
+          <li><a href="about.html">Quiénes somos</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </nav>
       <div class="header-actions">
-        <button id="theme-toggle" class="btn-icon" aria-label="Cambiar modo">
-          <svg class="icon theme-icon" width="24" height="24"><use href="#icon-sun"></use></svg>
-          <span class="icon-label">Modo</span>
-        </button>
-        <button id="navToggle" class="btn-icon nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-nav">
-          <svg class="icon icon-open" width="24" height="24"><use href="#icon-menu"></use></svg>
-          <svg class="icon icon-close" width="24" height="24"><use href="#icon-close"></use></svg>
-        </button>
+        <select class="lang-switch" aria-label="Idioma">
+          <option value="es" selected>ES</option>
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+        </select>
+        <a href="/placement" class="btn-primary">Comenzar</a>
       </div>
-    </nav>
-  </div>
-</header>
-
-<main id="main-content">
-
-  <section class="hero" id="hero">
-    <div class="hero-bg-decor"></div>
-    <div class="hero-content container reveal">
-      <h1>Aprendizaje que se adapta a ti</h1>
-      <p class="subhero">Clases online personalizadas — Profesionales con +20 años de experiencia — Descuentos para grupos.</p>
-      <a href="#cursos" class="btn-cta">Explorar Cursos</a>
     </div>
-  </section>
+  </header>
 
-  <section id="cursos" class="courses container" aria-labelledby="cursos-title">
-    <h2 id="cursos-title" class="reveal">Cursos Disponibles</h2>
-    <div class="course-grid">
-      <article class="course-card color-1 reveal">
-        <div class="course-icon">
-          <svg viewBox="0 0 48 48" aria-hidden="true" class="ci">
-            <defs><linearGradient id="grad-doc" x1="0" x2="1" y1="1" y2="0">
-              <stop offset="0%" stop-color="#8E24AA"/><stop offset="100%" stop-color="#673AB7"/>
-            </linearGradient></defs>
-            <rect x="8" y="6" width="32" height="36" rx="4" fill="url(#grad-doc)"/>
-            <path d="M14 14h20M14 20h20M14 26h14M14 32h10" stroke="#FFD54F" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+  <!-- Principal -->
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <h1>Aprende un idioma con confianza</h1>
+        <p class="subhero max-w-prose">
+          Realiza una prueba de nivel de 3 minutos y empieza hoy un curso a tu medida (A1–C2).
+        </p>
+        <div class="cta-stack">
+          <a href="/placement" class="btn-cta">Hacer prueba de nivel</a>
+          <a href="courses.html" class="btn-ghost">Ver cursos</a>
         </div>
-        <h3>Formación Docente</h3>
-        <p>Capacitación avanzada y desarrollo profesional para educadores.</p>
-        <div class="tags"><span>Profesional</span><span>Educación</span></div>
-        <a href="formacion-docente.html" class="btn-link">Más info</a>
-      </article>
+      </div>
+    </section>
 
-      <article class="course-card color-2 reveal">
-        <div class="course-icon">
-          <svg viewBox="0 0 48 48" class="ci" aria-hidden="true">
-            <defs><linearGradient id="grad-ing" x1="0" x2="1" y1="1" y2="0">
-              <stop offset="0%" stop-color="#4E8CFA"/><stop offset="100%" stop-color="#673AB7"/>
-            </linearGradient></defs>
-            <circle cx="24" cy="24" r="20" fill="url(#grad-ing)"/>
-            <path d="M16 24h16M24 16v16" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-          </svg>
+    <!-- Cursos destacados -->
+    <section class="courses container" id="courses">
+      <h2>Nuestros cursos</h2>
+      <div class="course-grid">
+        <article class="course-card" aria-labelledby="curso-espanol-a2">
+          <div class="course-icon"><img src="/icons/spanish.svg" width="56" height="56" alt=""></div>
+          <h3 id="curso-espanol-a2">Español A2 — Conversación cotidiana</h3>
+          <div class="tags">
+            <span class="badge level">A2</span>
+            <span class="badge format">En vivo</span>
+            <span class="badge duration">8 semanas</span>
+            <span class="badge cert">Certificado</span>
+          </div>
+          <p>Gana seguridad para hablar en situaciones reales con práctica guiada y retroalimentación.</p>
+          <div class="course-meta">
+            <span>3–4 h/semana</span><span class="dot"></span><span>Máx. 10 alumnos</span><span class="dot"></span><span>Alineado al MCER</span>
+          </div>
+          <a class="btn-link" href="courses.html#spanish-a2">Ver detalles</a>
+        </article>
+
+        <article class="course-card" aria-labelledby="curso-ingles-b1">
+          <div class="course-icon"><img src="/icons/english.svg" width="56" height="56" alt=""></div>
+          <h3 id="curso-ingles-b1">Inglés B1 — Conversación y trabajo</h3>
+          <div class="tags">
+            <span class="badge level">B1</span>
+            <span class="badge format">A tu ritmo</span>
+            <span class="badge duration">6 semanas</span>
+          </div>
+          <p>Mejora tu fluidez para la vida diaria y el entorno laboral con práctica estructurada.</p>
+          <div class="course-meta">
+            <span>2–3 h/semana</span><span class="dot"></span><span>Recursos descargables</span>
+          </div>
+          <a class="btn-link" href="courses.html#english-b1">Ver detalles</a>
+        </article>
+
+        <article class="course-card" aria-labelledby="curso-frances-a1">
+          <div class="course-icon"><img src="/icons/french.svg" width="56" height="56" alt=""></div>
+          <h3 id="curso-frances-a1">Francés A1 — Fundamentos</h3>
+          <div class="tags">
+            <span class="badge level">A1</span>
+            <span class="badge format">En vivo</span>
+            <span class="badge duration">8 semanas</span>
+          </div>
+          <p>Empieza desde cero: pronunciación, frases esenciales y cultura.</p>
+          <div class="course-meta">
+            <span>3 h/semana</span><span class="dot"></span><span>Grupos reducidos</span>
+          </div>
+          <a class="btn-link" href="courses.html#french-a1">Ver detalles</a>
+        </article>
+      </div>
+      <p class="price-info">Prueba una clase gratis. Cancela cuando quieras.</p>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials container" aria-labelledby="ts-title">
+      <h2 id="ts-title">Lo que dicen nuestros alumnos</h2>
+      <div class="row">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>“La prueba me colocó perfecto. En 4 semanas ya hablaba con más seguridad.”</p>
+          <div class="author">Camila R.</div>
         </div>
-        <h3>Inglés (Todos los niveles)</h3>
-        <p>Desde A1 hasta C1, progreso guiado y conversación real.</p>
-        <div class="tags"><span>Idiomas</span><span>Fluidez</span></div>
-        <a href="ingles.html" class="btn-link">Más info</a>
-      </article>
-
-      <article class="course-card color-3 reveal">
-        <div class="course-icon">
-          <svg viewBox="0 0 48 48" class="ci" aria-hidden="true">
-            <defs><linearGradient id="grad-fil" x1="0" x2="1" y1="1" y2="0">
-              <stop offset="0%" stop-color="#FF6EB5"/><stop offset="100%" stop-color="#8E24AA"/>
-            </linearGradient></defs>
-            <path d="M24 6l14 8v20l-14 8-14-8V14z" fill="url(#grad-fil)"/>
-            <path d="M18 21h12M18 27h12" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>“Grupos pequeños y conversación real. El mejor curso online que he tomado.”</p>
+          <div class="author">David S.</div>
         </div>
-        <h3>Filosofía</h3>
-        <p>Pensamiento crítico desde Grecia hasta la modernidad.</p>
-        <div class="tags"><span>Humanidades</span><span>Crítico</span></div>
-        <a href="filosofia.html" class="btn-link">Más info</a>
-      </article>
-
-      <article class="course-card color-4 reveal">
-        <div class="course-icon">
-          <svg viewBox="0 0 48 48" class="ci" aria-hidden="true">
-            <defs><linearGradient id="grad-pol" x1="0" x2="1" y1="1" y2="0">
-              <stop offset="0%" stop-color="#28C6C6"/><stop offset="100%" stop-color="#673AB7"/>
-            </linearGradient></defs>
-            <rect x="10" y="10" width="28" height="28" rx="6" fill="url(#grad-pol)"/>
-            <path d="M18 30l6-6 6 6M18 22h12" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>“Metas claras por nivel (A1–C2) y excelente feedback en cada clase.”</p>
+          <div class="author">Marta P.</div>
         </div>
-        <h3>Ciencia Política</h3>
-        <p>Instituciones, poder y análisis sociopolítico contemporáneo.</p>
-        <div class="tags"><span>Sociedad</span><span>Análisis</span></div>
-        <a href="ciencia-politica.html" class="btn-link">Más info</a>
-      </article>
+      </div>
+    </section>
 
-      <article class="course-card color-5 reveal">
-        <div class="course-icon">
-          <svg viewBox="0 0 48 48" class="ci" aria-hidden="true">
-            <defs><linearGradient id="grad-his" x1="0" x2="1" y1="1" y2="0">
-              <stop offset="0%" stop-color="#FF9E42"/><stop offset="100%" stop-color="#8E24AA"/>
-            </linearGradient></defs>
-            <circle cx="24" cy="24" r="20" fill="url(#grad-his)"/>
-            <path d="M24 14v10l6 4" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h3>Historia Universal</h3>
-        <p>De la antigüedad a los retos del siglo XXI.</p>
-        <div class="tags"><span>Cultura</span><span>Contexto</span></div>
-        <a href="historia.html" class="btn-link">Más info</a>
-      </article>
-    </div>
-    <p class="price-info reveal">
-      Clases de 1 hora – <strong>$20 CLP</strong> – Descuentos para grupos – Mínimo 2 veces por semana.
-    </p>
-  </section>
+    <!-- Aliados -->
+    <section class="partners container" aria-label="Aliados y medios">
+      <div class="logos">
+        <img src="/logos/partner1.svg" width="120" height="28" alt="Aliado 1">
+        <img src="/logos/partner2.svg" width="120" height="28" alt="Aliado 2">
+        <img src="/logos/partner3.svg" width="120" height="28" alt="Aliado 3">
+      </div>
+    </section>
+  </main>
 
-  <section id="nosotros" class="about-us container reveal" aria-labelledby="nosotros-title">
-    <h2 id="nosotros-title">Quiénes Somos</h2>
-    <p>
-      Plataforma con sede en EE. UU. formada por profesionales de la educación
-      (licenciaturas, maestrías y doctorados) con más de 20 años de experiencia.
-      Ofrecemos aprendizaje vivo, personalizado y orientado a objetivos reales.
-    </p>
-  </section>
-
-  <section id="contacto" class="contact container reveal" aria-labelledby="contacto-title">
-    <h2 id="contacto-title">Contáctanos</h2>
-    <form name="contacto" method="POST" data-netlify="true" class="contact-form">
-      <input type="hidden" name="form-name" value="contacto">
-      <label for="name">Nombre</label>
-      <input id="name" name="name" required autocomplete="name">
-      <label for="email">Correo</label>
-      <input id="email" name="email" type="email" required autocomplete="email">
-      <label for="message">Mensaje</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-      <input type="text" name="_gotcha" style="display:none">
-      <button type="submit" class="btn-cta">Enviar mensaje</button>
-    </form>
-  </section>
-
-</main>
-
-<button id="back-to-top" class="btn-float" title="Volver arriba" aria-label="Volver arriba">
-  <svg width="24" height="24"><use href="#icon-arrow-up"></use></svg>
-</button>
-<a href="#top" id="home-button" class="btn-float" title="Inicio" aria-label="Inicio">
-  <svg width="24" height="24"><use href="#icon-home"></use></svg>
-</a>
-
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
+  <!-- CTA pegajoso + Pie -->
+  <div class="cta-bar">
+    <span class="note">¿No sabes tu nivel?</span>
+    <a class="btn-cta" href="/placement">Haz la prueba en 3 minutos</a>
   </div>
-</footer>
 
-<script>
-/* Tema */
-const rootEl = document.documentElement;
-const themeBtn = document.getElementById('theme-toggle');
-const themeIcon = themeBtn.querySelector('.theme-icon');
-let currentTheme = localStorage.getItem('theme') ||
-  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
-applyTheme(currentTheme);
-themeBtn.addEventListener('click', ()=>{
-  currentTheme = currentTheme === 'light' ? 'dark':'light';
-  localStorage.setItem('theme', currentTheme);
-  applyTheme(currentTheme);
-});
-function applyTheme(t){
-  rootEl.setAttribute('data-theme', t);
-  themeIcon.innerHTML = t === 'dark'
-    ? '<use href="#icon-moon"></use>'
-    : '<use href="#icon-sun"></use>';
-}
-
-/* Menú móvil */
-const navToggle = document.getElementById('navToggle');
-const navLinks  = document.getElementById('primary-nav');
-navToggle.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', open);
-  navToggle.classList.toggle('active', open);
-  document.body.classList.toggle('menu-open', open);
-});
-navLinks.addEventListener('click', e => {
-  const a = e.target.closest('a');
-  if(!a) return;
-  const h = a.getAttribute('href') || '';
-  if(h.startsWith('#') || h.endsWith('.html')){
-    navLinks.classList.remove('open');
-    navToggle.classList.remove('active');
-    navToggle.setAttribute('aria-expanded','false');
-    document.body.classList.remove('menu-open');
-  }
-});
-
-/* Dropdown cursos móvil */
-const dropdownTrigger = document.querySelector('.dropdown-trigger');
-const dropdownMenu = document.querySelector('.dropdown-content');
-if(dropdownTrigger){
-  dropdownTrigger.addEventListener('click', e=>{
-    if(window.innerWidth <= 820){
-      e.preventDefault();
-      dropdownMenu.classList.toggle('open');
-      const exp = dropdownTrigger.getAttribute('aria-expanded') === 'true';
-      dropdownTrigger.setAttribute('aria-expanded', (!exp).toString());
-    }
-  });
-}
-
-/* Escape cierra menú */
-window.addEventListener('keydown', e=>{
-  if(e.key === 'Escape' && navLinks.classList.contains('open')){
-    navLinks.classList.remove('open');
-    navToggle.classList.remove('active');
-    navToggle.setAttribute('aria-expanded','false');
-    document.body.classList.remove('menu-open');
-  }
-});
-
-/* Reveal on Scroll */
-const reveals = document.querySelectorAll('.reveal');
-if('IntersectionObserver' in window){
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
-      }
-    });
-  },{threshold:.18});
-  reveals.forEach(r=>io.observe(r));
-} else {
-  reveals.forEach(r=>r.classList.add('is-visible'));
-}
-
-/* Botones flotantes */
-const backTop = document.getElementById('back-to-top');
-const homeBtn = document.getElementById('home-button');
-function toggleFloat(){
-  const show = window.scrollY > 320;
-  backTop.style.display = show ? 'flex':'none';
-  homeBtn.style.display  = show ? 'flex':'none';
-}
-window.addEventListener('scroll', toggleFloat);
-toggleFloat();
-backTop.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
-
-/* Scroll suave */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', e=>{
-    const id = a.getAttribute('href').slice(1);
-    if(!id) return;
-    const target = document.getElementById(id);
-    if(target){
-      e.preventDefault();
-      target.scrollIntoView({behavior:'smooth', block:'start'});
-    }
-  });
-});
-
-/* ScrollSpy */
-const spyLinks = document.querySelectorAll('[data-spy]');
-const spySections = [...spyLinks].map(l=>document.querySelector(l.getAttribute('href'))).filter(Boolean);
-let active = null;
-function onScrollSpy(){
-  const pos = window.scrollY + 140;
-  for(const sec of spySections){
-    if(sec.offsetTop <= pos && sec.offsetTop + sec.offsetHeight > pos){
-      const href = '#' + sec.id;
-      if(active !== href){
-        active = href;
-        spyLinks.forEach(l=>{
-          l.classList.toggle('active', l.getAttribute('href') === href);
-          l.setAttribute('aria-current', l.getAttribute('href') === href ? 'true':'false');
-        });
-      }
-      break;
-    }
-  }
-}
-window.addEventListener('scroll', onScrollSpy);
-onScrollSpy();
-</script>
+  <footer class="site-footer">
+    <p>© 2025 Aprendemás. Todos los derechos reservados. <a href="about.html">Quiénes somos</a> · <a href="contact.html">Contacto</a></p>
+  </footer>
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>
