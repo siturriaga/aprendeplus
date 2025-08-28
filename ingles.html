@@ -1,131 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Inglés – Aprendemas</title>
-  <link rel="stylesheet" href="/styles.css"/>
-  <link rel="manifest" href="/manifest.json"/>
-  <link rel="icon" href="/aprende_logo.png" type="image/png"/>
+  <meta charset="UTF-8">
+  <title>Inglés — Aprendemás</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Curso de Inglés: conversación, trabajo y preparación MCER. B1–B2, a tu ritmo y en vivo." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <!-- Header -->
   <header class="site-header">
-    <div class="header-content container">
-      <a href="/" class="logo-link">
-        <img src="/aprende_logo.png" alt="Aprendemas" class="logo"/>
-      </a>
+    <div class="container header-content">
+      <a href="index.html"><img src="aprende_logo.png" class="logo" alt="Logo de Aprendemás" /></a>
       <nav class="nav-main">
         <ul class="nav-links">
-          <li><a href="/">Inicio</a></li>
-          <li class="dropdown">
-            <a href="#">Cursos</a>
-            <ul class="dropdown-content">
-              <li><a href="/formacion-docente/">Formación Docente</a></li>
-              <li><a href="/ingles/">Inglés</a></li>
-              <li><a href="/filosofia/">Filosofía</a></li>
-              <li><a href="/ciencia-politica/">Ciencia Política</a></li>
-              <li><a href="/historia/">Historia Universal</a></li>
-            </ul>
-          </li>
-          <li><a href="/#nosotros">Quiénes somos</a></li>
-          <li><a href="/faq/">FAQ</a></li>
-          <li><a href="/#contacto">Contacto</a></li>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="ingles.html" class="active">Inglés</a></li>
+          <li><a href="historia.html">Historia</a></li>
+          <li><a href="filosofia.html">Filosofía</a></li>
+          <li><a href="ciencia-politica.html">Ciencia Política</a></li>
+          <li><a href="formacion-docente.html">Formación Docente</a></li>
         </ul>
       </nav>
+      <div class="header-actions"><a href="#inscripcion" class="btn-primary">Inscribirme</a></div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero section-alt fade-in">
-    <div class="hero-content container">
-      <h1>Curso de Inglés</h1>
-      <p>Todos los niveles, de A1 a C1. Clases 100% online y personalizadas.</p>
-      <a href="#solicitud" class="btn-cta">Solicitar Curso</a>
-    </div>
-  </section>
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <h1>Inglés — Conversación y trabajo</h1>
+        <p class="subhero max-w-prose">Fluidez práctica para reuniones, entrevistas y vida cotidiana. Alineado al MCER.</p>
+      </div>
+    </section>
 
-  <div class="divider">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,0 C600,100 600,0 1200,60 L1200,0 L0,0 Z" fill="var(--bg-white)"/>
-    </svg>
+    <section class="courses container">
+      <h2>Detalles del curso</h2>
+      <article class="course-card">
+        <h3>Niveles</h3>
+        <div class="tags"><span class="badge level">B1</span><span class="badge level">B2</span></div>
+        <p>Diagnóstico inicial y plan personal. Actividades de escucha, speaking y escritura funcional.</p>
+        <div class="course-meta"><span>2–3 h/semana</span><span class="dot"></span><span>Modalidad a tu ritmo</span></div>
+      </article>
+
+      <article class="course-card">
+        <h3>Módulos</h3>
+        <p>Vocabulario de oficina, presentaciones, correos efectivos, small talk, preparación de entrevistas.</p>
+      </article>
+
+      <article class="course-card" id="inscripcion">
+        <h3>Inscripción</h3>
+        <p>Empieza con una clase de prueba gratuita.</p>
+        <a class="btn-link" href="index.html#cursos">Volver a cursos</a>
+      </article>
+    </section>
+  </main>
+
+  <div class="cta-bar">
+    <span class="note">¿Listo para practicar?</span>
+    <a class="btn-cta" href="#inscripcion">Inscribirme</a>
   </div>
 
-  <!-- Detalles -->
-  <section id="info" class="section-light container fade-in">
-    <h2>Detalles del Curso de Inglés</h2>
-    <p>Mejora tu fluidez, gramática y comprensión con nuestros profesores nativos y certificados.</p>
-    <ul>
-      <li><strong>Duración:</strong> 1 hora por sesión</li>
-      <li><strong>Precio:</strong> $20 CLP por clase</li>
-      <li><strong>Grupos:</strong> Descuento para 4+ alumnos</li>
-      <li><strong>Modalidad:</strong> Online y personalizado</li>
-      <li><strong>Profesores:</strong> Nativos con 10 años de experiencia</li>
-    </ul>
-  </section>
-
-  <div class="divider flip">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,60 C600,-40 600,60 1200,0 L1200,60 L0,60 Z" fill="var(--subtle-purple)"/>
-    </svg>
-  </div>
-
-  <!-- Formulario específico Inglés -->
-  <section id="solicitud" class="contact section-alt fade-in container">
-    <h2>Solicita tu Clase de Inglés</h2>
-    <form name="solicitud-ingles" method="POST" data-netlify="true" class="contact-form">
-      <input type="hidden" name="form-name" value="solicitud-ingles"/>
-
-      <!-- Datos básicos -->
-      <label for="nombre">Nombre completo</label>
-      <input id="nombre" name="nombre" type="text" required/>
-
-      <label for="email">Correo electrónico</label>
-      <input id="email" name="email" type="email" required/>
-
-      <!-- Nivel de inglés -->
-      <label for="nivel">¿Cuál es tu nivel de Inglés?</label>
-      <select id="nivel" name="nivel" required>
-        <option value="" disabled selected>Selecciona un nivel</option>
-        <option value="A1">A1 (Principiante)</option>
-        <option value="A2">A2 (Elemental)</option>
-        <option value="B1">B1 (Intermedio)</option>
-        <option value="B2">B2 (Intermedio alto)</option>
-        <option value="C1">C1 (Avanzado)</option>
-        <option value="C2">C2 (Maestría)</option>
-      </select>
-
-      <!-- Objetivos -->
-      <p>¿Qué deseas mejorar?</p>
-      <label><input type="checkbox" name="objetivos" value="Hablar"/> Hablar</label>
-      <label><input type="checkbox" name="objetivos" value="Escribir"/> Escribir</label>
-      <label><input type="checkbox" name="objetivos" value="Conversacional"/> Conversacional</label>
-
-      <!-- Disponibilidad -->
-      <label for="disponibilidad">Disponibilidad de días/hora</label>
-      <input id="disponibilidad" name="disponibilidad" type="text"
-             placeholder="p.ej. Lun/Mié 18–20 h; Sáb 10–12 h" required/>
-
-      <label for="comentarios">Comentarios adicionales</label>
-      <textarea id="comentarios" name="comentarios" rows="4"></textarea>
-
-      <button type="submit" class="btn-cta">Enviar Solicitud</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer section-alt">
-    <div class="container">
-      <nav class="footer-nav">
-        <a href="/">Inicio</a> ·
-        <a href="/#cursos">Cursos</a> ·
-        <a href="/#nosotros">Quiénes somos</a>
-      </nav>
-      <p>© 2025 Aprendemas. Todos los derechos reservados.</p>
-    </div>
+  <footer class="site-footer">
+    <p>© 2025 Aprendemás. Todos los derechos reservados.</p>
   </footer>
 
-  <script src="/main.js"></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
