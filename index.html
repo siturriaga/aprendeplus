@@ -2,132 +2,184 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Aprendemás — Formación Personalizada Online</title>
+  <title>Aprendemás — Aprende hoy. Progresa siempre.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Formación personalizada online: Inglés, Historia, Filosofía, Ciencia Política y Formación Docente. Clases en vivo y a tu ritmo." />
-  <meta name="theme-color" content="#673AB7" />
-  <link rel="icon" href="aprende_logo.png" />
+  <meta name="description" content="Clases online y flexibles. Amigables para niños, estudiantes y personas mayores. Español • Kreyòl Ayisyen • English. +20 años de experiencia (USA).">
+  <meta name="theme-color" content="#5F3AB3" />
+  <link rel="icon" href="/images/aprende_logo.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://aprendemas.net/">
+  <meta property="og:title" content="Aprendemás — Aprende hoy. Progresa siempre.">
+  <meta property="og:description" content="Clases online y flexibles. Español • Kreyòl Ayisyen • English. +20 años (USA).">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aprendemas.net/">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Encabezado -->
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
+
   <header class="site-header">
     <div class="container header-content">
       <a href="index.html" class="logo-link" aria-label="Inicio Aprendemás">
-        <img src="aprende_logo.png" class="logo" alt="Logo de Aprendemás" />
+        <img src="/images/aprende_logo.png" class="logo logo-lg" alt="Logo de Aprendemás" />
       </a>
 
       <nav class="nav-main" aria-label="Principal">
         <ul class="nav-links">
-          <li><a href="index.html" class="active">Inicio</a></li>
-          <li><a href="cursos.html">Cursos</a></li>
-          <li><a href="ingles.html">Inglés</a></li>
-          <li><a href="historia.html">Historia</a></li>
-          <li><a href="filosofia.html">Filosofía</a></li>
-          <li><a href="ciencia-politica.html">Ciencia Política</a></li>
-          <li><a href="formacion-docente.html">Formación Docente</a></li>
-          <li><a href="contacto.html" class="hide">Contacto</a></li>
+          <li><a href="index.html" class="active" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="cursos.html" data-i18n="nav.courses">Cursos</a></li>
+          <li><a href="test-ingles.html" data-i18n="nav.test">Test de Inglés</a></li>
+          <li><a href="contacto.html" data-i18n="nav.contact">Contáctanos</a></li>
         </ul>
       </nav>
 
-      <div class="header-actions">
-        <a href="cursos.html" class="btn-primary">Ver cursos</a>
-      </div>
+      <nav class="lang-switch" aria-label="Selector de idioma">
+        <button class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ht">HT</button>
+      </nav>
     </div>
   </header>
 
-  <!-- Principal -->
-  <main>
-    <!-- Hero: conserva tu titular y descripciones si ya los tenías -->
+  <aside class="a11y-toolbar" aria-label="Herramientas de accesibilidad">
+    <button data-tool="text+" title="Aumentar texto">A+</button>
+    <button data-tool="text-" title="Reducir texto">A−</button>
+    <button data-tool="lines" title="Espaciado de línea">↕</button>
+    <button data-tool="contrast" title="Alto contraste">◑</button>
+    <button data-tool="dyslexia" title="Fuente legible">Aa</button>
+    <button data-tool="motion" title="Menos animaciones">⏸</button>
+    <button data-tool="underline" title="Subrayar enlaces">U</button>
+  </aside>
+
+  <main id="main">
     <section class="hero">
       <div class="container hero-content">
-        <h1>Aprende un idioma con confianza</h1>
-        <p class="subhero max-w-prose">
-          Realiza una prueba de nivel de 3 minutos y empieza hoy un curso a tu medida (A1–C2).
+        <h1 data-i18n="hero.title">Aprendemás — Aprende hoy. Progresa siempre.</h1>
+        <p class="subhero max-w-prose" data-i18n="hero.subtitle">
+          Clases online y flexibles. Amigables para niños, estudiantes y personas mayores. Español • Kreyòl Ayisyen • English. +20 años de experiencia (USA).
         </p>
         <div class="cta-stack">
-          <a href="cursos.html" class="btn-cta">Ver todos los cursos</a>
-          <a href="ingles.html" class="btn-ghost">Ir a Inglés</a>
+          <a href="test-ingles.html" class="btn-cta" data-i18n="cta.takeTest">Hacer test de nivel</a>
+          <a href="contacto.html" class="btn-ghost" data-i18n="cta.contact">Contáctanos</a>
         </div>
       </div>
     </section>
 
-    <!-- Sección de cursos (resumen). Ajusta textos si quieres mantener exactamente los tuyos -->
+    <section class="container pricing" aria-labelledby="pricing-title">
+      <h2 id="pricing-title" data-i18n="pricing.title">Precios y políticas</h2>
+      <div class="pricing-card">
+        <p class="price-line" data-i18n="pricing.price"><strong>Precio:</strong> $20.000 CLP por hora</p>
+        <p data-i18n="pricing.group"><strong>Descuento por grupos:</strong> desde 4 personas</p>
+        <p data-i18n="pricing.min"><strong>Compromiso mínimo:</strong> 2 clases por semana por curso</p>
+        <p data-i18n="pricing.mode"><strong>Modalidad:</strong> Online, flexible y personalizada</p>
+      </div>
+    </section>
+
     <section id="cursos" class="courses container">
-      <h2>Nuestros cursos</h2>
+      <h2 data-i18n="courses.title">Nuestros cursos</h2>
       <div class="course-grid">
         <article class="course-card">
-          <h3>Inglés — Conversación y trabajo</h3>
-          <p>Fluidez práctica para reuniones, entrevistas y vida cotidiana.</p>
-          <a class="btn-link" href="ingles.html">Ver detalles</a>
+          <h3 data-i18n="courses.english.title">Inglés — Conversación y trabajo</h3>
+          <p data-i18n="courses.english.desc">Fluidez práctica para reuniones, entrevistas y vida cotidiana.</p>
+          <a class="btn-link" href="ingles.html" data-i18n="courses.details">Ver detalles</a>
         </article>
-
         <article class="course-card">
-          <h3>Historia — Pensamiento histórico</h3>
-          <p>Analiza procesos, fuentes y debates para comprender el presente.</p>
-          <a class="btn-link" href="historia.html">Ver detalles</a>
+          <h3 data-i18n="courses.history.title">Historia — Pensamiento histórico</h3>
+          <p data-i18n="courses.history.desc">Procesos, fuentes y debates para comprender el presente.</p>
+          <a class="btn-link" href="historia.html" data-i18n="courses.details">Ver detalles</a>
         </article>
-
         <article class="course-card">
-          <h3>Filosofía — Argumentación y ética</h3>
-          <p>Desarrolla pensamiento crítico y claridad para argumentar con rigor.</p>
-          <a class="btn-link" href="filosofia.html">Ver detalles</a>
+          <h3 data-i18n="courses.philo.title">Filosofía — Argumentación y ética</h3>
+          <p data-i18n="courses.philo.desc">Pensamiento crítico y claridad conceptual para argumentar con rigor.</p>
+          <a class="btn-link" href="filosofia.html" data-i18n="courses.details">Ver detalles</a>
         </article>
-
         <article class="course-card">
-          <h3>Ciencia Política — Instituciones y poder</h3>
-          <p>Comprende sistemas políticos, actores y políticas públicas comparadas.</p>
-          <a class="btn-link" href="ciencia-politica.html">Ver detalles</a>
+          <h3 data-i18n="courses.poli.title">Ciencia Política — Instituciones y poder</h3>
+          <p data-i18n="courses.poli.desc">Sistemas políticos, actores y políticas públicas comparadas.</p>
+          <a class="btn-link" href="ciencia-politica.html" data-i18n="courses.details">Ver detalles</a>
         </article>
-
         <article class="course-card">
-          <h3>Formación Docente — Didáctica práctica</h3>
-          <p>Estrategias, evaluación y planificación para el aula real.</p>
-          <a class="btn-link" href="formacion-docente.html">Ver detalles</a>
+          <h3 data-i18n="courses.teacher.title">Formación Docente — Didáctica práctica + IA</h3>
+          <p data-i18n="courses.teacher.desc">Estrategias, evaluación y <strong>uso responsable de IA</strong> en el aula.</p>
+          <a class="btn-link" href="formacion-docente.html" data-i18n="courses.details">Ver detalles</a>
         </article>
       </div>
+      <p class="teachers-note" data-i18n="courses.note">
+        Cursos no lingüísticos impartidos por docentes con maestrías y doctorados; disponibles por niveles educativos.
+      </p>
     </section>
 
-    <!-- Testimonios (puedes sustituir por las citas exactas que tenías) -->
+    <section class="how-it-works container" aria-label="Cómo funciona">
+      <h2 data-i18n="how.title">¿Cómo funciona?</h2>
+      <ol class="steps">
+        <li class="step">
+          <div class="step-icon" aria-hidden="true">🧭</div>
+          <h3 data-i18n="how.step1.title">1) Prueba de nivel</h3>
+          <p data-i18n="how.step1.desc">En 3 minutos identificamos tu punto de partida (A1–C2).</p>
+        </li>
+        <li class="step">
+          <div class="step-icon" aria-hidden="true">🗓️</div>
+          <h3 data-i18n="how.step2.title">2) Plan a medida</h3>
+          <p data-i18n="how.step2.desc">Horarios, modalidad (en vivo / a tu ritmo) y metas semanales.</p>
+        </li>
+        <li class="step">
+          <div class="step-icon" aria-hidden="true">✅</div>
+          <h3 data-i18n="how.step3.title">3) Progreso real</h3>
+          <p data-i18n="how.step3.desc">Clases prácticas + seguimiento y retroalimentación.</p>
+        </li>
+      </ol>
+    </section>
+
     <section class="testimonials container" aria-labelledby="ts-title">
-      <h2 id="ts-title">Lo que dicen nuestros alumnos</h2>
-      <div class="row">
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p>“Clases dinámicas y objetivos claros por nivel. Mejoré mi seguridad al hablar.”</p>
-          <div class="author">Camila R.</div>
-        </div>
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p>“La metodología es excelente y los grupos son reducidos. Muy recomendado.”</p>
-          <div class="author">David S.</div>
-        </div>
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p>“Retroalimentación después de cada clase y progreso medible.”</p>
-          <div class="author">Marta P.</div>
-        </div>
+      <h2 id="ts-title" data-i18n="testimonials.title">Opiniones</h2>
+      <div class="testimonial-viewport" aria-live="polite">
+        <div class="testimonial current" data-i18n="testimonials.t1">★★★★★ “Mi hijo se enganchó desde la primera semana.” — Familia G.</div>
+        <div class="testimonial" data-i18n="testimonials.t2">★★★★★ “Me prepararon para entrevistas en inglés. Conseguí el trabajo.” — Carolina M.</div>
+        <div class="testimonial" data-i18n="testimonials.t3">★★★★★ “Flexibles con mis horarios. Progreso real cada mes.” — Ernesto P.</div>
+        <div class="testimonial" data-i18n="testimonials.t4">★★★★★ “Material claro y seguimiento constante.” — L. Hernández</div>
+        <div class="testimonial" data-i18n="testimonials.t5">★★★★★ “Excelente con niños, muy pacientes.” — M. Torres</div>
+        <div class="testimonial" data-i18n="testimonials.t6">★★★★★ “Mejoré mi pronunciación y confianza.” — Iván R.</div>
+        <div class="testimonial" data-i18n="testimonials.t7">★★★★★ “Docentes con muchísima experiencia.” — S. Andrade</div>
+        <div class="testimonial" data-i18n="testimonials.t8">★★★★★ “El plan a medida marcó la diferencia.” — P. Suárez</div>
+      </div>
+      <div class="ts-controls" role="group" aria-label="Controles de testimonios">
+        <button class="ts-prev" aria-label="Anterior">←</button>
+        <button class="ts-pause" aria-pressed="false" aria-label="Pausar">⏸</button>
+        <button class="ts-next" aria-label="Siguiente">→</button>
       </div>
     </section>
 
-    <!-- Barra de confianza (solo texto, sin imágenes para evitar rutas rotas) -->
-    <section class="trust container" aria-label="Confianza">
-      <div class="trust-row">
-        <div class="trust-item">Profesionales con +20 años de experiencia</div>
-        <div class="trust-item">Clases en vivo y a tu ritmo</div>
-        <div class="trust-item">Descuentos para grupos</div>
-      </div>
+    <section class="faq container" aria-label="Preguntas frecuentes">
+      <h2 data-i18n="faq.title">Preguntas frecuentes</h2>
+      <details>
+        <summary data-i18n="faq.q1">¿Cómo me inscribo?</summary>
+        <p data-i18n="faq.a1">Empieza con la prueba de nivel o escríbenos; te ayudamos a elegir horarios y modalidad.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q2">¿Tienen clases en vivo y a demanda?</summary>
+        <p data-i18n="faq.a2">Sí: combina sesiones en vivo con estudio a tu ritmo y material descargable.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q3">¿Puedo cancelar cuando quiera?</summary>
+        <p data-i18n="faq.a3">Sí. No hay permanencia. Avísanos antes del siguiente ciclo.</p>
+      </details>
     </section>
   </main>
 
-  <!-- CTA pegajoso + Pie -->
   <div class="cta-bar">
-    <span class="note">¿Listo para empezar?</span>
-    <a class="btn-cta" href="cursos.html">Ver todos los cursos</a>
+    <span class="note" data-i18n="cta.ready">¿Listo para empezar?</span>
+    <a class="btn-cta" href="contacto.html" data-i18n="cta.contact">Contáctanos</a>
   </div>
 
   <footer class="site-footer">
-    <p>© 2025 Aprendemás. Todos los derechos reservados.</p>
+    <p>© 2025 Aprendemás. <span data-i18n="footer.allRights">Todos los derechos reservados.</span></p>
+    <nav class="footer-nav">
+      <a href="politica-privacidad.html" data-i18n="footer.privacy">Privacidad</a> ·
+      <a href="terminos.html" data-i18n="footer.terms">Términos</a> ·
+      <a href="accesibilidad.html" data-i18n="footer.accessibility">Accesibilidad</a>
+    </nav>
+    <small data-i18n="footer.langs">Traducción disponible: ES • EN • HT</small>
   </footer>
 
   <script src="main.js" defer></script>
