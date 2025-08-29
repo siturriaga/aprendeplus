@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test de Inglés — Aprendemás</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/images/aprende_logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="index.html" class="logo-link"><img src="/images/aprende_logo.png" class="logo logo-lg" alt="Logo de Aprendemás"></a>
+      <nav class="nav-main">
+        <ul class="nav-links">
+          <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="cursos.html" data-i18n="nav.courses">Cursos</a></li>
+          <li><a href="test-ingles.html" class="active" data-i18n="nav.test">Test de Inglés</a></li>
+          <li><a href="contacto.html" data-i18n="nav.contact">Contáctanos</a></li>
+        </ul>
+      </nav>
+      <nav class="lang-switch" aria-label="Selector de idioma">
+        <button class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ht">HT</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="courses">
+      <h2 data-i18n="test.head">Test de nivel (MCER A1–C2)</h2>
+      <p class="max-w-prose" data-i18n="test.desc">
+        Responde las siguientes preguntas. Al finalizar verás tu nivel y nos llegará el resultado.
+      </p>
+
+      <form id="cef-test" name="test-ingles" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field" class="test-form">
+        <input type="hidden" name="form-name" value="test-ingles">
+        <p class="hide"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+        <fieldset>
+          <legend data-i18n="test.info">Tu información</legend>
+          <label for="ti-name" data-i18n="form.name">Nombre</label>
+          <input id="ti-name" name="name" type="text" required>
+          <label for="ti-email" data-i18n="form.email">Correo</label>
+          <input id="ti-email" name="email" type="email" required>
+        </fieldset>
+
+        <ol class="quiz">
+          <li><p>1) “She ___ to work every day.”</p>
+            <label><input type="radio" name="q1" value="A"> go</label>
+            <label><input type="radio" name="q1" value="B"> goes</label>
+            <label><input type="radio" name="q1" value="C"> going</label>
+          </li>
+          <li><p>2) Past of “buy”?</p>
+            <label><input type="radio" name="q2" value="A"> buyed</label>
+            <label><input type="radio" name="q2" value="B"> bought</label>
+            <label><input type="radio" name="q2" value="C"> buying</label>
+          </li>
+          <li><p>3) “I have lived here ___ 2018.”</p>
+            <label><input type="radio" name="q3" value="A"> for</label>
+            <label><input type="radio" name="q3" value="B"> since</label>
+            <label><input type="radio" name="q3" value="C"> from</label>
+          </li>
+          <li><p>4) Which sentence is correct?</p>
+            <label><input type="radio" name="q4" value="A"> He don’t like coffee.</label>
+            <label><input type="radio" name="q4" value="B"> He doesn’t like coffee.</label>
+            <label><input type="radio" name="q4" value="C"> He not like coffee.</label>
+          </li>
+          <li><p>5) “Fewer” is used with…</p>
+            <label><input type="radio" name="q5" value="A"> uncountable nouns</label>
+            <label><input type="radio" name="q5" value="B"> plural countable nouns</label>
+            <label><input type="radio" name="q5" value="C"> singular countable nouns</label>
+          </li>
+          <li><p>6) “If I ___ more time, I would travel.”</p>
+            <label><input type="radio" name="q6" value="A"> have</label>
+            <label><input type="radio" name="q6" value="B"> had</label>
+            <label><input type="radio" name="q6" value="C"> would have</label>
+          </li>
+          <li><p>7) Synonym of “helpful”:</p>
+            <label><input type="radio" name="q7" value="A"> useless</label>
+            <label><input type="radio" name="q7" value="B"> beneficial</label>
+            <label><input type="radio" name="q7" value="C"> harmful</label>
+          </li>
+          <li><p>8) Reading: museum opens 10 a.m. weekdays, 9 a.m. weekends. Sunday?</p>
+            <label><input type="radio" name="q8" value="A"> 8 a.m.</label>
+            <label><input type="radio" name="q8" value="B"> 9 a.m.</label>
+            <label><input type="radio" name="q8" value="C"> 10 a.m.</label>
+          </li>
+          <li><p>9) “She has already finished the report.” Tense:</p>
+            <label><input type="radio" name="q9" value="A"> Present Perfect</label>
+            <label><input type="radio" name="q9" value="B"> Past Simple</label>
+            <label><input type="radio" name="q9" value="C"> Present Continuous</label>
+          </li>
+          <li><p>10) “They ___ to the conference last year.”</p>
+            <label><input type="radio" name="q10" value="A"> go</label>
+            <label><input type="radio" name="q10" value="B"> went</label>
+            <label><input type="radio" name="q10" value="C"> gone</label>
+          </li>
+          <li><p>11) “Could you ___ the window, please?”</p>
+            <label><input type="radio" name="q11" value="A"> open</label>
+            <label><input type="radio" name="q11" value="B"> to open</label>
+            <label><input type="radio" name="q11" value="C"> opened</label>
+          </li>
+          <li><p>12) “We’re looking ___ new teachers.”</p>
+            <label><input type="radio" name="q12" value="A"> at</label>
+            <label><input type="radio" name="q12" value="B"> for</label>
+            <label><input type="radio" name="q12" value="C"> after</label>
+          </li>
+          <li><p>13) “Despite ___ tired, she finished the project.”</p>
+            <label><input type="radio" name="q13" value="A"> to be</label>
+            <label><input type="radio" name="q13" value="B"> being</label>
+            <label><input type="radio" name="q13" value="C"> be</label>
+          </li>
+          <li><p>14) “The book ___ by a famous author in 1990.”</p>
+            <label><input type="radio" name="q14" value="A"> was written</label>
+            <label><input type="radio" name="q14" value="B"> wrote</label>
+            <label><input type="radio" name="q14" value="C"> has wrote</label>
+          </li>
+          <li><p>15) Which sentence is formal?</p>
+            <label><input type="radio" name="q15" value="A"> Hey, what’s up?</label>
+            <label><input type="radio" name="q15" value="B"> I would like to request further information.</label>
+            <label><input type="radio" name="q15" value="C"> Gimme a sec.</label>
+          </li>
+          <li><p>16) “Affordable” means…</p>
+            <label><input type="radio" name="q16" value="A"> very expensive</label>
+            <label><input type="radio" name="q16" value="B"> reasonably priced</label>
+            <label><input type="radio" name="q16" value="C"> impossible</label>
+          </li>
+          <li><p>17) “The teacher ___ helped me was very kind.”</p>
+            <label><input type="radio" name="q17" value="A"> which</label>
+            <label><input type="radio" name="q17" value="B"> who</label>
+            <label><input type="radio" name="q17" value="C"> whom</label>
+          </li>
+          <li><p>18) “By this time next year, I ___ my degree.”</p>
+            <label><input type="radio" name="q18" value="A"> will finish</label>
+            <label><input type="radio" name="q18" value="B"> will have finished</label>
+            <label><input type="radio" name="q18" value="C"> finished</label>
+          </li>
+        </ol>
+
+        <div class="results" aria-live="polite">
+          <p><strong data-i18n="test.result">Resultado:</strong> <span id="result-level">—</span> <span id="result-score"></span></p>
+        </div>
+
+        <input type="hidden" name="score" id="nf-score">
+        <input type="hidden" name="level" id="nf-level">
+        <input type="hidden" name="answers" id="nf-answers">
+
+        <div class="form-actions">
+          <button type="button" class="btn-ghost" id="btn-evaluate" data-i18n="test.evaluate">Evaluar</button>
+          <button type="submit" class="btn-cta" id="btn-submit" disabled data-i18n="form.send">Enviar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Aprendemás. <span data-i18n="footer.allRights">Todos los derechos reservados.</span></p>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
