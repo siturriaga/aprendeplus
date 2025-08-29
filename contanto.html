@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Contáctanos — Aprendemás</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+  <meta name="theme-color" content="#5F3AB3" />
   <link rel="icon" href="/image/aprende_logo.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -12,7 +12,7 @@
   <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
   <header class="site-header">
     <div class="container header-content">
-      <a href="index.html" class="logo-link"><img src="/image/aprende_logo.png" class="logo logo-lg" alt="Logo de Aprendemás"></a>
+      <a href="index.html" class="logo-link"><img src="/image/aprende_logo.png" class="logo logo-lg" alt="Logo de Aprendemás" loading="eager" decoding="async"></a>
       <nav class="nav-main">
         <ul class="nav-links">
           <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
@@ -43,12 +43,12 @@
 
       <div>
         <label for="name" data-i18n="form.name">Nombre</label>
-        <input id="name" name="name" type="text" required placeholder="Tu nombre">
+        <input id="name" name="name" type="text" required placeholder="Tu nombre" autocomplete="name" inputmode="text">
       </div>
 
       <div>
         <label for="email" data-i18n="form.email">Correo</label>
-        <input id="email" name="email" type="email" required placeholder="tucorreo@dominio.com">
+        <input id="email" name="email" type="email" required placeholder="tucorreo@dominio.com" autocomplete="email" inputmode="email">
       </div>
 
       <div>
