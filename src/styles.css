@@ -4,3 +4,16 @@
 
 :root { --brand-blue: 30, 58, 138; --brand-amber: 245, 158, 11; }
 html { scroll-behavior: smooth; }
+.bg-static { background: linear-gradient(135deg, rgba(var(--brand-blue),0.8), rgba(var(--brand-amber),0.8)); min-height: 100vh; }
+.pane { background: linear-gradient(135deg, rgba(var(--brand-blue),0.20), rgba(var(--brand-amber),0.20)); backdrop-filter: blur(8px); }
+.divider { height: 3px; background: linear-gradient(90deg, rgb(var(--brand-amber)), rgb(var(--brand-blue))); border-radius: 9999px; }
+.link-underline { position: relative; }
+.link-underline::after { content: ""; position: absolute; left: 0; bottom: -2px; height: 3px; width: 0; background: linear-gradient(90deg, rgb(var(--brand-amber)), rgb(var(--brand-blue))); transition: width .3s ease; border-radius: 9999px; }
+.link-underline:hover::after { width: 100%; }
+.nav-active { color: #fcd34d; }
+.a11y-contrast { filter: contrast(1.4) brightness(1.1); }
+.a11y-dyslexia { font-family: Arial, Verdana, sans-serif; letter-spacing: 0.05em; }
+.a11y-large-text { font-size: 18px; }
+.a11y-reduce-motion * { animation: none !important; transition: none !important; }
+.testimonial-grid { display: grid; gap: 1rem; }
+@media (min-width: 768px) { .testimonial-grid { grid-template-columns: repeat(2, 1fr); } }
