@@ -86,7 +86,7 @@ export default function Home() {
 
   return (
     <>
-      <section id="hero" className={`py-32 text-center hero-bg-style`}>
+      <section id="hero" className={`py-32 text-center hero-bg-with-image`}>
         <div className={THEME.container}>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-ap-amber drop-shadow-lg">Aprende con valentía. Enseña el futuro.</h1>
           <p className="mt-6 text-xl md:text-2xl text-white max-w-3xl mx-auto">Cursos bilingües con resultados reales — de Inglés A1–C1 a Historia, Filosofía y Política.</p>
