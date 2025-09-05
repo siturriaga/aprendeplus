@@ -3,16 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, GraduationCap, Mail, ChevronRight, Sparkles, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// Note: Ensure your tailwind.config.js and styles.css have been updated
-// with the new `ap-` colors for this code to work correctly.
-
 const THEME = {
   textPrimary: "text-white",
   textSecondary: "text-gray-300",
   accentText: "text-ap-amber",
   accentTextSecondary: "text-ap-cyan",
   borderAccent: "border-ap-amber/80",
-  btnPrimary: "bg-gradient-to-r from-ap-amber via-ap-blue to-ap-slate hover:brightness-110 text-white shadow-lg",
+  btnPrimary: "bg-ap-amber hover:bg-ap-blue text-white shadow-lg",
   gradientAccent: "from-ap-blue via-ap-cyan to-ap-blue",
   container: "max-w-6xl mx-auto px-6",
 };
@@ -89,7 +86,7 @@ export default function Home() {
 
   return (
     <>
-      <section id="hero" className={`py-32 text-center hero-bg`}>
+      <section id="hero" className={`py-32 text-center hero-bg-style`}>
         <div className={THEME.container}>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-ap-amber drop-shadow-lg">Aprende con valentía. Enseña el futuro.</h1>
           <p className="mt-6 text-xl md:text-2xl text-white max-w-3xl mx-auto">Cursos bilingües con resultados reales — de Inglés A1–C1 a Historia, Filosofía y Política.</p>
