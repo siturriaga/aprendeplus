@@ -1,23 +1,19 @@
 import React, { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 
-// Tipos de datos para las preguntas
 type Q = { q: string; a: string[]; correct: number };
 
-// Pools de preguntas para cada nivel de dificultad
 const POOLS: Q[][] = [
-  // Nivel 1 (A1 - Básico)
   [
     { q: "Seleccione el artículo correcto: ___ apple", a: ["a", "an", "the"], correct: 1 },
     { q: "El plural de “book” es…", a: ["books", "bookes", "book"], correct: 0 },
     { q: "“I ___ a student.”", a: ["am", "is", "are"], correct: 0 }
   ],
-  // Nivel 2 (B1 - Intermedio)
   [
     { q: "El pasado de “go” es…", a: ["goed", "goes", "went"], correct: 2 },
     { q: "Seleccione el comparativo correcto: “fast” →", a: ["more fast", "faster", "fastest"], correct: 1 },
     { q: "¿Cuál es correcto? “She has lived here ___ 2019.”", a: ["since", "for", "from"], correct: 0 }
   ],
-  // Nivel 3 (C1 - Avanzado)
   [
     { q: "El condicional: “If I ___ more time, I would travel.”", a: ["have", "had", "would have"], correct: 1 },
     { q: "Seleccione el “phrasal verb” correcto: “to look ___ information”", a: ["after", "up", "out"], correct: 1 },
@@ -75,7 +71,7 @@ export default function EnglishTest() {
           <p className="mt-4">Puntaje: <strong>{score}</strong></p>
           <p className="mt-2">Estimación CEFR: <span className="font-bold text-amber-200">{cefr}</span></p>
           <div className="mt-6 flex gap-3">
-            <a href="/" className="px-6 py-3 rounded-2xl border border-amber-400/80 hover:bg-amber-500">Volver al inicio</a>
+            <Link to="/" className="px-6 py-3 rounded-2xl border border-amber-400/80 hover:bg-amber-500">Volver al inicio</Link>
             <a href="/#contacto" className="px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-500 via-blue-700 to-blue-900 hover:brightness-110">Quiero clases</a>
           </div>
         </div>
@@ -100,7 +96,7 @@ export default function EnglishTest() {
         </div>
         <div className="mt-6 text-sm text-amber-100">Nivel actual: {level + 1} / {POOLS.length}</div>
         <div className="mt-1 text-sm text-amber-100">Correctas acumuladas: {score}</div>
-        <div className="mt-6"><a href="/" className="underline decoration-amber-400 underline-offset-4">Volver</a></div>
+        <div className="mt-6"><Link to="/" className="underline decoration-amber-400 underline-offset-4">Volver</Link></div>
       </div>
     </div>
   );
