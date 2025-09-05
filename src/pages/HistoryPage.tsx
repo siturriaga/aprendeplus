@@ -1,15 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
+
+const THEME = {
+  textPrimary: "text-white",
+  textSecondary: "text-amber-100",
+  accentText: "text-amber-300",
+  borderAccent: "border-amber-400/80",
+  btnPrimary: "bg-gradient-to-r from-amber-500 via-blue-700 to-blue-900 hover:brightness-110 text-white shadow-lg",
+  gradientAccent: "from-blue-900 via-amber-400 to-amber-200",
+  container: "max-w-6xl mx-auto px-6",
+};
 
 export default function HistoryPage() {
   return (
-    <div className="py-24 max-w-6xl mx-auto px-6 text-white text-center">
-      <h1 className="text-5xl font-extrabold tracking-tight text-amber-200">Historia: Más Allá de los Textos</h1>
+    <div className={`py-24 ${THEME.container} text-white text-center`}>
+      <h1 className={`text-5xl font-extrabold tracking-tight ${THEME.accentText}`}>Historia: Desde Cursos de Entrada hasta Temas Especiales</h1>
       <p className="mt-4 text-xl md:text-2xl text-white max-w-3xl mx-auto">
-        Nuestros cursos de historia son rigurosos, críticos y están alineados con los estándares académicos más exigentes. Aprende a analizar el pasado para entender mejor el presente.
+        Nuestros cursos de historia son rigurosos, precisos y están alineados con los más altos estándares académicos. Aprende a pensar de forma crítica y a escribir con claridad.
       </p>
-      <div className="mt-10 flex flex-wrap justify-center gap-4">
-        <a href="/#contacto" className="px-8 py-5 rounded-3xl bg-gradient-to-r from-amber-500 via-blue-700 to-blue-900 hover:brightness-110 text-white shadow-lg text-lg font-bold inline-flex items-center gap-3 transform transition hover:scale-105">
-          <span className="h-6 w-6">📚</span> Más información
+      <div className="mt-10">
+        <a href="/#contacto" className={`px-8 py-5 rounded-3xl ${THEME.btnPrimary} text-lg font-bold inline-flex items-center gap-3 transform transition hover:scale-105`}>
+          <ChevronRight className="h-6 w-6" /> Inscribirse ahora
         </a>
       </div>
     </div>
