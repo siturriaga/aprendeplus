@@ -4,12 +4,12 @@ import { BookOpen, GraduationCap, Mail, ChevronRight, Sparkles, CheckCircle2 } f
 import { Link } from "react-router-dom";
 
 const THEME = {
-  textPrimary: "text-white",
-  textSecondary: "text-amber-100",
-  accentText: "text-amber-300",
-  borderAccent: "border-amber-400/80",
-  btnPrimary: "bg-gradient-to-r from-amber-500 via-blue-700 to-blue-900 hover:brightness-110 text-white shadow-lg",
-  gradientAccent: "from-blue-900 via-amber-400 to-amber-200",
+  textPrimary: "text-brand-white",
+  textSecondary: "text-gray-300",
+  accentText: "text-brand-accent",
+  borderAccent: "border-brand-accent/80",
+  btnPrimary: "bg-gradient-to-r from-brand-accent via-cyan-600 to-blue-800 hover:brightness-110 text-brand-white shadow-lg",
+  gradientAccent: "from-brand-blue via-cyan-400 to-cyan-200",
   container: "max-w-6xl mx-auto px-6",
 };
 
@@ -19,7 +19,7 @@ const reveal = {
 };
 
 const Pill = memo(({ children }: { children: React.ReactNode }) => (
-  <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${THEME.borderAccent} text-sm font-medium text-white bg-gradient-to-r from-blue-800/80 to-amber-600/80 shadow-md`}>
+  <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${THEME.borderAccent} text-sm font-medium text-brand-white bg-gradient-to-r from-brand-blue/80 to-cyan-600/80 shadow-md`}>
     <CheckCircle2 className={`h-4 w-4 ${THEME.accentText}`} /> {children}
   </span>
 ));
@@ -38,7 +38,7 @@ const Section = ({ id, title, subtitle, children }: { id: string; title: string;
 );
 
 const Card = ({ children }: { children: React.ReactNode }) => (
-  <motion.div variants={reveal} initial="hidden" whileInView="show" viewport={{ once: true }} className={`p-8 rounded-3xl border ${THEME.borderAccent} bg-gradient-to-br from-blue-800/90 to-amber-700/90 text-white shadow-lg`}>
+  <motion.div variants={reveal} initial="hidden" whileInView="show" viewport={{ once: true }} className={`p-8 rounded-3xl border ${THEME.borderAccent} bg-gradient-to-br from-brand-blue/90 to-cyan-700/90 text-brand-white shadow-lg`}>
     {children}
   </motion.div>
 );
@@ -50,7 +50,7 @@ const Testimonial = memo(({ item }: { item: { quote: string; name: string } }) =
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: -20 }}
     transition={{ duration: 0.45 }}
-    className={`p-6 rounded-3xl shadow-xl bg-gradient-to-br from-blue-900/80 to-amber-700/80 border ${THEME.borderAccent} text-white`}
+    className={`p-6 rounded-3xl shadow-xl bg-gradient-to-br from-brand-blue/80 to-cyan-700/80 border ${THEME.borderAccent} text-brand-white`}
   >
     <p className="text-lg leading-relaxed">“{item.quote}”</p>
     <p className={`mt-4 font-bold ${THEME.accentText}`}>— {item.name}</p>
@@ -86,13 +86,13 @@ export default function Home() {
   return (
     <>
       <section id="hero" className={`${THEME.container} py-32 text-center`}>
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-amber-200 drop-shadow-lg">Aprende con valentía. Enseña el futuro.</h1>
-        <p className="mt-6 text-xl md:text-2xl text-white max-w-3xl mx-auto">Cursos bilingües con resultados reales — de Inglés A1–C1 a Historia, Filosofía y Política.</p>
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-brand-accent drop-shadow-lg">Aprende con valentía. Enseña el futuro.</h1>
+        <p className="mt-6 text-xl md:text-2xl text-brand-white max-w-3xl mx-auto">Cursos bilingües con resultados reales — de Inglés A1–C1 a Historia, Filosofía y Política.</p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <Link to="/english" className={`px-8 py-5 rounded-3xl ${THEME.btnPrimary} text-lg font-bold inline-flex items-center gap-3 transform transition hover:scale-105`}>
             <BookOpen className="h-6 w-6" /> Ver programas
           </Link>
-          <a href="/#precios" className={`px-8 py-5 rounded-3xl border-2 ${THEME.borderAccent} text-white bg-blue-900/40 hover:bg-amber-500 hover:text-white transition inline-flex items-center gap-3`}>
+          <a href="/#precios" className={`px-8 py-5 rounded-3xl border-2 ${THEME.borderAccent} text-brand-white bg-brand-blue/40 hover:bg-brand-accent hover:text-brand-white transition inline-flex items-center gap-3`}>
             <ChevronRight className="h-6 w-6" /> Inscribirme
           </a>
         </div>
@@ -112,10 +112,10 @@ export default function Home() {
             { n: "Capacitación Docente", b: "Educación secundaria, integración de IA, gamificación e instrucción diferenciada.", to: "/teaching" }
           ].map((c) => (
             <Card key={c.n}>
-              <h3 className="font-bold text-xl text-amber-200">{c.n}</h3>
-              <p className="mt-2 text-base text-white/95">{c.b}</p>
+              <h3 className="font-bold text-xl text-brand-accent">{c.n}</h3>
+              <p className="mt-2 text-base text-brand-white/95">{c.b}</p>
               <div className="mt-4">
-                <Link to={c.to} className="inline-flex items-center gap-2 text-sm link-underline text-white hover:text-amber-200">
+                <Link to={c.to} className="inline-flex items-center gap-2 text-sm link-underline text-brand-white hover:text-brand-accent">
                   Ver más <ChevronRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -138,7 +138,7 @@ export default function Home() {
               <button
                 key={i}
                 onClick={() => setQIdx(i)}
-                className={`h-3 w-3 rounded-full border ${i === qIdx ? "bg-amber-400 border-white" : "border-amber-300 opacity-70"}`}
+                className={`h-3 w-3 rounded-full border ${i === qIdx ? "bg-brand-accent border-brand-white" : "border-gray-300 opacity-70"}`}
                 aria-label={`Ir a testimonio ${i + 1}`}
               />
             ))}
@@ -154,37 +154,37 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-6">
           <Card>
             <div className="flex items-start gap-4">
-              <GraduationCap className="h-8 w-8 text-amber-300" />
+              <GraduationCap className="h-8 w-8 text-brand-accent" />
               <div>
-                <h4 className="font-bold text-xl text-amber-200">Docentes expertos</h4>
-                <p className="mt-2 text-base text-white/95">Cursos impartidos por profesionales con grados de <strong>Licenciatura</strong>, <strong>Maestría</strong> y <strong>Doctorado</strong>.</p>
+                <h4 className="font-bold text-xl text-brand-accent">Docentes expertos</h4>
+                <p className="mt-2 text-base text-brand-white/95">Cursos impartidos por profesionales con grados de <strong>Licenciatura</strong>, <strong>Maestría</strong> y <strong>Doctorado</strong>.</p>
               </div>
             </div>
           </Card>
           <Card>
             <div className="flex items-start gap-4">
-              <BookOpen className="h-8 w-8 text-amber-300" />
+              <BookOpen className="h-8 w-8 text-brand-accent" />
               <div>
-                <h4 className="font-bold text-xl text-amber-200">Metodología</h4>
-                <p className="mt-2 text-base text-white/95">Clases flexibles y personalizadas, con materiales digitales incluidos y medición de progreso.</p>
+                <h4 className="font-bold text-xl text-brand-accent">Metodología</h4>
+                <p className="mt-2 text-base text-brand-white/95">Clases flexibles y personalizadas, con materiales digitales incluidos y medición de progreso.</p>
               </div>
             </div>
           </Card>
           <Card>
             <div className="flex items-start gap-4">
-              <Sparkles className="h-8 w-8 text-amber-300" />
+              <Sparkles className="h-8 w-8 text-brand-accent" />
               <div>
-                <h4 className="font-bold text-xl text-amber-200">Resultados</h4>
-                <p className="mt-2 text-base text-white/95">Más de 20 años ayudando a estudiantes a alcanzar metas académicas y profesionales.</p>
+                <h4 className="font-bold text-xl text-brand-accent">Resultados</h4>
+                <p className="mt-2 text-base text-brand-white/95">Más de 20 años ayudando a estudiantes a alcanzar metas académicas y profesionales.</p>
               </div>
             </div>
           </Card>
         </div>
         <div className="mt-8 grid md:grid-cols-4 gap-4">
-          <div className={`pane rounded-2xl p-4 text-center border ${THEME.borderAccent}`}><p className="text-3xl font-extrabold text-white">20+</p><p className="text-amber-100">Años de experiencia</p></div>
-          <div className={`pane rounded-2xl p-4 text-center border ${THEME.borderAccent}`}><p className="text-3xl font-extrabold text-white">1000+</p><p className="text-amber-100">Estudiantes guiados</p></div>
-          <div className={`pane rounded-2xl p-4 text-center border ${THEME.borderAccent}`}><p className="text-3xl font-extrabold text-white">BA–PhD</p><p className="text-amber-100">Niveles de instrucción</p></div>
-          <div className={`pane rounded-2xl p-4 text-center border ${THEME.borderAccent}`}><p className="text-3xl font-extrabold text-white">100%</p><p className="text-amber-100">Clases personalizadas</p></div>
+          <div className={`pane rounded-2xl p-4 text-center border ${THEME.borderAccent}`}><p className="text-3xl font-extrabold text-brand-white">20+</p><p className="text-gray-300">Años de experiencia</p></div>
+          <div className={`pane rounded-2xl p-4 text-center border ${THEME.borderAccent}`}><p className="text-3xl font-extrabold text-brand-white">1000+</p><p className="text-gray-300">Estudiantes guiados</p></div>
+          <div className={`pane rounded-2xl p-4 text-center border ${THEME.borderAccent}`}><p className="text-3xl font-extrabold text-brand-white">BA–PhD</p><p className="text-gray-300">Niveles de instrucción</p></div>
+          <div className={`pane rounded-2xl p-4 text-center border ${THEME.borderAccent}`}><p className="text-3xl font-extrabold text-brand-white">100%</p><p className="text-gray-300">Clases personalizadas</p></div>
         </div>
       </Section>
 
@@ -196,15 +196,15 @@ export default function Home() {
             { n: "Filosofía y Teoría Política", p: "30.000", nota: "por clase" }
           ].map((card, i) => (
             <Card key={i}>
-              <h3 className="font-bold text-xl text-amber-200">{card.n}</h3>
-              <div className="mt-2 text-4xl font-extrabold text-white">CLP ${card.p}<span className="text-lg font-medium opacity-90"> {card.nota}</span></div>
-              <ul className="mt-4 space-y-2 text-base text-white/95">
+              <h3 className="font-bold text-xl text-brand-accent">{card.n}</h3>
+              <div className="mt-2 text-4xl font-extrabold text-brand-white">CLP ${card.p}<span className="text-lg font-medium opacity-90"> {card.nota}</span></div>
+              <ul className="mt-4 space-y-2 text-base text-brand-white/95">
                 <li>• Mínimo 2× por semana</li>
                 <li>• Materiales digitales incluidos</li>
                 <li>• Retroalimentación de progreso</li>
               </ul>
               <div className="mt-6">
-                <a href="#contacto" className={`inline-flex items-center gap-2 px-5 py-3 rounded-2xl border ${THEME.borderAccent} text-white hover:bg-amber-500 hover:text-white transition`}>
+                <a href="#contacto" className={`inline-flex items-center gap-2 px-5 py-3 rounded-2xl border ${THEME.borderAccent} text-brand-white hover:bg-brand-accent hover:text-brand-white transition`}>
                   <ChevronRight className="h-5 w-5" /> Comenzar
                 </a>
               </div>
@@ -216,38 +216,38 @@ export default function Home() {
       <Section id="boletin" title="Suscríbete a nuestro boletín" subtitle="Nuevos cursos, recursos gratuitos y becas ocasionales.">
         <form
           onSubmit={(e) => { e.preventDefault(); const fd = new FormData(e.currentTarget); const email = fd.get("email"); alert(`¡Gracias! Te escribiremos: ${email}`); e.currentTarget.reset(); }}
-          className={`max-w-xl mx-auto p-6 rounded-3xl border ${THEME.borderAccent} bg-gradient-to-br from-blue-900/80 to-amber-600/80 shadow-lg`}
+          className={`max-w-xl mx-auto p-6 rounded-3xl border ${THEME.borderAccent} bg-gradient-to-br from-brand-blue/80 to-cyan-600/80 shadow-lg`}
         >
           <div className="flex gap-2">
-            <input name="email" type="email" required placeholder="Tu correo electrónico" className="flex-1 px-4 py-3 rounded-xl border bg-white/95 text-blue-900 placeholder:text-blue-600" />
+            <input name="email" type="email" required placeholder="Tu correo electrónico" className="flex-1 px-4 py-3 rounded-xl border bg-brand-white/95 text-brand-blue placeholder:text-gray-500" />
             <button type="submit" className={`inline-flex items-center gap-2 px-5 py-3 rounded-2xl ${THEME.btnPrimary}`}>
               <Mail className="h-5 w-5" /> Suscribirme
             </button>
           </div>
-          <p className="mt-3 text-sm text-amber-100">Sin spam. Puedes darte de baja cuando quieras.</p>
+          <p className="mt-3 text-sm text-gray-300">Sin spam. Puedes darte de baja cuando quieras.</p>
         </form>
       </Section>
 
       <Section id="contacto" title="Contacto">
         <div className="grid md:grid-cols-2 gap-6">
           <Card>
-            <h3 className="font-bold text-xl text-amber-200">Escríbenos</h3>
+            <h3 className="font-bold text-xl text-brand-accent">Escríbenos</h3>
             <form onSubmit={(e) => { e.preventDefault(); alert("¡Mensaje enviado! Te responderemos pronto."); e.currentTarget.reset(); }} className="mt-4 space-y-3">
-              <input className="w-full px-4 py-3 rounded-xl border bg-white/95 text-blue-900 placeholder:text-blue-600" placeholder="Nombre" required />
-              <input className="w-full px-4 py-3 rounded-xl border bg-white/95 text-blue-900 placeholder:text-blue-600" type="email" placeholder="Correo" required />
-              <textarea className="w-full px-4 py-3 rounded-xl border bg-white/95 text-blue-900 placeholder:text-blue-600" rows={4} placeholder="¿Cómo podemos ayudar?" />
-              <button className={`inline-flex items-center gap-2 px-5 py-3 rounded-2xl border ${THEME.borderAccent} text-white hover:bg-amber-500 hover:text-white transition`}>
+              <input className="w-full px-4 py-3 rounded-xl border bg-brand-white/95 text-brand-blue placeholder:text-gray-500" placeholder="Nombre" required />
+              <input className="w-full px-4 py-3 rounded-xl border bg-brand-white/95 text-brand-blue placeholder:text-gray-500" type="email" placeholder="Correo" required />
+              <textarea className="w-full px-4 py-3 rounded-xl border bg-brand-white/95 text-brand-blue placeholder:text-gray-500" rows={4} placeholder="¿Cómo podemos ayudar?" />
+              <button className={`inline-flex items-center gap-2 px-5 py-3 rounded-2xl border ${THEME.borderAccent} text-brand-white hover:bg-brand-accent hover:text-brand-white transition`}>
                 <Mail className="h-5 w-5" /> Enviar
               </button>
             </form>
           </Card>
           <Card>
-            <h3 className="font-bold text-xl text-amber-200">Accesos rápidos</h3>
+            <h3 className="font-bold text-xl text-brand-accent">Accesos rápidos</h3>
             <ul className="mt-3 space-y-2 text-base">
-              <li><Link to="/english" className="link-underline text-white">Ver programas</Link></li>
-              <li><a href="#precios" className="link-underline text-white">Precios</a></li>
-              <li><a href="#opiniones" className="link-underline text-white">Opiniones</a></li>
-              <li><a href="#boletin" className="link-underline text-white">Suscribirse al boletín</a></li>
+              <li><Link to="/english" className="link-underline text-brand-white">Ver programas</Link></li>
+              <li><a href="#precios" className="link-underline text-brand-white">Precios</a></li>
+              <li><a href="#opiniones" className="link-underline text-brand-white">Opiniones</a></li>
+              <li><a href="#boletin" className="link-underline text-brand-white">Suscribirse al boletín</a></li>
             </ul>
           </Card>
         </div>
