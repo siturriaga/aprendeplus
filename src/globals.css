@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.link-underline {
+    position: relative;
+    text-decoration: none;
+}
+.link-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1.5px;
+    bottom: 0;
+    left: 0;
+    background-color: theme('colors.amber.200');
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+.link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.divider {
+    height: 1px;
+    background-image: linear-gradient(to right,
+        theme('colors.transparent'),
+        theme('colors.amber.400'),
+        theme('colors.blue.950'),
+        theme('colors.amber.400'),
+        theme('colors.transparent')
+    );
+}
