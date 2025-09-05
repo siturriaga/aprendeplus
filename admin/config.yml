@@ -2,16 +2,37 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "public/uploads"
+public_folder: "/uploads"
 
 collections:
-  - name: "pages"
-    label: "Páginas"
+  - name: "content"
+    label: "Contenido del sitio"
     files:
-      - label: "Inicio"
-        name: "home"
-        file: "index.html"
+      - name: "ajustes"
+        label: "Ajustes (no vinculado aún)"
+        file: "content/settings.json"
         fields:
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Contenido", name: "body", widget: "markdown" }
+          - { label: "Título del sitio", name: "siteTitle", widget: "string", default: "Aprende+" }
+          - { label: "Descripción", name: "description", widget: "text", default: "Cursos flexibles y personalizados con materiales digitales incluidos." }
+          - { label: "Email de contacto", name: "contactEmail", widget: "string", default: "info@aprendemas.net" }
+      - name: "precios"
+        label: "Precios (no vinculado aún)"
+        file: "content/pricing.json"
+        fields:
+          - label: "Planes"
+            name: "plans"
+            widget: "list"
+            fields:
+              - { label: "Nombre", name: "name", widget: "string" }
+              - { label: "Precio CLP", name: "price", widget: "string" }
+              - { label: "Nota", name: "note", widget: "string", default: "por clase" }
+
+  - name: "testimonios"
+    label: "Testimonios (no vinculado aún)"
+    folder: "content/testimonios"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nombre", name: "name", widget: "string" }
+      - { label: "Cita", name: "quote", widget: "text" }
