@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ChevronRight, CheckCircle2, MessageSquare, Lightbulb, Users } from "lucide-react";
 
+// Theming and components reused from Home page
 const THEME = {
   textPrimary: "text-white",
   textSecondary: "text-amber-100",
@@ -12,18 +14,25 @@ const THEME = {
   container: "max-w-6xl mx-auto px-6",
 };
 
-export default function TeachingPage() {
-  return (
-    <div className={`py-24 ${THEME.container} text-white text-center`}>
-      <h1 className={`text-5xl font-extrabold tracking-tight ${THEME.accentText}`}>Capacitación Docente</h1>
-      <p className="mt-4 text-xl md:text-2xl text-white max-w-3xl mx-auto">
-        Ayudamos a educadores a dominar la instrucción secundaria, la integración de IA, la gamificación y la instrucción diferenciada para transformar el salón de clases.
-      </p>
-      <div className="mt-10">
-        <a href="/#contacto" className={`px-8 py-5 rounded-3xl ${THEME.btnPrimary} text-lg font-bold inline-flex items-center gap-3 transform transition hover:scale-105`}>
-          <ChevronRight className="h-6 w-6" /> Inscribirse ahora
-        </a>
-      </div>
+const reveal = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const Section = ({ id, title, subtitle, children }: { id: string; title: string; subtitle?: string; children: React.ReactNode }) => (
+  <section id={id} className="py-24">
+    <div className={THEME.container}>
+      <motion.header variants={reveal} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center">
+        <h2 className={`text-5xl font-extrabold tracking-tight ${THEME.textPrimary}`}>{title}</h2>
+        {subtitle ? <p className={`mt-4 text-lg ${THEME.textSecondary} max-w-3xl mx-auto`}>{subtitle}</p> : null}
+      </motion.header>
+      <div className="mt-8 divider" />
+      <motion.div variants={reveal} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-12">{children}</motion.div>
     </div>
-  );
-}
+  </section>
+);
+
+const Card = ({ children }: { children: React.ReactNode }) => (
+  <motion.div variants={reveal} initial="hidden" whileInView="show" viewport={{ once: true }} className={`p-8 rounded-3xl border ${THEME.borderAccent} bg-gradient-to-br from-blue-800/90 to-amber-700/90 text-white shadow-lg`}>
+    {children}
+  </motion.d
