@@ -2,26 +2,6 @@ import React, { useEffect, useRef, useState, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, GraduationCap, Mail, ChevronRight, Sparkles, CheckCircle2 } from "lucide-react";
 
-const GlobalStyles = memo(() => (
-  <style>{`
-    :root { --brand-blue: 30, 58, 138; --brand-amber: 245, 158, 11; }
-    html { scroll-behavior: smooth; }
-    .bg-static { background: linear-gradient(135deg, rgba(var(--brand-blue),0.8), rgba(var(--brand-amber),0.8)); min-height: 100vh; }
-    .pane { background: linear-gradient(135deg, rgba(var(--brand-blue),0.20), rgba(var(--brand-amber),0.20)); backdrop-filter: blur(8px); }
-    .divider { height: 3px; background: linear-gradient(90deg, rgb(var(--brand-amber)), rgb(var(--brand-blue))); border-radius: 9999px; }
-    .link-underline { position: relative; }
-    .link-underline::after { content: ""; position: absolute; left: 0; bottom: -2px; height: 3px; width: 0; background: linear-gradient(90deg, rgb(var(--brand-amber)), rgb(var(--brand-blue))); transition: width .3s ease; border-radius: 9999px; }
-    .link-underline:hover::after { width: 100%; }
-    .nav-active { color: #fcd34d; }
-    .a11y-contrast { filter: contrast(1.4) brightness(1.1); }
-    .a11y-dyslexia { font-family: Arial, Verdana, sans-serif; letter-spacing: 0.05em; }
-    .a11y-large-text { font-size: 18px; }
-    .a11y-reduce-motion * { animation: none !important; transition: none !important; }
-    .testimonial-grid { display: grid; gap: 1rem; }
-    @media (min-width: 768px) { .testimonial-grid { grid-template-columns: repeat(2, 1fr); } }
-  `}</style>
-));
-
 const THEME = {
   textPrimary: "text-white",
   textSecondary: "text-amber-100",
@@ -64,21 +44,21 @@ const Section = ({ id, title, subtitle, children }: { id: string; title: string;
       <motion.div variants={reveal} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-12">{children}</motion.div>
     </div>
   </section>
-));
+);
 
 const Card = ({ children }: { children: React.ReactNode }) => (
   <motion.div variants={reveal} initial="hidden" whileInView="show" viewport={{ once: true }} className={`p-8 rounded-3xl border ${THEME.borderAccent} bg-gradient-to-br from-blue-800/90 to-amber-700/90 text-white shadow-lg`}>
     {children}
   </motion.div>
-));
+);
 
 const CTAButton = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a href={href} className={`px-8 py-5 rounded-3xl ${THEME.btnPrimary} text-lg font-bold inline-flex items-center gap-3 transform transition hover:scale-105`}>{children}</a>
-));
+);
 
 const GhostButton = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a href={href} className={`px-8 py-5 rounded-3xl border-2 ${THEME.borderAccent} text-white bg-blue-900/40 hover:bg-amber-500 hover:text-white transition inline-flex items-center gap-3`}>{children}</a>
-));
+);
 
 const Testimonial = memo(({ item }: { item: { quote: string; name: string } }) => (
   <motion.div
@@ -117,7 +97,7 @@ export default function App() {
   useEffect(() => {
     if (intervalRef.current) window.clearInterval(intervalRef.current);
     intervalRef.current = window.setInterval(() => setQIdx((i) => (i + 1) % quotes.length), 5000);
-    return () => { if (intervalRef.current) window.clearInterval(intervalRef.current); };
+    return () => { if (intervalRef.current !== null) window.clearInterval(intervalRef.current); };
   }, [quotes.length]);
 
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -150,7 +130,7 @@ export default function App() {
     return () => obs.disconnect();
   }, []);
 
-  const NavLinks = ({ onClick }: { onClick?: () => void }) => (
+  const NavLinks = memo(({ onClick, activeId }: { onClick?: () => void; activeId: string }) => (
     <>
       <a href="#programas" onClick={onClick} className={`hover:text-amber-300 transition link-underline ${activeId === "programas" ? "nav-active" : ""}`}>Programas</a>
       <a href="#opiniones" onClick={onClick} className={`hover:text-amber-300 transition link-underline ${activeId === "opiniones" ? "nav-active" : ""}`}>Opiniones</a>
@@ -159,17 +139,16 @@ export default function App() {
       <a href="#quienes" onClick={onClick} className={`hover:text-amber-300 transition link-underline ${activeId === "quienes" ? "nav-active" : ""}`}>Quiénes Somos</a>
       <a href="#contacto" onClick={onClick} className={`hover:text-amber-300 transition link-underline ${activeId === "contacto" ? "nav-active" : ""}`}>Contacto</a>
     </>
-  );
+  ));
 
   return (
     <div className={`bg-static ${a11y.contrast ? "a11y-contrast" : ""} ${a11y.dyslexia ? "a11y-dyslexia" : ""} ${a11y.largeText ? "a11y-large-text" : ""} ${a11y.reduceMotion ? "a11y-reduce-motion" : ""}`}>
-      <GlobalStyles />
 
       <header className="sticky top-0 z-50 backdrop-blur bg-gradient-to-r from-blue-900/90 to-amber-600/90 border-b border-amber-400/60 shadow-lg">
         <div className={`${THEME.container} h-16 flex items-center justify-between`}>
           <Logo />
           <nav className="hidden md:flex items-center gap-6 text-white font-medium">
-            <NavLinks />
+            <NavLinks activeId={activeId} />
           </nav>
           <button className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-amber-400/60 text-white" onClick={() => setMobileOpen((v) => !v)} aria-label="Abrir menú">
             <span className="sr-only">Menú</span>
@@ -183,7 +162,7 @@ export default function App() {
         {mobileOpen && (
           <div className="md:hidden border-t border-amber-400/60 bg-blue-950/95 text-white">
             <div className={`${THEME.container} py-4 flex flex-col gap-4 text-lg`} onClick={() => setMobileOpen(false)}>
-              <NavLinks onClick={() => setMobileOpen(false)} />
+              <NavLinks activeId={activeId} onClick={() => setMobileOpen(false)} />
             </div>
           </div>
         )}
