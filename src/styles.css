@@ -16,3 +16,33 @@ html {
 body {
   background-color: rgb(var(--ap-slate));
 }
+
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: theme('colors.ap-amber');
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.hero-bg-with-image {
+  background-color: rgb(var(--ap-slate));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('your-image-url.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
