@@ -1,9 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { BookOpen, ChevronRight, CheckCircle2 } from "lucide-react";
+import { ChevronRight, CheckCircle2, MessageSquare, BookOpen, User, Sun, Code, Globe, Sparkles, Pen, Lightbulb, Users } from "lucide-react";
 
-// Theming and common components are reused from the Home page for consistency
+// Define a consistent theme object for easy reuse and maintenance
 const THEME = {
   textPrimary: "text-white",
   textSecondary: "text-amber-100",
@@ -48,69 +47,120 @@ const Pill = ({ children }: { children: React.ReactNode }) => (
   </span>
 );
 
-export default function EnglishPage() {
+export default function Home() {
   return (
     <>
       <section id="hero" className={`py-24 ${THEME.container} text-white text-center`}>
-        <h1 className={`text-5xl md:text-7xl font-extrabold tracking-tight ${THEME.accentText}`}>Inglés A1-C1: Habla con Confianza</h1>
+        <h1 className={`text-5xl md:text-7xl font-extrabold tracking-tight ${THEME.accentText}`}>Aprende con valentía. Enseña el futuro.</h1>
         <p className="mt-4 text-xl md:text-2xl text-white max-w-3xl mx-auto">
-          ¿Quieres dominar el inglés? Nuestros cursos se enfocan en la fluidez verbal, con coaching de acento y evaluaciones CEFR para medir tu progreso. ¡Da el siguiente paso en tu aprendizaje!
+          Cursos bilingües con resultados reales para un futuro bilingüe y crítico. Clases en línea con profesionales, a tu ritmo y con precios accesibles.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Link to="/test" className={`px-8 py-5 rounded-3xl ${THEME.btnPrimary} text-lg font-bold inline-flex items-center gap-3 transform transition hover:scale-105`}>
-            <BookOpen className="h-6 w-6" /> Tomar el examen de nivel
-          </Link>
-          <a href="/#precios" className={`px-8 py-5 rounded-3xl border-2 ${THEME.borderAccent} text-white bg-blue-900/40 hover:bg-amber-500 hover:text-white transition inline-flex items-center gap-3`}>
-            <ChevronRight className="h-6 w-6" /> Ver precios
+          <a href="#contacto" className={`px-8 py-5 rounded-3xl ${THEME.btnPrimary} text-lg font-bold inline-flex items-center gap-3 transform transition hover:scale-105`}>
+            <ChevronRight className="h-6 w-6" /> Inscríbete
           </a>
+          <Link to="/test" className={`px-8 py-5 rounded-3xl border-2 ${THEME.borderAccent} text-white bg-blue-900/40 hover:bg-amber-500 hover:text-white transition inline-flex items-center gap-3`}>
+            <BookOpen className="h-6 w-6" /> Examen de Nivel
+          </Link>
         </div>
       </section>
 
-      <Section id="niveles" title="Niveles de Certificación">
-        <div className="grid md:grid-cols-3 gap-6">
+      <Section id="programas" title="Nuestros Programas">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Card>
-            <h3 className="font-bold text-xl text-amber-200">Básico (A1-A2)</h3>
+            <BookOpen className="h-10 w-10 mb-4 text-amber-300" />
+            <h3 className="font-bold text-xl text-amber-200">Inglés A1-C1</h3>
             <p className="mt-2 text-white/95">
-              Ideal para principiantes. Aprende las bases para comunicarte en situaciones cotidianas, como presentarte, hablar de tu familia y hacer preguntas sencillas.
+              Cursos de inglés basados en el CEFR con énfasis en fluidez verbal y acento.
             </p>
+            <div className="mt-4">
+              <Link to="/english" className="link-underline font-medium text-amber-200 hover:text-white">Ver más &rarr;</Link>
+            </div>
           </Card>
           <Card>
-            <h3 className="font-bold text-xl text-amber-200">Intermedio (B1-B2)</h3>
+            <Globe className="h-10 w-10 mb-4 text-amber-300" />
+            <h3 className="font-bold text-xl text-amber-200">Historia</h3>
             <p className="mt-2 text-white/95">
-              Mejora tu fluidez para hablar con más confianza. Desarrolla habilidades para discutir temas más complejos, tanto en el trabajo como en tu vida personal.
+              Desde cursos introductorios hasta temas especializados como Historia de América Latina.
             </p>
+            <div className="mt-4">
+              <Link to="/history" className="link-underline font-medium text-amber-200 hover:text-white">Ver más &rarr;</Link>
+            </div>
           </Card>
           <Card>
-            <h3 className="font-bold text-xl text-amber-200">Avanzado (C1)</h3>
+            <Sparkles className="h-10 w-10 mb-4 text-amber-300" />
+            <h3 className="font-bold text-xl text-amber-200">Filosofía</h3>
             <p className="mt-2 text-white/95">
-              Domina el idioma. Perfecciona tu acento y logra una comunicación espontánea y fluida para entornos académicos y profesionales de alto nivel.
+              Aprende a analizar ideas complejas y a construir argumentos sólidos.
             </p>
+            <div className="mt-4">
+              <Link to="/philosophy" className="link-underline font-medium text-amber-200 hover:text-white">Ver más &rarr;</Link>
+            </div>
+          </Card>
+          <Card>
+            <Users className="h-10 w-10 mb-4 text-amber-300" />
+            <h3 className="font-bold text-xl text-amber-200">Docencia</h3>
+            <p className="mt-2 text-white/95">
+              Capacitación para docentes de secundaria. Perfecciona tu pedagogía.
+            </p>
+            <div className="mt-4">
+              <Link to="/teaching" className="link-underline font-medium text-amber-200 hover:text-white">Ver más &rarr;</Link>
+            </div>
           </Card>
         </div>
       </Section>
-      
-      <Section id="metodologia" title="Nuestra Metodología">
-        <div className="space-y-6">
+
+      <Section id="valores" title="Nuestros Valores" subtitle="Nos enfocamos en la educación de calidad, el pensamiento crítico y la ética en la enseñanza.">
+        <div className="grid md:grid-cols-3 gap-6">
           <Card>
-            <h3 className="font-bold text-xl text-amber-200">Enfoque en la Fluidez</h3>
-            <p className="mt-2 text-white/95">
-              Nuestras clases se centran en la práctica oral para que puedas hablar con naturalidad desde el primer día.
-            </p>
+            <h4 className="font-bold text-xl text-amber-200">Flexibilidad</h4>
+            <p className="mt-2 text-white/95">Clases en línea, a tu ritmo y horario. Adaptamos nuestro currículo a tus necesidades.</p>
           </Card>
           <Card>
-            <h3 className="font-bold text-xl text-amber-200">Coaching de Acento</h3>
-            <p className="mt-2 text-white/95">
-              Recibirás retroalimentación personalizada para mejorar tu pronunciación y sonar más como un hablante nativo.
-            </p>
+            <h4 className="font-bold text-xl text-amber-200">Excelencia</h4>
+            <p className="mt-2 text-white/95">Clases personalizadas con profesionales titulados. Nuestros docentes son expertos en sus campos.</p>
           </Card>
           <Card>
-            <h3 className="font-bold text-xl text-amber-200">Evaluaciones CEFR</h3>
-            <p className="mt-2 text-white/95">
-              Medimos tu progreso con evaluaciones basadas en el Marco Común Europeo de Referencia (CEFR) para que sepas exactamente dónde te encuentras.
-            </p>
+            <h4 className="font-bold text-xl text-amber-200">Innovación</h4>
+            <p className="mt-2 text-white/95">Integración de herramientas de IA en nuestros cursos para optimizar tu aprendizaje.</p>
           </Card>
+        </div>
+      </Section>
+
+      <Section id="contacto" title="Contáctanos" subtitle="¿Listo para empezar? Envíanos un mensaje y te responderemos en breve.">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <form className="p-8 rounded-3xl border-2 border-amber-400/80 bg-blue-900/40 shadow-lg space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-white/80 text-sm font-bold mb-2">Nombre</label>
+                <input type="text" id="name" className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-blue-950 border-amber-400/80" placeholder="Tu nombre" />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-white/80 text-sm font-bold mb-2">Email</label>
+                <input type="email" id="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-blue-950 border-amber-400/80" placeholder="tu.email@ejemplo.com" />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-white/80 text-sm font-bold mb-2">Mensaje</label>
+                <textarea id="message" className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-blue-950 border-amber-400/80 h-32" placeholder="Tu mensaje"></textarea>
+              </div>
+              <button type="submit" className={`w-full ${THEME.btnPrimary} font-bold py-3 px-4 rounded-3xl transition duration-300 transform hover:scale-105`}>Enviar</button>
+            </form>
+          </div>
+
+          <div className="flex flex-col justify-center text-center md:text-left">
+            <h3 className="text-3xl font-bold text-white mb-4">¡Contáctanos!</h3>
+            <p className="text-white/90 text-lg mb-4">
+              Para más información sobre nuestros cursos, precios o cualquier otra consulta, no dudes en escribirnos.
+            </p>
+            <p className="text-amber-200 font-bold text-lg">
+              Correo: info@aprendeplus.com
+            </p>
+            <p className="text-amber-200 font-bold text-lg">
+              Teléfono: +52 55 1234 5678
+            </p>
+          </div>
         </div>
       </Section>
     </>
   );
-}
+              }
