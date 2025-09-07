@@ -1,13 +1,12 @@
-import { BrowserRouter, Routes, Route, useLocation, Link } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
-import { Menu, X, Mail, Facebook, Instagram, Twitter } from "lucide-react";
-
-import Home from "./pages/Home";
-import EnglishPage from "./pages/EnglishPage";
-import HistoryPage from "./pages/HistoryPage";
-import PhilosophyPage from "./pages/PhilosophyPage";
-import TeachingPage from "./pages/TeachingPage";
-import TestPage from "./pages/TestPage";
+import { useState, useEffect, useRef } from 'react';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Menu, X, ChevronRight, BookOpen, Globe, Sparkles, Users, MessageSquare, Sun, Code, Pen, Lightbulb, User } from 'lucide-react';
+import Home from './pages/Home';
+import EnglishPage from './pages/EnglishPage';
+import HistoryPage from './pages/HistoryPage';
+import PhilosophyPage from './pages/PhilosophyPage';
+import TeachingPage from './pages/TeachingPage';
+import TestPage from './pages/TestPage';
 
 // Header Component
 const Header = () => {
@@ -56,7 +55,9 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 py-4 backdrop-blur-md bg-blue-950/80">
       <div className="flex items-center justify-between max-w-6xl px-6 mx-auto">
-        <Link to="/" className="text-2xl font-bold text-white">Aprende+</Link>
+        <Link to="/" className="text-2xl font-bold text-white">
+          <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxvZ28tZ3JhZGllbnQiIHgxPSIwJSIgeTE9IjUwJSIgeDI9IjEwMCUiIHkyPSI1MCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZmZjZDBhIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMjYzMzc4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzE4MWMzYSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9Imdsb3ciPgogICAgICA8ZmVDb2xvck1hdHJpeCB0eXBlPSJtYXRyaXgiIHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMSAwIi8+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjUiIGluPSJzb3VyY2VBbHBoYSIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZU9mZnNldCBkeD0iMiIgZHk9IjIiLz4KICAgICAgPGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiLz4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KCiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2YyZjJmMiIvPgogIAogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iODAiIGZpbGw9IiNmZmYwMDAiIHN0cm9rZT0iIzE4MWMzYSIgc3Ryb2tlLXdpZHRoPSI1IiBmaWx0ZXI9InVybCgjZ2xvdykiIC8+CiAgCiAgPHBhdGggZD0iTTEwMCAyMCBMNDAgMTQwIEgxNjAgTDEwMCAyMFoiIHN0cm9rZT0iIzE4MWMzYSIgc3Ryb2tlLXdpZHRoPSI0IiBmaWxsPSJ1cmwoI2xvZ28tZ3JhZGllbnQpIiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KCiAgPHRleHQgeD0iMTAwIiB5PSIxMDUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIzMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiPkFQLzwvdGV4dD4KPC9zdmc+" alt="Aprende+ Logo" className="h-8" />
+        </Link>
         
         {/* Desktop Menu */}
         <nav className="hidden space-x-8 md:flex">
@@ -97,79 +98,39 @@ const Header = () => {
 
 // Footer Component
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="py-12 text-white bg-blue-950/80">
+    <footer className="py-8 text-center text-white bg-blue-950">
       <div className="max-w-6xl px-6 mx-auto">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold">Aprende+</h3>
-            <p className="text-sm">Ofrecemos cursos personalizados de idiomas y humanidades para estudiantes de todas las edades.</p>
+        <div className="flex flex-col items-center justify-between md:flex-row">
+          <div className="text-lg font-bold">Aprende+</div>
+          <div className="mt-4 text-sm md:mt-0">
+            &copy; {new Date().getFullYear()} Aprende+. Todos los derechos reservados.
           </div>
-          <div>
-            <h4 className="font-bold text-amber-200">Programas</h4>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li><Link to="/english" className="link-underline">Inglés</Link></li>
-              <li><Link to="/history" className="link-underline">Historia</Link></li>
-              <li><Link to="/philosophy" className="link-underline">Filosofía</Link></li>
-              <li><Link to="/teaching" className="link-underline">Docencia</Link></li>
-            </ul>
+          <div className="mt-4 md:mt-0">
+            <a href="#" className="link-underline mx-2 text-white hover:text-amber-200">Privacidad</a>
+            <a href="#" className="link-underline mx-2 text-white hover:text-amber-200">Términos</a>
           </div>
-          <div>
-            <h4 className="font-bold text-amber-200">Legal</h4>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li><Link to="/politicas" className="link-underline">Política de Privacidad</Link></li>
-              <li><Link to="/terminos" className="link-underline">Términos de Servicio</Link></li>
-              <li><Link to="/faq" className="link-underline">FAQ</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-amber-200">Síguenos</h4>
-            <div className="flex mt-4 space-x-4">
-              <a href="#" aria-label="Facebook"><Facebook className="w-6 h-6 hover:text-amber-200" /></a>
-              <a href="#" aria-label="Instagram"><Instagram className="w-6 h-6 hover:text-amber-200" /></a>
-              <a href="#" aria-label="Twitter"><Twitter className="w-6 h-6 hover:text-amber-200" /></a>
-              <a href="mailto:info@aprendeplus.com" aria-label="Email"><Mail className="w-6 h-6 hover:text-amber-200" /></a>
-            </div>
-          </div>
-        </div>
-        <div className="pt-8 mt-8 text-center border-t border-amber-400/80">
-          <p className="text-sm text-gray-400">© {currentYear} Aprende+. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
   );
 };
 
-
-// Main App Component
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-};
-
 export default function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <div className="bg-blue-950 min-h-screen">
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/english" element={<EnglishPage />} />
-            <Route path="/history" element={<HistoryPage />} />
-            <Route path="/philosophy" element={<PhilosophyPage />} />
-            <Route path="/teaching" element={<TeachingPage />} />
-            <Route path="/test" element={<TestPage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <>
+      <Header />
+      <main className="min-h-screen">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/english" element={<EnglishPage />} />
+          <Route path="/history" element={<HistoryPage />} />
+          <Route path="/philosophy" element={<PhilosophyPage />} />
+          <Route path="/teaching" element={<TeachingPage />} />
+          <Route path="/test" element={<TestPage />} />
+        </Routes>
+      </main>
+      <Footer />
+    </>
   );
-}
+  }
