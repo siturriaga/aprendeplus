@@ -1,48 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --ap-blue: 30, 58, 138;
-  --ap-amber: 251, 191, 36;
-  --ap-slate: 31, 41, 55;
-  --ap-cyan: 34, 211, 238;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  background-color: rgb(var(--ap-slate));
+  font-family: 'Inter', sans-serif;
+  @apply bg-brand-dark text-white;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./hero-image.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  animation: fadeIn 3s ease-out forwards;
+}
+
+.hero-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.9) 70%, rgba(15, 23, 42, 1) 100%);
 }
 
 .link-underline {
   position: relative;
 }
-
 .link-underline::after {
   content: '';
   position: absolute;
-  width: 100%;
-  transform: scaleX(0);
+  width: 0;
   height: 2px;
-  bottom: 0;
+  bottom: -3px;
   left: 0;
-  background-color: theme('colors.ap-amber');
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+  background-color: theme('colors.brand-amber');
+  transition: width 0.3s ease-out;
+}
+.link-underline:hover::after,
+.link-underline:focus::after {
+  width: 100%;
 }
 
-.link-underline:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: theme('colors.brand-dark');
+}
+::-webkit-scrollbar-thumb {
+  background: theme('colors.brand-blue');
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.brand-amber');
 }
 
-.hero-bg-with-image {
-  background-color: rgb(var(--ap-slate));
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('your-image-url.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to right, #fbbf24 0%, #fcd34d 20%, #fbbf24 40%, #fbbf24 100%);
+  background-size: 200% 100%;
+  transition: background-position 0.5s ease;
+}
+.shine-effect:hover {
+  animation: shine 1.5s infinite;
 }
