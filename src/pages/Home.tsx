@@ -50,42 +50,18 @@ const Pill = ({ children }: { children: React.ReactNode }) => (
 export default function Home() {
   return (
     <>
-      <section id="hero" className="relative flex flex-col items-center justify-center min-h-screen text-center text-white">
-        <div 
-          className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000" 
-          style={{ backgroundImage: `url('/background-image.jpg')`, opacity: 0.5 }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/70 to-amber-900/40" />
-        <div className="relative z-10 max-w-6xl mx-auto px-6">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className={`text-5xl md:text-7xl font-extrabold tracking-tight ${THEME.accentText}`}
-          >
-            Aprende con valentía. Enseña el futuro.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-4 text-xl md:text-2xl text-white max-w-3xl mx-auto"
-          >
-            Cursos bilingües con resultados reales para un futuro bilingüe y crítico. Clases en línea con profesionales, a tu ritmo y con precios accesibles.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-10 flex flex-wrap justify-center gap-4"
-          >
-            <a href="#contacto" className={`px-8 py-5 rounded-3xl ${THEME.btnPrimary} text-lg font-bold inline-flex items-center gap-3 transform transition hover:scale-105`}>
-              <ChevronRight className="h-6 w-6" /> Inscríbete
-            </a>
-            <Link to="/test" className={`px-8 py-5 rounded-3xl border-2 ${THEME.borderAccent} text-white bg-blue-900/40 hover:bg-amber-500 hover:text-white transition inline-flex items-center gap-3`}>
-              <BookOpen className="h-6 w-6" /> Examen de Nivel
-            </Link>
-          </motion.div>
+      <section id="hero" className={`py-24 ${THEME.container} text-white text-center`}>
+        <h1 className={`text-5xl md:text-7xl font-extrabold tracking-tight ${THEME.accentText}`}>Aprende con valentía. Enseña el futuro.</h1>
+        <p className="mt-4 text-xl md:text-2xl text-white max-w-3xl mx-auto">
+          Cursos bilingües con resultados reales para un futuro bilingüe y crítico. Clases en línea con profesionales, a tu ritmo y con precios accesibles.
+        </p>
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <a href="#contacto" className={`px-8 py-5 rounded-3xl ${THEME.btnPrimary} text-lg font-bold inline-flex items-center gap-3 transform transition hover:scale-105`}>
+            <ChevronRight className="h-6 w-6" /> Inscríbete
+          </a>
+          <Link to="/test" className={`px-8 py-5 rounded-3xl border-2 ${THEME.borderAccent} text-white bg-blue-900/40 hover:bg-amber-500 hover:text-white transition inline-flex items-center gap-3`}>
+            <BookOpen className="h-6 w-6" /> Examen de Nivel
+          </Link>
         </div>
       </section>
 
