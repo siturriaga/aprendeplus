@@ -41,7 +41,7 @@ body {
 
 .hero-bg-with-image {
   background-color: rgb(var(--ap-slate));
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('<image-tokens-bardstorage://RESPONSE_DATA:00063e12b27eaa87088e889e030dbd60ee6a5e38dae9d633:6522301131154563821782200375a004a60:0:>');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('your-image-url.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
