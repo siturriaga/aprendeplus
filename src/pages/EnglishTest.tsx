@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Q = { q: string; a: string[]; correct: number };
 
@@ -23,56 +23,68 @@ const POOLS: Q[][] = [
 
 export default function EnglishTest() {
   const [level, setLevel] = useState(0);
-  const [index, setIndex] = useState(0);
+  const [questionIndex, setQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
-  const [streak, setStreak] = useState(0);
-  const [done, setDone] = useState(false);
+  const [finished, setFinished] = useState(false);
+  const [showResult, setShowResult] = useState(false);
+  const [userAnswer, setUserAnswer] = useState<number | null>(null);
 
-  const qs = POOLS[level];
-  const current = qs[index];
+  const questions = useMemo(() => POOLS[Math.min(level, POOLS.length - 1)], [level]);
+  const currentQuestion = questions[questionIndex];
 
-  function answer(i: number) {
-    const correct = i === current.correct;
-    setScore((s) => s + (correct ? 1 : 0));
-    const newStreak = correct ? streak + 1 : 0;
-    setStreak(newStreak);
-
-    const nextIndex = index + 1;
-    if (nextIndex < qs.length) {
-      setIndex(nextIndex);
+  const handleAnswer = (index: number) => {
+    setUserAnswer(index);
+    const isCorrect = index === currentQuestion.correct;
+    if (isCorrect) {
+      setScore(score + 1);
+      setLevel(level + 1);
     } else {
-      if (newStreak >= 2 && level < POOLS.length - 1) {
-        setLevel(level + 1);
-        setIndex(0);
-      } else if (!correct && level > 0) {
-        setLevel(level - 1);
-        setIndex(0);
-      } else {
-        setDone(true);
-      }
+      setLevel(Math.max(0, level - 1));
     }
-  }
+    setShowResult(true);
+  };
 
-  const cefr = useMemo(() => {
-    const total = score;
-    if (total <= 2) return "A1";
-    if (total <= 4) return "A2";
-    if (total <= 6) return "B1";
-    if (total <= 8) return "B2";
-    if (total <= 9) return "C1";
-    return "C2";
-  }, [score]);
+  const nextQuestion = () => {
+    if (questionIndex < questions.length - 1) {
+      setQuestionIndex(questionIndex + 1);
+      setShowResult(false);
+      setUserAnswer(null);
+    } else {
+      setFinished(true);
+    }
+  };
 
-  if (done) {
+  const resetTest = () => {
+    setLevel(0);
+    setQuestionIndex(0);
+    setScore(0);
+    setFinished(false);
+    setShowResult(false);
+    setUserAnswer(null);
+  };
+
+  const getResult = () => {
+    if (level === 0) return "A1";
+    if (level === 1) return "A2";
+    if (level === 2) return "B1";
+    if (level === 3) return "B2";
+    return "C1";
+  };
+
+  if (finished) {
     return (
-      <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-6">
-        <div className="max-w-xl w-full p-8 rounded-3xl border border-amber-400/80 bg-gradient-to-br from-blue-800/90 to-amber-700/90 shadow-lg">
-          <h1 className="text-3xl font-extrabold text-amber-200">Resultado del Test</h1>
-          <p className="mt-4">Puntaje: <strong>{score}</strong></p>
-          <p className="mt-2">Estimación CEFR: <span className="font-bold text-amber-200">{cefr}</span></p>
-          <div className="mt-6 flex gap-3">
-            <Link to="/" className="px-6 py-3 rounded-2xl border border-amber-400/80 hover:bg-amber-500">Volver al inicio</Link>
-            <a href="/#contacto" className="px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-500 via-blue-700 to-blue-900 hover:brightness-110">Quiero clases</a>
+      <div className="min-h-screen bg-brand-dark text-white p-6 flex flex-col items-center justify-center">
+        <div className="max-w-xl mx-auto p-8 rounded-3xl border border-brand-amber/80 bg-brand-dark/80 backdrop-blur-sm shadow-2xl text-center animate-fade-in">
+          <h2 className="text-4xl font-extrabold text-brand-amber">Test Completado</h2>
+          <p className="mt-4 text-xl">Tu nivel estimado de inglés es:</p>
+          <p className="text-6xl md:text-8xl font-black text-white mt-4 animate-pulse-light">{getResult()}</p>
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+            <button onClick={resetTest} className="px-6 py-3 rounded-full border-2 border-brand-amber text-brand-amber hover:bg-brand-amber hover:text-brand-dark transition-colors duration-300">
+              Reintentar
+            </button>
+            <a href="/#contact" className="px-6 py-3 rounded-full bg-gradient-to-r from-brand-amber to-amber-500 hover:from-amber-500 hover:to-brand-amber text-brand-dark font-bold shadow-lg transition-all duration-300 shine-effect">
+              Quiero clases
+            </a>
           </div>
         </div>
       </div>
@@ -80,24 +92,50 @@ export default function EnglishTest() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white p-6">
-      <div className="max-w-xl mx-auto p-8 rounded-3xl border border-amber-400/80 bg-gradient-to-br from-blue-800/90 to-amber-700/90 shadow-lg">
-        <h1 className="text-3xl font-extrabold text-amber-200">Test de nivel de inglés</h1>
-        <p className="mt-2 text-amber-100">Dificultad adaptativa: si respondes bien, sube de nivel; si fallas, puede bajar para afinar el estimado.</p>
+    <div className="min-h-screen bg-brand-dark text-white p-6 flex items-center justify-center">
+      <motion.div
+        key={questionIndex}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-xl mx-auto p-8 rounded-3xl border border-brand-amber/80 bg-brand-dark/80 backdrop-blur-sm shadow-2xl"
+      >
+        <h1 className="text-3xl font-extrabold text-brand-amber">Test de nivel de inglés</h1>
+        <p className="mt-2 text-brand-light">Dificultad adaptativa: si respondes bien, sube de nivel; si fallas, puede bajar para afinar el estimado.</p>
         <div className="mt-6">
-          <p className="text-lg">{current.q}</p>
+          <p className="text-lg text-white font-medium">{currentQuestion.q}</p>
           <div className="mt-4 grid gap-3">
-            {current.a.map((opt, i) => (
-              <button key={i} onClick={() => answer(i)} className="px-4 py-3 rounded-xl border border-amber-400/80 hover:bg-amber-500 hover:text-white">
+            {currentQuestion.a.map((opt, i) => (
+              <motion.button
+                key={i}
+                onClick={() => !showResult && handleAnswer(i)}
+                className={`px-4 py-3 rounded-xl border border-brand-amber/80 text-white transition-all duration-300
+                  ${showResult ? (i === currentQuestion.correct ? 'bg-green-500/30' : (userAnswer === i ? 'bg-red-500/30' : 'opacity-50')) : 'hover:bg-brand-amber hover:text-brand-dark'}`}
+                disabled={showResult}
+                whileHover={{ scale: showResult ? 1 : 1.02 }}
+                whileTap={{ scale: showResult ? 1 : 0.98 }}
+              >
                 {opt}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
-        <div className="mt-6 text-sm text-amber-100">Nivel actual: {level + 1} / {POOLS.length}</div>
-        <div className="mt-1 text-sm text-amber-100">Correctas acumuladas: {score}</div>
-        <div className="mt-6"><Link to="/" className="underline decoration-amber-400 underline-offset-4">Volver</Link></div>
-      </div>
+        <AnimatePresence>
+          {showResult && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className={`mt-6 p-4 rounded-xl font-semibold text-white ${userAnswer === currentQuestion.correct ? 'bg-green-500/20' : 'bg-red-500/20'}`}
+            >
+              {userAnswer === currentQuestion.correct ? "¡Correcto!" : "Incorrecto."} La respuesta correcta era: **{currentQuestion.a[currentQuestion.correct]}**
+              <div className="mt-4 flex justify-center">
+                <button onClick={nextQuestion} className="px-6 py-3 rounded-full bg-brand-blue text-white font-bold hover:bg-brand-amber hover:text-brand-dark transition-colors">Siguiente Pregunta</button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 }
