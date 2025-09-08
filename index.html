@@ -1,14 +1,187 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Aprende+ ofrece cursos de inglés, historia, filosofía y capacitación docente. Clases personalizadas con profesionales.">
-    <link rel="icon" type="image/svg+xml" href="/grad.svg" />
-    <title>Aprende+: Clases de Inglés, Historia y Más</title>
-  </head>
-  <body class="bg-blue-950">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import {
+  BookOpen,
+  GraduationCap,
+  Mail,
+  ChevronRight,
+  Sparkles,
+} from "lucide-react";
+import "./index.css"; // Assuming Tailwind CSS is imported here
+
+const THEME = {
+  textPrimary: "text-white",
+  textSecondary: "text-amber-100",
+  accentText: "text-amber-300",
+  borderAccent: "border-amber-400/80",
+  btnPrimary:
+    "bg-gradient-to-r from-amber-500 via-blue-700 to-blue-900 hover:brightness-110 text-white shadow-lg",
+  gradientAccent: "from-blue-900 via-amber-400 to-amber-200",
+  container: "max-w-6xl mx-auto px-6",
+};
+
+const reveal = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const Hero = () => {
+  return (
+    <section
+      id="hero"
+      className="relative h-screen flex flex-col items-center justify-center text-center overflow-hidden"
+    >
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-black opacity-60 z-10"></div>
+        <img
+          src="/hero-image.jpg" // Assuming the image is in the public folder
+          alt="A group of people collaborating with a video conference in the background"
+          className="w-full h-full object-cover animate-pulse"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950 z-20"></div>
+      </div>
+      <div className="relative z-10 py-32 text-center max-w-4xl">
+        <motion.h1
+          variants={reveal}
+          initial="hidden"
+          animate="show"
+          className="text-5xl md:text-7xl font-extrabold tracking-tight text-amber-200 drop-shadow-lg"
+        >
+          Aprende con valentía. Enseña el futuro.
+        </motion.h1>
+        <motion.p
+          variants={reveal}
+          initial="hidden"
+          animate="show"
+          transition={{ delay: 0.2, ...reveal.show.transition }}
+          className="mt-6 text-xl md:text-2xl text-white max-w-3xl mx-auto"
+        >
+          Cursos bilingües con resultados reales — de Inglés A1–C1 a Historia,
+          Filosofía y Política.
+        </motion.p>
+        <motion.div
+          variants={reveal}
+          initial="hidden"
+          animate="show"
+          transition={{ delay: 0.4, ...reveal.show.transition }}
+          className="mt-10 flex flex-wrap justify-center gap-4"
+        >
+          <a
+            href="#programas"
+            className={`px-8 py-5 rounded-3xl ${THEME.btnPrimary} text-lg font-bold inline-flex items-center gap-3 transform transition hover:scale-105`}
+          >
+            <BookOpen className="h-6 w-6" /> Ver programas
+          </a>
+          <a
+            href="#precios"
+            className={`px-8 py-5 rounded-3xl border-2 ${THEME.borderAccent} text-white bg-blue-900/40 hover:bg-amber-500 hover:text-white transition inline-flex items-center gap-3`}
+          >
+            <ChevronRight className="h-6 w-6" /> Inscribirme
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+// ... other components and sections from your previous code ...
+
+const App = () => {
+  // Your existing App.tsx logic
+  const [activeId, setActiveId] = useState("hero");
+
+  useEffect(() => {
+    const ids = [
+      "hero",
+      "programas",
+      "opiniones",
+      "precios",
+      "boletin",
+      "quienes",
+      "contacto",
+    ];
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target?.id) setActiveId(visible.target.id);
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: [0, 0.2, 0.5, 0.8] }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+    return () => obs.disconnect();
+  }, []);
+
+  const NavLinks = ({ onClick }) => (
+    <>
+      <a
+        href="#programas"
+        onClick={onClick}
+        className={`hover:text-amber-300 transition link-underline ${
+          activeId === "programas" ? "nav-active" : ""
+        }`}
+      >
+        Programas
+      </a>
+      <a
+        href="#opiniones"
+        onClick={onClick}
+        className={`hover:text-amber-300 transition link-underline ${
+          activeId === "opiniones" ? "nav-active" : ""
+        }`}
+      >
+        Opiniones
+      </a>
+      <a
+        href="#precios"
+        onClick={onClick}
+        className={`hover:text-amber-300 transition link-underline ${
+          activeId === "precios" ? "nav-active" : ""
+        }`}
+      >
+        Precios
+      </a>
+      <a
+        href="#boletin"
+        onClick={onClick}
+        className={`hover:text-amber-300 transition link-underline ${
+          activeId === "boletin" ? "nav-active" : ""
+        }`}
+      >
+        Boletín
+      </a>
+      <a
+        href="#quienes"
+        onClick={onClick}
+        className={`hover:text-amber-300 transition link-underline ${
+          activeId === "quienes" ? "nav-active" : ""
+        }`}
+      >
+        Quiénes Somos
+      </a>
+      <a
+        href="#contacto"
+        onClick={onClick}
+        className={`hover:text-amber-300 transition link-underline ${
+          activeId === "contacto" ? "nav-active" : ""
+        }`}
+      >
+        Contacto
+      </a>
+    </>
+  );
+
+  return (
+    <>
+      <header className="sticky top-0 z-50 backdrop-blur bg-gradient-to-r from-blue-900/90 to-amber-600/90 border-b border-amber-400/60 shadow-lg">
+        {/* ... navigation code ... */}
+      </header>
+      <Hero />
+      {/* ... other sections like programs, testimonials, etc. ... */}
+    </>
+  );
+};
+
+export default App;
