@@ -1,141 +1,130 @@
 import React, { useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
-type Q = { q: string; a: string[]; correct: number };
+/**
+ * Configura en .env:
+ * VITE_EMAILJS_SERVICE_ID=xxx
+ * VITE_EMAILJS_TEMPLATE_ID=xxx
+ * VITE_EMAILJS_PUBLIC_KEY=xxx
+ * En tu plantilla usa variables: user_score, user_level, details
+ */
 
-const POOLS: Q[][] = [
-  [
-    { q: "Seleccione el artículo correcto: ___ apple", a: ["a", "an", "the"], correct: 1 },
-    { q: "El plural de “book” es…", a: ["books", "bookes", "book"], correct: 0 },
-    { q: "“I ___ a student.”", a: ["am", "is", "are"], correct: 0 }
-  ],
-  [
-    { q: "El pasado de “go” es…", a: ["goed", "goes", "went"], correct: 2 },
-    { q: "Seleccione el comparativo correcto: “fast” →", a: ["more fast", "faster", "fastest"], correct: 1 },
-    { q: "¿Cuál es correcto? “She has lived here ___ 2019.”", a: ["since", "for", "from"], correct: 0 }
-  ],
-  [
-    { q: "El condicional: “If I ___ more time, I would travel.”", a: ["have", "had", "would have"], correct: 1 },
-    { q: "Seleccione el “phrasal verb” correcto: “to look ___ information”", a: ["after", "up", "out"], correct: 1 },
-    { q: "“Hardly ___ he arrived when it started to rain.”", a: ["had", "has", "did"], correct: 0 }
-  ]
+type Q = { q: string; a: string[]; correct: number; weight: number };
+const qs: Q[] = [
+  // A1-A2
+  { q: "I ___ a book now.", a: ["am read", "am reading", "readed"], correct: 1, weight: 1 },
+  { q: "She ___ to school yesterday.", a: ["goes", "went", "gone"], correct: 1, weight: 1 },
+  { q: "Choose the correct article: ___ apple is red.", a: ["A", "An", "The"], correct: 1, weight: 1 },
+  { q: "We ___ in Santiago.", a: ["are live", "lives", "live"], correct: 2, weight: 1 },
+  // B1
+  { q: "If it ___ tomorrow, we'll stay home.", a: ["rains", "will rain", "rained"], correct: 0, weight: 2 },
+  { q: "I have lived here ___ 2019.", a: ["since", "for", "from"], correct: 0, weight: 2 },
+  // B2
+  { q: "Select the correct passive: They built the bridge in 1990.", a: ["The bridge built in 1990.", "The bridge was built in 1990.", "The bridge was build in 1990."], correct: 1, weight: 3 },
+  { q: "Choose the best connector: She studied hard; ___, she passed.", a: ["however", "therefore", "despite"], correct: 1, weight: 3 },
+  // C1
+  { q: "Pick the closest meaning: 'meticulous'", a: ["careless", "thorough", "average"], correct: 1, weight: 4 },
+  { q: "Choose the best option: 'Had I known about the class, I ___ earlier.'", a: ["would have enrolled", "will enroll", "enrolled"], correct: 0, weight: 4 },
+  // Listening/Reading proxy (cloze/phrase)
+  { q: "Complete: 'By no means ___ this easy.'", a: ["is", "it is", "it"], correct: 0, weight: 4 },
+  { q: "Which is correct: 'I look forward to ___ from you.'", a: ["hear", "hearing", "to hear"], correct: 1, weight: 3 },
 ];
 
-export default function EnglishTest() {
-  const [level, setLevel] = useState(0);
-  const [questionIndex, setQuestionIndex] = useState(0);
+const thresholds = [
+  { level: "A1", max: 6 },
+  { level: "A2", max: 12 },
+  { level: "B1", max: 18 },
+  { level: "B2", max: 26 },
+  { level: "C1", max: 34 },
+  { level: "C2", max: 100 },
+];
+
+const EnglishTest: React.FC = () => {
+  const [idx, setIdx] = useState(0);
   const [score, setScore] = useState(0);
-  const [finished, setFinished] = useState(false);
-  const [showResult, setShowResult] = useState(false);
-  const [userAnswer, setUserAnswer] = useState<number | null>(null);
+  const [answers, setAnswers] = useState<number[]>([]);
+  const [sent, setSent] = useState<null | { ok: boolean }>(null);
 
-  const questions = useMemo(() => POOLS[Math.min(level, POOLS.length - 1)], [level]);
-  const currentQuestion = questions[questionIndex];
+  const current = qs[idx];
+  const total = useMemo(() => qs.reduce((s, q) => s + q.weight, 0), []);
+  const progress = Math.round((answers.length / qs.length) * 100);
 
-  const handleAnswer = (index: number) => {
-    setUserAnswer(index);
-    const isCorrect = index === currentQuestion.correct;
-    if (isCorrect) {
-      setScore(score + 1);
-      setLevel(level + 1);
-    } else {
-      setLevel(Math.max(0, level - 1));
+  const select = (i: number) => {
+    const correct = i === current.correct;
+    setAnswers((a) => [...a, i]);
+    if (correct) setScore((s) => s + current.weight);
+    setTimeout(() => setIdx((v) => Math.min(v + 1, qs.length)), 120);
+  };
+
+  const level = thresholds.find(t => score <= t.max)?.level ?? "C2";
+
+  const sendEmail = async () => {
+    try {
+      const details = qs.map((q, i) => {
+        const pick = answers[i];
+        const ok = pick === q.correct ? "✓" : "✗";
+        return `${i + 1}. ${q.q} -> ${q.a[pick]} (${ok})`;
+      }).join("\n");
+
+      const params = {
+        user_score: `${score}/${total}`,
+        user_level: level,
+        details,
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        params,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+      setSent({ ok: true });
+    } catch (e) {
+      setSent({ ok: false });
     }
-    setShowResult(true);
   };
 
-  const nextQuestion = () => {
-    if (questionIndex < questions.length - 1) {
-      setQuestionIndex(questionIndex + 1);
-      setShowResult(false);
-      setUserAnswer(null);
-    } else {
-      setFinished(true);
-    }
-  };
-
-  const resetTest = () => {
-    setLevel(0);
-    setQuestionIndex(0);
-    setScore(0);
-    setFinished(false);
-    setShowResult(false);
-    setUserAnswer(null);
-  };
-
-  const getResult = () => {
-    if (level === 0) return "A1";
-    if (level === 1) return "A2";
-    if (level === 2) return "B1";
-    if (level === 3) return "B2";
-    return "C1";
-  };
-
-  if (finished) {
-    return (
-      <div className="min-h-screen bg-brand-dark text-white p-6 flex flex-col items-center justify-center">
-        <div className="max-w-xl mx-auto p-8 rounded-3xl border border-brand-amber/80 bg-brand-dark/80 backdrop-blur-sm shadow-2xl text-center animate-fade-in">
-          <h2 className="text-4xl font-extrabold text-brand-amber">Test Completado</h2>
-          <p className="mt-4 text-xl">Tu nivel estimado de inglés es:</p>
-          <p className="text-6xl md:text-8xl font-black text-white mt-4 animate-pulse-light">{getResult()}</p>
-          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-            <button onClick={resetTest} className="px-6 py-3 rounded-full border-2 border-brand-amber text-brand-amber hover:bg-brand-amber hover:text-brand-dark transition-colors duration-300">
-              Reintentar
-            </button>
-            <a href="/#contact" className="px-6 py-3 rounded-full bg-gradient-to-r from-brand-amber to-amber-500 hover:from-amber-500 hover:to-brand-amber text-brand-dark font-bold shadow-lg transition-all duration-300 shine-effect">
-              Quiero clases
-            </a>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const finished = answers.length === qs.length;
 
   return (
-    <div className="min-h-screen bg-brand-dark text-white p-6 flex items-center justify-center">
-      <motion.div
-        key={questionIndex}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="max-w-xl mx-auto p-8 rounded-3xl border border-brand-amber/80 bg-brand-dark/80 backdrop-blur-sm shadow-2xl"
-      >
-        <h1 className="text-3xl font-extrabold text-brand-amber">Test de nivel de inglés</h1>
-        <p className="mt-2 text-brand-light">Dificultad adaptativa: si respondes bien, sube de nivel; si fallas, puede bajar para afinar el estimado.</p>
-        <div className="mt-6">
-          <p className="text-lg text-white font-medium">{currentQuestion.q}</p>
-          <div className="mt-4 grid gap-3">
-            {currentQuestion.a.map((opt, i) => (
-              <motion.button
-                key={i}
-                onClick={() => !showResult && handleAnswer(i)}
-                className={`px-4 py-3 rounded-xl border border-brand-amber/80 text-white transition-all duration-300
-                  ${showResult ? (i === currentQuestion.correct ? 'bg-green-500/30' : (userAnswer === i ? 'bg-red-500/30' : 'opacity-50')) : 'hover:bg-brand-amber hover:text-brand-dark'}`}
-                disabled={showResult}
-                whileHover={{ scale: showResult ? 1 : 1.02 }}
-                whileTap={{ scale: showResult ? 1 : 0.98 }}
-              >
-                {opt}
-              </motion.button>
-            ))}
+    <section className="py-24">
+      <div className="max-w-2xl mx-auto px-6">
+        <h2 className="text-4xl font-extrabold text-center text-rose-400">Prueba de Nivel de Inglés</h2>
+        <p className="mt-3 text-center text-gray-200">Basada en criterios CEFR (A1–C1). Al finalizar enviaremos tu resultado a nuestro correo y te contactaremos.</p>
+
+        {!finished ? (
+          <div className="mt-10 p-8 rounded-3xl card-glass">
+            <div className="text-sm opacity-80">Progreso: {progress}%</div>
+            <p className="text-xl mt-2">{current.q}</p>
+            <div className="mt-6 grid gap-3">
+              {current.a.map((ans, i) => (
+                <button key={i} onClick={() => select(i)} className="w-full text-left px-5 py-3 rounded-2xl bg-white/15 hover:bg-white/25 border border-white/20">
+                  {ans}
+                </button>
+              ))}
+            </div>
+            <p className="mt-6 text-sm opacity-80">Pregunta {idx + 1} de {qs.length}</p>
           </div>
-        </div>
-        <AnimatePresence>
-          {showResult && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className={`mt-6 p-4 rounded-xl font-semibold text-white ${userAnswer === currentQuestion.correct ? 'bg-green-500/20' : 'bg-red-500/20'}`}
-            >
-              {userAnswer === currentQuestion.correct ? "¡Correcto!" : "Incorrecto."} La respuesta correcta era: **{currentQuestion.a[currentQuestion.correct]}**
-              <div className="mt-4 flex justify-center">
-                <button onClick={nextQuestion} className="px-6 py-3 rounded-full bg-brand-blue text-white font-bold hover:bg-brand-amber hover:text-brand-dark transition-colors">Siguiente Pregunta</button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
-    </div>
+        ) : (
+          <div className="mt-10 p-8 rounded-3xl card-glass text-center">
+            <p className="text-2xl">Puntaje: <strong>{score}</strong> / {total}</p>
+            <p className="mt-2">Nivel estimado: <strong>{level}</strong></p>
+            <button onClick={sendEmail} className="mt-4 px-6 py-3 rounded-2xl bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-bold shadow-lg">
+              Enviar resultado por correo
+            </button>
+            {sent && (
+              <p className={`mt-2 text-sm ${sent.ok ? "text-sky-300" : "text-rose-300"}`}>
+                {sent.ok ? "¡Enviado! Nos pondremos en contacto." : "No se pudo enviar. Reintenta o escríbenos directamente."}
+              </p>
+            )}
+            <div className="mt-4">
+              <a href="/english" className="text-sky-300 hover:underline">Volver a Inglés →</a>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
   );
-}
+};
+
+export default EnglishTest;
