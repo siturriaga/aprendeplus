@@ -9,7 +9,6 @@ import EnglishTest from "./pages/EnglishTest";
 import HistoryPage from "./pages/HistoryPage";
 import PhilosophyPage from "./pages/PhilosophyPage";
 import TeachingPage from "./pages/TeachingPage";
-import TestPage from "./pages/TestPage";
 
 /* ---------- Moneda (contexto simple) ---------- */
 export type Currency = "CLP" | "USD";
