@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { GraduationCap, Menu, X, Sparkles, BookOpen, Mail, Accessibility, Globe } from "lucide-react";
+import {
+  GraduationCap,
+  Menu,
+  X,
+  Sparkles,
+  BookOpen,
+  Mail,
+  Accessibility,
+  Globe,
+} from "lucide-react";
 
 import Home from "./pages/Home";
 import EnglishPage from "./pages/EnglishPage";
@@ -10,35 +19,77 @@ import HistoryPage from "./pages/HistoryPage";
 import PhilosophyPage from "./pages/PhilosophyPage";
 import TeachingPage from "./pages/TeachingPage";
 
-/* ---------- Moneda (contexto simple) ---------- */
+/* ---------- Currency context ---------- */
 export type Currency = "CLP" | "USD";
-export const CurrencyContext = React.createContext<{currency: Currency, setCurrency: (c: Currency)=>void, rate:number}>({
+export const CurrencyContext = React.createContext<{
+  currency: Currency;
+  setCurrency: (c: Currency) => void;
+  rate: number;
+}>({
   currency: "CLP",
   setCurrency: () => {},
-  rate: 950, // 1 USD ≈ 950 CLP (ajustable)
+  rate: 950,
 });
 
-/* ---------- Google Translate (opcional) ---------- */
-const TranslateWidget: React.FC = () => {
+/* ---------- Google Translate (dropdown) ---------- */
+const TranslateDropdown: React.FC = () => {
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
     if ((window as any).__gt_loaded) return;
     (window as any).__gt_loaded = true;
     (window as any).googleTranslateElementInit = () => {
       // @ts-ignore
       new window.google.translate.TranslateElement(
-        { pageLanguage: "es", includedLanguages: "en,es", layout: (window as any).google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false },
+        {
+          pageLanguage: "es",
+          includedLanguages: "en,es",
+          layout:
+            (window as any).google.translate.TranslateElement.InlineLayout
+              .SIMPLE,
+          autoDisplay: false,
+        },
         "google_translate_element"
       );
     };
     const s = document.createElement("script");
-    s.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    s.src =
+      "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
     s.async = true;
     document.body.appendChild(s);
   }, []);
-  return <div id="google_translate_element" className="hidden md:block text-sm rounded-lg px-2 py-1 bg-white/10 border border-white/20" title="Traducir" />;
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex items-center gap-1 bg-white/10 border border-white/20 rounded-lg px-2 py-1 text-sm"
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        aria-label="Traducir"
+        title="Traducir"
+      >
+        <Globe className="w-4 h-4" />
+        ES/EN
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            className="absolute right-0 mt-2 w-52 rounded-xl bg-slate-900/95 border border-white/15 p-2 shadow-xl z-[70]"
+          >
+            <div id="google_translate_element" className="gt-compact" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 };
 
-/* ---------- Panel de Accesibilidad ---------- */
+/* ---------- Accessibility floating panel ---------- */
 const AccessibilityPanel: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [contrast, setContrast] = useState(false);
@@ -54,12 +105,13 @@ const AccessibilityPanel: React.FC = () => {
   }, [large]);
   useEffect(() => {
     document.documentElement.classList.toggle("a11y-dyslexia", dys);
-    if (dys) {
+    if (dys && !document.getElementById("odys")) {
       const link = document.createElement("link");
       link.rel = "stylesheet";
-      link.href = "https://cdn.jsdelivr.net/gh/antijingoist/open-dyslexic/stylesheet.css";
+      link.href =
+        "https://cdn.jsdelivr.net/gh/antijingoist/open-dyslexic/stylesheet.css";
       link.id = "odys";
-      if (!document.getElementById("odys")) document.head.appendChild(link);
+      document.head.appendChild(link);
     }
   }, [dys]);
   useEffect(() => {
@@ -68,7 +120,6 @@ const AccessibilityPanel: React.FC = () => {
 
   return (
     <>
-      {/* Botón flotante */}
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label="Accesibilidad"
@@ -77,23 +128,53 @@ const AccessibilityPanel: React.FC = () => {
         <Accessibility className="w-6 h-6 text-white" />
       </button>
 
-      {/* Panel */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
             className="fixed bottom-20 right-5 z-[60] w-72 p-4 rounded-2xl bg-slate-900/90 border border-white/15 backdrop-blur text-white"
           >
             <div className="flex items-center justify-between">
               <h3 className="font-semibold">Accesibilidad</h3>
-              <button onClick={() => setOpen(false)} aria-label="Cerrar"><X className="w-5 h-5" /></button>
+              <button onClick={() => setOpen(false)} aria-label="Cerrar">
+                <X className="w-5 h-5" />
+              </button>
             </div>
             <div className="mt-3 space-y-2 text-sm">
-              <label className="flex items-center gap-2"><input type="checkbox" checked={contrast} onChange={(e)=>setContrast(e.target.checked)} /> Alto contraste</label>
-              <label className="flex items-center gap-2"><input type="checkbox" checked={large} onChange={(e)=>setLarge(e.target.checked)} /> Texto grande</label>
-              <label className="flex items-center gap-2"><input type="checkbox" checked={reduce} onChange={(e)=>setReduce(e.target.checked)} /> Reducir animaciones</label>
-              <label className="flex items-center gap-2"><input type="checkbox" checked={dys} onChange={(e)=>setDys(e.target.checked)} /> Fuente amigable (dislexia)</label>
-              <p className="text-xs opacity-80 mt-2">Puedes activar/desactivar en cualquier momento.</p>
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={contrast}
+                  onChange={(e) => setContrast(e.target.checked)}
+                />
+                Alto contraste
+              </label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={large}
+                  onChange={(e) => setLarge(e.target.checked)}
+                />
+                Texto grande
+              </label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={reduce}
+                  onChange={(e) => setReduce(e.target.checked)}
+                />
+                Reducir animaciones
+              </label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={dys}
+                  onChange={(e) => setDys(e.target.checked)}
+                />
+                Fuente amigable (dislexia)
+              </label>
             </div>
           </motion.div>
         )}
@@ -114,7 +195,7 @@ const App: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const [currency, setCurrency] = useState<Currency>("CLP");
-  const rate = 950; // <- cambia aquí la tasa
+  const rate = 950;
 
   useEffect(() => {
     setMenuOpen(false);
@@ -122,12 +203,15 @@ const App: React.FC = () => {
   }, [location.pathname, reduce]);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenuOpen(false);
+    const onKey = (e: KeyboardEvent) =>
+      e.key === "Escape" && setMenuOpen(false);
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const spring = reduce ? { duration: 0 } : { type: "spring", stiffness: 100, damping: 20 };
+  const spring = reduce
+    ? { duration: 0 }
+    : { type: "spring", stiffness: 100, damping: 20 };
 
   const nav = [
     { to: "/", label: "Inicio" },
@@ -135,40 +219,50 @@ const App: React.FC = () => {
     { to: "/history", label: "Historia" },
     { to: "/philosophy", label: "Filosofía" },
     { to: "/teaching", label: "Capacitación Docente" },
-    { to: "/test", label: "Test" },
   ];
 
   return (
     <CurrencyContext.Provider value={{ currency, setCurrency, rate }}>
-      <a href="#main" className="skip-link sr-only focus:not-sr-only">Saltar al contenido</a>
+      <a href="#main" className="skip-link sr-only focus:not-sr-only">
+        Saltar al contenido
+      </a>
 
-      {/* Header */}
       <motion.header
-        initial={reduce ? false : { y: -100 }} animate={reduce ? {} : { y: 0 }} transition={spring}
+        initial={reduce ? false : { y: -100 }}
+        animate={reduce ? {} : { y: 0 }}
+        transition={spring}
         className="fixed top-0 left-0 right-0 z-50 py-4 backdrop-blur-md bg-transparent"
         style={{ height: "var(--header-h)" }}
       >
         <div className={`${THEME.container} flex items-center justify-between`}>
           <Link to="/" className="flex items-center gap-3">
             <GraduationCap className={`h-8 w-8 ${THEME.accentText}`} />
-            <span className={`text-2xl font-bold ${THEME.textPrimary}`}>Aprende+</span>
+            <span className={`text-2xl font-bold ${THEME.textPrimary}`}>
+              Aprende+
+            </span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
             {nav.map((n) => (
-              <Link key={n.to} to={n.to} className={`link-underline transition ${location.pathname === n.to ? THEME.accentText : "text-white"}`}>
+              <Link
+                key={n.to}
+                to={n.to}
+                className={`link-underline transition ${
+                  location.pathname === n.to ? THEME.accentText : "text-white"
+                }`}
+              >
                 {n.label}
               </Link>
             ))}
           </nav>
 
           <div className="flex items-center gap-3">
-            {/* Selector de moneda */}
+            {/* Currency selector */}
             <div className="hidden md:flex items-center gap-1 bg-white/10 border border-white/20 rounded-lg px-2 py-1">
-              <Globe className="w-4 h-4 opacity-80" />
+              <span className="text-xs opacity-80">Moneda</span>
               <select
                 value={currency}
-                onChange={(e)=>setCurrency(e.target.value as Currency)}
+                onChange={(e) => setCurrency(e.target.value as Currency)}
                 className="bg-transparent text-white text-sm outline-none"
                 aria-label="Selector de moneda"
               >
@@ -177,31 +271,48 @@ const App: React.FC = () => {
               </select>
             </div>
 
-            {/* Traducir */}
-            <TranslateWidget />
+            {/* Translate dropdown */}
+            <TranslateDropdown />
 
-            <button onClick={() => setMenuOpen((v) => !v)} className="md:hidden text-white" aria-label="Abrir menú" aria-expanded={menuOpen} aria-controls="mobile-menu">
+            <button
+              onClick={() => setMenuOpen((v) => !v)}
+              className="md:hidden text-white"
+              aria-label="Abrir menú"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+            >
               {menuOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
             </button>
           </div>
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div id="mobile-menu" role="dialog" aria-modal="true"
-            initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={spring}
+          <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={spring}
             className="fixed inset-0 z-40 bg-slate-900/90 backdrop-blur-md p-6 pt-24 md:hidden"
           >
             <div className="flex flex-col items-end space-y-4">
               {nav.map((n) => (
-                <Link key={n.to} to={n.to} className="text-white text-2xl">{n.label}</Link>
+                <Link key={n.to} to={n.to} className="text-white text-2xl">
+                  {n.label}
+                </Link>
               ))}
-              {/* Selector de moneda en móvil */}
+              {/* Currency selector in mobile */}
               <div className="mt-4 bg-white/10 border border-white/20 rounded-lg px-3 py-2">
                 <label className="text-white/90 text-sm mr-2">Moneda:</label>
-                <select value={currency} onChange={(e)=>setCurrency(e.target.value as Currency)} className="bg-transparent text-white text-sm outline-none">
+                <select
+                  value={currency}
+                  onChange={(e) => setCurrency(e.target.value as Currency)}
+                  className="bg-transparent text-white text-sm outline-none"
+                >
                   <option value="CLP">CLP</option>
                   <option value="USD">USD</option>
                 </select>
@@ -211,7 +322,6 @@ const App: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Main */}
       <main id="main" className="pt-24">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -220,11 +330,9 @@ const App: React.FC = () => {
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/philosophy" element={<PhilosophyPage />} />
           <Route path="/teaching" element={<TeachingPage />} />
-          <Route path="/test" element={<TestPage />} />
         </Routes>
       </main>
 
-      {/* Botón de accesibilidad */}
       <AccessibilityPanel />
 
       <footer className="py-12 border-t border-white/10 bg-slate-900/40 backdrop-blur mt-16">
@@ -235,7 +343,8 @@ const App: React.FC = () => {
             <BookOpen className="h-5 w-5" />
           </div>
           <p className="mt-4 text-sm">
-            Profesionales basados en EE. UU. (Bachelor, Master, PhD). 20+ años de experiencia. 1500+ estudiantes atendidos.
+            Profesionales basados en EE. UU. (Bachelor, Master, PhD). 20+ años de
+            experiencia. 1500+ estudiantes atendidos.
           </p>
           <p className="mt-1 text-xs opacity-80">
             <Mail className="inline w-4 h-4 mr-1" />
