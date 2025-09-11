@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Optional: add a sitemap if you have one
+# Sitemap: https://aprendemas.net/sitemap.xml
