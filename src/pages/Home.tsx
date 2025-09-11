@@ -10,7 +10,13 @@ const fadeUp = {
 };
 
 const Card: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="p-8 rounded-3xl card-glass">
+  <motion.div
+    variants={fadeUp}
+    initial="initial"
+    whileInView="animate"
+    viewport={{ once: true }}
+    className="p-8 rounded-3xl card-glass"
+  >
     {children}
   </motion.div>
 );
@@ -23,8 +29,17 @@ const usePrice = () => {
 
 const PriceRow: React.FC<{ clp: number }> = ({ clp }) => {
   const conv = usePrice();
-  return <p className="text-2xl font-extrabold text-yellow-400">{conv(clp)} <span className="text-sm text-gray-300 font-normal">por clase</span></p>;
+  return (
+    <p className="text-2xl font-extrabold text-yellow-400">
+      {conv(clp)} <span className="text-sm text-gray-300 font-normal">por clase</span>
+    </p>
+  );
 };
+
+// ---- Vite env (typed) ----
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
 
 export default function Home() {
   const [sending, setSending] = useState(false);
@@ -39,18 +54,34 @@ export default function Home() {
     const message = String(data.get("message") || "");
     setSending(true);
     setSent(null);
+
     try {
+      // EmailJS (client)
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        { to_email: "adaprendemas@outlook.com", sender_name: name, sender_email: email, message, form: "Contacto (Sitio)" },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          to_email: "adaprendemas@outlook.com",
+          sender_name: name,
+          sender_email: email,
+          message,
+          form: "Contacto (Sitio)"
+        },
+        EMAILJS_PUBLIC_KEY
       );
+
+      // Netlify Forms (fallback)
       await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({ "form-name": "contact", name, email, message }).toString(),
+        body: new URLSearchParams({
+          "form-name": "contact",
+          name,
+          email,
+          message
+        }).toString(),
       });
+
       setSent("¡Mensaje enviado! Te responderemos pronto.");
       form.reset();
     } catch {
@@ -62,7 +93,7 @@ export default function Home() {
 
   return (
     <>
-      {/* Gradient hero (no photo) */}
+      {/* Hero gradiente (sin foto) */}
       <section className="relative hero-bg min-h-[60vh] flex items-center">
         <div className="relative z-10 w-full text-center">
           <motion.div variants={fadeUp} initial="initial" animate="animate" className="max-w-4xl mx-auto px-6">
@@ -102,7 +133,13 @@ export default function Home() {
       {/* Programas y precios */}
       <section id="programas" className="py-24">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.h2 variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="text-5xl font-extrabold text-yellow-400 text-center">
+          <motion.h2
+            variants={fadeUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="text-5xl font-extrabold text-yellow-400 text-center"
+          >
             Programas y precios
           </motion.h2>
           <p className="mt-6 text-lg text-gray-200 text-center max-w-3xl mx-auto">
