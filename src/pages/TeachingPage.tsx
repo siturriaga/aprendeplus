@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-const fadeUp = { initial: { opacity: 0, y: 18 }, animate: { opacity: 1, y: 0, transition: { duration: .5 } } };
+import { fadeUp } from "../utils";
 
 export default function TeachingPage() {
   return (
@@ -9,7 +9,8 @@ export default function TeachingPage() {
         className="relative min-h-[45vh] flex items-end overflow-hidden"
         style={{
           backgroundImage: "linear-gradient(rgba(2,6,23,.75), rgba(2,6,23,.75)), url('/images/docencia.png')",
-          backgroundSize: "cover", backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
         aria-label="Fondo Capacitación Docente"
       >
@@ -24,7 +25,7 @@ export default function TeachingPage() {
       </section>
 
       <div className="max-w-6xl mx-auto px-6 py-16 text-gray-200">
-        {/* …contenido de Docencia… */}
+        {/* ...contenido... */}
       </div>
     </>
   );
