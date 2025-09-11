@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-// Mantén tu lógica/estado de prueba adaptativa existente aquí…
+import { fadeUp } from "../utils";
 
-const fadeUp = { initial: { opacity: 0, y: 18 }, animate: { opacity: 1, y: 0, transition: { duration: .5 } } };
+// Mantén tu lógica/estado de prueba adaptativa existente aquí…
 
 export default function EnglishTest() {
   return (
@@ -12,7 +12,8 @@ export default function EnglishTest() {
         className="relative min-h-[36vh] flex items-end overflow-hidden"
         style={{
           backgroundImage: "linear-gradient(rgba(2,6,23,.78), rgba(2,6,23,.78)), url('/images/english-page.png')",
-          backgroundSize: "cover", backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
         aria-label="Fondo Prueba de Inglés"
       >
