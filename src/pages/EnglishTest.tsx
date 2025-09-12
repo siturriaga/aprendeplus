@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { Link } from "react-router-dom"; // Import Link
 
 type Level = "A1" | "A2" | "B1" | "B2" | "C1";
 type Q = { id: string; level: Level; prompt: string; options: string[]; answer: number };
@@ -16,10 +17,8 @@ const BANK: Q[] = [
   { id: "c1-1", level: "C1", prompt: "His results were ___ expectations.", options: ["beneath", "under", "below", "beyond"], answer: 3 },
   { id: "c1-2", level: "C1", prompt: "Choose the best paraphrase: \"She dismissed the idea out of hand.\"", options: ["considered it carefully", "rejected it immediately", "ignored it later", "accepted it reluctantly"], answer: 1 }
 ];
-
 const ORDER: Level[] = ["A1","A2","B1","B2","C1"];
 
-// EmailJS
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
 const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  as string;
@@ -38,55 +37,77 @@ export default function EnglishTest() {
   const [total, setTotal] = useState(0);
   const [done, setDone] = useState(false);
   const [email, setEmail] = useState("");
+  const [emailStatus, setEmailStatus] = useState<string | null>(null);
 
   const nextQuestion = (lastCorrect: boolean) => {
     const newTotal = total + 1;
     const newCorrect = lastCorrect ? correct + 1 : correct;
-    setTotal(newTotal); setCorrect(newCorrect);
+    setTotal(newTotal);
+    setCorrect(newCorrect);
 
-    if (newTotal >= 10) { setDone(true); return; }
+    if (newTotal >= 10) {
+      setDone(true);
+      return;
+    }
 
-    let idx = levelIndex + (lastCorrect ? 1 : -1);
-    idx = Math.max(0, Math.min(ORDER.length - 1, idx));
-    setLevelIndex(idx);
+    // Determine the next level based on performance
+    let newLevelIndex = levelIndex;
+    if (lastCorrect) {
+      newLevelIndex = Math.min(ORDER.length - 1, newLevelIndex + 1);
+    } else {
+      newLevelIndex = Math.max(0, newLevelIndex - 1);
+    }
+    setLevelIndex(newLevelIndex);
 
-    const lvl = ORDER[idx];
+    const lvl = ORDER[newLevelIndex];
     const pool = groups[lvl].filter(q => !asked.includes(q.id));
     const next = pool[Math.floor(Math.random() * pool.length)] || groups[lvl][0];
-    setAsked(a => [...a, next.id]); setCurrent(next);
+    setAsked(a => [...a, next.id]);
+    setCurrent(next);
   };
 
-  const onAnswer = (choice: number) => nextQuestion(choice === current.answer);
+  const onAnswer = (choice: number) => {
+    nextQuestion(choice === current.answer);
+  };
 
   const estimatedLevel = useMemo<Level>(() => {
-    const ratio = total ? correct / total : 0;
-    const idx = Math.min(ORDER.length - 1, Math.max(0, Math.round(levelIndex + (ratio - 0.5) * 2)));
-    return ORDER[idx];
+    if (!total) return "B1";
+    const ratio = correct / total;
+    const levelJump = (ratio - 0.5) * 2;
+    const estimatedIndex = Math.round(levelIndex + levelJump);
+    const finalIndex = Math.min(ORDER.length - 1, Math.max(0, estimatedIndex));
+    return ORDER[finalIndex];
   }, [correct, total, levelIndex]);
 
   const sendResults = async () => {
-    await emailjs.send(
-      EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID,
-      {
-        to_email: "adaprendemas@outlook.com",
-        user_email: email,
-        score: `${correct}/${total}`,
-        level: estimatedLevel,
-        form: "Prueba de Inglés"
-      },
-      EMAILJS_PUBLIC_KEY
-    );
-    await fetch("/", {
-      method: "POST",
-      headers: {"Content-Type":"application/x-www-form-urlencoded"},
-      body: new URLSearchParams({
-        "form-name":"english-test",
-        email,
-        score:`${correct}/${total}`,
-        level:estimatedLevel
-      }).toString()
-    });
-    alert("Resultados enviados. ¡Gracias!");
+    setEmailStatus(null);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID,
+        {
+          to_email: "adaprendemas@outlook.com",
+          user_email: email,
+          score: `${correct}/${total}`,
+          level: estimatedLevel,
+          form: "Prueba de Inglés"
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      await fetch("/", {
+        method: "POST",
+        headers: {"Content-Type":"application/x-www-form-urlencoded"},
+        body: new URLSearchParams({
+          "form-name":"english-test",
+          email,
+          score:`${correct}/${total}`,
+          level:estimatedLevel
+        }).toString()
+      });
+      setEmailStatus("Resultados enviados. ¡Gracias!");
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setEmailStatus("No se pudo enviar. Intenta nuevamente.");
+    }
   };
 
   if (!done) {
@@ -114,7 +135,13 @@ export default function EnglishTest() {
       <div className="card-glass p-6 mt-6">
         <label className="text-sm text-gray-300">Correo para enviar tus resultados</label>
         <input className="mt-2 w-full px-4 py-3 rounded-xl border bg-white/95 text-slate-950" type="email" placeholder="tu@correo.com" value={email} onChange={e=>setEmail(e.target.value)} />
-        <button disabled={!email} onClick={sendResults} className="btn-primary mt-4">Enviar resultados</button>
+        <button disabled={!email} onClick={sendResults} className="btn-primary mt-4">
+          Enviar resultados
+        </button>
+        {emailStatus && <p className="mt-2 text-sm text-sky-300">{emailStatus}</p>}
+      </div>
+      <div className="mt-8 text-center">
+        <p className="text-gray-300">¿Quieres tomar una clase? <Link to="/english" className="font-bold text-rose-400 hover:underline">¡Contáctanos!</Link></p>
       </div>
     </section>
   );
