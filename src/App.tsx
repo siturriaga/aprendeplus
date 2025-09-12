@@ -1,19 +1,7 @@
-import React, { createContext, useMemo, useState } from "react";
-import { BrowserRouter, Routes, Route, NavLink, Link } from "react-router-dom";
-import Home from "./pages/Home";
-import EnglishPage from "./pages/EnglishPage";
-import EnglishTest from "./pages/EnglishTest";
-import HistoryPage from "./pages/HistoryPage";
-import PhilosophyPage from "./pages/PhilosophyPage";
-import TeachingPage from "./pages/TeachingPage";
-import { GraduationCap } from "lucide-react";
+// ... (imports remain the same)
+import { Link, NavLink } from "react-router-dom"; // Add Link here
 
-type Currency = "CLP" | "USD";
-export const CurrencyContext = createContext<{ currency: Currency; setCurrency: (c: Currency)=>void; rate: number }>({
-  currency: "CLP",
-  setCurrency: () => {},
-  rate: 900,
-});
+// ... (CurrencyContext and App component setup)
 
 const App: React.FC = () => {
   const [currency, setCurrency] = useState<Currency>("CLP");
@@ -25,6 +13,7 @@ const App: React.FC = () => {
       <BrowserRouter>
         <header className="fixed top-0 left-0 right-0 z-50 py-4 backdrop-blur-md bg-transparent">
           <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+            {/* Using Link for internal navigation */}
             <Link to="/" className="flex items-center gap-3">
               <GraduationCap className="h-8 w-8 text-rose-500" />
               <span className="text-2xl font-bold text-white">Aprende+</span>
