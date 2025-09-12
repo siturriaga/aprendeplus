@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useCallback } from "react";
+import { Link } from "react-router-dom"; // Import Link
 import { motion } from "framer-motion";
 import { BookOpen, Languages, School, Tag, Mail, Users, GraduationCap } from "lucide-react";
 import emailjs from "@emailjs/browser";
@@ -17,12 +18,12 @@ const usePrice = () => {
   return (clp: number) =>
     currency === "CLP" ? `CLP $${clp.toLocaleString("es-CL")}` : `USD $${(clp / rate).toFixed(2)}`;
 };
+
 const PriceRow: React.FC<{ clp: number }> = ({ clp }) => {
   const conv = usePrice();
   return (<p className="text-2xl font-extrabold text-rose-400">{conv(clp)} <span className="text-sm text-gray-300 font-normal">por clase</span></p>);
 };
 
-// EmailJS env
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
 const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  as string;
@@ -31,14 +32,15 @@ export default function Home() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState<string | null>(null);
 
-  const handleContactSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
+  const handleContactSubmit = useCallback<React.FormEventHandler<HTMLFormElement>>(async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
     const fd = new FormData(form);
     const name = String(fd.get("name") || "");
     const email = String(fd.get("email") || "");
     const message = String(fd.get("message") || "");
-    setSending(true); setSent(null);
+    setSending(true);
+    setSent(null);
 
     try {
       await emailjs.send(
@@ -55,8 +57,10 @@ export default function Home() {
       form.reset();
     } catch {
       setSent("No se pudo enviar. Intenta nuevamente.");
-    } finally { setSending(false); }
-  };
+    } finally {
+      setSending(false);
+    }
+  }, []); // Empty dependency array means this function is created only once
 
   return (
     <>
@@ -71,7 +75,8 @@ export default function Home() {
             Aprende más allá del aula. Clases flexibles, personalizadas y con materiales digitales incluidos.
           </motion.p>
           <div className="mt-8 flex justify-center gap-4">
-            <a href="/english" className="btn-primary">Quiero clases</a>
+            {/* Using Link instead of a tag */}
+            <Link to="/english" className="btn-primary">Quiero clases</Link>
             <a href="#programas" className="btn-outline">Ver programas</a>
           </div>
         </div>
@@ -114,8 +119,9 @@ export default function Home() {
                   <p className="mt-2 text-white/95">Conversación y gramática. Incluye <strong>prueba de nivel</strong>.</p>
                   <PriceRow clp={20000} />
                   <div className="mt-4 flex flex-wrap gap-3">
-                    <a href="/english" className="text-sky-300 hover:underline">Ver más →</a>
-                    <a href="/english-test" className="text-rose-400 hover:underline">Hacer prueba →</a>
+                    {/* Using Link instead of a tag */}
+                    <Link to="/english" className="text-sky-300 hover:underline">Ver más →</Link>
+                    <Link to="/english-test" className="text-rose-400 hover:underline">Hacer prueba →</Link>
                   </div>
                 </div>
               </div>
@@ -129,8 +135,9 @@ export default function Home() {
                   <p className="mt-2 text-white/95">Historia latinoamericana/europea e intelectual; filosofía clásica y moderna.</p>
                   <PriceRow clp={25000} />
                   <div className="mt-4 flex flex-wrap gap-3">
-                    <a href="/history" className="text-sky-300 hover:underline">Historia →</a>
-                    <a href="/philosophy" className="text-sky-300 hover:underline">Filosofía →</a>
+                    {/* Using Link instead of a tag */}
+                    <Link to="/history" className="text-sky-300 hover:underline">Historia →</Link>
+                    <Link to="/philosophy" className="text-sky-300 hover:underline">Filosofía →</Link>
                   </div>
                 </div>
               </div>
@@ -144,7 +151,8 @@ export default function Home() {
                   <p className="mt-2 text-white/95">Instrucción diferenciada, DUA, manejo de aula, gamificación y uso de IA.</p>
                   <PriceRow clp={30000} />
                   <div className="mt-4 flex flex-wrap gap-3">
-                    <a href="/teaching" className="text-sky-300 hover:underline">Ver más →</a>
+                    {/* Using Link instead of a tag */}
+                    <Link to="/teaching" className="text-sky-300 hover:underline">Ver más →</Link>
                   </div>
                 </div>
               </div>
