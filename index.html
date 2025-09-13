@@ -1,27 +1,10 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Aprende+</title>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-    <link rel="icon" href="/favicon.ico" />
-
-    <!-- Inter font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <!-- Hidden forms so Netlify can detect them at build time -->
-    <form name="contact" data-netlify="true" hidden>
-      <input name="name"/><input name="email"/><textarea name="message"></textarea>
-    </form>
-    <form name="english-test" data-netlify="true" hidden>
-      <input name="email"/><input name="score"/><input name="level"/>
-    </form>
-
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/gh/antijingoist/opendyslexic@main/dist/OpenDyslexic-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
