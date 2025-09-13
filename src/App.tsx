@@ -5,8 +5,10 @@ import { BookOpen, GraduationCap, Mail, ChevronRight, CheckCircle2, Menu, X } fr
 // The single-file mandate requires all CSS to be in the component file.
 const GlobalStyles = memo(() => (
   <style>{`
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
     :root { --brand-purple: 99, 70, 193; --brand-pink: 236, 72, 153; }
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
     .bg-static { background: linear-gradient(135deg, rgba(var(--brand-purple),0.8), rgba(var(--brand-pink),0.8)); min-height: 100vh; }
     .pane { background: linear-gradient(135deg, rgba(var(--brand-purple),0.20), rgba(var(--brand-pink),0.20)); backdrop-filter: blur(8px); }
     .divider { height: 3px; background: linear-gradient(90deg, rgb(var(--brand-pink)), rgb(var(--brand-purple))); border-radius: 9999px; }
@@ -51,7 +53,7 @@ const TESTIMONIALS = [
 
 // English Test Component
 const EnglishTest = ({ onBack }) => {
-  const POOLS: Q[][] = [
+  const POOLS: Q[][] = useMemo(() => [
     [
       { q: "Seleccione el artículo correcto: ___ apple", a: ["a", "an", "the"], correct: 1 },
       { q: "El plural de “book” es…", a: ["books", "bookes", "book"], correct: 0 },
@@ -67,7 +69,7 @@ const EnglishTest = ({ onBack }) => {
       { q: "Seleccione el “phrasal verb” correcto: “to look ___ information”", a: ["after", "up", "out"], correct: 1 },
       { q: "“Hardly ___ he arrived when it started to rain.”", a: ["had", "has", "did"], correct: 0 }
     ]
-  ];
+  ], []);
 
   const [level, setLevel] = useState(0);
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -77,7 +79,7 @@ const EnglishTest = ({ onBack }) => {
 
   const current = useMemo(() => {
     return POOLS[level]?.[questionIndex];
-  }, [level, questionIndex]);
+  }, [level, questionIndex, POOLS]);
 
   const totalQuestions = useMemo(() => {
     return POOLS.reduce((acc, pool) => acc + pool.length, 0);
@@ -86,13 +88,11 @@ const EnglishTest = ({ onBack }) => {
   const answer = (i) => {
     if (i === current.correct) {
       setCorrect(c => c + 1);
-      // Advance level on 2 correct answers in a row
       if (correct + 1 > incorrect + 1 && level < POOLS.length - 1) {
         setLevel(l => l + 1);
       }
     } else {
       setIncorrect(c => c + 1);
-      // Decrease level on 2 incorrect answers in a row
       if (incorrect + 1 > correct + 1 && level > 0) {
         setLevel(l => l - 1);
       }
@@ -130,6 +130,10 @@ const EnglishTest = ({ onBack }) => {
         </div>
       </div>
     );
+  }
+
+  if (!current) {
+    return <div className="text-white text-center p-8">Cargando preguntas...</div>;
   }
 
   return (
@@ -372,7 +376,4 @@ export default function App() {
           <div className="bg-slate-950 py-12 sm:py-24" ref={contactRef}>
             <div className={`${THEME.container}`}>
               <div className="text-center mb-12">
-                <h2 className={`${THEME.heading}`}>Contáctanos</h2>
-                <div className="divider w-24 mx-auto mt-4"></div>
-              </div>
-              <div className="max-w-xl mx-auto pane p-8 ro
+                <h2 className={`${THE
