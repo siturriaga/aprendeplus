@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, memo, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, GraduationCap, Mail, ChevronRight, CheckCircle2, Menu, X, MessageCircle } from "lucide-react";
+import { BookOpen, GraduationCap, Mail, ChevronRight, CheckCircle2, Menu, X, MessageCircle, DollarSign, Calendar, Clock } from "lucide-react";
 
 // The single-file mandate requires all CSS to be in the component file.
 const GlobalStyles = memo(() => (
@@ -57,6 +57,7 @@ const GlobalStyles = memo(() => (
       position: relative;
       overflow: hidden;
       border: 1px solid rgba(0, 0, 0, 0.15);
+      cursor: pointer;
     }
     .pricing-card-highlight::before {
       content: '';
@@ -101,11 +102,19 @@ const PROGRAMS = [
     title: "Inglés A1–C1",
     icon: <BookOpen className="h-10 w-10 text-white" />,
     description: "Conversación y gramática. Incluye prueba de nivel.",
+    fullDescription: "Nuestro programa de inglés se enfoca en la fluidez conversacional y una sólida base gramatical. Las clases son dinámicas y personalizadas, adaptadas a tu nivel y objetivos. Ofrecemos seguimiento constante y materiales digitales interactivos.",
     includes: [
       "Clases de 60 minutos",
       "Mínimo 2 clases por semana",
       "Materiales digitales",
       "Prueba de nivel",
+    ],
+    price: "CLP $250.000 / mes",
+    features: [
+      { icon: <Clock className="h-5 w-5" />, text: "Clases de 60 minutos" },
+      { icon: <Calendar className="h-5 w-5" />, text: "Mínimo 2 clases/semana" },
+      { icon: <CheckCircle2 className="h-5 w-5" />, text: "Prueba de nivel incluida" },
+      { icon: <CheckCircle2 className="h-5 w-5" />, text: "Materiales digitales" },
     ],
   },
   {
@@ -113,11 +122,19 @@ const PROGRAMS = [
     title: "Historia y Filosofía",
     icon: <GraduationCap className="h-10 w-10 text-white" />,
     description: "Historia latinoamericana/europea e intelectual; filosofía clásica y moderna.",
+    fullDescription: "Sumérgete en el pensamiento crítico a través de la historia y la filosofía. Analizamos eventos y corrientes de pensamiento desde una perspectiva académica, fomentando el debate y la reflexión. Este curso es ideal para quienes buscan una comprensión más profunda del mundo.",
     includes: [
       "Clases de 60 minutos",
       "Mínimo 2 clases por semana",
       "Materiales digitales",
       "Enfoque en pensamiento crítico",
+    ],
+    price: "CLP $250.000 / mes",
+    features: [
+      { icon: <Clock className="h-5 w-5" />, text: "Clases de 60 minutos" },
+      { icon: <Calendar className="h-5 w-5" />, text: "Mínimo 2 clases/semana" },
+      { icon: <CheckCircle2 className="h-5 w-5" />, text: "Enfoque en pensamiento crítico" },
+      { icon: <CheckCircle2 className="h-5 w-5" />, text: "Materiales digitales" },
     ],
   },
   {
@@ -125,17 +142,26 @@ const PROGRAMS = [
     title: "Capacitación Docente",
     icon: <GraduationCap className="h-10 w-10 text-white" />,
     description: "Instrucción diferenciada, DUA, manejo de aula, gamificación y uso de IA, además de análisis de datos.",
+    fullDescription: "Este programa está diseñado para educadores que buscan innovar en sus aulas. Cubrimos metodologías avanzadas, como el Diseño Universal para el Aprendizaje (DUA), y el uso de herramientas de inteligencia artificial para personalizar la enseñanza. Aprende a analizar datos para mejorar tus estrategias pedagógicas.",
     includes: [
       "Clases de 60 minutos",
       "Mínimo 2 clases por semana",
       "Materiales digitales",
       "Uso de IA en la educación",
     ],
+    price: "CLP $250.000 / mes",
+    features: [
+      { icon: <Clock className="h-5 w-5" />, text: "Clases de 60 minutos" },
+      { icon: <Calendar className="h-5 w-5" />, text: "Mínimo 2 clases/semana" },
+      { icon: <CheckCircle2 className="h-5 w-5" />, text: "Uso de IA en la educación" },
+      { icon: <CheckCircle2 className="h-5 w-5" />, text: "Análisis de datos educativos" },
+    ],
   },
 ];
 
 type Q = { q: string; a: string[]; correct: number };
 type A11yState = { contrast: boolean; dyslexia: boolean; largeText: boolean; reduceMotion: boolean; };
+type Program = typeof PROGRAMS[0];
 
 // English Test Component (Unchanged)
 const EnglishTest = ({ onBack }: { onBack: () => void }) => {
@@ -249,7 +275,7 @@ export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showA11yPanel, setShowA11yPanel] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
-  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [selectedProgram, setSelectedProgram] = useState<Program | null>(null);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -269,6 +295,14 @@ export default function App() {
   const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
+  };
+
+  const openProgramModal = (program: Program) => {
+    setSelectedProgram(program);
+  };
+
+  const closeProgramModal = () => {
+    setSelectedProgram(null);
   };
 
   useEffect(() => {
@@ -401,7 +435,7 @@ export default function App() {
             <div className={`${THEME.container} text-center`}>
               <h2 className={`${THEME.heading} mb-4`}>Nuestros Programas</h2>
               <p className="text-gray-700 max-w-2xl mx-auto mb-12 text-lg">
-                Todos los programas tienen un valor de **CLP $250.000 por mes**, con un mínimo de 2 clases de 60 minutos por semana.
+                Haz clic en cada programa para ver los detalles.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {PROGRAMS.map((program, index) => (
@@ -412,20 +446,16 @@ export default function App() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     whileHover={{ scale: 1.05 }}
+                    onClick={() => openProgramModal(program)}
                   >
                     <div className="flex justify-center mb-4 p-3 rounded-full bg-amber-400/20">
                       {program.icon}
                     </div>
                     <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">{program.title}</h3>
                     <p className="text-gray-700">{program.description}</p>
-                    <div className="mt-6 text-left w-full">
-                      <h4 className="font-semibold text-gray-800 mb-2">Qué incluye:</h4>
-                      <ul className="space-y-1 text-sm text-gray-600">
-                        {program.includes.map((item, i) => (
-                          <li key={i} className="flex items-center"><CheckCircle2 className="h-4 w-4 text-amber-600 mr-2" /> {item}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    <button className="mt-6 px-4 py-2 rounded-full border-2 border-amber-400 text-amber-600 hover:bg-amber-400 hover:text-white transition-colors text-sm font-semibold">
+                      Ver Detalles
+                    </button>
                   </motion.div>
                 ))}
               </div>
@@ -591,6 +621,47 @@ export default function App() {
     <div className={`font-sans ${a11yClass}`}>
       <GlobalStyles />
       {PAGES[page]}
+      <AnimatePresence>
+        {selectedProgram && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 z-[100] flex items-center justify-center p-4 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white rounded-3xl p-8 max-w-lg w-full text-center shadow-2xl relative"
+            >
+              <button onClick={closeProgramModal} className="absolute top-4 right-4 p-2 rounded-full text-gray-500 hover:bg-gray-200 transition-colors">
+                <X className="h-6 w-6" />
+              </button>
+              <div className="flex justify-center mb-4 p-3 rounded-full bg-amber-400/20 mx-auto w-fit">
+                {selectedProgram.icon}
+              </div>
+              <h3 className="font-serif text-3xl font-bold text-gray-900 mb-2">{selectedProgram.title}</h3>
+              <p className="text-gray-700">{selectedProgram.fullDescription}</p>
+              <div className="mt-6 space-y-4 text-left text-gray-800">
+                <div className="flex items-center gap-3">
+                  <DollarSign className="h-6 w-6 text-amber-600" />
+                  <span className="font-semibold text-lg">{selectedProgram.price}</span>
+                </div>
+                {selectedProgram.features.map((feature, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    {feature.icon}
+                    <p className="text-base">{feature.text}</p>
+                  </div>
+                ))}
+              </div>
+              <a href="#contact" onClick={closeProgramModal} className="mt-8 inline-block rounded-full bg-amber-400 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-amber-300 transition-colors">
+                ¡Contáctanos para empezar!
+              </a>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
