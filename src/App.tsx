@@ -6,6 +6,8 @@ import { BookOpen, GraduationCap, Mail, ChevronRight, CheckCircle2, Menu, X } fr
 const GlobalStyles = memo(() => (
   <style>{`
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;700&display=swap');
+    
     :root { --brand-purple: 99, 70, 193; --brand-pink: 236, 72, 153; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; }
@@ -17,7 +19,7 @@ const GlobalStyles = memo(() => (
     .link-underline:hover::after { width: 100%; }
     .nav-active { color: #f9a8d4; }
     .a11y-contrast { filter: contrast(1.4) brightness(1.1); }
-    .a11y-dyslexia { font-family: OpenDyslexic, sans-serif; }
+    .a11y-dyslexia { font-family: 'Open Dyslexic', sans-serif; }
     .a11y-large-text { font-size: 1.25em; }
     .a11y-reduce-motion * { transition: none !important; animation: none !important; }
   `}</style>
@@ -31,6 +33,7 @@ const THEME = {
 };
 
 type Q = { q: string; a: string[]; correct: number };
+type A11yState = { contrast: boolean; dyslexia: boolean; largeText: boolean; reduceMotion: boolean; };
 
 // Testimonials Data
 const TESTIMONIALS = [
@@ -52,7 +55,7 @@ const TESTIMONIALS = [
 ];
 
 // English Test Component
-const EnglishTest = ({ onBack }) => {
+const EnglishTest = ({ onBack }: { onBack: () => void }) => {
   const POOLS: Q[][] = useMemo(() => [
     [
       { q: "Seleccione el artículo correcto: ___ apple", a: ["a", "an", "the"], correct: 1 },
@@ -81,18 +84,16 @@ const EnglishTest = ({ onBack }) => {
     return POOLS[level]?.[questionIndex];
   }, [level, questionIndex, POOLS]);
 
-  const totalQuestions = useMemo(() => {
-    return POOLS.reduce((acc, pool) => acc + pool.length, 0);
-  }, [POOLS]);
-
-  const answer = (i) => {
-    if (i === current.correct) {
+  const answer = (i: number) => {
+    if (current && i === current.correct) {
       setCorrect(c => c + 1);
+      // Advance level on 2 correct answers in a row
       if (correct + 1 > incorrect + 1 && level < POOLS.length - 1) {
         setLevel(l => l + 1);
       }
     } else {
       setIncorrect(c => c + 1);
+      // Decrease level on 2 incorrect answers in a row
       if (incorrect + 1 > correct + 1 && level > 0) {
         setLevel(l => l - 1);
       }
@@ -133,7 +134,11 @@ const EnglishTest = ({ onBack }) => {
   }
 
   if (!current) {
-    return <div className="text-white text-center p-8">Cargando preguntas...</div>;
+    return (
+      <div className="min-h-screen bg-slate-950 text-white p-6 flex items-center justify-center">
+        <p className="text-lg">Cargando preguntas...</p>
+      </div>
+    );
   }
 
   return (
@@ -158,21 +163,21 @@ const EnglishTest = ({ onBack }) => {
 
 
 export default function App() {
-  const [a11y, setA11y] = useState({ contrast: false, dyslexia: false, largeText: false, reduceMotion: false });
-  const [showA11y, setShowA11y] = useState(false);
+  const [a11y, setA11y] = useState<A11yState>({ contrast: false, dyslexia: false, largeText: false, reduceMotion: false });
   const [page, setPage] = useState('home');
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showA11yPanel, setShowA11yPanel] = useState(false);
 
-  const englishRef = useRef(null);
-  const historyRef = useRef(null);
-  const docenciaRef = useRef(null);
-  const aboutRef = useRef(null);
-  const testRef = useRef(null);
-  const contactRef = useRef(null);
-  const socialProofRef = useRef(null);
+  const englishRef = useRef<HTMLDivElement>(null);
+  const historyRef = useRef<HTMLDivElement>(null);
+  const docenciaRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const testRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+  const socialProofRef = useRef<HTMLDivElement>(null);
 
-  const scrollTo = (ref) => {
+  const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
   };
@@ -184,7 +189,7 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
-  const a11yClass = Object.keys(a11y).filter(key => a11y[key]).map(key => `a11y-${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`).join(' ');
+  const a11yClass = Object.keys(a11y).filter(key => a11y[key as keyof A11yState]).map(key => `a11y-${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`).join(' ');
 
   const PAGES = {
     home: (
@@ -209,12 +214,12 @@ export default function App() {
             {/* Mobile Menu Button */}
             <div className="flex items-center gap-4 md:hidden">
               <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 rounded-full text-white bg-white/20 hover:bg-white/30 transition-colors">
-                <Menu className="h-6 w-6" />
+                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
             </div>
             
             <div className="hidden md:flex items-center gap-4">
-              <button onClick={() => setShowA11y(s => !s)} className="p-2 rounded-full text-white bg-white/20 hover:bg-white/30 transition-colors">
+              <button onClick={() => setShowA11yPanel(s => !s)} className="p-2 rounded-full text-white bg-white/20 hover:bg-white/30 transition-colors">
                 <BookOpen className="h-6 w-6" />
               </button>
             </div>
@@ -236,7 +241,8 @@ export default function App() {
                   <button onClick={() => scrollTo(historyRef)} className="link-underline">Historia y Filosofía</button>
                   <button onClick={() => scrollTo(docenciaRef)} className="link-underline">Capacitación Docente</button>
                   <button onClick={() => scrollTo(testRef)} className="link-underline">Test de Nivel</button>
-                  <button onClick={() => { setShowA11y(s => !s); setIsMobileMenuOpen(false); }} className="text-left">
+                  <button onClick={() => scrollTo(contactRef)} className="link-underline">Contacto</button>
+                  <button onClick={() => { setShowA11yPanel(s => !s); setIsMobileMenuOpen(false); }} className="text-left">
                     <BookOpen className="inline-block h-6 w-6 mr-2" />
                     Accesibilidad
                   </button>
@@ -376,4 +382,60 @@ export default function App() {
           <div className="bg-slate-950 py-12 sm:py-24" ref={contactRef}>
             <div className={`${THEME.container}`}>
               <div className="text-center mb-12">
-                <h2 className={`${THE
+                <h2 className={`${THEME.heading}`}>Contáctanos</h2>
+                <div className="divider w-24 mx-auto mt-4"></div>
+              </div>
+              <div className="max-w-xl mx-auto pane p-8 rounded-3xl text-center shadow-lg">
+                <Mail className={`h-12 w-12 ${THEME.accent} mx-auto mb-4`} />
+                <p className="text-purple-200 text-lg">
+                  ¿Listo para empezar tu camino de aprendizaje? Contáctanos para más información o para agendar tu primera clase.
+                </p>
+                <a href="mailto:info@aprendemas.net" className="mt-6 inline-block rounded-full bg-pink-500 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-pink-400 transition-colors">
+                  Enviar Correo
+                </a>
+              </div>
+            </div>
+          </div>
+        </main>
+  
+        <footer className="py-12 border-t border-pink-400/60 bg-blue-900/40 backdrop-blur">
+          <div className={`${THEME.container} text-center text-white`}>
+            <div className="flex items-center justify-center gap-3">
+              <GraduationCap className={`h-8 w-8 ${THEME.accent}`} />
+              <div className="text-white font-bold text-lg">Aprende+</div>
+            </div>
+            <p className="mt-4 text-purple-200 text-sm">© 2024 Aprende+. Todos los derechos reservados.</p>
+          </div>
+        </footer>
+  
+        <AnimatePresence>
+          {showA11yPanel && (
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+              transition={{ duration: 0.3 }}
+              className="fixed bottom-4 right-4 bg-white/20 backdrop-blur-md rounded-2xl p-6 shadow-lg z-50 text-white border border-white/30"
+            >
+              <h4 className="font-bold mb-2 text-lg">Accesibilidad</h4>
+              <div className="mt-3 space-y-2 text-sm">
+                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.contrast} onChange={(e) => setA11y({ ...a11y, contrast: e.target.checked })} /> Alto contraste</label>
+                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.dyslexia} onChange={(e) => setA11y({ ...a11y, dyslexia: e.target.checked })} /> Fuente amigable</label>
+                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.largeText} onChange={(e) => setA11y({ ...a11y, largeText: e.target.checked })} /> Texto grande</label>
+                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.reduceMotion} onChange={(e) => setA11y({ ...a11y, reduceMotion: e.target.checked })} /> Reducir animaciones</label>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </>
+    ),
+    test: <EnglishTest onBack={() => setPage('home')} />,
+  };
+
+  return (
+    <div className={`font-sans ${a11yClass}`}>
+      <GlobalStyles />
+      {PAGES[page]}
+    </div>
+  );
+}
