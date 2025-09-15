@@ -8,7 +8,7 @@
     "react-scripts": "5.0.1",
     "framer-motion": "^11.0.3",
     "lucide-react": "^0.323.0",
-    "swiper": "^11.0.3"  // Add this line
+    "swiper": "^11.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
