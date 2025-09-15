@@ -1,7 +1,10 @@
 // src/App.tsx
-import React, { useEffect, useRef, useState, memo, useMemo } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, GraduationCap, Mail, ChevronRight, CheckCircle2, Menu, X, DollarSign, Calendar, Clock } from "lucide-react";
+
+// Removed the GlobalStyles component and its import, as it is no longer used
+// with the new, separate index.css file.
 
 const THEME = {
   container: "container mx-auto px-6 max-w-7xl",
