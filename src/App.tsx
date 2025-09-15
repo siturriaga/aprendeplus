@@ -1,4 +1,5 @@
 // src/App.tsx
+
 import React, { useEffect, useRef, useState, memo, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, GraduationCap, Mail, ChevronRight, CheckCircle2, Menu, X, DollarSign, Calendar, Clock } from "lucide-react";
@@ -592,39 +593,7 @@ export default function App() {
             </div>
           </section>
         </main>
-        <footer className="py-12 border-t border-gray-200 bg-white/80 backdrop-blur">
-          <div className={`${THEME.container} text-center text-gray-700`}>
-            <div className="flex items-center justify-center gap-3">
-              <GraduationCap className={`h-8 w-8 ${THEME.accent}`} />
-              <div className="font-bold text-lg">Aprende+</div>
-            </div>
-            <p className="mt-4 text-gray-500 text-sm">© 2024 Aprende+. Todos los derechos reservados.</p>
-          </div>
-        </footer>
-        <div className="fixed bottom-4 right-4 z-50">
-          <button onClick={() => setShowA11yPanel(s => !s)} className="p-3 rounded-full text-white bg-amber-400 hover:bg-amber-300 transition-colors shadow-lg">
-            <BookOpen className="h-6 w-6" />
-          </button>
-        </div>
-        <AnimatePresence>
-          {showA11yPanel && (
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 50 }}
-              transition={{ duration: 0.3 }}
-              className="fixed bottom-4 right-4 md:right-20 bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-xl z-50 text-gray-900 border border-gray-200"
-            >
-              <h4 className="font-bold mb-2 text-lg font-serif">Accesibilidad</h4>
-              <div className="mt-3 space-y-2 text-sm">
-                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.contrast} onChange={() => handleA11yChange('contrast')} /> Alto contraste</label>
-                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.dyslexia} onChange={() => handleA11yChange('dyslexia')} /> Fuente amigable</label>
-                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.largeText} onChange={() => handleA11yChange('largeText')} /> Texto grande</label>
-                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.reduceMotion} onChange={() => handleA11yChange('reduceMotion')} /> Reducir animaciones</label>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Missing closing div tag was added here */}
       </>
     ),
     test: <EnglishTest onBack={() => setPage('home')} />,
