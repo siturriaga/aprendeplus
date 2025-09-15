@@ -1,24 +1,66 @@
+Your Netlify deploy failed because a required module, **`swiper/react`**, couldn't be found during the build. The error log explicitly states that the file `src/components/Carousel.js` is trying to import this module, but it's not available in the project's dependencies.
+
+### The Problem
+
+The build process on Netlify runs `npm install` to download all the packages listed in your `package.json` file. If a package isn't listed there, Netlify can't install it, and the build fails when it encounters an `import` statement for that missing package.
+
+### The Solution
+
+You need to add `swiper` as a dependency in your `package.json` file.
+
+1.  **Add the dependency to `package.json`**:
+
+      * Open your project's `package.json` file.
+      * Add `"swiper": "version_number"` to the `"dependencies"` section. The latest stable version is a good choice.
+
+2.  **Commit and push the changes**:
+
+      * Save the `package.json` file.
+      * Commit the change to your Git repository: `git commit -m "Add swiper dependency"`.
+      * Push the updated code to your repository: `git push`.
+
+Netlify will automatically detect the change in your `package.json` and start a new build. This time, it will download and install the `swiper` package, resolving the `Cannot find module` error and allowing your build to succeed.
+
+-----
+
+### Updated `package.json`
+
+Here is a corrected snippet of your `package.json` file with the `swiper` dependency added.
+
+```json
 {
   "name": "aprende-plus",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
   "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
     "framer-motion": "^11.0.3",
     "lucide-react": "^0.323.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "swiper": "^11.0.3"  // Add this line
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
+    "@types/node": "^20.11.16",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
-    "@vitejs/plugin-react": "^4.2.1",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "typescript": "^4.9.5"
   }
 }
+```
