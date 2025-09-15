@@ -1,33 +1,3 @@
-Your Netlify deploy failed because a required module, **`swiper/react`**, couldn't be found during the build. The error log explicitly states that the file `src/components/Carousel.js` is trying to import this module, but it's not available in the project's dependencies.
-
-### The Problem
-
-The build process on Netlify runs `npm install` to download all the packages listed in your `package.json` file. If a package isn't listed there, Netlify can't install it, and the build fails when it encounters an `import` statement for that missing package.
-
-### The Solution
-
-You need to add `swiper` as a dependency in your `package.json` file.
-
-1.  **Add the dependency to `package.json`**:
-
-      * Open your project's `package.json` file.
-      * Add `"swiper": "version_number"` to the `"dependencies"` section. The latest stable version is a good choice.
-
-2.  **Commit and push the changes**:
-
-      * Save the `package.json` file.
-      * Commit the change to your Git repository: `git commit -m "Add swiper dependency"`.
-      * Push the updated code to your repository: `git push`.
-
-Netlify will automatically detect the change in your `package.json` and start a new build. This time, it will download and install the `swiper` package, resolving the `Cannot find module` error and allowing your build to succeed.
-
------
-
-### Updated `package.json`
-
-Here is a corrected snippet of your `package.json` file with the `swiper` dependency added.
-
-```json
 {
   "name": "aprende-plus",
   "version": "0.1.0",
@@ -63,4 +33,3 @@ Here is a corrected snippet of your `package.json` file with the `swiper` depend
     "typescript": "^4.9.5"
   }
 }
-```
