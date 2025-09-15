@@ -194,22 +194,29 @@ const EnglishTest = ({ onBack }: { onBack: () => void }) => {
   }, [level, questionIndex, POOLS]);
 
   const answer = (i: number) => {
+    let newCorrect = correct;
+    let newIncorrect = incorrect;
+
     if (current && i === current.correct) {
-      setCorrect(c => c + 1);
-      if (correct + 1 > incorrect + 1 && level < POOLS.length - 1) {
-        setLevel(l => l + 1);
-      }
+      newCorrect = newCorrect + 1;
+      setCorrect(newCorrect);
     } else {
-      setIncorrect(c => c + 1);
-      if (incorrect + 1 > correct + 1 && level > 0) {
-        setLevel(l => l - 1);
-      }
+      newIncorrect = newIncorrect + 1;
+      setIncorrect(newIncorrect);
     }
 
-    if (questionIndex < POOLS[level].length - 1) {
-      setQuestionIndex(q => q + 1);
+    if (newCorrect > newIncorrect && level < POOLS.length - 1) {
+      setLevel(l => l + 1);
+      setQuestionIndex(0);
+    } else if (newIncorrect >= newCorrect && level > 0) {
+      setLevel(l => l - 1);
+      setQuestionIndex(0);
     } else {
-      setShowResult(true);
+      if (questionIndex < POOLS[level].length - 1) {
+        setQuestionIndex(q => q + 1);
+      } else {
+        setShowResult(true);
+      }
     }
   };
 
@@ -377,7 +384,7 @@ export default function App() {
             </motion.div>
           )}
         </AnimatePresence>
-  
+    
         <main>
           {/* Hero Section */}
           <div className="min-h-screen bg-main relative overflow-hidden flex items-center justify-center text-center pt-24" id="hero">
@@ -417,7 +424,7 @@ export default function App() {
               </motion.div>
             </div>
           </div>
-  
+    
           {/* About Section */}
           <section className="py-16 sm:py-24 bg-main" ref={aboutRef}>
             <div className={`${THEME.container} text-center`}>
@@ -485,7 +492,7 @@ export default function App() {
               </div>
             </div>
           </section>
-  
+    
           {/* Test de Nivel Section */}
           <section className="py-16 sm:py-24 bg-main" ref={testRef}>
             <div className={`${THEME.container} text-center`}>
@@ -501,7 +508,7 @@ export default function App() {
               </button>
             </div>
           </section>
-  
+    
           {/* Contact Section */}
           <section className="py-16 sm:py-24 bg-main" ref={contactRef}>
             <div className={`${THEME.container}`}>
@@ -576,7 +583,7 @@ export default function App() {
             </div>
           </section>
         </main>
-  
+    
         <footer className="py-12 border-t border-gray-200 bg-white/80 backdrop-blur">
           <div className={`${THEME.container} text-center text-gray-700`}>
             <div className="flex items-center justify-center gap-3">
@@ -586,7 +593,7 @@ export default function App() {
             <p className="mt-4 text-gray-500 text-sm">© 2024 Aprende+. Todos los derechos reservados.</p>
           </div>
         </footer>
-  
+    
         <div className="fixed bottom-4 right-4 z-50">
           <button onClick={() => setShowA11yPanel(s => !s)} className="p-3 rounded-full text-white bg-amber-400 hover:bg-amber-300 transition-colors shadow-lg">
             <BookOpen className="h-6 w-6" />
