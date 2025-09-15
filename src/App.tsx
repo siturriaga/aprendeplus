@@ -430,7 +430,7 @@ export default function App() {
                 </button>
               </motion.div>
             </div>
-          </div>
+          </section>
     
           {/* About Section */}
           <section className="py-16 sm:py-24 bg-main" ref={aboutRef}>
