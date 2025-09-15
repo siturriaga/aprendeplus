@@ -162,7 +162,7 @@ const PROGRAMS = [
 type Q = { q: string; a: string[]; correct: number };
 type Program = typeof PROGRAMS[0];
 
-// English Test Component (Unchanged)
+// English Test Component
 const EnglishTest = ({ onBack }: { onBack: () => void }) => {
   const POOLS: Q[][] = useMemo(() => [
     [
@@ -284,6 +284,14 @@ export default function App() {
   const [selectedProgram, setSelectedProgram] = useState<Program | null>(null);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
+  // Corrected state for accessibility options
+  const [a11y, setA11y] = useState({
+    contrast: false,
+    dyslexia: false,
+    largeText: false,
+    reduceMotion: false
+  });
+
   const aboutRef = useRef<HTMLDivElement>(null);
   const programsRef = useRef<HTMLDivElement>(null);
   const testimonialsRef = useRef<HTMLDivElement>(null);
@@ -318,16 +326,16 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
-  const a11y = useMemo(() => {
-    return {
-      contrast: false,
-      dyslexia: false,
-      largeText: false,
-      reduceMotion: false
-    }
-  }, []);
+  const handleA11yChange = (key: keyof typeof a11y) => {
+    setA11y(prevA11y => ({
+      ...prevA11y,
+      [key]: !prevA11y[key],
+    }));
+  };
 
-  const a11yClass = Object.keys(a11y).filter(key => a11y[key as keyof typeof a11y]).map(key => `a11y-${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`).join(' ');
+  const a11yClass = useMemo(() => {
+    return Object.keys(a11y).filter(key => a11y[key as keyof typeof a11y]).map(key => `a11y-${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`).join(' ');
+  }, [a11y]);
 
   const handleFormSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -610,10 +618,10 @@ export default function App() {
             >
               <h4 className="font-bold mb-2 text-lg font-serif">Accesibilidad</h4>
               <div className="mt-3 space-y-2 text-sm">
-                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.contrast} onChange={(e) => {}} /> Alto contraste</label>
-                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.dyslexia} onChange={(e) => {}} /> Fuente amigable</label>
-                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.largeText} onChange={(e) => {}} /> Texto grande</label>
-                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.reduceMotion} onChange={(e) => {}} /> Reducir animaciones</label>
+                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.contrast} onChange={() => handleA11yChange('contrast')} /> Alto contraste</label>
+                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.dyslexia} onChange={() => handleA11yChange('dyslexia')} /> Fuente amigable</label>
+                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.largeText} onChange={() => handleA11yChange('largeText')} /> Texto grande</label>
+                <label className="flex items-center gap-2"><input type="checkbox" checked={a11y.reduceMotion} onChange={() => handleA11yChange('reduceMotion')} /> Reducir animaciones</label>
               </div>
             </motion.div>
           )}
