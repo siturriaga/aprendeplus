@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useAccessibility } from '../context/AccessibilityContext';
+// This path is now correct, and the hook name is fixed
+import { useAccessibility } from './AccessibilityContext';
 
 const A11yPanel = () => {
   const [isOpen, setIsOpen] = useState(false);
