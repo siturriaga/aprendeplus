@@ -2,23 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom global styles for the high-contrast accessibility feature. */
-body.high-contrast {
-  @apply bg-black text-white;
-}
+/* Global focus */
+:focus-visible { outline: 2px solid; outline-offset: 2px; }
 
+/* High-contrast mode */
+body.high-contrast { @apply bg-black text-white; }
 body.high-contrast header,
 body.high-contrast section,
 body.high-contrast footer,
-body.high-contrast div {
-   @apply bg-black text-white border-white;
-}
-
+body.high-contrast div { @apply bg-black text-white border border-white; }
 body.high-contrast button,
-body.high-contrast a.bg-green-500 {
-  @apply bg-yellow-400 text-black border-2 border-black;
-}
-
-body.high-contrast blockquote {
-    @apply bg-gray-800 border border-white;
-}
+body.high-contrast a.bg-green-600,
+body.high-contrast a.bg-blue-600 { @apply bg-yellow-400 text-black border-2 border-black; }
+body.high-contrast blockquote { @apply bg-gray-800 border border-white; }
