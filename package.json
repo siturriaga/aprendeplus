@@ -1,6 +1,6 @@
 {
   "name": "aprende-institute-site",
-  "private": true,
+  "private": "true",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "framer-motion": "^11.2.12",
+    "lucide-react": "^0.396.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
