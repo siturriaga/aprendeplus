@@ -1,39 +1,37 @@
-import { useState } from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Programs from './components/Programs';
-import Testimonials from './components/Testimonials';
-import EnglishTest from './components/EnglishTest';
-import Footer from './components/Footer';
-import Modal from './components/Modal';
-import Contact from './components/Contact';
-import A11yPanel from './components/A11yPanel';
+import { useState } from 'react'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import Features from './components/Features'
+import About from './components/About'
+import Programs from './components/Programs'
+import Testimonials from './components/Testimonials'
+import EnglishTest from './components/EnglishTest'
+import Footer from './components/Footer'
+import Modal from './components/Modal'
+import Contact from './components/Contact'
+import A11yPanel from './components/A11yPanel'
+import { AccessibilityProvider } from './context/AccessibilityContext'
 
-function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openContactModal = () => setIsModalOpen(true);
-  const closeContactModal = () => setIsModalOpen(false);
-
+export default function App() {
+  const [open, setOpen] = useState(false)
   return (
-    <>
-      <Header onContactClick={openContactModal} />
-      <main>
-        <Hero />
-        <About />
-        <Programs />
-        <Testimonials />
-        <EnglishTest />
-      </main>
-      <Footer />
-      <A11yPanel />
-
-      <Modal isOpen={isModalOpen} onClose={closeContactModal}>
-        <Contact />
-      </Modal>
-    </>
-  );
+    <AccessibilityProvider>
+      <div className="bg-white text-gray-900">
+        <Header onContactClick={() => setOpen(true)} />
+        <main id="main">
+          <Hero />
+          <Features />
+          <About />
+          <Programs />
+          <Testimonials />
+          <EnglishTest />
+        </main>
+        <Footer />
+        <A11yPanel />
+        <Modal isOpen={open} onClose={() => setOpen(false)} title="Contact Us">
+          <Contact />
+        </Modal>
+      </div>
+    </AccessibilityProvider>
+  )
 }
-
-export default App;
