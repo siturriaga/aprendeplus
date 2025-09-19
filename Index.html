@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#FAF9F6" />
+  <meta name="description" content="Clases online personalizadas en Humanidades: Inglés, Filosofía, Ciencia Política e Historia. Docentes expertos, metodología clara y progreso medible." />
+  <link href="styles.css" rel="stylesheet" />
+  <title>Aprendemás – Educación Profesional</title>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="wrap nav">
+      <a href="#top" class="brand">
+        🎓 <span>Aprende+</span>
+      </a>
+      <nav class="links">
+        <a href="#about">Sobre nosotros</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#precios">Precios</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto" class="btn btn-primary">Contacto</a>
+      </nav>
+      <button id="menuBtn" class="menu-btn">☰</button>
+    </div>
+    <div id="mobileNav" class="mobile" hidden>
+      <a href="#about">Sobre nosotros</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#precios">Precios</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto" class="btn btn-primary">Contacto</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <h1>Clases online personalizadas en Humanidades</h1>
+    <p>Inglés, Filosofía, Ciencia Política e Historia con docentes expertos. Aprende con confianza y excelencia académica.</p>
+    <div class="cta-row">
+      <a href="#cursos" class="btn btn-primary">Explorar cursos</a>
+      <a href="#contacto" class="btn btn-outline">Agenda tu prueba gratuita</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <h2>Nuestra misión</h2>
+      <p>Formación académica accesible y personalizada que conecta experiencia docente con un aprendizaje moderno y confiable. Progreso medible, objetivos claros y acompañamiento real.</p>
+    </div>
+  </section>
+
+  <!-- Cursos -->
+  <section id="cursos" class="section">
+    <div class="wrap">
+      <h2>Cursos disponibles</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Inglés A1–C1</h3>
+          <p>Conversación, gramática y preparación para IELTS/TOEFL.</p>
+        </div>
+        <div class="card">
+          <h3>Historia</h3>
+          <p>Latinoamericana, europea e intelectual. Análisis crítico y fuentes primarias.</p>
+        </div>
+        <div class="card">
+          <h3>Filosofía</h3>
+          <p>Metafísica, teoría crítica y pensamiento clásico/moderno.</p>
+        </div>
+        <div class="card">
+          <h3>Capacitación docente</h3>
+          <p>DUA, manejo de aula, gamificación e innovación pedagógica.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Precios -->
+  <section id="precios" class="section">
+    <div class="wrap">
+      <h2>Precios</h2>
+      <div class="pricing">
+        <div class="price">
+          <h4>Clase individual</h4>
+          <p class="money">$15.000 CLP</p>
+        </div>
+        <div class="price">
+          <h4>Pack 4 clases</h4>
+          <p class="money">$55.000 CLP</p>
+        </div>
+        <div class="price">
+          <h4>Grupos (3–5)</h4>
+          <p class="money">$9.000 CLP por persona</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonios" class="section beige">
+    <div class="wrap">
+      <h2>Lo que dicen nuestros estudiantes</h2>
+      <blockquote>“El acompañamiento docente marcó la diferencia. Ahora presento en inglés con seguridad.” — María</blockquote>
+      <blockquote>“Subí de nivel en 3 meses gracias al plan personalizado.” — Carlos</blockquote>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <footer id="contacto">
+    <div class="wrap">
+      <h2>Contacto</h2>
+      <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact">
+        <p><input type="text" name="name" placeholder="Nombre" required></p>
+        <p><input type="email" name="email" placeholder="Correo" required></p>
+        <p><textarea name="message" placeholder="Tu mensaje" rows="4" required></textarea></p>
+        <p><button class="btn btn-primary" type="submit">Enviar</button></p>
+      </form>
+      <p class="copy">© 2025 Aprendemás. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
