@@ -1,0 +1,49 @@
+:root {
+  --cream: #FAF9F6;
+  --beige: #F5F0E1;
+  --gray: #E5E7EB;
+  --black: #111827;
+  --blue: #2563EB;
+  --blue-dark: #1E40AF;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: var(--cream);
+  color: var(--black);
+  line-height: 1.6;
+}
+
+h1, h2, h3 { font-family: Merriweather, serif; }
+
+.wrap { max-width: 1080px; margin: auto; padding: 1rem; }
+
+/* Header */
+header { background: var(--beige); position: sticky; top: 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.brand { font-weight: 700; font-size: 1.3rem; color: var(--black); text-decoration: none; }
+.links a { margin: 0 0.5rem; text-decoration: none; color: var(--black); font-weight: 600; }
+
+/* Buttons */
+.btn { padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 600; text-decoration: none; }
+.btn-primary { background: var(--blue); color: white; }
+.btn-outline { border: 1px solid var(--blue); color: var(--blue); background: transparent; }
+
+/* Sections */
+.hero { text-align: center; padding: 4rem 1rem; background: var(--gray); }
+.section { padding: 3rem 1rem; }
+.beige { background: var(--beige); }
+
+/* Grid */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+.card { background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+/* Prices */
+.pricing { display: flex; gap: 1rem; flex-wrap: wrap; }
+.price { background: white; padding: 1rem; border-radius: 10px; flex: 1; text-align: center; }
+.money { font-size: 1.5rem; font-weight: 700; }
+
+/* Footer */
+footer { background: var(--black); color: white; padding: 2rem 1rem; text-align: center; }
+.copy { margin-top: 1rem; font-size: 0.9rem; }
