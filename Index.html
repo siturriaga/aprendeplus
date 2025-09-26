@@ -1,126 +1,724 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#FAF9F6" />
-  <meta name="description" content="Clases online personalizadas en Humanidades: Inglés, Filosofía, Ciencia Política e Historia. Docentes expertos, metodología clara y progreso medible." />
-  <link href="styles.css" rel="stylesheet" />
-  <title>Aprendemás – Educación Profesional</title>
+  <title>Aprendemas – Idiomas y Humanidades</title>
+
+  <!-- Tailwind (CDN build) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Motion & Icons -->
+  <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Calendly widget -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+  <!-- Base styles + accessibility utilities -->
+  <style>
+    :root {
+      --brand: #6d28d9; /* púrpura audaz */
+      --brand-2: #0ea5e9; /* cian */
+      --brand-3: #f59e0b; /* ámbar */
+    }
+    /* Micro-interactions */
+    .hover-raise { transition: transform .25s ease, box-shadow .25s ease; }
+    .hover-raise:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,.08); }
+
+    /* Focus visible */
+    :focus-visible { outline: 3px solid var(--brand-2); outline-offset: 2px; }
+
+    /* Carousel */
+    .carousel { position: relative; overflow: hidden; }
+    .carousel-track { display: grid; grid-auto-flow: column; grid-auto-columns: 100%; transition: transform .5s ease; }
+    .carousel-dot[aria-current="true"] { background: var(--brand); transform: scale(1.1); }
+
+    /* Link highlight (ADA) */
+    .ada-highlight-links a { box-shadow: 0 -3px 0 inset rgba(14,165,233,.35); transition: box-shadow .2s; }
+    .ada-highlight-links a:hover { box-shadow: 0 -8px 0 inset rgba(14,165,233,.55); }
+
+    /* High contrast (ADA) */
+    .ada-contrast * { color: #000 !important; background-color: #fff !important; }
+    .ada-contrast .btn-primary { background: #000 !important; color: #fff !important; }
+
+    /* Pause animations (ADA) */
+    .ada-pause-anim * { animation: none !important; transition: none !important; }
+
+    /* Extra spacing (ADA) */
+    .ada-spacing p, .ada-spacing li { line-height: 1.9 !important; letter-spacing: .015em !important; }
+
+    /* Daltonismo (filters) */
+    .ada-protanopia { filter: url('#protanopia'); }
+    .ada-deuteranopia { filter: url('#deuteranopia'); }
+    .ada-tritanopia { filter: url('#tritanopia'); }
+
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
-<body>
+<body class="min-h-screen bg-white text-slate-900 antialiased selection:bg-indigo-200 ada-root">
+  <!-- SVG filters (simples) -->
+  <svg width="0" height="0" class="absolute">
+    <filter id="protanopia"><feColorMatrix type="matrix"
+      values="0.567,0.433,0,0,0  0.558,0.442,0,0,0  0,0.242,0.758,0,0  0,0,0,1,0"/></filter>
+    <filter id="deuteranopia"><feColorMatrix type="matrix"
+      values="0.625,0.375,0,0,0  0.7,0.3,0,0,0  0,0.3,0.7,0,0  0,0,0,1,0"/></filter>
+    <filter id="tritanopia"><feColorMatrix type="matrix"
+      values="0.95,0.05,0,0,0  0,0.433,0.567,0,0  0,0.475,0.525,0,0  0,0,0,1,0"/></filter>
+  </svg>
+
   <!-- Header -->
-  <header>
-    <div class="wrap nav">
-      <a href="#top" class="brand">
-        🎓 <span>Aprende+</span>
+  <header class="sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-slate-200">
+    <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-sky-500 grid place-items-center text-white shadow hover-raise">
+          <i class="ph ph-graduation-cap text-xl"></i>
+        </div>
+        <span class="text-lg font-extrabold tracking-tight">Aprendemas</span>
       </a>
-      <nav class="links">
-        <a href="#about">Sobre nosotros</a>
-        <a href="#cursos">Cursos</a>
-        <a href="#precios">Precios</a>
-        <a href="#testimonios">Testimonios</a>
-        <a href="#contacto" class="btn btn-primary">Contacto</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#cursos" class="hover:text-indigo-600 font-medium">Cursos</a>
+        <a href="#test" class="hover:text-indigo-600 font-medium">Test</a>
+        <a href="#testimonios" class="hover:text-indigo-600 font-medium">Testimonios</a>
+        <a href="#sobre" class="hover:text-indigo-600 font-medium">Sobre</a>
+        <a href="#contacto" class="hover:text-indigo-600 font-medium">Contacto</a>
       </nav>
-      <button id="menuBtn" class="menu-btn">☰</button>
-    </div>
-    <div id="mobileNav" class="mobile" hidden>
-      <a href="#about">Sobre nosotros</a>
-      <a href="#cursos">Cursos</a>
-      <a href="#precios">Precios</a>
-      <a href="#testimonios">Testimonios</a>
-      <a href="#contacto" class="btn btn-primary">Contacto</a>
+      <div class="flex items-center gap-2">
+        <button id="adaBtn" class="btn-primary px-3 py-2 rounded-xl bg-indigo-600 text-white text-sm hover:bg-indigo-700 hover-raise" aria-haspopup="dialog" aria-controls="adaPanel">
+          Accesibilidad
+        </button>
+        <a href="#pago" class="hidden sm:inline-flex btn-primary px-3 py-2 rounded-xl bg-sky-600 text-white text-sm hover:bg-sky-700 hover-raise">Pagar / Inscribirse</a>
+      </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero" id="top">
-    <h1>Clases online personalizadas en Humanidades</h1>
-    <p>Inglés, Filosofía, Ciencia Política e Historia con docentes expertos. Aprende con confianza y excelencia académica.</p>
-    <div class="cta-row">
-      <a href="#cursos" class="btn btn-primary">Explorar cursos</a>
-      <a href="#contacto" class="btn btn-outline">Agenda tu prueba gratuita</a>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="wrap">
-      <h2>Nuestra misión</h2>
-      <p>Formación académica accesible y personalizada que conecta experiencia docente con un aprendizaje moderno y confiable. Progreso medible, objetivos claros y acompañamiento real.</p>
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-sky-500 to-amber-400 opacity-10"></div>
+    <div class="mx-auto max-w-7xl px-6 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
+          Idiomas y Humanidades con <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-sky-500">personalidad</span>.
+        </h1>
+        <p class="mt-5 text-lg text-slate-700">
+          Clases flexibles (sincrónicas y asincrónicas), pedagogía crítica, accesibilidad real y aprendizaje colaborativo.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="#cursos" class="px-5 py-3 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 hover-raise">Ver cursos</a>
+          <a href="#test" class="px-5 py-3 rounded-xl border border-slate-300 hover-raise">Hacer test adaptativo</a>
+        </div>
+        <p class="mt-6 text-sm text-slate-600">
+          Precio unificado: <span class="font-semibold">$250.000 CLP / mes</span> (mín. 2 clases semanales).<br/>
+          Temas especiales: <span class="font-semibold">$10.000–$20.000 CLP por clase</span>.
+        </p>
+      </div>
+      <div class="relative">
+        <div class="rounded-3xl p-1 bg-gradient-to-tr from-indigo-600 via-sky-500 to-amber-400">
+          <div class="rounded-2xl p-6 bg-white">
+            <div class="grid grid-cols-3 gap-3">
+              <div class="p-4 rounded-xl bg-indigo-50 hover-raise">
+                <i class="ph ph-chalkboard-teacher text-2xl text-indigo-600"></i>
+                <p class="mt-2 text-sm font-medium">Profesoras y profesores</p>
+              </div>
+              <div class="p-4 rounded-xl bg-sky-50 hover-raise">
+                <i class="ph ph-hand-heart text-2xl text-sky-600"></i>
+                <p class="mt-2 text-sm font-medium">Accesibilidad</p>
+              </div>
+              <div class="p-4 rounded-xl bg-amber-50 hover-raise">
+                <i class="ph ph-users-three text-2xl text-amber-600"></i>
+                <p class="mt-2 text-sm font-medium">+1500 estudiantes</p>
+              </div>
+              <div class="p-4 rounded-xl bg-indigo-50 hover-raise">
+                <i class="ph ph-globe text-2xl text-indigo-600"></i>
+                <p class="mt-2 text-sm font-medium">Base en EE.UU.</p>
+              </div>
+              <div class="p-4 rounded-xl bg-sky-50 hover-raise">
+                <i class="ph ph-clock-countdown text-2xl text-sky-600"></i>
+                <p class="mt-2 text-sm font-medium">+30 años de experiencia</p>
+              </div>
+              <div class="p-4 rounded-xl bg-amber-50 hover-raise">
+                <i class="ph ph-headset text-2xl text-amber-600"></i>
+                <p class="mt-2 text-sm font-medium">Síncrono y asíncrono</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="sr-only">Cuadrícula con estadísticas e iconos destacando experiencia y enfoque.</p>
+      </div>
     </div>
   </section>
 
   <!-- Cursos -->
-  <section id="cursos" class="section">
-    <div class="wrap">
-      <h2>Cursos disponibles</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Inglés A1–C1</h3>
-          <p>Conversación, gramática y preparación para IELTS/TOEFL.</p>
-        </div>
-        <div class="card">
-          <h3>Historia</h3>
-          <p>Latinoamericana, europea e intelectual. Análisis crítico y fuentes primarias.</p>
-        </div>
-        <div class="card">
-          <h3>Filosofía</h3>
-          <p>Metafísica, teoría crítica y pensamiento clásico/moderno.</p>
-        </div>
-        <div class="card">
-          <h3>Capacitación docente</h3>
-          <p>DUA, manejo de aula, gamificación e innovación pedagógica.</p>
-        </div>
+  <section id="cursos" class="py-16 bg-slate-50">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="flex items-end justify-between">
+        <h2 class="text-3xl md:text-4xl font-extrabold">📚 Cursos</h2>
+        <p class="text-sm text-slate-600">Tarifa única: $250.000 CLP / mes · Mínimo 2 clases/semana</p>
+      </div>
+
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card base: pequeña con teaser + descripción corta -->
+        <article class="p-5 bg-white rounded-2xl border hover-raise">
+          <h3 class="text-lg font-bold">Inglés General A1–C1</h3>
+          <p class="mt-1 text-sm text-slate-600">Fluidez, comprensión y vocabulario con enfoque comunicativo.</p>
+          <p class="mt-3 text-sm">Teaser: metas claras por nivel y práctica guiada con feedback.</p>
+          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline"
+             href="curso-ingles.html" aria-label="Ver más sobre Inglés General A1–C1">Ver más →</a>
+        </article>
+
+        <article class="p-5 bg-white rounded-2xl border hover-raise">
+          <h3 class="text-lg font-bold">Conversación Intensiva</h3>
+          <p class="mt-1 text-sm text-slate-600">Habla con confianza en temas cotidianos y profesionales.</p>
+          <p class="mt-3 text-sm">Teaser: sesiones cortas, mucha interacción, corrección amable.</p>
+          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline"
+             href="curso-conversacion.html">Ver más →</a>
+        </article>
+
+        <article class="p-5 bg-white rounded-2xl border hover-raise">
+          <h3 class="text-lg font-bold">Exámenes (IELTS/TOEFL)</h3>
+          <p class="mt-1 text-sm text-slate-600">Estrategias, tiempos y simulacros con rúbricas auténticas.</p>
+          <p class="mt-3 text-sm">Teaser: técnica + práctica focalizada en tus áreas de mejora.</p>
+          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline"
+             href="curso-examenes.html">Ver más →</a>
+        </article>
+
+        <article class="p-5 bg-white rounded-2xl border hover-raise">
+          <h3 class="text-lg font-bold">Escritura Académica</h3>
+          <p class="mt-1 text-sm text-slate-600">Estructura, estilo y citas para trabajos impecables.</p>
+          <p class="mt-3 text-sm">Teaser: borradores con feedback detallado y checklist.</p>
+          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline"
+             href="curso-escritura.html">Ver más →</a>
+        </article>
+
+        <article class="p-5 bg-white rounded-2xl border hover-raise">
+          <h3 class="text-lg font-bold">Humanidades & Metodología</h3>
+          <p class="mt-1 text-sm text-slate-600">Pensamiento crítico, investigación y argumentación.</p>
+          <p class="mt-3 text-sm">Teaser: seminarios y guías paso a paso.</p>
+          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline"
+             href="curso-humanidades.html">Ver más →</a>
+        </article>
+
+        <article class="p-5 bg-white rounded-2xl border hover-raise">
+          <h3 class="text-lg font-bold">Tópicos Especiales</h3>
+          <p class="mt-1 text-sm text-slate-600">Contenidos personalizados según tu objetivo.</p>
+          <p class="mt-3 text-sm">Teaser: cargo extra $10.000–$20.000 CLP por clase.</p>
+          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline"
+             href="curso-topicos.html">Ver más →</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Precios -->
-  <section id="precios" class="section">
-    <div class="wrap">
-      <h2>Precios</h2>
-      <div class="pricing">
-        <div class="price">
-          <h4>Clase individual</h4>
-          <p class="money">$15.000 CLP</p>
+  <!-- Test adaptativo -->
+  <section id="test" class="py-16 bg-white">
+    <div class="mx-auto max-w-5xl px-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold">🧪 Test Adaptativo</h2>
+      <p class="mt-2 text-slate-600">
+        20 preguntas (comprensión, gramática, vocabulario y audio opcional con transcripción). Recibirás puntaje y recomendación de nivel/curso por email.
+      </p>
+
+      <!-- Netlify form (auto-email mediante Netlify Forms + notifications) -->
+      <form name="TestAdaptativo" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+            class="mt-6 p-6 bg-slate-50 border rounded-2xl grid gap-4"
+            aria-describedby="testHelp">
+        <input type="hidden" name="form-name" value="TestAdaptativo">
+        <p class="hidden">
+          <label>Si eres humano, deja este campo vacío: <input name="bot-field" /></label>
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="nombre" class="block text-sm font-medium">Nombre</label>
+            <input id="nombre" name="nombre" required class="mt-1 w-full rounded-xl border px-3 py-2" />
+          </div>
+          <div>
+            <label for="correo" class="block text-sm font-medium">Email</label>
+            <input id="correo" type="email" name="correo" required class="mt-1 w-full rounded-xl border px-3 py-2" />
+          </div>
         </div>
-        <div class="price">
-          <h4>Pack 4 clases</h4>
-          <p class="money">$55.000 CLP</p>
+
+        <!-- Opcional reCAPTCHA -->
+        <!-- <div data-netlify-recaptcha="true"></div> -->
+
+        <!-- Contenedor del test (render dinámico) -->
+        <div id="quizRoot" class="mt-2"></div>
+
+        <div class="flex items-center gap-3">
+          <button type="button" id="startQuiz" class="px-5 py-3 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 hover-raise">
+            Comenzar test
+          </button>
+          <button type="submit" class="px-5 py-3 rounded-xl border bg-white hover-raise">
+            Enviar y recibir resultados
+          </button>
         </div>
-        <div class="price">
-          <h4>Grupos (3–5)</h4>
-          <p class="money">$9.000 CLP por persona</p>
-        </div>
-      </div>
+
+        <p id="testHelp" class="text-sm text-slate-500">
+          Usamos un algoritmo adaptativo sencillo: la dificultad sube o baja según tus respuestas. Los resultados y recomendación de nivel se envían por correo (vía Netlify Forms).
+        </p>
+      </form>
     </div>
   </section>
 
   <!-- Testimonios -->
-  <section id="testimonios" class="section beige">
-    <div class="wrap">
-      <h2>Lo que dicen nuestros estudiantes</h2>
-      <blockquote>“El acompañamiento docente marcó la diferencia. Ahora presento en inglés con seguridad.” — María</blockquote>
-      <blockquote>“Subí de nivel en 3 meses gracias al plan personalizado.” — Carlos</blockquote>
+  <section id="testimonios" class="py-16 bg-gradient-to-br from-indigo-50 via-sky-50 to-amber-50">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="flex items-end justify-between">
+        <h2 class="text-3xl md:text-4xl font-extrabold">📝 Testimonios</h2>
+        <div class="text-sm text-slate-600">Auto-rotación cada 6s · Navegación con teclado/ARIA</div>
+      </div>
+
+      <div class="mt-6 carousel rounded-3xl bg-white border">
+        <div class="carousel-track" id="tTrack" role="group" aria-roledescription="Carrusel de testimonios" aria-live="polite">
+          <!-- Slide 1 -->
+          <figure class="p-8">
+            <blockquote class="text-lg leading-relaxed">“Clases con enfoque humano y resultados reales. Mi fluidez mejoró en semanas.”</blockquote>
+            <figcaption class="mt-4 text-sm text-slate-600">Estudiante de Conversación Intensiva</figcaption>
+          </figure>
+          <!-- Slide 2 -->
+          <figure class="p-8">
+            <blockquote class="text-lg leading-relaxed">“Metodología clara y feedback útil para IELTS. Saqué el puntaje que necesitaba.”</blockquote>
+            <figcaption class="mt-4 text-sm text-slate-600">Candidata IELTS</figcaption>
+          </figure>
+          <!-- Slide 3 -->
+          <figure class="p-8">
+            <blockquote class="text-lg leading-relaxed">“Accesibilidad real: materiales legibles, ritmo flexible y respeto.”</blockquote>
+            <figcaption class="mt-4 text-sm text-slate-600">Aprendiz con requerimientos ADA</figcaption>
+          </figure>
+          <!-- Slide 4 -->
+          <figure class="p-8">
+            <blockquote class="text-lg leading-relaxed">“Escritura académica con estructura y estilo. Mis ensayos cambiaron por completo.”</blockquote>
+            <figcaption class="mt-4 text-sm text-slate-600">Estudiante de Universidad</figcaption>
+          </figure>
+          <!-- Slide 5 -->
+          <figure class="p-8">
+            <blockquote class="text-lg leading-relaxed">“Humanidades con pensamiento crítico y acompañamiento cercano.”</blockquote>
+            <figcaption class="mt-4 text-sm text-slate-600">Seminarios de Humanidades</figcaption>
+          </figure>
+        </div>
+
+        <!-- Dots -->
+        <div class="flex items-center justify-center gap-2 py-4" role="tablist" aria-label="Indicadores de testimonios">
+          <button class="carousel-dot w-3 h-3 rounded-full bg-slate-300" role="tab" aria-label="Ir al testimonio 1"></button>
+          <button class="carousel-dot w-3 h-3 rounded-full bg-slate-300" role="tab" aria-label="Ir al testimonio 2"></button>
+          <button class="carousel-dot w-3 h-3 rounded-full bg-slate-300" role="tab" aria-label="Ir al testimonio 3"></button>
+          <button class="carousel-dot w-3 h-3 rounded-full bg-slate-300" role="tab" aria-label="Ir al testimonio 4"></button>
+          <button class="carousel-dot w-3 h-3 rounded-full bg-slate-300" role="tab" aria-label="Ir al testimonio 5"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre nosotros & Metodología -->
+  <section id="sobre" class="py-16 bg-slate-50">
+    <div class="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-extrabold">👥 Sobre Nosotras/os</h2>
+        <p class="mt-3 text-slate-700">
+          Equipo con base en EE.UU., más de 30 años de experiencia acumulada y 1500+ estudiantes acompañadas/os.
+        </p>
+        <ul class="mt-4 space-y-2 text-slate-700 list-disc pl-5">
+          <li>Lenguaje inclusivo y trato cercano.</li>
+          <li>Diferentes disponibilidades de profesoras y profesores (placeholders).</li>
+          <li>Atención personalizada a metas y accesibilidad.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold">Nuestra Metodología</h3>
+        <ul class="mt-3 space-y-2 text-slate-700 list-disc pl-5">
+          <li>Pedagogía crítica: reflexiona, crea y transforma.</li>
+          <li>Clases sincrónicas y asincrónicas, flexibles y con acompañamiento.</li>
+          <li>Accesibilidad: contraste, zoom, fuentes legibles, pausas y más.</li>
+          <li>Aprendizaje colaborativo con retroalimentación clara y empática.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagos & Agendamiento -->
+  <section id="pago" class="py-16 bg-white">
+    <div class="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-extrabold">💳 Pagos</h2>
+        <p class="mt-3 text-slate-700">Elige tu método de pago favorito.</p>
+        <div class="mt-5 flex flex-wrap items-center gap-3">
+          <!-- Stripe checkout placeholder -->
+          <button id="stripeBtn" class="px-5 py-3 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 hover-raise">
+            Pagar con Stripe
+          </button>
+          <div class="flex items-center gap-2 text-slate-500">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="h-6" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="h-6" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" class="h-6" />
+          </div>
+          <p class="text-xs text-slate-500 w-full">PayPal visible en el pie de página.</p>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-3xl md:text-4xl font-extrabold">📆 Agendar</h2>
+        <p class="mt-3 text-slate-700">Agenda una clase o reunión de diagnóstico.</p>
+        <div class="mt-5">
+          <div class="rounded-2xl border">
+            <div class="p-4 text-sm text-slate-600">Calendly embebido</div>
+            <div id="calendly-inline-widget"
+                 class="h-[640px]"
+                 data-url="https://calendly.com/your-org/consulta">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contacto -->
-  <footer id="contacto">
-    <div class="wrap">
-      <h2>Contacto</h2>
-      <form name="contact" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="contact">
-        <p><input type="text" name="name" placeholder="Nombre" required></p>
-        <p><input type="email" name="email" placeholder="Correo" required></p>
-        <p><textarea name="message" placeholder="Tu mensaje" rows="4" required></textarea></p>
-        <p><button class="btn btn-primary" type="submit">Enviar</button></p>
+  <section id="contacto" class="py-16 bg-slate-50">
+    <div class="mx-auto max-w-4xl px-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold">✉️ Contacto</h2>
+      <p class="mt-2 text-slate-600">Envíanos tu consulta. Gestionamos el email de forma interna (placeholder).</p>
+
+      <!-- Netlify form -->
+      <form name="Contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+            class="mt-6 p-6 bg-white border rounded-2xl grid gap-4">
+        <input type="hidden" name="form-name" value="Contacto">
+        <p class="hidden">
+          <label>Si eres humano, deja este campo vacío: <input name="bot-field" /></label>
+        </p>
+
+        <label class="block text-sm font-medium" for="c-nombre">Nombre</label>
+        <input id="c-nombre" name="nombre" required class="w-full rounded-xl border px-3 py-2" />
+
+        <label class="block text-sm font-medium" for="c-email">Email</label>
+        <input id="c-email" name="email" type="email" required class="w-full rounded-xl border px-3 py-2" />
+
+        <label class="block text-sm font-medium" for="c-msg">Mensaje</label>
+        <textarea id="c-msg" name="mensaje" rows="4" required class="w-full rounded-xl border px-3 py-2"></textarea>
+
+        <!-- Campo oculto placeholder para routing interno -->
+        <input type="hidden" name="destino" value="interno@placeholder.tld" />
+
+        <button class="mt-2 px-5 py-3 rounded-xl bg-sky-600 text-white hover:bg-sky-700 hover-raise">
+          Enviar
+        </button>
       </form>
-      <p class="copy">© 2025 Aprendemás. Todos los derechos reservados.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t">
+    <div class="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-slate-600">© Aprendemas. Todos los derechos reservados.</p>
+      <div class="flex items-center gap-3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="h-5" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="h-5" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" class="h-5" />
+      </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- ADA Panel (dialog) -->
+  <div id="adaPanel" role="dialog" aria-modal="true" aria-labelledby="adaTitle"
+       class="fixed inset-0 hidden items-center justify-center bg-black/40 p-4">
+    <div class="w-full max-w-xl rounded-2xl bg-white p-6 shadow-xl">
+      <div class="flex items-center justify-between">
+        <h3 id="adaTitle" class="text-xl font-bold">♿ Preferencias de Accesibilidad</h3>
+        <button id="adaClose" class="p-2 rounded-lg hover:bg-slate-100" aria-label="Cerrar panel">
+          <i class="ph ph-x text-xl"></i>
+        </button>
+      </div>
+      <div class="mt-4 grid sm:grid-cols-2 gap-4 text-sm">
+        <label class="flex items-center gap-3">
+          <input type="checkbox" id="adaContrast" class="h-4 w-4"> Alto contraste
+        </label>
+        <label class="flex items-center gap-3">
+          <input type="checkbox" id="adaPause" class="h-4 w-4"> Pausar animaciones
+        </label>
+        <label class="flex items-center gap-3">
+          <input type="checkbox" id="adaLinks" class="h-4 w-4"> Resaltar enlaces
+        </label>
+        <label class="flex items-center gap-3">
+          <input type="checkbox" id="adaSpacing" class="h-4 w-4"> Más espaciado de texto
+        </label>
+        <div class="sm:col-span-2">
+          <label for="adaZoom" class="block mb-1">Zoom de fuente</label>
+          <input id="adaZoom" type="range" min="90" max="130" step="5" value="100" class="w-full">
+        </div>
+        <div class="sm:col-span-2">
+          <label for="adaColor" class="block mb-1">Filtro daltonismo</label>
+          <select id="adaColor" class="w-full rounded-xl border px-3 py-2">
+            <option value="">Ninguno</option>
+            <option value="protanopia">Protanopia</option>
+            <option value="deuteranopia">Deuteranopia</option>
+            <option value="tritanopia">Tritanopia</option>
+          </select>
+        </div>
+      </div>
+      <div class="mt-6 flex items-center justify-end gap-3">
+        <button id="adaReset" class="px-4 py-2 rounded-xl border">Restablecer</button>
+        <button id="adaSave" class="px-4 py-2 rounded-xl bg-indigo-600 text-white">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    /* ==========================
+       Stripe (placeholder)
+       Reemplaza STRIPE_PUBLISHABLE_KEY y URL de Checkout
+    =========================== */
+    document.getElementById('stripeBtn').addEventListener('click', () => {
+      alert('Stripe Checkout placeholder. Conecta tu Checkout y redirige aquí.');
+      // window.location.href = 'https://checkout.stripe.com/c/pay_xxx';
+    });
+
+    /* ==========================
+       Calendly inline render
+    =========================== */
+    window.addEventListener('load', function () {
+      if (window.Calendly) {
+        Calendly.initInlineWidget({
+          url: document.getElementById('calendly-inline-widget').dataset.url,
+          parentElement: document.getElementById('calendly-inline-widget')
+        });
+      }
+    });
+
+    /* ==========================
+       Testimonios - Carrusel accesible
+    =========================== */
+    const tTrack = document.getElementById('tTrack');
+    const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+    let idx = 0, total = dots.length, timer = null;
+
+    function goTo(i, announce=false) {
+      idx = (i + total) % total;
+      tTrack.style.transform = 'translateX(' + (-100 * idx) + '%)';
+      dots.forEach((d, j) => d.setAttribute('aria-current', j === idx ? 'true' : 'false'));
+      if (announce) tTrack.setAttribute('aria-label', 'Mostrando testimonio ' + (idx+1) + ' de ' + total);
+    }
+    function startAuto() { timer = setInterval(() => goTo(idx+1), 6000); }
+    function stopAuto() { if (timer) clearInterval(timer); }
+
+    dots.forEach((d, j) => {
+      d.addEventListener('click', () => { stopAuto(); goTo(j, true); startAuto(); });
+      d.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); stopAuto(); goTo(j, true); startAuto(); }
+      });
+    });
+    goTo(0); startAuto();
+
+    /* ==========================
+       Test adaptativo (20 ítems)
+       - Estructura lista para extender fácil
+       - 3 ejemplos por tipo incluidos
+    =========================== */
+    const bank = {
+      comprension: [
+        { q: 'She ___ to the store yesterday.', a: ['go', 'goes', 'went', 'gone'], correct: 2, level: 1 },
+        { q: 'Choose the best title for a text sobre “climate change”.', a: ['Cooking basics','Rising temperatures','Medieval kings','Car parts'], correct: 1, level: 2 },
+        { q: 'Según el audio (opcional): ¿Cuál es la intención del hablante?', a: ['Saludar','Pedir ayuda','Vender un producto','Quejarse'], correct: 2, level: 3, audio:true, transcript:'Hi there, could you help me with…' }
+      ],
+      gramatica: [
+        { q: 'If I ___ more time, I would learn Japanese.', a: ['have','had','would have','has'], correct: 1, level: 2 },
+        { q: 'They ___ finished their homework.', a: ['has','have','are','did'], correct: 1, level: 1 },
+        { q: 'I wish I ___ taller.', a: ['am','were','was','be'], correct: 1, level: 3 }
+      ],
+      vocab: [
+        { q: 'Synonym of “improve”.', a: ['worsen','enhance','ignore','decline'], correct: 1, level: 2 },
+        { q: '“Affordable” significa:', a: ['Costoso','Accesible','Rápido','Frágil'], correct: 1, level: 1 },
+        { q: '“Insight” se refiere a:', a: ['Una broma','Una iluminación/entendimiento','Una prisa','Un objeto'], correct: 1, level: 3 }
+      ]
+    };
+
+    const quizRoot = document.getElementById('quizRoot');
+    const startBtn = document.getElementById('startQuiz');
+
+    function pickNext(prevCorrect, currentLevel) {
+      // Regla simple: +1 nivel si correcto, -1 si incorrecto (entre 1..3)
+      let nextLevel = currentLevel + (prevCorrect ? 1 : -1);
+      nextLevel = Math.min(3, Math.max(1, nextLevel));
+      return nextLevel;
+    }
+
+    function buildQuiz() {
+      quizRoot.innerHTML = '';
+      const state = { count: 0, max: 20, level: 2, score: 0 };
+      const types = ['comprension', 'gramatica', 'vocab'];
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'grid gap-4';
+
+      const status = document.createElement('div');
+      status.className = 'text-sm text-slate-600';
+      status.textContent = 'Progreso: 0/20';
+      wrapper.appendChild(status);
+
+      const qbox = document.createElement('div');
+      qbox.className = 'p-4 bg-white border rounded-xl';
+      wrapper.appendChild(qbox);
+
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'px-4 py-2 rounded-xl bg-sky-600 text-white hover:bg-sky-700 disabled:opacity-50';
+      nextBtn.textContent = 'Siguiente';
+      nextBtn.disabled = true;
+      wrapper.appendChild(nextBtn);
+
+      const result = document.createElement('div');
+      result.className = 'hidden p-4 rounded-xl bg-indigo-50 border';
+      wrapper.appendChild(result);
+
+      quizRoot.appendChild(wrapper);
+
+      let current = null; let lastCorrect = null;
+
+      function drawQuestion() {
+        const t = types[state.count % types.length];
+        const candidates = bank[t].filter(item => item.level === state.level);
+        const item = candidates[Math.floor(Math.random() * candidates.length)] || bank[t][0];
+        current = item;
+
+        qbox.innerHTML = '';
+        const h = document.createElement('h4');
+        h.className = 'text-lg font-bold';
+        h.textContent = item.q;
+        qbox.appendChild(h);
+
+        if (item.audio) {
+          const audio = document.createElement('audio'); audio.controls = true;
+          // Placeholder: podrías poner src a un archivo local
+          audio.innerHTML = '<source src="" type="audio/mp3">';
+          const cap = document.createElement('p'); cap.className = 'mt-2 text-sm text-slate-500';
+          cap.textContent = 'Transcripción: ' + item.transcript;
+          qbox.appendChild(audio); qbox.appendChild(cap);
+        }
+
+        const list = document.createElement('div');
+        list.className = 'mt-3 grid gap-2';
+        item.a.forEach((opt, i) => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'w-full text-left px-3 py-2 rounded-xl border hover-raise';
+          b.textContent = opt;
+          b.addEventListener('click', () => {
+            const correct = (i === item.correct);
+            lastCorrect = correct;
+            if (correct) { b.classList.add('border-green-600'); state.score++; }
+            else { b.classList.add('border-rose-600'); }
+            Array.from(list.children).forEach(el => el.disabled = true);
+            nextBtn.disabled = false;
+          });
+          list.appendChild(b);
+        });
+        qbox.appendChild(list);
+        status.textContent = `Progreso: ${state.count}/${state.max}`;
+      }
+
+      drawQuestion();
+
+      nextBtn.addEventListener('click', () => {
+        nextBtn.disabled = true;
+        state.count++;
+        if (lastCorrect != null) state.level = pickNext(lastCorrect, state.level);
+
+        if (state.count >= state.max) {
+          qbox.innerHTML = '';
+          result.classList.remove('hidden');
+          const pct = Math.round(100 * state.score / state.max);
+          let reco = 'Nivel sugerido: A2';
+          if (pct >= 85) reco = 'Nivel sugerido: C1';
+          else if (pct >= 70) reco = 'Nivel sugerido: B2';
+          else if (pct >= 55) reco = 'Nivel sugerido: B1';
+          else if (pct >= 40) reco = 'Nivel sugerido: A2';
+          else reco = 'Nivel sugerido: A1';
+
+          result.innerHTML = `<p class="font-semibold">Puntaje: ${state.score}/${state.max} (${pct}%). ${reco}.</p>
+                              <p class="text-sm mt-1 text-slate-600">La recomendación se enviará a tu correo junto con opciones de curso.</p>`;
+          status.textContent = `Progreso: ${state.max}/${state.max}`;
+        } else {
+          drawQuestion();
+        }
+      });
+    }
+
+    startBtn.addEventListener('click', buildQuiz);
+
+    /* ==========================
+       Accesibilidad – preferencias con localStorage
+    =========================== */
+    const adaBtn = document.getElementById('adaBtn');
+    const adaPanel = document.getElementById('adaPanel');
+    const adaClose = document.getElementById('adaClose');
+    const root = document.body;
+
+    const elContrast = document.getElementById('adaContrast');
+    const elPause = document.getElementById('adaPause');
+    const elLinks = document.getElementById('adaLinks');
+    const elSpacing = document.getElementById('adaSpacing');
+    const elZoom = document.getElementById('adaZoom');
+    const elColor = document.getElementById('adaColor');
+
+    const adaSave = document.getElementById('adaSave');
+    const adaReset = document.getElementById('adaReset');
+
+    function loadPrefs() {
+      try {
+        const prefs = JSON.parse(localStorage.getItem('ada-prefs') || '{}');
+        toggleClass('ada-contrast', !!prefs.contrast);
+        toggleClass('ada-pause-anim', !!prefs.pause);
+        toggleClass('ada-highlight-links', !!prefs.links);
+        toggleClass('ada-spacing', !!prefs.spacing);
+        setZoom(prefs.zoom || 100);
+        setColorFilter(prefs.color || '');
+
+        elContrast.checked = !!prefs.contrast;
+        elPause.checked = !!prefs.pause;
+        elLinks.checked = !!prefs.links;
+        elSpacing.checked = !!prefs.spacing;
+        elZoom.value = prefs.zoom || 100;
+        elColor.value = prefs.color || '';
+      } catch(e) {}
+    }
+    function savePrefs() {
+      const prefs = {
+        contrast: elContrast.checked,
+        pause: elPause.checked,
+        links: elLinks.checked,
+        spacing: elSpacing.checked,
+        zoom: parseInt(elZoom.value, 10),
+        color: elColor.value
+      };
+      localStorage.setItem('ada-prefs', JSON.stringify(prefs));
+      loadPrefs();
+    }
+    function resetPrefs() {
+      localStorage.removeItem('ada-prefs');
+      elContrast.checked = elPause.checked = elLinks.checked = elSpacing.checked = false;
+      elZoom.value = 100; elColor.value = '';
+      savePrefs();
+    }
+    function toggleClass(cls, on) {
+      root.classList.toggle(cls, on);
+    }
+    function setZoom(val) {
+      root.style.fontSize = (val || 100) + '%';
+    }
+    function setColorFilter(kind) {
+      root.classList.remove('ada-protanopia','ada-deuteranopia','ada-tritanopia');
+      if (kind) root.classList.add('ada-' + kind);
+    }
+
+    adaBtn.addEventListener('click', () => { adaPanel.classList.remove('hidden'); adaPanel.classList.add('flex'); });
+    adaClose.addEventListener('click', () => { adaPanel.classList.add('hidden'); adaPanel.classList.remove('flex'); });
+    adaSave.addEventListener('click', () => { savePrefs(); adaClose.click(); });
+    adaReset.addEventListener('click', resetPrefs);
+    elContrast.addEventListener('change', () => toggleClass('ada-contrast', elContrast.checked));
+    elPause.addEventListener('change', () => toggleClass('ada-pause-anim', elPause.checked));
+    elLinks.addEventListener('change', () => toggleClass('ada-highlight-links', elLinks.checked));
+    elSpacing.addEventListener('change', () => toggleClass('ada-spacing', elSpacing.checked));
+    elZoom.addEventListener('input', () => setZoom(parseInt(elZoom.value, 10)));
+    elColor.addEventListener('change', () => setColorFilter(elColor.value));
+
+    loadPrefs();
+  </script>
 </body>
 </html>
