@@ -2,62 +2,171 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
+  <title>Inglés — Aprende+</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inglés – Aprendemas</title>
-  <meta name="description" content="Inglés con enfoque comunicativo y académico. Precio: $250.000 CLP/mes (mín. 2 clases/semana). Tópicos especiales como preparación TOEFL/IELTS." />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Inglés – Aprendemas" />
-  <meta property="og:description" content="Domina el inglés con seguridad y práctica constante. Clases flexibles y accesibles." />
-  <meta property="og:image" content="{{SITE_URL}}/assets/og.webp" />
-  <meta property="og:url" content="{{SITE_URL}}/curso-ingles.html" />
-  <link rel="canonical" href="{{SITE_URL}}/curso-ingles.html" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Inglés: desde nivel básico hasta avanzado, enfoque comunicativo y académico. Clases online flexibles." />
+  <meta property="og:title" content="Inglés — Aprende+" />
+  <meta property="og:description" content="Clases online flexibles, enfoque comunicativo y académico. Stripe/PayPal. Calendly para agendar." />
+  <meta property="og:image" content="assets/og.webp" />
+  <link rel="icon" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="min-h-screen bg-white text-slate-900">
-  <header class="border-b">
-    <div class="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-      <a href="index.html" class="font-bold">← Inicio</a>
-      <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="px-3 py-2 rounded-xl border hover:shadow">Visítanos en Instagram</a>
+<body class="theme-pacific">
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="/" aria-label="Inicio">
+        <svg class="cap" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3L2 8l10 5 8-4v6a2 2 0 0 1-1 1.73L12 22l-7-3.27A2 2 0 0 1 4 17v-5l8 4 10-5-10-5z"/></svg>
+        <span class="brand-text">Aprende+</span>
+      </a>
+      <nav class="top-nav">
+        <a href="index.html#cursos">Cursos</a>
+        <a href="index.html#test">Test</a>
+        <a href="index.html#sobre">Sobre</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
     </div>
   </header>
 
-  <main class="mx-auto max-w-3xl px-6 py-10">
-    <h1 class="text-3xl font-extrabold">Inglés</h1>
-    <p class="mt-3 text-slate-700">Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico. Teaser: <em>Domina el inglés con seguridad y práctica constante</em>.</p>
-
-    <div class="mt-6 p-5 rounded-2xl bg-slate-50 border">
-      <p class="font-semibold">Precio: $250.000 CLP / mes (mínimo 2 clases/semana).</p>
-      <p class="text-sm text-slate-600">Tópicos especiales: + $10.000–$20.000 CLP por clase.</p>
-      <div class="mt-3 flex items-center gap-3">
-        <img src="/assets/paypal.webp" alt="PayPal" class="h-6" loading="lazy" />
-        <img src="/assets/visa.webp" alt="Visa" class="h-6" loading="lazy" />
-        <img src="/assets/mastercard.webp" alt="Mastercard" class="h-6" loading="lazy" />
+  <main id="main">
+    <section class="hero hero--inner">
+      <div class="container hero-grid">
+        <div>
+          <h1>Inglés</h1>
+          <p class="lead">Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico.</p>
+          <ul class="bullets">
+            <li>Modalidad online y flexible: clases sincrónicas y/o asincrónicas.</li>
+            <li>Metodología: práctica guiada, feedback inmediato, recursos accesibles.</li>
+            <li>Accesibilidad: subtítulos/transcripción, pausas, contraste, tamaño de letra.</li>
+          </ul>
+        </div>
+        <img src="assets/ingles.webp" alt="Clases de inglés online" width="640" height="420" loading="lazy" class="hero-img" />
       </div>
-    </div>
+    </section>
 
-    <h2 class="mt-8 text-xl font-bold">Tópicos especiales (lista extendida)</h2>
-    <ul class="mt-3 list-disc pl-6 space-y-2 text-slate-700">
-      <li>Preparación para TOEFL/IELTS (exigido)</li>
-      <li>Inglés para entrevistas laborales</li>
-      <li>Inglés profesional (negocios y presentaciones)</li>
-      <li>Pronunciación y listening intensivo</li>
-      <li>Redacción académica en inglés</li>
-    </ul>
+    <section class="section">
+      <div class="container price-box">
+        <div>
+          <h2 class="tight">💰 Precio</h2>
+          <p class="muted">Tarifa base: <strong>$250.000 CLP / mes</strong> (mínimo 2 clases semanales).</p>
+          <p class="tiny muted">Recargo por tópicos especiales: <strong>$10.000–$20.000 CLP</strong> por clase.</p>
+        </div>
+        <div class="pay-actions">
+          <a class="btn btn-primary" href="YOUR_STRIPE_CHECKOUT_URL" target="_blank" rel="noopener">Pagar con Stripe</a>
+          <a class="btn btn-outline" href="YOUR_PAYPAL_LINK" target="_blank" rel="noopener">Pagar con PayPal</a>
+        </div>
+      </div>
+    </section>
 
-    <div class="mt-10">
-      <a href="index.html#contacto" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-sky-600 text-white hover:bg-sky-700">Quiero más información</a>
-    </div>
+    <section class="section">
+      <div class="container split">
+        <div>
+          <h2>Metodología</h2>
+          <p>Enfoque comunicativo con base académica: práctica constante, producción oral y escrita, tareas auténticas y retroalimentación puntual.</p>
+          <p>Se promueve el uso de recursos multimediales y lecturas graduadas.</p>
+        </div>
+        <div>
+          <h2>Recursos</h2>
+          <ul class="bullets">
+            <li>Lecturas graduadas (.webp / PDF)</li>
+            <li>Glosarios temáticos</li>
+            <li>Plantillas de escritura y rúbricas</li>
+            <li>Audios con transcripción</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>📆 Agendar</h2>
+        <p class="muted">Verás disponibilidad y un formulario. Recibirás un correo cuando la/el profesora acepte.</p>
+        <div class="calendly-wrap">
+          <iframe title="Calendly Inglés" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                  src="https://YOUR_CALENDLY_PATH?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff&text_color=111827&primary_color=14b8a6&locale=es"></iframe>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="py-10 border-t">
-    <div class="mx-auto max-w-6xl px-6 flex items-center justify-between">
-      <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="px-3 py-2 rounded-xl border hover:shadow">Visítanos en Instagram</a>
-      <div class="flex items-center gap-3">
-        <img src="/assets/paypal.webp" alt="PayPal" class="h-5" loading="lazy" />
-        <img src="/assets/visa.webp" alt="Visa" class="h-5" loading="lazy" />
-        <img src="/assets/mastercard.webp" alt="Mastercard" class="h-5" loading="lazy" />
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p class="muted">© Aprende+. Todos los derechos reservados.</p>
+      <a class="btn btn-outline ig" href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener">
+        <svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zm5.75-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"/></svg>
+        Visítanos en Instagram
+      </a>
+      <div class="payments">
+        <span class="pay stripe">Stripe</span>
+        <span class="pay paypal">PayPal</span>
+        <span class="pay visa">VISA</span>
+        <span class="pay mc">Mastercard</span>
       </div>
     </div>
   </footer>
+
+  <button id="ada-btn" class="ada-btn" aria-label="Accesibilidad" aria-expanded="false" aria-controls="ada-panel" title="Accesibilidad">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z M3 10h18 M6 10l2 10 M18 10l-2 10 M8 18h8"/></svg>
+  </button>
+  <div id="ada-panel" class="ada-panel" role="dialog" aria-modal="false" aria-label="Preferencias de accesibilidad" hidden>
+    <div class="ada-head">Accesibilidad</div>
+    <div class="ada-body">
+      <label class="switch"><span>Contraste alto</span><input type="checkbox" id="ada-contrast" /></label>
+      <label class="switch"><span>Zoom tipográfico</span><input type="checkbox" id="ada-bigtext" /></label>
+      <label class="switch"><span>Espaciado extra</span><input type="checkbox" id="ada-spacing" /></label>
+      <label class="switch"><span>Pausar animaciones</span><input type="checkbox" id="ada-pause" /></label>
+      <label class="switch"><span>Resaltar enlaces</span><input type="checkbox" id="ada-links" /></label>
+      <div class="ada-actions">
+        <button id="ada-reset" class="btn btn-outline">Restablecer</button>
+        <button id="ada-done" class="btn btn-primary">Hecho</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Términos (reutilizado) -->
+  <div id="terms-modal" class="modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="terms-title">
+      <div class="modal__head">
+        <div>
+          <p class="tiny muted">Curso seleccionado</p>
+          <h3 id="terms-title" class="modal__title">Inglés</h3>
+        </div>
+        <button class="modal__close" aria-label="Cerrar" data-close>×</button>
+      </div>
+      <div class="modal__body">
+        <p class="muted">Antes de pagar, por favor revisa y acepta nuestras reglas, pagos y políticas.</p>
+        <ul class="terms">
+          <li>Modalidad: clases online, flexibles y personalizadas (sincrónicas o asincrónicas).</li>
+          <li>Pagos: tarjetas (Stripe) y PayPal. El cobro mensual estándar es de $250.000 CLP por curso (mínimo 2 clases semanales).</li>
+          <li>Recargo por tópicos especiales: $10.000–$20.000 CLP por clase.</li>
+          <li>Cancelaciones: deben realizarse con al menos 48 horas de anticipación para reagendar sin costo.</li>
+          <li>Reprogramaciones: sujetas a disponibilidad docente.</li>
+          <li>Puntualidad y asistencia: llegar a tiempo; los atrasos no extienden la clase.</li>
+          <li>Materiales y propiedad intelectual: uso personal; prohibida la distribución sin autorización.</li>
+          <li>Accesibilidad: ofrecemos ajustes razonables.</li>
+          <li>Datos personales: se usan solo para gestión académica y facturación.</li>
+          <li>Conducta: respetuosa y libre de discriminación.</li>
+          <li>Devoluciones: dentro de los primeros 7 días del primer mes (prorrateado; menos comisiones).</li>
+        </ul>
+        <form name="terminos-pago" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
+          <input type="hidden" name="form-name" value="terminos-pago" />
+          <p class="honeypot"><label>¿No completar? <input name="bot-field"/></label></p>
+          <input type="hidden" name="curso" value="Inglés" />
+          <label>Nombre<input name="nombre" required /></label>
+          <label>Email<input name="email" type="email" required /></label>
+          <label class="agree"><input id="terms-acepto" type="checkbox" required /> He leído y acepto las reglas…</label>
+          <div class="inline">
+            <button id="terms-submit" class="btn btn-primary" disabled>Aceptar y continuar</button>
+            <button class="btn btn-outline" data-close type="button">Cancelar</button>
+          </div>
+          <p class="tiny muted">Al continuar, pasarás a Stripe o PayPal para completar la compra.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js" defer></script>
 </body>
 </html>
