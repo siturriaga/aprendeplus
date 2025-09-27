@@ -7,53 +7,51 @@
   <title>Aprendemas – Idiomas y Humanidades</title>
   <meta name="description" content="Clases de Inglés, Historia, Ciencia Política, Filosofía y Capacitación Docente. Precio único: $250.000 CLP/mes (mín. 2 clases/semana). Accesibilidad real y aprendizaje colaborativo." />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (og:image opcional: pon tu URL si agregas una imagen más adelante) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Aprendemas – Idiomas y Humanidades" />
-  <meta property="og:description" content="Clases modernas con enfoque crítico y accesible. Test adaptativo y reservas con aprobación del/la profesora." />
-  <meta property="og:image" content="{{SITE_URL}}/assets/og.webp" />
+  <meta property="og:description" content="Clases modernas con enfoque crítico y accesible. Test adaptativo y reservas con aprobación de tu profesora/or." />
+  <!-- <meta property="og:image" content="{{SITE_URL}}/og.webp" /> -->
   <meta property="og:url" content="{{SITE_URL}}/" />
   <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Canonical -->
   <link rel="canonical" href="{{SITE_URL}}/" />
 
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Icons -->
-  <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Phosphor Icons (CSS, sin archivos locales) -->
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.2/src/regular/style.css">
+
   <!-- Calendly -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
   <style>
-    :root {
-      --brand: #6d28d9;
-      --brand-2: #0ea5e9;
-      --brand-3: #f59e0b;
-    }
+    :root { --brand:#6d28d9; --brand-2:#0ea5e9; --brand-3:#f59e0b; }
+    html { scroll-behavior:smooth; }
     .hover-raise { transition: transform .25s ease, box-shadow .25s ease; }
     .hover-raise:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,.08); }
-    :focus-visible { outline: 3px solid var(--brand-2); outline-offset: 2px; }
-    .carousel { position: relative; overflow: hidden; }
-    .carousel-track { display: grid; grid-auto-flow: column; grid-auto-columns: 100%; transition: transform .5s ease; }
-    .carousel-dot[aria-current="true"] { background: var(--brand); transform: scale(1.1); }
+    :focus-visible { outline:3px solid var(--brand-2); outline-offset:2px; }
 
+    /* ADA toggles */
+    .ada-contrast * { color:#000 !important; background:#fff !important; }
+    .ada-pause-anim * { animation:none !important; transition:none !important; }
     .ada-highlight-links a { box-shadow: 0 -3px 0 inset rgba(14,165,233,.35); transition: box-shadow .2s; }
     .ada-highlight-links a:hover { box-shadow: 0 -8px 0 inset rgba(14,165,233,.55); }
-    .ada-contrast * { color: #000 !important; background-color: #fff !important; }
-    .ada-contrast .btn-primary { background: #000 !important; color: #fff !important; }
-    .ada-pause-anim * { animation: none !important; transition: none !important; }
-    .ada-spacing p, .ada-spacing li { line-height: 1.9 !important; letter-spacing: .015em !important; }
+    .ada-spacing p, .ada-spacing li { line-height:1.9 !important; letter-spacing:.015em !important; }
     .ada-protanopia { filter: url('#protanopia'); }
     .ada-deuteranopia { filter: url('#deuteranopia'); }
     .ada-tritanopia { filter: url('#tritanopia'); }
 
-    html { scroll-behavior: smooth; }
+    /* Carousel (testimonios) */
+    .carousel { position:relative; overflow:hidden; }
+    .carousel-track { display:grid; grid-auto-flow:column; grid-auto-columns:100%; transition: transform .5s ease; }
+    .carousel-dot[aria-current="true"] { background:var(--brand); transform:scale(1.1); }
   </style>
 </head>
 <body class="min-h-screen bg-white text-slate-900 antialiased selection:bg-indigo-200 ada-root">
-  <!-- SVG filtros daltonismo -->
+  <!-- Filtros daltonismo (SVG invisible) -->
   <svg width="0" height="0" class="absolute">
     <filter id="protanopia"><feColorMatrix type="matrix" values="0.567,0.433,0,0,0  0.558,0.442,0,0,0  0,0.242,0.758,0,0  0,0,0,1,0"/></filter>
     <filter id="deuteranopia"><feColorMatrix type="matrix" values="0.625,0.375,0,0,0  0.7,0.3,0,0,0  0,0.3,0.7,0,0  0,0,0,1,0"/></filter>
@@ -63,11 +61,11 @@
   <!-- Header -->
   <header class="sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-slate-200">
     <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3 group" aria-label="Inicio">
-        <img src="/assets/logo.webp" alt="Aprendemas" class="w-9 h-9 rounded-xl shadow hover-raise" loading="lazy" />
+      <a href="/" class="flex items-center gap-3 group" aria-label="Inicio">
+        <!-- Logo sin assets -->
+        <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-sky-500 grid place-items-center text-white font-bold">A</span>
         <span class="text-lg font-extrabold tracking-tight">Aprendemas</span>
       </a>
-
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="#cursos" class="hover:text-indigo-600 font-medium">Cursos</a>
         <a href="#test" class="hover:text-indigo-600 font-medium">Test</a>
@@ -75,19 +73,18 @@
         <a href="#sobre" class="hover:text-indigo-600 font-medium">Sobre</a>
         <a href="#contacto" class="hover:text-indigo-600 font-medium">Contacto</a>
       </nav>
-
       <div class="flex items-center gap-2">
-        <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="px-3 py-2 rounded-xl border hover-raise text-sm flex items-center gap-2" aria-label="Visítanos en Instagram">
-          <i class="ph ph-instagram-logo"></i> Visítanos en Instagram
+        <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="px-3 py-2 rounded-xl border hover-raise text-sm inline-flex items-center gap-2" aria-label="Visítanos en Instagram">
+          <i class="ph ph-instagram-logo" aria-hidden="true"></i> Visítanos en Instagram
         </a>
-        <button id="adaBtn" class="btn-primary px-3 py-2 rounded-xl bg-indigo-600 text-white text-sm hover:bg-indigo-700 hover-raise" aria-haspopup="dialog" aria-controls="adaPanel">
+        <button id="adaBtn" class="px-3 py-2 rounded-xl bg-indigo-600 text-white text-sm hover:bg-indigo-700 hover-raise" aria-haspopup="dialog" aria-controls="adaPanel">
           Accesibilidad
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero sin imágenes -->
   <section class="relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-sky-500 to-amber-400 opacity-10"></div>
     <div class="mx-auto max-w-7xl px-6 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
@@ -107,17 +104,15 @@
           Tópicos especiales: <span class="font-semibold">$10.000–$20.000 CLP por clase</span>.
         </p>
       </div>
-
-      <div class="relative">
-        <picture>
-          <source srcset="/assets/hero.webp" type="image/webp" />
-          <img src="/assets/hero.webp" alt="Aprendizaje inclusivo" class="rounded-3xl border w-full hover-raise" loading="lazy" />
-        </picture>
+      <div class="rounded-3xl p-1 bg-gradient-to-tr from-indigo-600 via-sky-500 to-amber-400">
+        <div class="rounded-2xl p-8 bg-white">
+          <p class="text-slate-600">Clases accesibles, flexibles y con acompañamiento real.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Cursos (5 cards exactas) -->
+  <!-- Cursos (5 cards EXACTAS) -->
   <section id="cursos" class="py-16 bg-slate-50">
     <div class="mx-auto max-w-7xl px-6">
       <div class="flex items-end justify-between">
@@ -133,8 +128,7 @@
           <p class="mt-3 text-sm">Teaser: Domina el inglés con seguridad y práctica constante</p>
           <p class="mt-3 text-xs text-slate-500">💰 $250.000 CLP al mes (mínimo 2 clases semanales)</p>
           <p class="mt-2 text-sm">▢ Tópico especial: <span class="font-medium">Preparación para TOEFL/IELTS</span></p>
-          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline"
-             href="curso-ingles.html" aria-label="Ver más sobre Inglés">Ver más →</a>
+          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline" href="curso-ingles.html">Ver más →</a>
         </article>
 
         <!-- Historia Universal -->
@@ -144,8 +138,7 @@
           <p class="mt-3 text-sm">Teaser: Explora los grandes giros que transformaron la humanidad</p>
           <p class="mt-3 text-xs text-slate-500">💰 $250.000 CLP al mes (mínimo 2 clases semanales)</p>
           <p class="mt-2 text-sm">▢ Tópico especial: <span class="font-medium">Historia de género y feminismos</span></p>
-          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline"
-             href="curso-historia.html">Ver más →</a>
+          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline" href="curso-historia.html">Ver más →</a>
         </article>
 
         <!-- Ciencia Política -->
@@ -155,8 +148,7 @@
           <p class="mt-3 text-sm">Teaser: Del poder clásico a los dilemas de la democracia actual</p>
           <p class="mt-3 text-xs text-slate-500">💰 $250.000 CLP al mes (mínimo 2 clases semanales)</p>
           <p class="mt-2 text-sm">▢ Tópico especial: <span class="font-medium">Populismo en América Latina</span></p>
-          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline"
-             href="curso-cienciapolitica.html">Ver más →</a>
+          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline" href="curso-cienciapolitica.html">Ver más →</a>
         </article>
 
         <!-- Filosofía -->
@@ -166,8 +158,7 @@
           <p class="mt-3 text-sm">Teaser: De Sócrates a la Teoría Crítica: un viaje reflexivo</p>
           <p class="mt-3 text-xs text-slate-500">💰 $250.000 CLP al mes (mínimo 2 clases semanales)</p>
           <p class="mt-2 text-sm">▢ Tópico especial: <span class="font-medium">Escuela de Frankfurt</span></p>
-          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline"
-             href="curso-filosofia.html">Ver más →</a>
+          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline" href="curso-filosofia.html">Ver más →</a>
         </article>
 
         <!-- Capacitación Docente -->
@@ -177,8 +168,7 @@
           <p class="mt-3 text-sm">Teaser: Actualiza tu práctica docente con innovación y evidencia</p>
           <p class="mt-3 text-xs text-slate-500">💰 $250.000 CLP al mes (mínimo 2 clases semanales)</p>
           <p class="mt-2 text-sm">▢ Tópico especial: <span class="font-medium">Ética e IA en la educación</span></p>
-          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline"
-             href="curso-capacitaciondocente.html">Ver más →</a>
+          <a class="inline-flex items-center gap-1 mt-4 text-indigo-700 font-medium hover:underline" href="curso-capacitaciondocente.html">Ver más →</a>
         </article>
       </div>
     </div>
@@ -188,25 +178,16 @@
   <section id="test" class="py-16 bg-white">
     <div class="mx-auto max-w-5xl px-6">
       <h2 class="text-3xl md:text-4xl font-extrabold">🧪 Test Adaptativo</h2>
-      <p class="mt-2 text-slate-600">
-        20 preguntas (comprensión, gramática, vocabulario y audio opcional con transcripción). Recibirás puntaje y recomendación de nivel/curso por email.
-      </p>
+      <p class="mt-2 text-slate-600">20 preguntas (comprensión, gramática, vocabulario y audio opcional con transcripción). Puntaje y recomendación por email.</p>
 
-      <!-- Netlify form -->
       <form name="TestAdaptativo" method="POST" data-netlify="true" netlify-honeypot="bot-field"
             class="mt-6 p-6 bg-slate-50 border rounded-2xl grid gap-4" aria-describedby="testHelp">
         <input type="hidden" name="form-name" value="TestAdaptativo">
         <p class="hidden"><label>Si eres humano, deja este campo vacío: <input name="bot-field" /></label></p>
 
         <div class="grid sm:grid-cols-2 gap-4">
-          <div>
-            <label for="nombre" class="block text-sm font-medium">Nombre</label>
-            <input id="nombre" name="nombre" required class="mt-1 w-full rounded-xl border px-3 py-2" />
-          </div>
-          <div>
-            <label for="correo" class="block text-sm font-medium">Email</label>
-            <input id="correo" type="email" name="correo" required class="mt-1 w-full rounded-xl border px-3 py-2" />
-          </div>
+          <div><label for="nombre" class="block text-sm font-medium">Nombre</label><input id="nombre" name="nombre" required class="mt-1 w-full rounded-xl border px-3 py-2" /></div>
+          <div><label for="correo" class="block text-sm font-medium">Email</label><input id="correo" type="email" name="correo" required class="mt-1 w-full rounded-xl border px-3 py-2" /></div>
         </div>
 
         <!-- reCAPTCHA opcional -->
@@ -215,60 +196,25 @@
         <div id="quizRoot" class="mt-2"></div>
 
         <div class="flex items-center gap-3">
-          <button type="button" id="startQuiz" class="px-5 py-3 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 hover-raise">
-            Comenzar test
-          </button>
-          <button type="submit" class="px-5 py-3 rounded-xl border bg-white hover-raise">
-            Enviar y recibir resultados
-          </button>
+          <button type="button" id="startQuiz" class="px-5 py-3 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 hover-raise">Comenzar test</button>
+          <button type="submit" class="px-5 py-3 rounded-xl border bg-white hover-raise">Enviar y recibir resultados</button>
         </div>
 
-        <p id="testHelp" class="text-sm text-slate-500">
-          La dificultad sube o baja según tus respuestas. Resultados y recomendación por correo (Netlify Forms).
-        </p>
+        <p id="testHelp" class="text-sm text-slate-500">La dificultad sube o baja según tus respuestas. Resultados por correo (Netlify Forms).</p>
       </form>
     </div>
   </section>
 
-  <!-- Testimonios (igual que antes; omitido por brevedad si quieres) -->
-  <section id="testimonios" class="py-16 bg-gradient-to-br from-indigo-50 via-sky-50 to-amber-50">
-    <div class="mx-auto max-w-6xl px-6">
-      <div class="flex items-end justify-between">
-        <h2 class="text-3xl md:text-4xl font-extrabold">📝 Testimonios</h2>
-        <div class="text-sm text-slate-600">Auto-rotación cada 6s · Navegación con teclado/ARIA</div>
-      </div>
-
-      <div class="mt-6 carousel rounded-3xl bg-white border">
-        <div class="carousel-track" id="tTrack" role="group" aria-roledescription="Carrusel de testimonios" aria-live="polite">
-          <figure class="p-8"><blockquote class="text-lg leading-relaxed">“Clases con enfoque humano y resultados reales.”</blockquote><figcaption class="mt-4 text-sm text-slate-600">Conversación</figcaption></figure>
-          <figure class="p-8"><blockquote class="text-lg leading-relaxed">“IELTS con estrategia y feedback, logré mi meta.”</blockquote><figcaption class="mt-4 text-sm text-slate-600">Exámenes</figcaption></figure>
-          <figure class="p-8"><blockquote class="text-lg leading-relaxed">“Accesibilidad real: contraste, ritmo y respeto.”</blockquote><figcaption class="mt-4 text-sm text-slate-600">Accesibilidad</figcaption></figure>
-          <figure class="p-8"><blockquote class="text-lg leading-relaxed">“Escritura académica impecable gracias al acompañamiento.”</blockquote><figcaption class="mt-4 text-sm text-slate-600">Universidad</figcaption></figure>
-          <figure class="p-8"><blockquote class="text-lg leading-relaxed">“Humanidades con pensamiento crítico.”</blockquote><figcaption class="mt-4 text-sm text-slate-600">Seminarios</figcaption></figure>
-        </div>
-        <div class="flex items-center justify-center gap-2 py-4" role="tablist" aria-label="Indicadores de testimonios">
-          <button class="carousel-dot w-3 h-3 rounded-full bg-slate-300" role="tab" aria-label="Ir 1"></button>
-          <button class="carousel-dot w-3 h-3 rounded-full bg-slate-300" role="tab" aria-label="Ir 2"></button>
-          <button class="carousel-dot w-3 h-3 rounded-full bg-slate-300" role="tab" aria-label="Ir 3"></button>
-          <button class="carousel-dot w-3 h-3 rounded-full bg-slate-300" role="tab" aria-label="Ir 4"></button>
-          <button class="carousel-dot w-3 h-3 rounded-full bg-slate-300" role="tab" aria-label="Ir 5"></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sobre + Pagos/Agendamiento -->
+  <!-- Sobre + Pagos -->
   <section id="sobre" class="py-16 bg-white">
     <div class="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-10 items-start">
       <div>
         <h2 class="text-3xl md:text-4xl font-extrabold">👥 Sobre Nosotras/os</h2>
-        <p class="mt-3 text-slate-700">
-          Equipo con base en EE.UU., más de 30 años de experiencia acumulada y 1500+ estudiantes.
-        </p>
+        <p class="mt-3 text-slate-700">Equipo con base en EE.UU., más de 30 años de experiencia acumulada y 1500+ estudiantes.</p>
         <ul class="mt-4 space-y-2 text-slate-700 list-disc pl-5">
           <li>Lenguaje inclusivo y trato cercano.</li>
-          <li>Diferentes disponibilidades de profesoras y profesores (placeholders).</li>
-          <li>Accesibilidad: contraste, zoom, pausa de animaciones, filtros.</li>
+          <li>Diversa disponibilidad de profesoras y profesores.</li>
+          <li>Accesibilidad: contraste, zoom, pausa, filtros.</li>
         </ul>
       </div>
 
@@ -276,15 +222,18 @@
         <h3 class="text-2xl font-bold">💳 Pagos</h3>
         <p class="mt-3 text-slate-700">Precio base: $250.000 CLP/mes (mín. 2 clases/semana). Tópicos especiales: + $10.000–$20.000 CLP por clase.</p>
         <div class="mt-5 flex flex-wrap items-center gap-3">
-          <img src="/assets/paypal.webp" alt="PayPal" class="h-6" loading="lazy" />
-          <img src="/assets/visa.webp" alt="Visa" class="h-6" loading="lazy" />
-          <img src="/assets/mastercard.webp" alt="Mastercard" class="h-6" loading="lazy" />
+          <!-- PayPal -->
+          <svg width="80" height="24" viewBox="0 0 80 24" aria-label="PayPal" class="h-6"><rect width="80" height="24" rx="4" fill="#003087"></rect><text x="12" y="16" font-size="12" font-family="ui-sans-serif, system-ui" fill="white">PayPal</text></svg>
+          <!-- Visa -->
+          <svg width="72" height="24" viewBox="0 0 72 24" aria-label="Visa" class="h-6"><rect width="72" height="24" rx="4" fill="#1A1F71"></rect><text x="10" y="16" font-size="12" font-family="ui-sans-serif, system-ui" fill="white">VISA</text></svg>
+          <!-- Mastercard -->
+          <svg width="90" height="24" viewBox="0 0 90 24" aria-label="Mastercard" class="h-6"><rect width="90" height="24" rx="4" fill="#111827"></rect><circle cx="40" cy="12" r="7" fill="#EB001B"></circle><circle cx="50" cy="12" r="7" fill="#F79E1B" fill-opacity="0.9"></circle><text x="58" y="16" font-size="10" font-family="ui-sans-serif, system-ui" fill="white">Mastercard</text></svg>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Calendly minimalista (solo disponibilidad + reserva sujeta a aprobación) -->
+  <!-- Calendly (solo disponibilidad + reserva sujeta a aprobación) -->
   <section class="py-16 bg-slate-50">
     <div class="mx-auto max-w-6xl px-6">
       <h2 class="text-3xl md:text-4xl font-extrabold">📆 Agendar</h2>
@@ -292,10 +241,7 @@
         Disponibilidad de profesoras y profesores. Al enviar tu solicitud, <strong>recibirás un correo cuando la/el profesora acepte</strong>.
       </p>
       <div class="mt-5 rounded-2xl border">
-        <div id="calendly-inline-widget"
-             class="h-[640px]"
-             data-url="https://calendly.com/tu-org/consulta?hide_event_type_details=1&hide_gdpr_banner=1&locale=es">
-        </div>
+        <div id="calendly-inline-widget" class="h-[640px]" data-url="https://calendly.com/tu-org/consulta?hide_event_type_details=1&hide_gdpr_banner=1&locale=es"></div>
       </div>
       <div id="calendly-alert" role="status" aria-live="polite" class="sr-only"></div>
     </div>
@@ -307,25 +253,17 @@
       <h2 class="text-3xl md:text-4xl font-extrabold">✉️ Contacto</h2>
       <p class="mt-2 text-slate-600">Envíanos tu consulta. Gestionamos el email de forma interna (placeholder).</p>
 
-      <form name="Contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field"
-            class="mt-6 p-6 bg-slate-50 border rounded-2xl grid gap-4">
+      <form name="Contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="mt-6 p-6 bg-slate-50 border rounded-2xl grid gap-4">
         <input type="hidden" name="form-name" value="Contacto">
         <p class="hidden"><label>Si eres humano, deja este campo vacío: <input name="bot-field" /></label></p>
-
         <label class="block text-sm font-medium" for="c-nombre">Nombre</label>
         <input id="c-nombre" name="nombre" required class="w-full rounded-xl border px-3 py-2" />
-
         <label class="block text-sm font-medium" for="c-email">Email</label>
         <input id="c-email" name="email" type="email" required class="w-full rounded-xl border px-3 py-2" />
-
         <label class="block text-sm font-medium" for="c-msg">Mensaje</label>
         <textarea id="c-msg" name="mensaje" rows="4" required class="w-full rounded-xl border px-3 py-2"></textarea>
-
         <input type="hidden" name="destino" value="interno@placeholder.tld" />
-
-        <button class="mt-2 px-5 py-3 rounded-xl bg-sky-600 text-white hover:bg-sky-700 hover-raise">
-          Enviar
-        </button>
+        <button class="mt-2 px-5 py-3 rounded-xl bg-sky-600 text-white hover:bg-sky-700 hover-raise">Enviar</button>
       </form>
     </div>
   </section>
@@ -333,19 +271,33 @@
   <!-- Footer -->
   <footer class="py-10 border-t">
     <div class="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="px-3 py-2 rounded-xl border hover-raise text-sm flex items-center gap-2" aria-label="Visítanos en Instagram">
-          <i class="ph ph-instagram-logo"></i> Visítanos en Instagram
-        </a>
-      </div>
+      <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="px-3 py-2 rounded-xl border hover-raise text-sm inline-flex items-center gap-2" aria-label="Visítanos en Instagram">
+        <i class="ph ph-instagram-logo" aria-hidden="true"></i> Visítanos en Instagram
+      </a>
       <p class="text-sm text-slate-600">© Aprendemas. Todos los derechos reservados.</p>
       <div class="flex items-center gap-3">
-        <img src="/assets/paypal.webp" alt="PayPal" class="h-5" loading="lazy" />
-        <img src="/assets/visa.webp" alt="Visa" class="h-5" loading="lazy" />
-        <img src="/assets/mastercard.webp" alt="Mastercard" class="h-5" loading="lazy" />
+        <!-- Pay logos inline -->
+        <svg width="80" height="24" viewBox="0 0 80 24" aria-label="PayPal" class="h-5"><rect width="80" height="24" rx="4" fill="#003087"></rect><text x="12" y="16" font-size="12" font-family="ui-sans-serif, system-ui" fill="white">PayPal</text></svg>
+        <svg width="72" height="24" viewBox="0 0 72 24" aria-label="Visa" class="h-5"><rect width="72" height="24" rx="4" fill="#1A1F71"></rect><text x="10" y="16" font-size="12" font-family="ui-sans-serif, system-ui" fill="white">VISA</text></svg>
+        <svg width="90" height="24" viewBox="0 0 90 24" aria-label="Mastercard" class="h-5"><rect width="90" height="24" rx="4" fill="#111827"></rect><circle cx="40" cy="12" r="7" fill="#EB001B"></circle><circle cx="50" cy="12" r="7" fill="#F79E1B" fill-opacity="0.9"></circle><text x="58" y="16" font-size="10" font-family="ui-sans-serif, system-ui" fill="white">Mastercard</text></svg>
       </div>
     </div>
   </footer>
 
   <!-- ADA Panel -->
-  <div id="adaPanel" role="dialog" aria-mod    
+  <div id="adaPanel" role="dialog" aria-modal="true" aria-labelledby="adaTitle"
+       class="fixed inset-0 hidden items-center justify-center bg-black/40 p-4">
+    <div class="w-full max-w-xl rounded-2xl bg-white p-6 shadow-xl">
+      <div class="flex items-center justify-between">
+        <h3 id="adaTitle" class="text-xl font-bold">♿ Preferencias de Accesibilidad</h3>
+        <button id="adaClose" class="p-2 rounded-lg hover:bg-slate-100" aria-label="Cerrar panel"><i class="ph ph-x text-xl"></i></button>
+      </div>
+      <div class="mt-4 grid sm:grid-cols-2 gap-4 text-sm">
+        <label class="flex items-center gap-3"><input type="checkbox" id="adaContrast" class="h-4 w-4"> Alto contraste</label>
+        <label class="flex items-center gap-3"><input type="checkbox" id="adaPause" class="h-4 w-4"> Pausar animaciones</label>
+        <label class="flex items-center gap-3"><input type="checkbox" id="adaLinks" class="h-4 w-4"> Resaltar enlaces</label>
+        <label class="flex items-center gap-3"><input type="checkbox" id="adaSpacing" class="h-4 w-4"> Más espaciado de texto</label>
+        <div class="sm:col-span-2"><label for="adaZoom" class="block mb-1">Zoom de fuente</label><input id="adaZoom" type="range" min="90" max="130" step="5" value="100" class="w-full"></div>
+        <div class="sm:col-span-2">
+          <label for="adaColor" class="block mb-1">Filtro daltonismo</label>
+          <select id="adaColor" class="w-full rounded-xl border px-3 py-2
