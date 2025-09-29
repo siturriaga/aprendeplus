@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Smashdown Arena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #000; font-family: 'Roboto Condensed', sans-serif; color: white; -webkit-tap-highlight-color: transparent; }
+        canvas { display: block; }
+
+        .fullscreen-ui { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
+        
+        #title-screen { background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); z-index: 100; }
+        #title-screen h1 { font-size: clamp(3em, 10vw, 6em); text-shadow: 0 0 20px #fff, 0 0 30px #00f; margin: 0; }
+        #title-screen p { font-size: clamp(1em, 3vw, 1.5em); color: #ccc; margin: 20px; max-width: 80%; }
+        #start-btn { font-size: clamp(1.2em, 4vw, 1.5em); padding: 15px 40px; margin-top: 40px; cursor: pointer; border: 2px solid white; background: rgba(0, 128, 255, 0.2); color: white; border-radius: 5px; transition: background-color 0.3s, transform 0.1s; text-transform: uppercase; letter-spacing: 2px; }
+        #start-btn:hover { background-color: rgba(0, 128, 255, 0.4); box-shadow: 0 0 15px #00f; }
+        #start-btn:disabled { background: #555; color: #999; border-color: #777; cursor: not-allowed; }
+
+        #hud { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: none; gap: 20px; text-shadow: 2px 2px 4px #000; user-select: none; z-index: 50; width: 90%; max-width: 600px; justify-content: space-around; }
+        .player-info { background-color: rgba(0, 0, 0, 0.6); padding: 5px 10px; border-radius: 10px; text-align: center; backdrop-filter: blur(5px); flex-grow: 1; }
+        .player-info .name { font-size: clamp(1em, 3vw, 1.5em); font-weight: bold; letter-spacing: 1px; }
+        .player-info .percent { font-size: clamp(2em, 6vw, 3.5em); font-weight: bold; transition: color 0.2s, transform 0.1s; }
+        .player-info .stocks { font-size: clamp(1em, 3vw, 1.5em); letter-spacing: 4px; color: gold; }
+        #p1-info { border: 2px solid #4D96FF; box-shadow: 0 0 10px #4D96FF; }
+        #cpu-info { border: 2px solid #FF6B6B; box-shadow: 0 0 10px #FF6B6B; }
+
+        #game-over-screen, #error-screen { background-color: rgba(0, 0, 0, 0.8); display: none; text-shadow: 0 0 20px #fff; z-index: 200; }
+        #game-over-text, #error-title { font-size: clamp(3em, 10vw, 5em); }
+        #restart-btn, #reload-btn { font-size: clamp(1em, 3vw, 1.2em); padding: 15px 30px; margin-top: 20px; cursor: pointer; border: 2px solid white; background: rgba(255, 255, 255, 0.1); color: white; border-radius: 5px; transition: background-color 0.3s, transform 0.1s; }
+        #error-message { font-size: 1.2em; max-width: 80%; background: #222; padding: 20px; border-radius: 5px; margin-top: 20px; text-align: left; overflow-wrap: break-word; }
+        
+        #touch-controls { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; z-index: 40; display: none; user-select: none; }
+        @media (hover: none) and (pointer: coarse) { #touch-controls { display: block; } }
+        #joystick-area { position: absolute; bottom: 30px; left: 30px; width: 150px; height: 150px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+        #joystick-handle { position: absolute; top: 50px; left: 50px; width: 50px; height: 50px; background: rgba(255,255,255,0.4); border-radius: 50%; }
+        #action-buttons { position: absolute; bottom: 30px; right: 30px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 160px; height: 160px; }
+        .touch-btn { background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.2em; font-weight: bold; }
+        #jump-btn { grid-column: 2; grid-row: 1; background-color: rgba(60, 180, 255, 0.4); }
+        #attack-btn { grid-column: 1; grid-row: 1; background-color: rgba(255, 80, 80, 0.4); }
+        #special-btn { grid-column: 2; grid-row: 2; background-color: rgba(120, 255, 120, 0.4); }
+        #shield-btn { grid-column: 1; grid-row: 2; background-color: rgba(255, 180, 60, 0.4); }
+
+    </style>
+</head>
+<body>
+    <div id="title-screen" class="fullscreen-ui">
+        <h1>SMASHDOWN ARENA</h1>
+        <p>Use Arrow Keys to Move/Jump. Z for Attack, X for Shield, C for Special.</p>
+        <button id="start-btn" disabled>LOADING ENGINE...</button>
+    </div>
+    <div id="hud">
+        <div id="p1-info" class="player-info"><div class="name">Player 1</div><div id="p1-percent" class="percent">0%</div><div id="p1-stocks" class="stocks">●●●</div></div>
+        <div id="cpu-info" class="player-info"><div class="name">CPU</div><div id="cpu-percent" class="percent">0%</div><div id="cpu-stocks" class="stocks">●●●</div></div>
+    </div>
+    <div id="game-over-screen" class="fullscreen-ui"><div id="game-over-text"></div><button id="restart-btn">Play Again</button></div>
+    <div id="error-screen" class="fullscreen-ui">
+        <div id="error-title">FATAL ERROR</div>
+        <p>An unexpected error occurred and the game had to stop.</p>
+        <div id="error-message"></div>
+        <button id="reload-btn">Reload Game</button>
+    </div>
+    
+    <div id="touch-controls">
+      <div id="joystick-area"><div id="joystick-handle"></div></div>
+      <div id="action-buttons">
+        <div id="attack-btn" class="touch-btn">A</div>
+        <div id="jump-btn" class="touch-btn">J</div>
+        <div id="shield-btn" class="touch-btn">S</div>
+        <div id="special-btn" class="touch-btn">SP</div>
+      </div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/", "@dimforge/rapier3d-compat": "https://cdn.jsdelivr.net/npm/@dimforge/rapier3d-compat@0.11.2/esm/rapier.js", "tone": "https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.mjs" } }
+    </script>
+    <script type="module" src="game.js"></script>
+</body>
+</html>
+
