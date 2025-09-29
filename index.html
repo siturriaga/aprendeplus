@@ -1,142 +1,106 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-ada-big-text="false" data-ada-contrast="false" data-ada-spacing="false" data-ada-pause="false" data-ada-highlight-links="false">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Aprende+ · Idiomas y Humanidades con personalidad</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Clases flexibles online: Inglés, Historia, Ciencia Política, Filosofía y Capacitación Docente. Accesibles, con pedagogía crítica y aprendizaje colaborativo." />
-  <!-- Open Graph -->
+  <meta name="description" content="Clases flexibles y accesibles de Inglés, Historia, Ciencia Política, Filosofía y Capacitación Docente. Test adaptativo, agenda fácil y pagos seguros." />
   <meta property="og:title" content="Aprende+ · Idiomas y Humanidades con personalidad" />
-  <meta property="og:description" content="Clases flexibles online: Inglés, Historia, Ciencia Política, Filosofía y Capacitación Docente." />
+  <meta property="og:description" content="Cursos online accesibles. Test adaptativo, agenda con disponibilidad real, pagos seguros con Stripe/PayPal." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://{{DOMAIN}}/" />
-  <meta property="og:image" content="https://{{DOMAIN}}/assets/og.webp" />
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://{{DOMAIN}}/" />
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preload" as="image" href="/assets/hero.webp" imagesrcset="/assets/hero.webp 1x" />
-  <link rel="stylesheet" href="/styles.css" />
-  <script>
-    window.APP_CONFIG = {
-      INSTAGRAM_URL: "{{INSTAGRAM_URL}}",
-      STRIPE_CHECKOUT_URL: "{{STRIPE_CHECKOUT_URL}}", // e.g. Stripe Checkout session link
-      PAYPAL_CLIENT_ID: "{{PAYPAL_CLIENT_ID}}",       // optional if you’ll use buttons.js
-      CALENDLY_URL: "https://calendly.com/YOUR_SCHEDULER?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff&text_color=111827&primary_color=14b8a6&locale=es"
-    };
-  </script>
+  <meta property="og:image" content="assets/og.webp" />
+  <link rel="icon" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="theme-pacific">
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+<body>
+  <a href="#main" class="sr-only">Saltar al contenido</a>
 
   <!-- Header -->
-  <header class="header">
-    <div class="container row between center">
-      <a class="brand row center" href="/">
-        <img src="/assets/cap.svg" alt="" class="cap" loading="lazy" />
-        <span class="brand-name">Aprende+</span>
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.5rem;">
+      <a href="index.html" class="flex items-center gap-2" aria-label="Inicio">
+        <svg viewBox="0 0 24 24" class="w-8 h-8 text-teal-700" aria-hidden="true"><path fill="currentColor" d="M12 3L2 8l10 5 8-4v6a2 2 0 0 1-1 1.73L12 22l-7-3.27A2 2 0 0 1 4 17v-5l8 4 10-5-10-5z"/></svg>
+        <span class="text-lg font-extrabold tracking-tight">Aprende+</span>
       </a>
-      <nav class="top-nav">
-        <a href="#cursos">Cursos</a>
-        <a href="#test">Test</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contacto">Contacto</a>
+      <nav class="flex items-center gap-4 sm:gap-6 text-[13px] sm:text-sm">
+        <a href="#cursos" class="hover:underline">Cursos</a>
+        <a href="#test" class="hover:underline">Test</a>
+        <a href="#sobre" class="hover:underline">Sobre</a>
+        <a href="#contacto" class="hover:underline">Contacto</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="gradient"></div>
-    <div class="container grid-2 gap-40" id="main">
-      <div>
-        <h1>Idiomas y Humanidades con <span class="text-gradient">personalidad</span>.</h1>
-        <p class="lead">Clases flexibles, pedagogía crítica, accesibilidad y aprendizaje colaborativo.</p>
-        <div class="cta-group">
-          <a href="#cursos" class="btn btn-primary">Ver cursos</a>
-          <a href="#test" class="btn btn-outline">Hacer test adaptativo</a>
-        </div>
+  <!-- Hero with image -->
+  <section class="hero-cover">
+    <img src="assets/hero-home.webp" alt="Estudiantes aprendiendo online" loading="lazy" width="1600" height="1000">
+    <div id="main" class="container hero-content" style="padding:4rem 1.5rem;">
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
+        Idiomas y Humanidades con <span class="text-transparent bg-clip-text" style="background-image:linear-gradient(90deg,#0f766e,#f43f5e);">personalidad</span>.
+      </h1>
+      <p class="mt-5 text-lg text-slate-700">Clases flexibles, pedagogía crítica, accesibilidad y aprendizaje colaborativo.</p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href="#cursos" class="btn btn-primary">Ver cursos</a>
+        <a href="#test" class="btn btn-ghost">Hacer test adaptativo</a>
       </div>
-      <figure class="hero-card">
-        <img src="/assets/hero.webp" alt="Estudiantes aprendiendo en línea" loading="lazy" />
-      </figure>
     </div>
-    <svg class="divider" viewBox="0 0 1440 120" aria-hidden="true"><path d="M0,64L1440,16L1440,120L0,120Z"></path></svg>
   </section>
 
-  <!-- Cursos -->
-  <section id="cursos" class="section soft">
+  <!-- Cursos (no precios en Home) -->
+  <section id="cursos" class="section" style="background:linear-gradient(150deg,#ecfeff,#fff0);">
     <div class="container">
-      <h2>📚 Cursos</h2>
-      <div class="cards">
-        <!-- No price on Home cards, as requested -->
-        <article class="card">
-          <h3>Inglés</h3>
-          <p class="brief">Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico</p>
-          <p class="tagline">Domina el inglés con seguridad y práctica constante.</p>
-          <p class="special">&#x25A2; Tópico especial: <strong>(—)</strong></p>
-          <div class="card-actions">
-            <a class="link" href="/curso-ingles.html">Ver más →</a>
-            <button class="btn btn-primary" data-open-terms data-course="Inglés">Continuar a pago</button>
-          </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold">📚 Cursos</h2>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="card" style="border-top:4px solid #14b8a6">
+          <h3 class="text-lg font-bold">Inglés</h3>
+          <p class="mt-1 text-sm text-slate-600">Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico</p>
+          <p class="mt-3 text-sm italic">Domina el inglés con seguridad y práctica constante.</p>
+          <div class="mt-4"><a class="text-teal-700 font-medium hover:underline" href="curso-ingles.html">Ver más →</a></div>
         </article>
 
-        <article class="card">
-          <h3>Historia</h3>
-          <p class="brief">Procesos y cambios globales con mirada crítica y comparada</p>
-          <p class="tagline">Explora los grandes giros que transformaron la humanidad.</p>
-          <p class="special">&#x25A2; Tópico especial: <strong>Historia de género y feminismos</strong></p>
-          <div class="card-actions">
-            <a class="link" href="/curso-historia.html">Ver más →</a>
-            <button class="btn btn-primary" data-open-terms data-course="Historia">Continuar a pago</button>
-          </div>
+        <article class="card" style="border-top:4px solid #fb7185">
+          <h3 class="text-lg font-bold">Historia</h3>
+          <p class="mt-1 text-sm text-slate-600">Procesos y cambios globales con mirada crítica y comparada</p>
+          <p class="mt-3 text-sm italic">Explora los grandes giros que transformaron la humanidad.</p>
+          <p class="mt-2 text-sm">&#x25A2; Tópico especial: <span class="font-medium">Historia de género y feminismos</span></p>
+          <div class="mt-4"><a class="text-teal-700 font-medium hover:underline" href="curso-historia.html">Ver más →</a></div>
         </article>
 
-        <article class="card">
-          <h3>Ciencia Política</h3>
-          <p class="brief">Instituciones, poder, ciudadanía y políticas públicas</p>
-          <p class="tagline">Del poder clásico a los dilemas de la democracia actual.</p>
-          <p class="special">&#x25A2; Tópico especial: <strong>Populismo en América Latina</strong></p>
-          <div class="card-actions">
-            <a class="link" href="/curso-cienciapolitica.html">Ver más →</a>
-            <button class="btn btn-primary" data-open-terms data-course="Ciencia Política">Continuar a pago</button>
-          </div>
+        <article class="card" style="border-top:4px solid #38bdf8">
+          <h3 class="text-lg font-bold">Ciencia Política</h3>
+          <p class="mt-1 text-sm text-slate-600">Instituciones, poder, ciudadanía y políticas públicas</p>
+          <p class="mt-3 text-sm italic">Del poder clásico a los dilemas de la democracia actual.</p>
+          <p class="mt-2 text-sm">&#x25A2; Tópico especial: <span class="font-medium">Populismo en América Latina</span></p>
+          <div class="mt-4"><a class="text-teal-700 font-medium hover:underline" href="curso-cienciapolitica.html">Ver más →</a></div>
         </article>
 
-        <article class="card">
-          <h3>Filosofía (clásica, contemporánea y crítica)</h3>
-          <p class="brief">Desde los griegos hasta la filosofía contemporánea y crítica</p>
-          <p class="tagline">De Sócrates a la Teoría Crítica: un viaje reflexivo.</p>
-          <p class="special">&#x25A2; Tópico especial: <strong>Escuela de Frankfurt</strong></p>
-          <div class="card-actions">
-            <a class="link" href="/curso-filosofia.html">Ver más →</a>
-            <button class="btn btn-primary" data-open-terms data-course="Filosofía">Continuar a pago</button>
-          </div>
+        <article class="card" style="border-top:4px solid #fbbf24">
+          <h3 class="text-lg font-bold">Filosofía (clásica, contemporánea y crítica)</h3>
+          <p class="mt-1 text-sm text-slate-600">Desde los griegos hasta la filosofía contemporánea y crítica</p>
+          <p class="mt-3 text-sm italic">De Sócrates a la Teoría Crítica: un viaje reflexivo.</p>
+          <p class="mt-2 text-sm">&#x25A2; Tópico especial: <span class="font-medium">Escuela de Frankfurt</span></p>
+          <div class="mt-4"><a class="text-teal-700 font-medium hover:underline" href="curso-filosofia.html">Ver más →</a></div>
         </article>
 
-        <article class="card">
-          <h3>Capacitación Docente</h3>
-          <p class="brief">Estrategias activas, evaluación auténtica y tecnología educativa</p>
-          <p class="tagline">Actualiza tu práctica docente con innovación y evidencia.</p>
-          <p class="special">&#x25A2; Tópico especial: <strong>Ética e IA en la educación</strong></p>
-          <div class="card-actions">
-            <a class="link" href="/curso-capacitaciondocente.html">Ver más →</a>
-            <button class="btn btn-primary" data-open-terms data-course="Capacitación Docente">Continuar a pago</button>
-          </div>
+        <article class="card" style="border-top:4px solid #10b981">
+          <h3 class="text-lg font-bold">Capacitación Docente</h3>
+          <p class="mt-1 text-sm text-slate-600">Estrategias activas, evaluación auténtica y tecnología educativa</p>
+          <p class="mt-3 text-sm italic">Actualiza tu práctica docente con innovación y evidencia.</p>
+          <p class="mt-2 text-sm">&#x25A2; Tópico especial: <span class="font-medium">Ética e IA en la educación</span></p>
+          <div class="mt-4"><a class="text-teal-700 font-medium hover:underline" href="curso-capacitaciondocente.html">Ver más →</a></div>
         </article>
       </div>
     </div>
-    <svg class="divider" viewBox="0 0 1440 120" aria-hidden="true"><path d="M0,16L1440,64L1440,120L0,120Z"></path></svg>
   </section>
 
   <!-- Testimonios -->
-  <section class="section" id="testimonios" aria-roledescription="carousel" aria-label="Testimonios">
+  <section class="section">
     <div class="container">
-      <h2>📝 Testimonios</h2>
-      <div class="carousel" data-carousel>
-        <blockquote class="quote" id="t-quote" aria-live="polite"></blockquote>
-        <p class="who" id="t-name"></p>
-        <div class="dots" role="tablist" aria-label="Cambiar testimonio" id="t-dots"></div>
+      <h2 class="text-3xl md:text-4xl font-extrabold">📝 Testimonios</h2>
+      <div class="mt-6 card" id="testimonial-wrap">
+        <div class="p-4" id="testimonial-body"></div>
+        <div class="flex items-center gap-2 p-3 justify-center" role="tablist" aria-label="Navegación de testimonios" id="testimonial-dots"></div>
       </div>
     </div>
   </section>
@@ -144,62 +108,28 @@
   <!-- Test Adaptativo -->
   <section id="test" class="section">
     <div class="container">
-      <h2>🧪 Test Adaptativo (20 preguntas)</h2>
-      <p class="subtle">Nombre y email se capturan con Netlify Forms (honeypot). Resultados en pantalla + nivel recomendado.</p>
-
-      <form name="test-adaptativo" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="test-form" id="test-form">
-        <input type="hidden" name="form-name" value="test-adaptativo" />
-        <p class="honeypot"><label>¿No completar? <input name="bot-field" /></label></p>
-
-        <label>Nombre
-          <input name="nombre" id="t-nombre" required />
-        </label>
-        <label>Email
-          <input type="email" name="email" id="t-email" required />
-        </label>
-
-        <button type="button" class="btn btn-primary" id="test-start">Comenzar</button>
-      </form>
-
-      <div class="test-area" id="test-area" hidden>
-        <div class="test-meta" id="test-meta"></div>
-        <h3 id="test-question"></h3>
-        <div class="answers" id="test-answers"></div>
-      </div>
-
-      <div class="test-result" id="test-result" hidden>
-        <h3>Resultado</h3>
-        <p>Puntaje: <strong id="test-score"></strong></p>
-        <p>Nivel recomendado: <strong id="test-level"></strong></p>
-        <form name="resultado-test" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="result-form" id="test-send">
-          <input type="hidden" name="form-name" value="resultado-test"/>
-          <p class="honeypot"><label>¿No completar? <input name="bot-field" /></label></p>
-          <input type="hidden" name="nombre" id="r-nombre" />
-          <input type="hidden" name="email" id="r-email" />
-          <input type="hidden" name="puntaje" id="r-score" />
-          <input type="hidden" name="nivel" id="r-level" />
-          <button class="btn btn-primary">Enviar resultados por correo</button>
-        </form>
-      </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold">🧪 Test Adaptativo (20 preguntas)</h2>
+      <p class="mt-2 text-slate-700">Nombre y email se capturan con Netlify Forms (honeypot). Resultados en pantalla + nivel recomendado.</p>
+      <div id="adaptive-test" class="mt-6"></div>
     </div>
   </section>
 
-  <!-- Agendar -->
+  <!-- Agendar (Calendly) -->
   <section class="section">
     <div class="container">
-      <h2>📆 Agendar</h2>
-      <p>Verás disponibilidad y un formulario. <strong>Recibirás un correo cuando la/el profesora acepte</strong>.</p>
-      <div class="calendly">
-        <iframe title="Calendly" id="calendly" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <h2 class="text-3xl md:text-4xl font-extrabold">📆 Agendar</h2>
+      <p class="mt-3 text-slate-700">Verás disponibilidad y un formulario. <strong>Recibirás un correo cuando la/el profesora acepte</strong>.</p>
+      <div class="mt-5 card" style="padding:0; overflow:hidden">
+        <iframe title="Calendly" src="https://calendly.com/YOUR_SCHEDULER?hide_gdpr_banner=1&hide_event_type_details=1&locale=es&primary_color=14b8a6" loading="lazy" class="w-full" style="height:520px" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
 
   <!-- Sobre -->
-  <section id="sobre" class="section soft">
+  <section id="sobre" class="section" style="background:linear-gradient(150deg,#ecfeff,#fff0);">
     <div class="container">
-      <h2>👥 Sobre & Metodología</h2>
-      <ul class="bullets">
+      <h2 class="text-3xl md:text-4xl font-extrabold">👥 Sobre & Metodología</h2>
+      <ul class="mt-3 list-disc pl-5 text-slate-700 space-y-1">
         <li>Base en EE. UU.; 30+ años de experiencia; 1.500+ estudiantes.</li>
         <li>Pedagogía crítica, clases sincrónicas/asincrónicas, accesibilidad y aprendizaje colaborativo.</li>
         <li>Lenguaje inclusivo: profesoras y profesores.</li>
@@ -210,98 +140,60 @@
   <!-- Contacto -->
   <section id="contacto" class="section">
     <div class="container">
-      <h2>✉️ Contacto</h2>
-      <p class="subtle">No mostramos correos reales; tu mensaje va por Netlify Forms (con honeypot).</p>
-      <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+      <h2 class="text-3xl md:text-4xl font-extrabold">✉️ Contacto</h2>
+      <p class="mt-2 text-slate-700">No mostramos correos reales; tu mensaje va por Netlify Forms (con honeypot).</p>
+      <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="mt-6 grid gap-4" style="max-width:36rem">
         <input type="hidden" name="form-name" value="contacto" />
-        <p class="honeypot"><label>¿No completar? <input name="bot-field"/></label></p>
-        <label>Nombre
-          <input name="nombre" required />
-        </label>
-        <label>Email
-          <input name="email" type="email" required />
-        </label>
-        <label>Mensaje
-          <textarea name="mensaje" rows="5" placeholder="Cuéntanos en qué curso estás pensando…"></textarea>
-        </label>
+        <p class="hidden"><label>¿No completar? <input name="bot-field"/></label></p>
+        <div class="grid gap-2">
+          <label for="c-nombre">Nombre</label>
+          <input id="c-nombre" name="nombre" required placeholder="Tu nombre" />
+        </div>
+        <div class="grid gap-2">
+          <label for="c-email">Email</label>
+          <input id="c-email" name="email" type="email" required placeholder="tucorreo@ejemplo.com" />
+        </div>
+        <div class="grid gap-2">
+          <label for="c-msg">Mensaje</label>
+          <textarea id="c-msg" name="mensaje" rows="5" placeholder="Cuéntanos en qué curso estás pensando…"></textarea>
+        </div>
         <button class="btn btn-primary">Enviar</button>
       </form>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container row between center wrap">
-      <p>© Aprende+. Todos los derechos reservados.</p>
-
-      <a class="btn btn-ig" id="ig-btn" target="_blank" rel="noopener">
-        <img src="/assets/instagram.svg" alt="" class="ig" loading="lazy" />
+  <!-- Footer (Instagram only here) -->
+  <footer class="section" style="border-top:1px solid #e2e8f0">
+    <div class="container footer">
+      <p class="text-sm text-slate-600">© Aprende+. Todos los derechos reservados.</p>
+      <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="btn">
+        <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm5.75-1.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"/></svg>
         Visítanos en Instagram
       </a>
-
-      <div class="payments row center">
-        <img src="/assets/stripe.svg" alt="Stripe" loading="lazy" />
-        <img src="/assets/paypal.svg" alt="PayPal" loading="lazy" />
-        <img src="/assets/visa.svg" alt="Visa" loading="lazy" />
-        <img src="/assets/mastercard.svg" alt="Mastercard" loading="lazy" />
+      <div class="flex items-center gap-3">
+        <div class="pay-badge" style="background:#635BFF;color:white">Stripe</div>
+        <div class="pay-badge" style="background:#003087;color:white">PayPal</div>
+        <div class="pay-badge" style="background:#1A1F71;color:white">VISA</div>
+        <div class="pay-badge" style="background:#0F172A;color:white">Mastercard</div>
       </div>
     </div>
   </footer>
 
-  <!-- ADA Floating Button + Panel -->
-  <button class="ada-btn" id="ada-btn" aria-controls="ada-panel" aria-expanded="false" aria-label="Accesibilidad">
-    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 3a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/><path fill="currentColor" d="M3 10h18"/><path fill="currentColor" d="M6 10l2 10"/><path fill="currentColor" d="M18 10l-2 10"/><path fill="currentColor" d="M8 18h8"/></svg>
+  <!-- ADA floating -->
+  <button id="ada-button" aria-label="Accesibilidad" aria-expanded="false" aria-controls="ada-panel" title="Accesibilidad"
+          class="fixed bottom-4 right-4 z-50 shadow-lg rounded-full p-3 text-white"
+          style="background:linear-gradient(90deg,#0f766e,#0284c7)">
+    <span class="sr-only">Accesibilidad</span>
+    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/><path d="M3 10h18"/><path d="M6 10l2 10"/><path d="M18 10l-2 10"/><path d="M8 18h8"/></svg>
   </button>
-
-  <div class="ada-panel" id="ada-panel" role="dialog" aria-modal="false" aria-label="Preferencias de accesibilidad" hidden>
-    <div class="ada-head">Accesibilidad</div>
-    <div class="ada-body">
-      <label class="row between center">Contraste alto <input type="checkbox" id="ada-contrast"></label>
-      <label class="row between center">Zoom tipográfico <input type="checkbox" id="ada-text"></label>
-      <label class="row between center">Espaciado extra <input type="checkbox" id="ada-spacing"></label>
-      <label class="row between center">Pausar animaciones <input type="checkbox" id="ada-pause"></label>
-      <label class="row between center">Resaltar enlaces <input type="checkbox" id="ada-links"></label>
-      <div class="row end gap-8">
-        <button class="btn btn-outline" id="ada-reset">Restablecer</button>
-        <button class="btn btn-primary" id="ada-done">Hecho</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Terms Modal (before payment) -->
-  <dialog id="terms-modal" aria-labelledby="terms-title">
-    <form method="dialog" class="terms">
-      <header class="row between start gap-16">
-        <div>
-          <p class="tiny subtle">Curso seleccionado</p>
-          <h3 id="terms-title">Curso</h3>
-        </div>
-        <button class="btn btn-ghost" value="cancel" aria-label="Cerrar">✕</button>
-      </header>
-
-      <p class="subtle">Antes de pagar, por favor revisa y acepta nuestras reglas, pagos y políticas.</p>
-      <ul class="terms-list" id="terms-list"></ul>
-
-      <input type="hidden" id="terms-course" />
-      <label class="tiny">Nombre
-        <input id="terms-name" required />
-      </label>
-      <label class="tiny">Email
-        <input id="terms-email" type="email" required />
-      </label>
-      <label class="row start gap-8 tiny">
-        <input type="checkbox" id="terms-accept" required />
-        He leído y acepto las reglas, políticas de pago y cancelaciones (mínimo 48 horas de anticipación).
-      </label>
-
-      <div class="row gap-12 end">
-        <button class="btn btn-outline" value="cancel">Cancelar</button>
-        <button class="btn btn-primary" value="default" id="terms-continue" disabled>Aceptar y continuar</button>
-      </div>
-      <p class="xxs subtle">Al continuar, pasarás al proveedor de pago (Stripe o PayPal) para completar la compra.</p>
-    </form>
-  </dialog>
-
-  <script src="/script.js" defer></script>
-</body>
-</html>
+  <div id="ada-panel" class="hidden fixed bottom-20 right-4 z-50 w-[320px] max-w-[90vw] rounded-2xl bg-white border shadow-xl overflow-hidden">
+    <div class="px-4 py-3 text-white" style="background:linear-gradient(90deg,#0f766e,#0284c7)"><strong>Accesibilidad</strong></div>
+    <div class="p-4 grid gap-3 text-sm">
+      <label class="flex items-center justify-between gap-3 py-1"><span>Contraste alto</span><input id="ada-contrast" type="checkbox" class="w-5 h-5" /></label>
+      <label class="flex items-center justify-between gap-3 py-1"><span>Zoom tipográfico</span><input id="ada-text" type="checkbox" class="w-5 h-5" /></label>
+      <label class="flex items-center justify-between gap-3 py-1"><span>Espaciado extra</span><input id="ada-spacing" type="checkbox" class="w-5 h-5" /></label>
+      <label class="flex items-center justify-between gap-3 py-1"><span>Pausar animaciones</span><input id="ada-pause" type="checkbox" class="w-5 h-5" /></label>
+      <label class="flex items-center justify-between gap-3 py-1"><span>Resaltar enlaces</span><input id="ada-links" type="checkbox" class="w-5 h-5" /></label>
+      <div class="flex justify-end gap-2 pt-1">
+        <button id="ada-reset" class="px-3 py-2 text-xs rounded-lg border">Restablecer</button>
+        <button id="ada-close" class="px-3 py-2 text-xs rounded-lg text-white" style="background:linear-gradient(90deg,#0f766e
