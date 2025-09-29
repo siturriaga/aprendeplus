@@ -1,0 +1,25 @@
+Assets for Aprende+
+
+favicon.svg  sha256:3ee6ee88abde
+hero-capacitaciondocente.webp  sha256:1a126ed4159c
+hero-cienciapolitica.webp  sha256:dcf1ee843301
+hero-filosofia.webp  sha256:6539d7053b85
+hero-historia.webp  sha256:17603137718d
+hero-home.webp  sha256:a7ee5ce7f6e5
+hero-ingles.webp  sha256:ec786082b5d2
+og.webp  sha256:2575b7ccbade
+avatars/avatar-1.webp  sha256:29b7894a0208
+avatars/avatar-10.webp  sha256:6b4a8adf3096
+avatars/avatar-11.webp  sha256:a2ec1c6b97fe
+avatars/avatar-12.webp  sha256:9ad17a7e27ec
+avatars/avatar-13.webp  sha256:484531624230
+avatars/avatar-14.webp  sha256:6a66adb14ae2
+avatars/avatar-15.webp  sha256:428ace4bfecf
+avatars/avatar-2.webp  sha256:066cd1ebf2ac
+avatars/avatar-3.webp  sha256:27ced1275e12
+avatars/avatar-4.webp  sha256:0ec733d7d145
+avatars/avatar-5.webp  sha256:37bbcf8689f9
+avatars/avatar-6.webp  sha256:7fb035cbac60
+avatars/avatar-7.webp  sha256:bff2b062b94f
+avatars/avatar-8.webp  sha256:38926640c835
+avatars/avatar-9.webp  sha256:ff1d78938ad3
