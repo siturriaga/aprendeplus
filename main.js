@@ -136,7 +136,7 @@ const POOL = [
   {id:17,d:5,c:'vocab',p:'"Salient" means…',x:['oculto','destacado','trivial','erróneo'],a:1},
   {id:18,d:2,c:'comp',p:'"Rarely do we see" is…',x:['enfático','condicional','imperativo','pasivo'],a:0},
   {id:19,d:2,c:'gram',p:'Preposition: interested ___ science',x:['on','in','at','for'],a:1},
-  {id:20,d:3,c:'audio',p:'Audio (opcional): "The project deadline was moved forward" means…',x:['se adelantó','se retrasó','se canceló','se duplicó'],a:0,t:'El plazo se adelantó; ahora es antes.'},
+  {id:20,d:3,c:'audio',p:'"The project deadline was moved forward" means…',x:['se adelantó','se retrasó','se canceló','se duplicó'],a:0,t:'El plazo se adelantó; ahora es antes.'},
 ];
 
 const capForm = $('#test-capture');
@@ -150,7 +150,7 @@ const qPrompt = $('#q-prompt'); const qChoices = $('#q-choices'); const qAudio =
 const rScore = $('#r-score'); const rLevel = $('#r-level');
 const btnSend = $('#btn-send');
 
-let started=false, done=false, n=0, score=0, level=3, current=null, usedIds=new Set();
+let done=false, n=0, score=0, level=3, current=null, usedIds=new Set();
 
 function nextQuestion(target){
   const pool = POOL.filter(q=> q.d===target && !usedIds.has(q.id));
@@ -159,7 +159,7 @@ function nextQuestion(target){
   qCount.textContent = `${n+1}/20`;
   qDiff.textContent = `Dificultad ${pick.d}`;
   qPrompt.textContent = pick.p;
-  // audio/transcript
+
   if (pick.c==='audio'){
     qAudio.innerHTML = `<p class="hint">(Audio opcional) Transcripción: ${pick.t||''}</p>`;
     qAudio.classList.remove('hidden');
@@ -198,7 +198,7 @@ btnStart?.addEventListener('click', ()=>{
   const nombre = $('#cap-nombre').value.trim();
   const email = $('#cap-email').value.trim();
   if(!nombre || !email){ alert('Por favor completa nombre y email.'); return; }
-  started=true; sIntro.classList.add('hidden'); sQ.classList.remove('hidden');
+  sIntro.classList.add('hidden'); sQ.classList.remove('hidden');
   nextQuestion(level);
 });
 
@@ -215,5 +215,3 @@ btnSend?.addEventListener('click', ()=>{
     <input type="hidden" name="nivel" value="${recommended()}">`;
   document.body.appendChild(f); f.submit();
 });
-
-// ---------- Done ----------
