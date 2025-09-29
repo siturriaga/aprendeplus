@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://{{DOMAIN}}/</loc></url>
+  <url><loc>https://{{DOMAIN}}/curso-ingles.html</loc></url>
+  <url><loc>https://{{DOMAIN}}/curso-historia.html</loc></url>
+  <url><loc>https://{{DOMAIN}}/curso-cienciapolitica.html</loc></url>
+  <url><loc>https://{{DOMAIN}}/curso-filosofia.html</loc></url>
+  <url><loc>https://{{DOMAIN}}/curso-capacitaciondocente.html</loc></url>
+</urlset>
