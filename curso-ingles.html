@@ -2,171 +2,163 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <title>Inglés — Aprende+</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Inglés: desde nivel básico hasta avanzado, enfoque comunicativo y académico. Clases online flexibles." />
-  <meta property="og:title" content="Inglés — Aprende+" />
-  <meta property="og:description" content="Clases online flexibles, enfoque comunicativo y académico. Stripe/PayPal. Calendly para agendar." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inglés · Aprende+</title>
+  <meta name="description" content="Inglés: básico a avanzado con enfoque comunicativo y académico. Clases online flexibles (sincrónicas y asincrónicas)." />
+  <meta property="og:title" content="Inglés · Aprende+" />
+  <meta property="og:description" content="Clases de inglés con metodología comunicativa y académica. Reserva por Calendly y paga con Stripe/PayPal." />
   <meta property="og:image" content="assets/og.webp" />
   <link rel="icon" href="assets/favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="theme-pacific">
-  <a href="#main" class="skip-link">Saltar al contenido</a>
-
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="/" aria-label="Inicio">
-        <svg class="cap" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3L2 8l10 5 8-4v6a2 2 0 0 1-1 1.73L12 22l-7-3.27A2 2 0 0 1 4 17v-5l8 4 10-5-10-5z"/></svg>
-        <span class="brand-text">Aprende+</span>
+<body>
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.5rem;">
+      <a href="/" class="flex items-center gap-2" aria-label="Inicio">
+        <svg viewBox="0 0 24 24" class="w-8 h-8 text-teal-700"><path fill="currentColor" d="M12 3L2 8l10 5 8-4v6a2 2 0 0 1-1 1.73L12 22l-7-3.27A2 2 0 0 1 4 17v-5l8 4 10-5-10-5z"/></svg>
+        <span class="text-lg font-extrabold tracking-tight">Aprende+</span>
       </a>
-      <nav class="top-nav">
-        <a href="index.html#cursos">Cursos</a>
-        <a href="index.html#test">Test</a>
-        <a href="index.html#sobre">Sobre</a>
-        <a href="index.html#contacto">Contacto</a>
+      <nav class="flex items-center gap-4 sm:gap-6 text-[13px] sm:text-sm">
+        <a href="/#cursos" class="hover:underline">Cursos</a>
+        <a href="/#test" class="hover:underline">Test</a>
+        <a href="/#sobre" class="hover:underline">Sobre</a>
+        <a href="/#contacto" class="hover:underline">Contacto</a>
       </nav>
     </div>
   </header>
 
-  <main id="main">
-    <section class="hero hero--inner">
-      <div class="container hero-grid">
-        <div>
-          <h1>Inglés</h1>
-          <p class="lead">Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico.</p>
-          <ul class="bullets">
-            <li>Modalidad online y flexible: clases sincrónicas y/o asincrónicas.</li>
-            <li>Metodología: práctica guiada, feedback inmediato, recursos accesibles.</li>
-            <li>Accesibilidad: subtítulos/transcripción, pausas, contraste, tamaño de letra.</li>
-          </ul>
-        </div>
-        <img src="assets/ingles.webp" alt="Clases de inglés online" width="640" height="420" loading="lazy" class="hero-img" />
+  <!-- Hero -->
+  <section class="hero-cover">
+    <img src="assets/hero-ingles.webp" alt="Inglés – aprendizaje comunicativo y académico" loading="lazy" width="1600" height="1000">
+    <div class="container hero-content" style="padding:3rem 1.5rem;">
+      <h1 class="text-3xl md:text-4xl font-extrabold">Inglés</h1>
+      <p class="mt-2 text-slate-700">Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico. Flexibles, 100% online, con actividades sincrónicas y asincrónicas.</p>
+    </div>
+  </section>
+
+  <main class="container" style="padding:3rem 1.5rem; display:grid; gap:2.5rem;">
+    <!-- Precios & pago -->
+    <section class="card">
+      <h2 class="text-2xl font-bold">Precios & pago</h2>
+      <p class="mt-2">Tarifa base: <strong>$250.000 CLP / mes</strong> (mínimo 2 clases semanales).</p>
+      <p class="mt-1">Recargo para tópicos especiales: <strong>$10.000–$20.000 CLP por clase</strong>.</p>
+      <button id="open-terms" class="btn btn-primary" style="margin-top:.75rem">Continuar a pago</button>
+      <div class="mt-3 flex items-center gap-3">
+        <span class="pay-badge" style="background:#635BFF;color:#fff">Stripe</span>
+        <span class="pay-badge" style="background:#003087;color:#fff">PayPal</span>
+        <span class="pay-badge" style="background:#1A1F71;color:#fff">VISA</span>
+        <span class="pay-badge" style="background:#0F172A;color:#fff">Mastercard</span>
       </div>
+      <p class="mt-2 text-xs text-slate-500">Pago seguro. Verás el detalle antes de confirmar.</p>
     </section>
 
-    <section class="section">
-      <div class="container price-box">
-        <div>
-          <h2 class="tight">💰 Precio</h2>
-          <p class="muted">Tarifa base: <strong>$250.000 CLP / mes</strong> (mínimo 2 clases semanales).</p>
-          <p class="tiny muted">Recargo por tópicos especiales: <strong>$10.000–$20.000 CLP</strong> por clase.</p>
-        </div>
-        <div class="pay-actions">
-          <a class="btn btn-primary" href="YOUR_STRIPE_CHECKOUT_URL" target="_blank" rel="noopener">Pagar con Stripe</a>
-          <a class="btn btn-outline" href="YOUR_PAYPAL_LINK" target="_blank" rel="noopener">Pagar con PayPal</a>
-        </div>
-      </div>
+    <!-- Tópicos especiales -->
+    <section class="card">
+      <h2 class="text-2xl font-bold">Tópicos especiales</h2>
+      <ul class="mt-3 list-disc pl-5 space-y-1">
+        <li>Inglés académico (lectura crítica y escritura de ensayos).</li>
+        <li>Comunicación oral profesional (presentaciones, entrevistas).</li>
+        <li>Gramática aplicada a contextos reales.</li>
+        <li>Comprensión auditiva (con transcripciones accesibles).</li>
+      </ul>
+      <p class="mt-2 text-sm text-slate-600">Recargo por tópico especial: $10.000–$20.000 CLP por clase.</p>
     </section>
 
-    <section class="section">
-      <div class="container split">
-        <div>
-          <h2>Metodología</h2>
-          <p>Enfoque comunicativo con base académica: práctica constante, producción oral y escrita, tareas auténticas y retroalimentación puntual.</p>
-          <p>Se promueve el uso de recursos multimediales y lecturas graduadas.</p>
-        </div>
-        <div>
-          <h2>Recursos</h2>
-          <ul class="bullets">
-            <li>Lecturas graduadas (.webp / PDF)</li>
-            <li>Glosarios temáticos</li>
-            <li>Plantillas de escritura y rúbricas</li>
-            <li>Audios con transcripción</li>
-          </ul>
-        </div>
-      </div>
+    <!-- Metodología -->
+    <section class="card">
+      <h2 class="text-2xl font-bold">Metodología</h2>
+      <p class="mt-2">Enfoque comunicativo y académico; práctica constante con feedback; integración de lecturas y proyectos. Clases sincrónicas y actividades asincrónicas para avanzar a tu ritmo. Ajustes de accesibilidad a solicitud.</p>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <h2>📆 Agendar</h2>
-        <p class="muted">Verás disponibilidad y un formulario. Recibirás un correo cuando la/el profesora acepte.</p>
-        <div class="calendly-wrap">
-          <iframe title="Calendly Inglés" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                  src="https://YOUR_CALENDLY_PATH?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff&text_color=111827&primary_color=14b8a6&locale=es"></iframe>
-        </div>
-      </div>
+    <!-- Recursos -->
+    <section class="card">
+      <h2 class="text-2xl font-bold">Recursos</h2>
+      <ul class="mt-3 list-disc pl-5 space-y-1">
+        <li>Glosarios por nivel (A1–C1) y listas temáticas.</li>
+        <li>Lecturas graduadas (PDF/Drive) y podcasts con transcripción.</li>
+        <li>Rúbricas de evaluación y modelos de ensayos.</li>
+      </ul>
+      <p class="mt-2 text-sm">¿Dudas? <a class="text-teal-700 hover:underline" href="/#contacto">Escríbenos por el formulario de contacto</a>.</p>
+    </section>
+
+    <!-- Calendly -->
+    <section class="card" style="padding:0; overflow:hidden">
+      <h2 class="sr-only">Agendar</h2>
+      <iframe title="Calendly Inglés" src="https://calendly.com/YOUR_SCHEDULER?hide_gdpr_banner=1&hide_event_type_details=1&locale=es&primary_color=14b8a6" loading="lazy" class="w-full" style="height:520px" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <p class="px-5 pb-5 pt-3 text-sm text-slate-600">Solo verás disponibilidad y el formulario de reserva; recibirás un correo cuando la/el profesora acepte.</p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-row">
-      <p class="muted">© Aprende+. Todos los derechos reservados.</p>
-      <a class="btn btn-outline ig" href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener">
-        <svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zm5.75-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"/></svg>
+  <!-- Footer -->
+  <footer class="section" style="border-top:1px solid #e2e8f0">
+    <div class="container footer">
+      <p class="text-sm text-slate-600">© Aprende+. Todos los derechos reservados.</p>
+      <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="btn">
+        <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm5.75-1.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"/></svg>
         Visítanos en Instagram
       </a>
-      <div class="payments">
-        <span class="pay stripe">Stripe</span>
-        <span class="pay paypal">PayPal</span>
-        <span class="pay visa">VISA</span>
-        <span class="pay mc">Mastercard</span>
+      <div class="flex items-center gap-3">
+        <div class="pay-badge" style="background:#635BFF;color:white">Stripe</div>
+        <div class="pay-badge" style="background:#003087;color:white">PayPal</div>
+        <div class="pay-badge" style="background:#1A1F71;color:white">VISA</div>
+        <div class="pay-badge" style="background:#0F172A;color:white">Mastercard</div>
       </div>
     </div>
   </footer>
 
-  <button id="ada-btn" class="ada-btn" aria-label="Accesibilidad" aria-expanded="false" aria-controls="ada-panel" title="Accesibilidad">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z M3 10h18 M6 10l2 10 M18 10l-2 10 M8 18h8"/></svg>
-  </button>
-  <div id="ada-panel" class="ada-panel" role="dialog" aria-modal="false" aria-label="Preferencias de accesibilidad" hidden>
-    <div class="ada-head">Accesibilidad</div>
-    <div class="ada-body">
-      <label class="switch"><span>Contraste alto</span><input type="checkbox" id="ada-contrast" /></label>
-      <label class="switch"><span>Zoom tipográfico</span><input type="checkbox" id="ada-bigtext" /></label>
-      <label class="switch"><span>Espaciado extra</span><input type="checkbox" id="ada-spacing" /></label>
-      <label class="switch"><span>Pausar animaciones</span><input type="checkbox" id="ada-pause" /></label>
-      <label class="switch"><span>Resaltar enlaces</span><input type="checkbox" id="ada-links" /></label>
-      <div class="ada-actions">
-        <button id="ada-reset" class="btn btn-outline">Restablecer</button>
-        <button id="ada-done" class="btn btn-primary">Hecho</button>
+  <!-- Terms modal -->
+  <div id="terms" class="hidden">
+    <div class="modal-backdrop" data-close-terms></div>
+    <div class="modal-card">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;border-bottom:1px solid #e2e8f0;padding:1rem 1.25rem">
+        <h3 class="text-xl font-bold">Términos antes de pagar</h3>
+        <button class="p-2 rounded-lg hover:bg-slate-100" data-close-terms aria-label="Cerrar">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
       </div>
-    </div>
-  </div>
-
-  <!-- Modal Términos (reutilizado) -->
-  <div id="terms-modal" class="modal" hidden>
-    <div class="modal__backdrop" data-close></div>
-    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="terms-title">
-      <div class="modal__head">
-        <div>
-          <p class="tiny muted">Curso seleccionado</p>
-          <h3 id="terms-title" class="modal__title">Inglés</h3>
-        </div>
-        <button class="modal__close" aria-label="Cerrar" data-close>×</button>
-      </div>
-      <div class="modal__body">
-        <p class="muted">Antes de pagar, por favor revisa y acepta nuestras reglas, pagos y políticas.</p>
-        <ul class="terms">
-          <li>Modalidad: clases online, flexibles y personalizadas (sincrónicas o asincrónicas).</li>
-          <li>Pagos: tarjetas (Stripe) y PayPal. El cobro mensual estándar es de $250.000 CLP por curso (mínimo 2 clases semanales).</li>
-          <li>Recargo por tópicos especiales: $10.000–$20.000 CLP por clase.</li>
-          <li>Cancelaciones: deben realizarse con al menos 48 horas de anticipación para reagendar sin costo.</li>
-          <li>Reprogramaciones: sujetas a disponibilidad docente.</li>
-          <li>Puntualidad y asistencia: llegar a tiempo; los atrasos no extienden la clase.</li>
-          <li>Materiales y propiedad intelectual: uso personal; prohibida la distribución sin autorización.</li>
-          <li>Accesibilidad: ofrecemos ajustes razonables.</li>
-          <li>Datos personales: se usan solo para gestión académica y facturación.</li>
-          <li>Conducta: respetuosa y libre de discriminación.</li>
-          <li>Devoluciones: dentro de los primeros 7 días del primer mes (prorrateado; menos comisiones).</li>
+      <div style="padding:1rem 1.25rem; max-height:60vh; overflow:auto">
+        <ul class="space-y-2 text-sm text-slate-700 list-disc pl-5">
+          <li>Clases online, flexibles (sincrónicas/asincrónicas).</li>
+          <li>Tarifa base: $250.000 CLP/mes (mín. 2 clases/semana).</li>
+          <li>Recargo por tópicos especiales: $10.000–$20.000 CLP/clase.</li>
+          <li>Cancelaciones con al menos 48 horas.</li>
+          <li>Pagos seguros: Stripe / PayPal.</li>
         </ul>
-        <form name="terminos-pago" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
-          <input type="hidden" name="form-name" value="terminos-pago" />
-          <p class="honeypot"><label>¿No completar? <input name="bot-field"/></label></p>
-          <input type="hidden" name="curso" value="Inglés" />
-          <label>Nombre<input name="nombre" required /></label>
-          <label>Email<input name="email" type="email" required /></label>
-          <label class="agree"><input id="terms-acepto" type="checkbox" required /> He leído y acepto las reglas…</label>
-          <div class="inline">
-            <button id="terms-submit" class="btn btn-primary" disabled>Aceptar y continuar</button>
-            <button class="btn btn-outline" data-close type="button">Cancelar</button>
-          </div>
-          <p class="tiny muted">Al continuar, pasarás a Stripe o PayPal para completar la compra.</p>
-        </form>
+        <div class="mt-3">
+          <label class="inline-flex items-center gap-2 text-sm"><input type="checkbox" id="terms-ok" class="w-5 h-5" /> Acepto los términos</label>
+        </div>
+        <div class="mt-3 flex gap-3">
+          <a id="go-stripe" href="{{STRIPE_CHECKOUT_URL}}" class="pay-btn" style="background:#635BFF;color:#fff;pointer-events:none;opacity:.5">Pagar con Stripe</a>
+          <a id="go-paypal" href="{{PAYPAL_CHECKOUT_URL}}" class="pay-btn" style="background:#003087;color:#fff;pointer-events:none;opacity:.5">Pagar con PayPal</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <script src="main.js" defer></script>
+  <!-- ADA floating -->
+  <button id="ada-button" aria-label="Accesibilidad" aria-expanded="false" aria-controls="ada-panel" title="Accesibilidad"
+          class="fixed bottom-4 right-4 z-50 shadow-lg rounded-full p-3 text-white"
+          style="background:linear-gradient(90deg,#0f766e,#0284c7)">
+    <span class="sr-only">Accesibilidad</span>
+    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/><path d="M3 10h18"/><path d="M6 10l2 10"/><path d="M18 10l-2 10"/><path d="M8 18h8"/></svg>
+  </button>
+  <div id="ada-panel" class="hidden fixed bottom-20 right-4 z-50 w-[320px] max-w-[90vw] rounded-2xl bg-white border shadow-xl overflow-hidden">
+    <div class="px-4 py-3 text-white" style="background:linear-gradient(90deg,#0f766e,#0284c7)"><strong>Accesibilidad</strong></div>
+    <div class="p-4 grid gap-3 text-sm">
+      <label class="flex items-center justify-between gap-3 py-1"><span>Contraste alto</span><input id="ada-contrast" type="checkbox" class="w-5 h-5" /></label>
+      <label class="flex items-center justify-between gap-3 py-1"><span>Zoom tipográfico</span><input id="ada-text" type="checkbox" class="w-5 h-5" /></label>
+      <label class="flex items-center justify-between gap-3 py-1"><span>Espaciado extra</span><input id="ada-spacing" type="checkbox" class="w-5 h-5" /></label>
+      <label class="flex items-center justify-between gap-3 py-1"><span>Pausar animaciones</span><input id="ada-pause" type="checkbox" class="w-5 h-5" /></label>
+      <label class="flex items-center justify-between gap-3 py-1"><span>Resaltar enlaces</span><input id="ada-links" type="checkbox" class="w-5 h-5" /></label>
+      <div class="flex justify-end gap-2 pt-1">
+        <button id="ada-reset" class="px-3 py-2 text-xs rounded-lg border">Restablecer</button>
+        <button id="ada-close" class="px-3 py-2 text-xs rounded-lg text-white" style="background:linear-gradient(90deg,#0f766e,#0284c7)">Hecho</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
