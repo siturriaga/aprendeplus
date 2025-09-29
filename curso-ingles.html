@@ -11,8 +11,20 @@
   <meta property="og:image" content="assets/og.webp" />
   <link rel="icon" href="assets/favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Per-page theme overrides */
+    body{ --g1:#0ea5e9; --g2:#14b8a6; --g3:#f59e0b; }
+    .hero-mesh .mesh{
+      background:
+        radial-gradient(1100px 600px at -10% -10%, rgba(14,165,233,.35), transparent 60%),
+        radial-gradient(900px 500px at 110% -10%, rgba(20,184,166,.32), transparent 60%),
+        radial-gradient(1000px 700px at 50% 120%, rgba(245,158,11,.25), transparent 60%),
+        linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
+      animation: hue 12s linear infinite;
+    }
+  </style>
 </head>
-<body>
+<body class="theme-ingles">
   <a class="skip" href="#main">Saltar al contenido</a>
 
   <header class="site-header">
@@ -22,7 +34,7 @@
         <span class="brand-text">Aprende+</span>
       </a>
       <nav class="main-nav" aria-label="Principal">
-        <a href="index.html#cursos">Cursos</a>
+        <a href="cursos.html" class="is-active">Cursos</a>
         <a href="index.html#test">Test</a>
         <a href="index.html#sobre">Sobre</a>
         <a href="index.html#contacto">Contacto</a>
@@ -30,67 +42,62 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="container hero-grid" id="main">
-      <div class="hero-copy">
-        <h1>Inglés</h1>
-        <div class="accent-bar accent-ingles"></div>
-        <p class="mt">Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico.</p>
-        <p class="mt italic">Domina el inglés con seguridad y práctica constante.</p>
-        <div class="hero-cta">
-          <button class="btn btn-primary terms-trigger" data-course="Inglés">Continuar a pago</button>
-          <a class="btn btn-ghost" href="#calendly">Agendar clase</a>
-        </div>
-      </div>
-      <div class="hero-art">
-        <picture>
-          <source srcset="assets/hero-ingles.webp" type="image/webp">
-          <img src="assets/hero-ingles.jpg" alt="Inglés — Aprende+" loading="lazy" width="1600" height="1000">
-        </picture>
+  <!-- Hero -->
+  <section class="hero hero-mesh" id="main" aria-label="Inglés">
+    <div class="mesh">
+      <span class="orb orb-a"></span><span class="orb orb-b"></span><span class="orb orb-c"></span>
+    </div>
+    <div class="container hero-mesh-inner">
+      <h1>Inglés</h1>
+      <p>Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico.</p>
+      <p class="italic">Domina el inglés con seguridad y práctica constante.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary terms-trigger" data-course="Inglés">Continuar a pago</button>
+        <a class="btn btn-ghost" href="#calendly">Agendar</a>
       </div>
     </div>
   </section>
 
+  <!-- Metodología -->
   <section class="section section-soft">
     <div class="container">
       <h2 class="sec-title">Metodología específica</h2>
       <ul class="bullets">
         <li>Enfoque comunicativo + práctica guiada (role-play, feedback contextual).</li>
-        <li>Producción escrita: ensayos, correos profesionales, presentaciones.</li>
-        <li>Pronunciación y entonación con ejercicios de escucha con transcripción.</li>
-        <li>Clases <strong>sincrónicas</strong> y actividades <strong>asincrónicas</strong> según objetivos.</li>
-        <li>Accesibilidad: materiales legibles, transcripciones y pausas opcionales.</li>
+        <li>Producción escrita: correos profesionales, informes y presentaciones.</li>
+        <li>Pronunciación y escucha con transcripción accesible.</li>
+        <li>Clases <strong>sincrónicas</strong> y tareas <strong>asincrónicas</strong> según objetivos.</li>
+        <li>Accesibilidad: materiales legibles, contrastes, pausas opcionales.</li>
       </ul>
     </div>
   </section>
 
+  <!-- Recursos -->
   <section class="section">
     <div class="container">
       <h2 class="sec-title">Recursos</h2>
       <div class="cards">
-        <article class="card"><h3>Inglés para negocios</h3><p>Plantillas de correos, vocabulario de reuniones, “small talk”.</p></article>
-        <article class="card"><h3>Inglés académico</h3><p>Lectura crítica, estructuras de ensayo, citas y cohesión.</p></article>
-        <article class="card"><h3>Pronunciación</h3><p>Guías de fonética básica + práctica con pares mínimos.</p></article>
-        <article class="card"><h3>Preparación laboral</h3><p>CV/LinkedIn en inglés y simulación de entrevistas.</p></article>
+        <article class="card pro"><span class="ring"></span><div class="content"><h3>Inglés profesional</h3><p>Reuniones, correos, presentaciones y vocabulario clave.</p></div></article>
+        <article class="card pro"><span class="ring"></span><div class="content"><h3>Inglés académico</h3><p>Lectura crítica, citas y cohesión de ideas.</p></div></article>
+        <article class="card pro"><span class="ring"></span><div class="content"><h3>Pronunciación</h3><p>Fonética básica con pares mínimos y ritmo.</p></div></article>
       </div>
     </div>
   </section>
 
-  <!-- Calendly -->
+  <!-- Calendly student-only -->
   <section id="calendly" class="section">
     <div class="container">
       <h2 class="sec-title">📆 Agendar</h2>
-      <p class="sec-sub">Verás solo disponibilidad y un formulario. Te llegará un correo cuando la/el profesora acepte.</p>
+      <p class="sec-sub">Solo verás disponibilidad y formulario. Recibirás correo cuando se acepte tu reserva.</p>
       <div class="card calendly-wrap">
         <iframe title="Calendly"
-          src="https://calendly.com/YOUR_SCHEDULER?hide_gdpr_banner=1&hide_event_type_details=1&locale=es&background_color=ffffff&text_color=111827&primary_color=14b8a6"
+          src="https://calendly.com/YOUR_SCHEDULER?hide_gdpr_banner=1&hide_event_type_details=1&locale=es&background_color=ffffff&text_color=111827&primary_color=0ea5e9"
           loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
 
-  <!-- Pago (revelado tras aceptar términos) -->
+  <!-- Pago (hidden until accept terms) -->
   <section id="pago" class="section" hidden>
     <div class="container">
       <h2 class="sec-title">💳 Pago</h2>
@@ -104,49 +111,37 @@
         <div style="flex-basis:100%"></div>
         <a class="btn btn-primary" href="#" aria-disabled="true">Pagar con Stripe</a>
         <a class="btn btn-outline" href="#" aria-disabled="true">Pagar con PayPal</a>
-        <span class="hint">Enlaces reales de pago se pueden conectar luego.</span>
+        <span class="hint">Conectaremos los enlaces reales de pago más adelante.</span>
       </div>
     </div>
   </section>
 
-  <!-- Términos (modal) -->
+  <!-- Términos -->
   <div id="terms-modal" class="modal" hidden aria-hidden="true">
     <div class="modal-backdrop" data-close></div>
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="terms-title">
       <div class="modal-head">
         <h3 id="terms-title">Términos antes de pagar</h3>
-        <button id="terms-close" class="btn btn-outline" data-close>&times;</button>
+        <button id="terms-close" class="btn btn-outline" data-close aria-label="Cerrar">&times;</button>
       </div>
       <div class="modal-body">
-        <p id="terms-course-label" class="hint">Curso: <strong id="terms-curso">Inglés</strong></p>
+        <p class="hint">Curso: <strong id="terms-curso">Inglés</strong></p>
         <ul class="bullets">
-          <li>Modalidad: clases <strong>online</strong>, flexibles y personalizadas (sincrónicas o asincrónicas).</li>
-          <li>Pago mensual estándar: <strong>$250.000 CLP</strong> por curso (mínimo 2 clases semanales).</li>
+          <li>Modalidad: clases online, flexibles y personalizadas (sincrónicas o asincrónicas).</li>
+          <li>Pago mensual estándar: <strong>$250.000 CLP</strong> (mínimo 2 clases semanales).</li>
           <li>Recargo por tópicos especiales: <strong>$10.000–$20.000 CLP</strong> por clase.</li>
           <li>Cancelaciones: mínimo <strong>48 horas</strong> de anticipación para reagendar sin costo.</li>
           <li>Reprogramaciones sujetas a disponibilidad docente.</li>
           <li>Accesibilidad: ajustes razonables (transcripción, contrastes, pausas).</li>
           <li>Privacidad: no mostramos correos reales; formularios por Netlify.</li>
         </ul>
-
         <form name="terminos-pago-ingles" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="mt">
           <input type="hidden" name="form-name" value="terminos-pago-ingles" />
           <p class="hp"><label>¿No completar? <input name="bot-field" /></label></p>
-          <label class="field">
-            <span>Nombre</span>
-            <input name="nombre" required />
-          </label>
-          <label class="field">
-            <span>Email</span>
-            <input name="email" type="email" required />
-          </label>
-          <label class="ada-row" style="margin-top:.4rem">
-            <span>He leído y acepto los términos</span>
-            <input id="acepto-terminos" type="checkbox" required>
-          </label>
-          <div class="ada-actions">
-            <button id="terms-accept" type="button" class="btn btn-primary">Aceptar y continuar</button>
-          </div>
+          <label class="field"><span>Nombre</span><input name="nombre" required /></label>
+          <label class="field"><span>Email</span><input name="email" type="email" required /></label>
+          <label class="ada-row" style="margin-top:.4rem"><span>Acepto los términos</span><input id="acepto-terminos" type="checkbox" required></label>
+          <div class="ada-actions"><button id="terms-accept" type="button" class="btn btn-primary">Aceptar y continuar</button></div>
         </form>
       </div>
     </div>
@@ -189,5 +184,27 @@
   </div>
 
   <script src="main.js"></script>
+  <script>
+    // Terms modal logic (per page)
+    (function(){
+      const openBtn = document.querySelector('.terms-trigger');
+      const modal = document.getElementById('terms-modal');
+      const closeBtns = modal.querySelectorAll('[data-close], #terms-close');
+      const acceptBtn = document.getElementById('terms-accept');
+      const accepted = document.getElementById('acepto-terminos');
+      const pago = document.getElementById('pago');
+      const courseName = openBtn?.dataset.course || 'Curso';
+      modal.querySelector('#terms-curso').textContent = courseName;
+
+      openBtn?.addEventListener('click', ()=> { modal.removeAttribute('hidden'); modal.setAttribute('aria-hidden','false'); });
+      closeBtns.forEach(b => b.addEventListener('click', ()=> { modal.setAttribute('hidden',''); modal.setAttribute('aria-hidden','true'); }));
+
+      acceptBtn?.addEventListener('click', ()=>{
+        if(!accepted.checked){ alert('Debes aceptar los términos.'); return; }
+        modal.setAttribute('hidden',''); modal.setAttribute('aria-hidden','true');
+        pago.removeAttribute('hidden'); pago.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    })();
+  </script>
 </body>
 </html>
