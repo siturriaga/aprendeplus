@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cursos · Aprende+</title>
+
+  <meta name="description" content="Explora los cursos de Inglés, Historia, Ciencia Política, Filosofía y Capacitación Docente. Clases online, accesibles y con metodología clara." />
+  <meta property="og:title" content="Cursos · Aprende+" />
+  <meta property="og:description" content="Cursos con personalidad: prueba el test adaptativo, agenda y paga con Stripe/PayPal." />
+  <meta property="og:image" content="assets/og.webp" />
+  <link rel="icon" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-cursos">
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Inicio">
+        <svg class="cap" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3L2 8l10 5 8-4v6a2 2 0 0 1-1 1.73L12 22l-7-3.27A2 2 0 0 1 4 17v-5l8 4 10-5-10-5z"/></svg>
+        <span class="brand-text">Aprende+</span>
+      </a>
+      <nav class="main-nav" aria-label="Principal">
+        <a class="is-active" href="cursos.html">Cursos</a>
+        <a href="index.html#test">Test</a>
+        <a href="index.html#sobre">Sobre</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero: Animated Gradient Mesh -->
+  <section class="hero hero-mesh" id="main" aria-label="Nuestros cursos">
+    <div class="mesh">
+      <!-- soft floating orbs -->
+      <span class="orb orb-a"></span>
+      <span class="orb orb-b"></span>
+      <span class="orb orb-c"></span>
+    </div>
+    <div class="container hero-mesh-inner">
+      <h1>Cursos con <span class="accent">personalidad</span></h1>
+      <p>Elegí tu ruta: prácticas comunicativas, mirada crítica, pensamiento y docencia. Sin fotos de stock: todo diseño, todo enfoque.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="index.html#test">Hacer test adaptativo</a>
+        <a class="btn btn-ghost" href="#calendly">Agendar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters (non-blocking, for aesthetics) -->
+  <section class="section section-tight sticky-filters" aria-label="Filtros">
+    <div class="container">
+      <div class="filters card">
+        <button class="chip is-on" aria-pressed="true" data-filter="all">Todos</button>
+        <button class="chip" data-filter="idiomas">Idiomas</button>
+        <button class="chip" data-filter="humanidades">Humanidades</button>
+        <button class="chip" data-filter="formacion">Formación docente</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses grid -->
+  <section class="section section-soft">
+    <div class="container">
+      <div class="cards courses-grid">
+        <!-- Inglés -->
+        <article class="card pro card-tilt course idiomas" data-tilt data-theme="ingles">
+          <div class="cover">
+            <!-- abstract SVG cover (no photos) -->
+            <svg viewBox="0 0 400 220" class="abstract">
+              <defs>
+                <linearGradient id="gEn" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#0284c7"/><stop offset="1" stop-color="#14b8a6"/>
+                </linearGradient>
+                <radialGradient id="bEn" cx="30%" cy="20%">
+                  <stop offset="0%" stop-color="rgba(255,255,255,.8)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                </radialGradient>
+              </defs>
+              <rect width="400" height="220" fill="url(#gEn)"></rect>
+              <circle cx="70" cy="60" r="110" fill="url(#bEn)"/>
+              <circle cx="330" cy="40" r="80" fill="url(#bEn)"/>
+              <circle cx="210" cy="200" r="120" fill="url(#bEn)"/>
+            </svg>
+            <span class="badge">Inglés</span>
+          </div>
+          <div class="content">
+            <h3>Inglés</h3>
+            <p class="brief">Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico.</p>
+            <p class="tag">Domina el inglés con seguridad y práctica constante.</p>
+            <ul class="topics">
+              <li>Conversación profesional</li><li>Escritura académica</li><li>Presentaciones</li>
+            </ul>
+            <div class="meta">
+              <span class="price">💰 $250.000 CLP / mes</span>
+              <span class="note">(mín. 2 clases/sem)</span>
+              <span class="note">Recargo tópicos especiales: $10.000–$20.000/clase</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="curso-ingles.html">Ver más</a>
+              <a class="btn" href="#calendly">Agendar</a>
+            </div>
+          </div>
+          <span class="ring"></span>
+        </article>
+
+        <!-- Historia -->
+        <article class="card pro card-tilt course humanidades" data-tilt data-theme="historia">
+          <div class="cover">
+            <svg viewBox="0 0 400 220" class="abstract">
+              <defs>
+                <linearGradient id="gHi" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#f43f5e"/><stop offset="1" stop-color="#0284c7"/>
+                </linearGradient>
+                <radialGradient id="bHi" cx="70%" cy="30%">
+                  <stop offset="0%" stop-color="rgba(255,255,255,.8)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                </radialGradient>
+              </defs>
+              <rect width="400" height="220" fill="url(#gHi)"></rect>
+              <ellipse cx="320" cy="40" rx="120" ry="80" fill="url(#bHi)"/>
+              <ellipse cx="90" cy="180" rx="140" ry="70" fill="url(#bHi)"/>
+            </svg>
+            <span class="badge">Historia</span>
+          </div>
+          <div class="content">
+            <h3>Historia</h3>
+            <p class="brief">Procesos y cambios globales con mirada crítica y comparada.</p>
+            <p class="tag">Explora los grandes giros que transformaron la humanidad.</p>
+            <ul class="topics">
+              <li>Género y feminismos</li><li>Revoluciones</li><li>Colonialismos</li>
+            </ul>
+            <div class="meta">
+              <span class="price">💰 $250.000 CLP / mes</span>
+              <span class="note">(mín. 2 clases/sem)</span>
+              <span class="note">Recargo tópicos especiales: $10.000–$20.000/clase</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="curso-historia.html">Ver más</a>
+              <a class="btn" href="#calendly">Agendar</a>
+            </div>
+          </div>
+          <span class="ring"></span>
+        </article>
+
+        <!-- Ciencia Política -->
+        <article class="card pro card-tilt course humanidades" data-tilt data-theme="cienciapolitica">
+          <div class="cover">
+            <svg viewBox="0 0 400 220" class="abstract">
+              <defs>
+                <linearGradient id="gCP" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#0284c7"/><stop offset="1" stop-color="#0f172a"/>
+                </linearGradient>
+                <radialGradient id="bCP" cx="65%" cy="40%">
+                  <stop offset="0%" stop-color="rgba(255,255,255,.8)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                </radialGradient>
+              </defs>
+              <rect width="400" height="220" fill="url(#gCP)"></rect>
+              <circle cx="100" cy="60" r="90" fill="url(#bCP)"/>
+              <circle cx="300" cy="170" r="120" fill="url(#bCP)"/>
+            </svg>
+            <span class="badge">Ciencia Política</span>
+          </div>
+          <div class="content">
+            <h3>Ciencia Política</h3>
+            <p class="brief">Instituciones, poder, ciudadanía y políticas públicas.</p>
+            <p class="tag">Del poder clásico a los dilemas de la democracia actual.</p>
+            <ul class="topics">
+              <li>Instituciones</li><li>Participación</li><li>Políticas públicas</li>
+            </ul>
+            <div class="meta">
+              <span class="price">💰 $250.000 CLP / mes</span>
+              <span class="note">(mín. 2 clases/sem)</span>
+              <span class="note">Recargo tópicos especiales: $10.000–$20.000/clase</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="curso-cienciapolitica.html">Ver más</a>
+              <a class="btn" href="#calendly">Agendar</a>
+            </div>
+          </div>
+          <span class="ring"></span>
+        </article>
+
+        <!-- Filosofía -->
+        <article class="card pro card-tilt course humanidades" data-tilt data-theme="filosofia">
+          <div class="cover">
+            <svg viewBox="0 0 400 220" class="abstract">
+              <defs>
+                <linearGradient id="gFi" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#f43f5e"/>
+                </linearGradient>
+                <radialGradient id="bFi" cx="45%" cy="50%">
+                  <stop offset="0%" stop-color="rgba(255,255,255,.75)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                </radialGradient>
+              </defs>
+              <rect width="400" height="220" fill="url(#gFi)"></rect>
+              <ellipse cx="200" cy="110" rx="160" ry="90" fill="url(#bFi)"/>
+            </svg>
+            <span class="badge">Filosofía</span>
+          </div>
+          <div class="content">
+            <h3>Filosofía</h3>
+            <p class="brief">Desde los griegos hasta la filosofía contemporánea y crítica.</p>
+            <p class="tag">De Sócrates a la Teoría Crítica: un viaje reflexivo.</p>
+            <ul class="topics">
+              <li>Ética</li><li>Contemporánea</li><li>Teoría Crítica</li>
+            </ul>
+            <div class="meta">
+              <span class="price">💰 $250.000 CLP / mes</span>
+              <span class="note">(mín. 2 clases/sem)</span>
+              <span class="note">Recargo tópicos especiales: $10.000–$20.000/clase</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="curso-filosofia.html">Ver más</a>
+              <a class="btn" href="#calendly">Agendar</a>
+            </div>
+          </div>
+          <span class="ring"></span>
+        </article>
+
+        <!-- Capacitación Docente -->
+        <article class="card pro card-tilt course formacion" data-tilt data-theme="docente">
+          <div class="cover">
+            <svg viewBox="0 0 400 220" class="abstract">
+              <defs>
+                <linearGradient id="gDo" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#14b8a6"/><stop offset="1" stop-color="#0284c7"/>
+                </linearGradient>
+                <radialGradient id="bDo" cx="35%" cy="30%">
+                  <stop offset="0%" stop-color="rgba(255,255,255,.8)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                </radialGradient>
+              </defs>
+              <rect width="400" height="220" fill="url(#gDo)"></rect>
+              <circle cx="70" cy="60" r="110" fill="url(#bDo)"/>
+              <circle cx="280" cy="150" r="120" fill="url(#bDo)"/>
+            </svg>
+            <span class="badge">Capacitación Docente</span>
+          </div>
+          <div class="content">
+            <h3>Capacitación Docente</h3>
+            <p class="brief">Estrategias activas, evaluación auténtica y tecnología educativa.</p>
+            <p class="tag">Actualiza tu práctica docente con innovación y evidencia.</p>
+            <ul class="topics">
+              <li>Diseño instruccional</li><li>Evaluación auténtica</li><li>Ética e IA</li>
+            </ul>
+            <div class="meta">
+              <span class="price">💰 $250.000 CLP / mes</span>
+              <span class="note">(mín. 2 clases/sem)</span>
+              <span class="note">Recargo tópicos especiales: $10.000–$20.000/clase</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="curso-capacitaciondocente.html">Ver más</a>
+              <a class="btn" href="#calendly">Agendar</a>
+            </div>
+          </div>
+          <span class="ring"></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendly (student-only view) -->
+  <section id="calendly" class="section">
+    <div class="container">
+      <h2 class="sec-title">📆 Agendar</h2>
+      <p class="sec-sub">Solo disponibilidad y formulario. Recibirás un correo cuando la/el profesora acepte.</p>
+      <div class="card calendly-wrap">
+        <iframe title="Calendly"
+          src="https://calendly.com/YOUR_SCHEDULER?hide_gdpr_banner=1&hide_event_type_details=1&locale=es&background_color=ffffff&text_color=111827&primary_color=14b8a6"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="copy">© Aprende+. Todos los derechos reservados.</p>
+      <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="btn btn-outline insta-btn" aria-label="Visítanos en Instagram">
+        <svg viewBox="0 0 24 24" class="ig" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm5.75-1.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"/></svg>
+        Visítanos en Instagram
+      </a>
+      <div class="pay-logos">
+        <span class="pay-badge pay-stripe">Stripe</span>
+        <span class="pay-badge pay-paypal">PayPal</span>
+        <span class="pay-badge pay-visa">VISA</span>
+        <span class="pay-badge pay-mc">Mastercard</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ADA -->
+  <button id="ada-button" class="ada-btn" aria-label="Accesibilidad" aria-expanded="false" aria-controls="ada-panel" title="Accesibilidad">
+    <span class="sr-only">Accesibilidad</span>
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/><path d="M3 10h18"/><path d="M6 10l2 10"/><path d="M18 10l-2 10"/><path d="M8 18h8"/></svg>
+  </button>
+  <div id="ada-panel" class="ada-panel" hidden role="dialog" aria-modal="false" aria-label="Preferencias de accesibilidad">
+    <div class="ada-head">Accesibilidad</div>
+    <div class="ada-body">
+      <label class="ada-row"><span>Contraste alto</span><input id="ada-contrast" type="checkbox"></label>
+      <label class="ada-row"><span>Zoom tipográfico</span><input id="ada-text" type="checkbox"></label>
+      <label class="ada-row"><span>Espaciado extra</span><input id="ada-spacing" type="checkbox"></label>
+      <label class="ada-row"><span>Pausar animaciones</span><input id="ada-pause" type="checkbox"></label>
+      <label class="ada-row"><span>Resaltar enlaces</span><input id="ada-links" type="checkbox"></label>
+      <div class="ada-actions">
+        <button id="ada-reset" class="btn btn-outline">Restablecer</button>
+        <button id="ada-close" class="btn btn-primary">Hecho</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
