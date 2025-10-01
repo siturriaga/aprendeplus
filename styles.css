@@ -170,3 +170,5 @@ body.accent-doc { --indigo:#272452; --copper:#8a5e3f }
   .page-inner{ grid-template-columns: 1fr; }
   .page { flex-basis: 92% }
 }
+[hidden] { display: none !important; }
+
