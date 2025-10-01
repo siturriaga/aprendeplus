@@ -31,12 +31,10 @@
     </div>
   </header>
 
-  <!-- HERO (Andes Dusk gradient mesh + badges) -->
+  <!-- HERO -->
   <section class="hero hero-andes" id="main" aria-label="Aprende+">
     <div class="mesh">
-      <span class="orb orb-a"></span>
-      <span class="orb orb-b"></span>
-      <span class="orb orb-c"></span>
+      <span class="orb orb-a"></span><span class="orb orb-b"></span><span class="orb orb-c"></span>
     </div>
     <div class="container hero-inner">
       <h1>Idiomas y Humanidades con <span class="accent">personalidad</span></h1>
@@ -48,8 +46,8 @@
         <span class="badge">Agendamiento simple</span>
       </div>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="cursos.html">Ver cursos</a>
-        <a class="btn btn-ghost" href="#calendly">Agendar</a>
+        <a class="btn btn-primary" href="#cursos">Ver cursos</a>
+        <button class="btn btn-ghost" data-open-calendly data-target="#home-calendly">Agendar</button>
       </div>
       <figure class="hero-figure reveal">
         <img src="assets/images/home/hero-learners.svg" alt="Grupo diverso en videollamada aprendiendo en línea" loading="lazy" />
@@ -58,86 +56,94 @@
     <img class="sep bottom" src="assets/svg/wave-bottom.svg" alt="" aria-hidden="true" />
   </section>
 
-  <!-- Payment strip -->
-  <section class="section section-tight">
-    <div class="container">
-      <div class="card payments-strip reveal">
-        <strong>Pagos disponibles:</strong>
-        <span class="pay pay-stripe"><img src="assets/payments/stripe.svg" alt="Stripe" width="72" height="22" loading="lazy" /></span>
-        <span class="pay pay-paypal"><img src="assets/payments/paypal.svg" alt="PayPal" width="72" height="22" loading="lazy" /></span>
-        <span class="pay pay-visa"><img src="assets/payments/visa.svg" alt="VISA" width="64" height="22" loading="lazy" /></span>
-        <span class="pay pay-mc"><img src="assets/payments/mastercard.svg" alt="Mastercard" width="84" height="22" loading="lazy" /></span>
-        <span class="note">* Formularios por Netlify (no se muestran correos)</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Cursos preview (no precios aquí) -->
-  <section class="section section-soft" id="cursos">
+  <!-- Cursos (book-like deck, same as old cursos.html style) -->
+  <section class="section" id="cursos">
     <div class="container">
       <h2 class="sec-title">📚 Cursos</h2>
-      <p class="sec-sub">Tarifa base y recargos se muestran en cada página de curso.</p>
+      <p class="sec-sub">Explora y abre cada curso. La tarifa y pagos están dentro de cada página.</p>
 
-      <div class="cards reveal">
-        <article class="card pro">
-          <figure class="cover"><img src="assets/images/ingles/presentacion-videollamada.svg" alt="" loading="lazy" /></figure>
-          <div class="content">
-            <h3>Inglés</h3>
-            <p class="brief">Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico.</p>
-            <p class="tag">Domina el inglés con seguridad y práctica constante.</p>
-            <p class="note">Tópico especial destacado: Conversación profesional</p>
-            <div class="card-actions"><a class="btn btn-primary" href="curso-ingles.html">Ver más</a></div>
-          </div>
-        </article>
+      <div class="deck reveal" id="home-deck" role="region" aria-label="Tarjetas de cursos">
+        <button class="deck-arrow left" aria-label="Anterior" data-dir="-1">‹</button>
+        <button class="deck-arrow right" aria-label="Siguiente" data-dir="1">›</button>
 
-        <article class="card pro">
-          <figure class="cover"><img src="assets/images/historia/fuentes-primarias-tablet.svg" alt="" loading="lazy" /></figure>
-          <div class="content">
-            <h3>Historia</h3>
-            <p class="brief">Procesos y cambios globales con mirada crítica y comparada.</p>
-            <p class="tag">Explora los grandes giros que transformaron la humanidad.</p>
-            <p class="note">Tópico especial destacado: Historia de género y feminismos</p>
-            <div class="card-actions"><a class="btn btn-primary" href="curso-historia.html">Ver más</a></div>
-          </div>
-        </article>
+        <div class="pages" tabindex="0">
+          <!-- Inglés -->
+          <article class="page" data-href="curso-ingles.html">
+            <div class="page-inner">
+              <figure class="page-cover"><img src="assets/images/ingles/presentacion-videollamada.svg" alt="" /></figure>
+              <div class="page-content">
+                <h3>Inglés</h3>
+                <p class="brief">Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico.</p>
+                <p class="tag">Domina el inglés con seguridad y práctica constante.</p>
+                <p class="note">Tópico especial: Conversación profesional</p>
+                <a class="btn btn-primary" href="curso-ingles.html">Ver más</a>
+              </div>
+            </div>
+          </article>
 
-        <article class="card pro">
-          <figure class="cover"><img src="assets/images/cienciapolitica/policy-memo-annotado.svg" alt="" loading="lazy" /></figure>
-          <div class="content">
-            <h3>Ciencia Política</h3>
-            <p class="brief">Instituciones, poder, ciudadanía y políticas públicas.</p>
-            <p class="tag">Del poder clásico a los dilemas de la democracia actual.</p>
-            <p class="note">Tópico especial destacado: Instituciones comparadas</p>
-            <div class="card-actions"><a class="btn btn-primary" href="curso-cienciapolitica.html">Ver más</a></div>
-          </div>
-        </article>
+          <!-- Historia -->
+          <article class="page" data-href="curso-historia.html">
+            <div class="page-inner">
+              <figure class="page-cover"><img src="assets/images/historia/fuentes-primarias-tablet.svg" alt="" /></figure>
+              <div class="page-content">
+                <h3>Historia</h3>
+                <p class="brief">Procesos y cambios globales con mirada crítica y comparada.</p>
+                <p class="tag">Explora los grandes giros que transformaron la humanidad.</p>
+                <p class="note">Tópico especial: Historia de género y feminismos</p>
+                <a class="btn btn-primary" href="curso-historia.html">Ver más</a>
+              </div>
+            </div>
+          </article>
 
-        <article class="card pro">
-          <figure class="cover"><img src="assets/images/filosofia/dialogo-socratico.svg" alt="" loading="lazy" /></figure>
-          <div class="content">
-            <h3>Filosofía</h3>
-            <p class="brief">Desde los griegos hasta la filosofía contemporánea y crítica.</p>
-            <p class="tag">De Sócrates a la Teoría Crítica: un viaje reflexivo.</p>
-            <p class="note">Tópico especial destacado: Teoría Crítica</p>
-            <div class="card-actions"><a class="btn btn-primary" href="curso-filosofia.html">Ver más</a></div>
-          </div>
-        </article>
+          <!-- Ciencia Política -->
+          <article class="page" data-href="curso-cienciapolitica.html">
+            <div class="page-inner">
+              <figure class="page-cover"><img src="assets/images/cienciapolitica/policy-memo-annotado.svg" alt="" /></figure>
+              <div class="page-content">
+                <h3>Ciencia Política</h3>
+                <p class="brief">Instituciones, poder, ciudadanía y políticas públicas.</p>
+                <p class="tag">Del poder clásico a los dilemas de la democracia actual.</p>
+                <p class="note">Tópico especial: Instituciones comparadas</p>
+                <a class="btn btn-primary" href="curso-cienciapolitica.html">Ver más</a>
+              </div>
+            </div>
+          </article>
 
-        <article class="card pro">
-          <figure class="cover"><img src="assets/images/capacitaciondocente/rubrica-laptop.svg" alt="" loading="lazy" /></figure>
-          <div class="content">
-            <h3>Capacitación Docente</h3>
-            <p class="brief">Estrategias activas, evaluación auténtica y tecnología educativa.</p>
-            <p class="tag">Actualiza tu práctica docente con innovación y evidencia.</p>
-            <p class="note">Tópico especial destacado: Ética e IA en la educación</p>
-            <div class="card-actions"><a class="btn btn-primary" href="curso-capacitaciondocente.html">Ver más</a></div>
-          </div>
-        </article>
+          <!-- Filosofía -->
+          <article class="page" data-href="curso-filosofia.html">
+            <div class="page-inner">
+              <figure class="page-cover"><img src="assets/images/filosofia/dialogo-socratico.svg" alt="" /></figure>
+              <div class="page-content">
+                <h3>Filosofía</h3>
+                <p class="brief">Desde los griegos hasta la filosofía contemporánea y crítica.</p>
+                <p class="tag">De Sócrates a la Teoría Crítica: un viaje reflexivo.</p>
+                <p class="note">Tópico especial: Teoría Crítica</p>
+                <a class="btn btn-primary" href="curso-filosofia.html">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Capacitación Docente -->
+          <article class="page" data-href="curso-capacitaciondocente.html">
+            <div class="page-inner">
+              <figure class="page-cover"><img src="assets/images/capacitaciondocente/rubrica-laptop.svg" alt="" /></figure>
+              <div class="page-content">
+                <h3>Capacitación Docente</h3>
+                <p class="brief">Estrategias activas, evaluación auténtica y tecnología educativa.</p>
+                <p class="tag">Actualiza tu práctica docente con innovación y evidencia.</p>
+                <p class="note">Tópico especial: Ética e IA en la educación</p>
+                <a class="btn btn-primary" href="curso-capacitaciondocente.html">Ver más</a>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
+
+      <p class="deck-hint">Desliza o usa las flechas. Enter para abrir.</p>
     </div>
   </section>
 
-  <!-- Testimonios (15) -->
+  <!-- Testimonios -->
   <section class="section" id="test" aria-roledescription="carousel" aria-label="Testimonios">
     <div class="container">
       <h2 class="sec-title">📝 Testimonios</h2>
@@ -149,11 +155,11 @@
     </div>
   </section>
 
-  <!-- Test Adaptativo (summary + CTA) -->
+  <!-- Test Adaptativo (summary only here) -->
   <section class="section section-soft" id="test-adaptativo">
     <div class="container">
       <h2 class="sec-title">🧪 Test Adaptativo (20 preguntas)</h2>
-      <p class="sec-sub">Captura nombre/email (Netlify Forms con honeypot). Resultado en pantalla con nivel recomendado.</p>
+      <p class="sec-sub">Captura nombre/email (Netlify Forms). Resultado en pantalla con nivel recomendado.</p>
       <div class="card reveal" style="max-width:640px">
         <form name="test-adaptativo" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="grid" style="gap:.6rem">
           <input type="hidden" name="form-name" value="test-adaptativo" />
@@ -161,19 +167,33 @@
           <label class="field"><span>Nombre</span><input name="nombre" required /></label>
           <label class="field"><span>Email</span><input name="email" type="email" required /></label>
           <a class="btn btn-primary" href="cursos.html#test">Comenzar test</a>
-          <p class="note">* Si quieres, integro aquí la versión interactiva completa.</p>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Calendly (student-only) -->
+  <!-- Calendly (hidden until button) -->
   <section id="calendly" class="section">
     <div class="container">
       <h2 class="sec-title">📆 Agendar</h2>
       <p class="sec-sub">Solo disponibilidad y formulario. Recibirás un correo cuando la/el profesora acepte.</p>
-      <div class="card calendly-wrap reveal">
+      <div id="home-calendly" class="card calendly-wrap reveal" hidden>
         <iframe title="Calendly" src="https://calendly.com/YOUR_SCHEDULER?hide_gdpr_banner=1&hide_event_type_details=1&locale=es&background_color=ffffff&text_color=111827&primary_color=1E1B4B" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payments (hidden until click) -->
+  <section class="section section-tight">
+    <div class="container">
+      <button class="btn btn-outline" data-reveal-payments data-target="#home-payments">Ver métodos de pago</button>
+      <div id="home-payments" class="card payments-strip reveal" hidden>
+        <strong>Pagos disponibles:</strong>
+        <span class="pay"><img src="assets/payments/stripe.svg" alt="Stripe" width="72" height="22" loading="lazy" /></span>
+        <span class="pay"><img src="assets/payments/paypal.svg" alt="PayPal" width="72" height="22" loading="lazy" /></span>
+        <span class="pay"><img src="assets/payments/visa.svg" alt="VISA" width="64" height="22" loading="lazy" /></span>
+        <span class="pay"><img src="assets/payments/mastercard.svg" alt="Mastercard" width="84" height="22" loading="lazy" /></span>
+        <span class="note">* Formularios por Netlify (no se muestran correos)</span>
       </div>
     </div>
   </section>
@@ -190,7 +210,7 @@
     </div>
   </section>
 
-  <!-- Contacto (Netlify Forms) -->
+  <!-- Contacto -->
   <section id="contacto" class="section">
     <div class="container">
       <h2 class="sec-title">✉️ Contacto</h2>
@@ -208,7 +228,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer (Instagram only here) -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <p class="copy">© Aprende+. Todos los derechos reservados.</p>
