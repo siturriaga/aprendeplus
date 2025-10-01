@@ -28,101 +28,58 @@
   <section class="hero hero-sub">
     <div class="container">
       <h1 id="main">Cursos</h1>
-      <p class="lead">Explora todas las opciones. Desliza como un libro para pasar de tarjeta en tarjeta.</p>
+      <p class="lead">Selecciona el curso para abrir su página dedicada.</p>
     </div>
     <img class="sep bottom" src="assets/svg/wave-bottom.svg" alt="" aria-hidden="true" />
   </section>
 
-  <!-- Book-like swipe deck -->
   <section class="section">
     <div class="container">
-      <div class="deck" id="course-deck" aria-label="Tarjetas de cursos" role="region">
-        <!-- controls -->
-        <button class="deck-arrow left" aria-label="Anterior" data-dir="-1">‹</button>
-        <button class="deck-arrow right" aria-label="Siguiente" data-dir="1">›</button>
+      <div class="cards reveal">
+        <article class="card">
+          <figure class="cover"><img src="assets/images/ingles/presentacion-videollamada.svg" alt=""></figure>
+          <div class="content">
+            <h3>Inglés</h3>
+            <p>Enfoque comunicativo y académico.</p>
+            <a class="btn btn-primary" href="curso-ingles.html">Abrir</a>
+          </div>
+        </article>
 
-        <div class="pages" tabindex="0">
-          <!-- Each page -->
-          <article class="page" data-href="curso-ingles.html">
-            <div class="page-inner">
-              <figure class="page-cover"><img src="assets/images/ingles/presentacion-videollamada.svg" alt="" /></figure>
-              <div class="page-content">
-                <h3>Inglés</h3>
-                <p class="brief">Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico.</p>
-                <p class="tag">Domina el inglés con seguridad y práctica constante.</p>
-                <p class="note">Tópico especial: Conversación profesional</p>
-                <a class="btn btn-primary" href="curso-ingles.html">Ver más</a>
-              </div>
-            </div>
-          </article>
+        <article class="card">
+          <figure class="cover"><img src="assets/images/historia/fuentes-primarias-tablet.svg" alt=""></figure>
+          <div class="content">
+            <h3>Historia</h3>
+            <p>Procesos y cambios globales.</p>
+            <a class="btn btn-primary" href="curso-historia.html">Abrir</a>
+          </div>
+        </article>
 
-          <article class="page" data-href="curso-historia.html">
-            <div class="page-inner">
-              <figure class="page-cover"><img src="assets/images/historia/fuentes-primarias-tablet.svg" alt="" /></figure>
-              <div class="page-content">
-                <h3>Historia</h3>
-                <p class="brief">Procesos y cambios globales con mirada crítica y comparada.</p>
-                <p class="tag">Explora los grandes giros que transformaron la humanidad.</p>
-                <p class="note">Tópico especial: Historia de género y feminismos</p>
-                <a class="btn btn-primary" href="curso-historia.html">Ver más</a>
-              </div>
-            </div>
-          </article>
+        <article class="card">
+          <figure class="cover"><img src="assets/images/cienciapolitica/policy-memo-annotado.svg" alt=""></figure>
+          <div class="content">
+            <h3>Ciencia Política</h3>
+            <p>Instituciones, poder y ciudadanía.</p>
+            <a class="btn btn-primary" href="curso-cienciapolitica.html">Abrir</a>
+          </div>
+        </article>
 
-          <article class="page" data-href="curso-cienciapolitica.html">
-            <div class="page-inner">
-              <figure class="page-cover"><img src="assets/images/cienciapolitica/policy-memo-annotado.svg" alt="" /></figure>
-              <div class="page-content">
-                <h3>Ciencia Política</h3>
-                <p class="brief">Instituciones, poder, ciudadanía y políticas públicas.</p>
-                <p class="tag">Del poder clásico a los dilemas de la democracia actual.</p>
-                <p class="note">Tópico especial: Instituciones comparadas</p>
-                <a class="btn btn-primary" href="curso-cienciapolitica.html">Ver más</a>
-              </div>
-            </div>
-          </article>
+        <article class="card">
+          <figure class="cover"><img src="assets/images/filosofia/dialogo-socratico.svg" alt=""></figure>
+          <div class="content">
+            <h3>Filosofía</h3>
+            <p>Clásica, contemporánea y crítica.</p>
+            <a class="btn btn-primary" href="curso-filosofia.html">Abrir</a>
+          </div>
+        </article>
 
-          <article class="page" data-href="curso-filosofia.html">
-            <div class="page-inner">
-              <figure class="page-cover"><img src="assets/images/filosofia/dialogo-socratico.svg" alt="" /></figure>
-              <div class="page-content">
-                <h3>Filosofía</h3>
-                <p class="brief">Desde los griegos hasta la filosofía contemporánea y crítica.</p>
-                <p class="tag">De Sócrates a la Teoría Crítica: un viaje reflexivo.</p>
-                <p class="note">Tópico especial: Teoría Crítica</p>
-                <a class="btn btn-primary" href="curso-filosofia.html">Ver más</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="page" data-href="curso-capacitaciondocente.html">
-            <div class="page-inner">
-              <figure class="page-cover"><img src="assets/images/capacitaciondocente/rubrica-laptop.svg" alt="" /></figure>
-              <div class="page-content">
-                <h3>Capacitación Docente</h3>
-                <p class="brief">Estrategias activas, evaluación auténtica y tecnología educativa.</p>
-                <p class="tag">Actualiza tu práctica docente con innovación y evidencia.</p>
-                <p class="note">Tópico especial: Ética e IA en la educación</p>
-                <a class="btn btn-primary" href="curso-capacitaciondocente.html">Ver más</a>
-              </div>
-            </div>
-          </article>
-        </div>
-
-      </div>
-      <p class="deck-hint">Desliza o usa las flechas. Enter para abrir.</p>
-    </div>
-  </section>
-
-  <!-- Payments & Footer -->
-  <section class="section section-tight">
-    <div class="container">
-      <div class="card payments-strip reveal">
-        <strong>Pagos disponibles:</strong>
-        <span class="pay"><img src="assets/payments/stripe.svg" alt="Stripe" /></span>
-        <span class="pay"><img src="assets/payments/paypal.svg" alt="PayPal" /></span>
-        <span class="pay"><img src="assets/payments/visa.svg" alt="VISA" /></span>
-        <span class="pay"><img src="assets/payments/mastercard.svg" alt="Mastercard" /></span>
+        <article class="card">
+          <figure class="cover"><img src="assets/images/capacitaciondocente/rubrica-laptop.svg" alt=""></figure>
+          <div class="content">
+            <h3>Capacitación Docente</h3>
+            <p>Estrategias activas y tecnología educativa.</p>
+            <a class="btn btn-primary" href="curso-capacitaciondocente.html">Abrir</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -131,7 +88,7 @@
     <div class="container footer-inner">
       <p class="copy">© Aprende+. Todos los derechos reservados.</p>
       <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="btn btn-outline insta">
-        <img src="assets/icons/instagram.svg" alt="" aria-hidden="true" width="18" height="18" /> Visítanos en Instagram
+        <img src="assets/icons/instagram.svg" alt="" width="18" height="18" /> Visítanos en Instagram
       </a>
       <div class="pay-logos">
         <img src="assets/payments/stripe.svg" alt="Stripe" />
@@ -143,10 +100,7 @@
   </footer>
 
   <!-- ADA -->
-  <button id="ada-button" class="ada-btn" aria-label="Accesibilidad" aria-expanded="false" aria-controls="ada-panel" title="Accesibilidad">
-    <span class="sr-only">Accesibilidad</span>
-    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/><path d="M3 10h18"/><path d="M6 10l2 10"/><path d="M18 10l-2 10"/><path d="M8 18h8"/></svg>
-  </button>
+  <button id="ada-button" class="ada-btn" aria-label="Accesibilidad" aria-expanded="false" aria-controls="ada-panel"><span class="sr-only">Accesibilidad</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/><path d="M3 10h18"/><path d="M6 10l2 10"/><path d="M18 10l-2 10"/><path d="M8 18h8"/></svg></button>
   <div id="ada-panel" class="ada-panel" hidden role="dialog" aria-modal="false" aria-label="Preferencias de accesibilidad">
     <div class="ada-head">Accesibilidad</div>
     <div class="ada-body">
@@ -155,10 +109,7 @@
       <label class="ada-row"><span>Espaciado extra</span><input id="ada-spacing" type="checkbox"></label>
       <label class="ada-row"><span>Pausar animaciones</span><input id="ada-pause" type="checkbox"></label>
       <label class="ada-row"><span>Resaltar enlaces</span><input id="ada-links" type="checkbox"></label>
-      <div class="ada-actions">
-        <button id="ada-reset" class="btn btn-outline">Restablecer</button>
-        <button id="ada-close" class="btn btn-primary">Hecho</button>
-      </div>
+      <div class="ada-actions"><button id="ada-reset" class="btn btn-outline">Restablecer</button><button id="ada-close" class="btn btn-primary">Hecho</button></div>
     </div>
   </div>
 
