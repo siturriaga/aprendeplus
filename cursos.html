@@ -1,118 +1,110 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Cursos · Aprende+</title>
-  <meta name="description" content="Explora nuestros cursos de Inglés, Historia, Ciencia Política, Filosofía y Capacitación Docente." />
-  <meta property="og:title" content="Cursos · Aprende+" />
-  <meta property="og:image" content="assets/logo-aprendeplus.svg" />
-  <link rel="icon" href="assets/logo-aprendeplus.svg" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Explora los cursos de Inglés, Historia, Ciencia Política, Filosofía y Capacitación Docente." />
+  <meta property="og:title" content="Cursos · Aprende+" /><meta property="og:description" content="Explora los cursos disponibles en Aprende+." />
+  <meta property="og:image" content="/assets/logo-aprendeplus.svg" />
+  <link rel="icon" href="/assets/logo-aprendeplus.svg" /><link rel="stylesheet" href="/styles.css" />
 </head>
-<body class="theme-andes">
-  <a class="skip" href="#main">Saltar al contenido</a>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand"><img src="/assets/logo-aprendeplus.svg" alt="Aprende+" width="164" height="36"></a>
+    <nav class="main-nav"><a href="/cursos.html">Cursos</a><a href="/index.html#test">Test</a><a href="/index.html#sobre">Sobre</a><a href="/index.html#contacto">Contacto</a></nav>
+  </div>
+</header>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand" aria-label="Inicio"><img src="assets/logo-aprendeplus.svg" alt="Aprende+" width="148" height="32" /></a>
-      <nav class="main-nav" aria-label="Principal">
-        <a aria-current="page" href="cursos.html">Cursos</a>
-        <a href="index.html#test">Test</a>
-        <a href="index.html#sobre">Sobre</a>
-        <a href="index.html#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
+<section class="section">
+  <div class="container">
+    <h1 class="sec-title">📚 Cursos</h1>
+    <p class="sec-sub">Explora y abre cada curso. La tarifa y los pagos se muestran adentro de cada página.</p>
 
-  <section class="hero hero-sub">
-    <div class="container">
-      <h1 id="main">Cursos</h1>
-      <p class="lead">Selecciona el curso para abrir su página dedicada.</p>
-    </div>
-    <img class="sep bottom" src="assets/svg/wave-bottom.svg" alt="" aria-hidden="true" />
-  </section>
+    <div class="cards">
+      <article class="card card-elev">
+        <figure class="cover"><img src="/assets/images/ingles/presentacion-videollamada.svg" alt=""></figure>
+        <div class="content"><h3>Inglés</h3>
+          <p>Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico.</p>
+          <p class="tag">Domina el inglés con seguridad y práctica constante.</p>
+          <a class="btn btn-primary" href="/curso-ingles.html">Ver más</a>
+        </div>
+      </article>
 
-  <section class="section">
-    <div class="container">
-      <div class="cards reveal">
-        <article class="card">
-          <figure class="cover"><img src="assets/images/ingles/presentacion-videollamada.svg" alt=""></figure>
-          <div class="content">
-            <h3>Inglés</h3>
-            <p>Enfoque comunicativo y académico.</p>
-            <a class="btn btn-primary" href="curso-ingles.html">Abrir</a>
-          </div>
-        </article>
+      <article class="card card-elev">
+        <figure class="cover"><img src="/assets/images/historia/fuentes-primarias-tablet.svg" alt=""></figure>
+        <div class="content"><h3>Historia</h3>
+          <p>Procesos y cambios globales con mirada crítica y comparada.</p>
+          <p class="tag">Explora los grandes giros que transformaron la humanidad.</p>
+          <a class="btn btn-primary" href="/curso-historia.html">Ver más</a>
+        </div>
+      </article>
 
-        <article class="card">
-          <figure class="cover"><img src="assets/images/historia/fuentes-primarias-tablet.svg" alt=""></figure>
-          <div class="content">
-            <h3>Historia</h3>
-            <p>Procesos y cambios globales.</p>
-            <a class="btn btn-primary" href="curso-historia.html">Abrir</a>
-          </div>
-        </article>
+      <article class="card card-elev">
+        <figure class="cover"><img src="/assets/images/cienciapolitica/policy-memo-annotado.svg" alt=""></figure>
+        <div class="content"><h3>Ciencia Política</h3>
+          <p>Instituciones, poder, ciudadanía y políticas públicas.</p>
+          <p class="tag">Del poder clásico a los dilemas de la democracia actual.</p>
+          <a class="btn btn-primary" href="/curso-cienciapolitica.html">Ver más</a>
+        </div>
+      </article>
 
-        <article class="card">
-          <figure class="cover"><img src="assets/images/cienciapolitica/policy-memo-annotado.svg" alt=""></figure>
-          <div class="content">
-            <h3>Ciencia Política</h3>
-            <p>Instituciones, poder y ciudadanía.</p>
-            <a class="btn btn-primary" href="curso-cienciapolitica.html">Abrir</a>
-          </div>
-        </article>
+      <article class="card card-elev">
+        <figure class="cover"><img src="/assets/images/filosofia/dialogo-socratico.svg" alt=""></figure>
+        <div class="content"><h3>Filosofía</h3>
+          <p>Desde los griegos hasta la filosofía contemporánea y crítica.</p>
+          <p class="tag">De Sócrates a la Teoría Crítica: un viaje reflexivo.</p>
+          <a class="btn btn-primary" href="/curso-filosofia.html">Ver más</a>
+        </div>
+      </article>
 
-        <article class="card">
-          <figure class="cover"><img src="assets/images/filosofia/dialogo-socratico.svg" alt=""></figure>
-          <div class="content">
-            <h3>Filosofía</h3>
-            <p>Clásica, contemporánea y crítica.</p>
-            <a class="btn btn-primary" href="curso-filosofia.html">Abrir</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <figure class="cover"><img src="assets/images/capacitaciondocente/rubrica-laptop.svg" alt=""></figure>
-          <div class="content">
-            <h3>Capacitación Docente</h3>
-            <p>Estrategias activas y tecnología educativa.</p>
-            <a class="btn btn-primary" href="curso-capacitaciondocente.html">Abrir</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p class="copy">© Aprende+. Todos los derechos reservados.</p>
-      <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="btn btn-outline insta">
-        <img src="assets/icons/instagram.svg" alt="" width="18" height="18" /> Visítanos en Instagram
-      </a>
-      <div class="pay-logos">
-        <img src="assets/payments/stripe.svg" alt="Stripe" />
-        <img src="assets/payments/paypal.svg" alt="PayPal" />
-        <img src="assets/payments/visa.svg" alt="VISA" />
-        <img src="assets/payments/mastercard.svg" alt="Mastercard" />
-      </div>
-    </div>
-  </footer>
-
-  <!-- ADA -->
-  <button id="ada-button" class="ada-btn" aria-label="Accesibilidad" aria-expanded="false" aria-controls="ada-panel"><span class="sr-only">Accesibilidad</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/><path d="M3 10h18"/><path d="M6 10l2 10"/><path d="M18 10l-2 10"/><path d="M8 18h8"/></svg></button>
-  <div id="ada-panel" class="ada-panel" hidden role="dialog" aria-modal="false" aria-label="Preferencias de accesibilidad">
-    <div class="ada-head">Accesibilidad</div>
-    <div class="ada-body">
-      <label class="ada-row"><span>Contraste alto</span><input id="ada-contrast" type="checkbox"></label>
-      <label class="ada-row"><span>Zoom tipográfico</span><input id="ada-text" type="checkbox"></label>
-      <label class="ada-row"><span>Espaciado extra</span><input id="ada-spacing" type="checkbox"></label>
-      <label class="ada-row"><span>Pausar animaciones</span><input id="ada-pause" type="checkbox"></label>
-      <label class="ada-row"><span>Resaltar enlaces</span><input id="ada-links" type="checkbox"></label>
-      <div class="ada-actions"><button id="ada-reset" class="btn btn-outline">Restablecer</button><button id="ada-close" class="btn btn-primary">Hecho</button></div>
+      <article class="card card-elev">
+        <figure class="cover"><img src="/assets/images/capacitaciondocente/rubrica-laptop.svg" alt=""></figure>
+        <div class="content"><h3>Capacitación Docente</h3>
+          <p>Estrategias activas, evaluación auténtica y tecnología educativa.</p>
+          <p class="tag">Actualiza tu práctica docente con innovación y evidencia.</p>
+          <a class="btn btn-primary" href="/curso-capacitaciondocente.html">Ver más</a>
+        </div>
+      </article>
     </div>
   </div>
+</section>
 
-  <script src="main.js"></script>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="copy">© Aprende+. Todos los derechos reservados.</p>
+    <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="btn btn-outline insta">
+      <img src="/assets/icons/instagram.svg" alt="" width="18" height="18" /> Visítanos en Instagram
+    </a>
+    <div class="pay-logos">
+      <img src="/assets/payments/stripe.svg" alt="Stripe" width="84" height="24" loading="lazy" />
+      <img src="/assets/payments/paypal.svg" alt="PayPal" width="84" height="24" loading="lazy" />
+      <img src="/assets/payments/visa.svg" alt="VISA" width="72" height="24" loading="lazy" />
+      <img src="/assets/payments/mastercard.svg" alt="Mastercard" width="96" height="24" loading="lazy" />
+    </div>
+  </div>
+</footer>
+
+<button id="ada-button" class="ada-btn" aria-label="Accesibilidad" aria-expanded="false" aria-controls="ada-panel" title="Accesibilidad">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="5.5" r="2.5"/><path d="M3 11h18"/><path d="M7 11l2 10"/><path d="M17 11l-2 10"/><path d="M9 19h6"/>
+  </svg>
+</button>
+<div id="ada-panel" class="ada-panel" hidden>
+  <div class="ada-head">Accesibilidad</div>
+  <div class="ada-body">
+    <label class="ada-row"><span>Contraste alto</span><input id="ada-contrast" type="checkbox"></label>
+    <label class="ada-row"><span>Zoom tipográfico</span><input id="ada-text" type="checkbox"></label>
+    <label class="ada-row"><span>Espaciado extra</span><input id="ada-spacing" type="checkbox"></label>
+    <label class="ada-row"><span>Pausar animaciones</span><input id="ada-pause" type="checkbox"></label>
+    <label class="ada-row"><span>Resaltar enlaces</span><input id="ada-links" type="checkbox"></label>
+    <div class="ada-actions" style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px">
+      <button id="ada-reset" class="btn btn-outline">Restablecer</button>
+      <button id="ada-close" class="btn btn-primary">Hecho</button>
+    </div>
+  </div>
+</div>
+
+<script src="/main.js"></script>
 </body>
 </html>
