@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1022"/>
+      <stop offset="50%" stop-color="#1E1B4B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="70%" cy="25%" r="50%">
+      <stop offset="0%" stop-color="#B45309" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#B45309" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <circle cx="900" cy="180" r="300" fill="url(#spot)"/>
+  <g opacity="0.25">
+    <circle cx="320" cy="540" r="160" fill="#F2C14E"/>
+    <circle cx="520" cy="520" r="120" fill="#14B8A6"/>
+    <circle cx="700" cy="560" r="140" fill="#B45309"/>
+  </g>
+  <text x="64" y="110" font-family="Inter, ui-sans-serif, system-ui" font-size="56" font-weight="800" fill="#F8FAFC">Historia</text>
+  <text x="64" y="170" font-family="Inter, ui-sans-serif, system-ui" font-size="26" fill="#E2E8F0">Procesos y cambios globales</text>
+</svg>
