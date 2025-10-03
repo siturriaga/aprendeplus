@@ -1,270 +1,87 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Aprende+ · Idiomas y Humanidades con personalidad</title>
-
-  <!-- SEO & OG -->
-  <meta name="description" content="Clases online de Inglés, Historia, Ciencia Política, Filosofía y Capacitación Docente. Metodología clara, accesible y flexible. Test adaptativo, agendamiento y pagos fáciles." />
-  <meta property="og:title" content="Aprende+ · Idiomas y Humanidades con personalidad" />
-  <meta property="og:description" content="Cursos con enfoque comunicativo y mirada crítica. Reserva fácil, accesibilidad y buen acompañamiento." />
-  <meta property="og:image" content="assets/logo-aprendeplus.svg" />
-  <link rel="icon" href="assets/logo-aprendeplus.svg" />
-  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aprendemas - Aprende Hoy, Lidera Mañana</title>
   <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
-<body class="theme-andes">
-  <a class="skip" href="#main">Saltar al contenido</a>
-
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand" aria-label="Inicio">
-        <!-- Logo: Aprende+ con birrete a la izquierda (SVG que me enviaste) -->
-        <img src="assets/logo-aprendeplus.svg" alt="Aprende+" width="164" height="36" loading="eager" />
-      </a>
-      <nav class="main-nav" aria-label="Principal">
-        <a href="cursos.html">Cursos</a>
-        <a href="#test">Test</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">Aprendemas</div>
+      <ul class="nav-links">
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <section class="hero">
+      <h1>Aprende del pasado, construye tu futuro</h1>
+      <p>Plataforma interactiva para Historia, Filosofía, Inglés y más.</p>
+      <a href="#cursos" class="btn">Explora Cursos</a>
+    </section>
   </header>
 
-  <!-- HERO (Andes Dusk gradient mesh + micro-interactions) -->
-  <section class="hero hero-andes" id="main" aria-label="Aprende+">
-    <div class="mesh">
-      <span class="orb orb-a"></span>
-      <span class="orb orb-b"></span>
-      <span class="orb orb-c"></span>
-    </div>
-    <div class="container hero-inner">
-      <h1>Idiomas y Humanidades con <span class="accent">personalidad</span></h1>
-      <p class="lead">Clases flexibles, metodología clara, accesibilidad y aprendizaje colaborativo.</p>
-      <div class="badges" aria-label="Ventajas">
-        <span class="badge">Pagos fáciles</span>
-        <span class="badge">Accesibilidad</span>
-        <span class="badge">Online · síncrono/asincrónico</span>
-        <span class="badge">Agendamiento simple</span>
-      </div>
-      <figure class="hero-figure reveal">
-        <!-- Hiperrealista (reemplázala por .webp cuando la tengas) -->
-        <img src="assets/images/home/hero-learners.svg" alt="Grupo diverso en videollamada aprendiendo en línea" loading="lazy" />
-      </figure>
-    </div>
-    <img class="sep bottom" src="assets/svg/wave-bottom.svg" alt="" aria-hidden="true" />
-  </section>
-
-  <!-- CURSOS (grid premium, sin precios en Home) -->
-  <section class="section" id="cursos">
-    <div class="container">
-      <h2 class="sec-title">📚 Cursos</h2>
-      <p class="sec-sub">Explora y abre cada curso. La tarifa y los pagos se muestran adentro de cada página.</p>
-
-      <div class="cards reveal">
-        <!-- Inglés -->
-        <article class="card card-elev">
-          <figure class="cover">
-            <img src="assets/images/ingles/presentacion-videollamada.svg" alt="" loading="lazy" />
-          </figure>
-          <div class="content">
-            <h3>Inglés</h3>
-            <p class="brief">Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico.</p>
-            <p class="tag">Domina el inglés con seguridad y práctica constante.</p>
-            <a class="btn btn-primary" href="curso-ingles.html">Ver más</a>
-          </div>
+  <main>
+    <section id="cursos" class="section">
+      <h2>Nuestros Cursos</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Historia</h3>
+          <p>Explora los grandes momentos de la humanidad con enfoque crítico.</p>
         </article>
-
-        <!-- Historia -->
-        <article class="card card-elev">
-          <figure class="cover">
-            <img src="assets/images/historia/fuentes-primarias-tablet.svg" alt="" loading="lazy" />
-          </figure>
-          <div class="content">
-            <h3>Historia</h3>
-            <p class="brief">Procesos y cambios globales con mirada crítica y comparada.</p>
-            <p class="tag">Explora los grandes giros que transformaron la humanidad.</p>
-            <a class="btn btn-primary" href="curso-historia.html">Ver más</a>
-          </div>
+        <article class="card">
+          <h3>Filosofía</h3>
+          <p>Analiza las ideas que han cambiado el mundo.</p>
         </article>
-
-        <!-- Ciencia Política -->
-        <article class="card card-elev">
-          <figure class="cover">
-            <img src="assets/images/cienciapolitica/policy-memo-annotado.svg" alt="" loading="lazy" />
-          </figure>
-          <div class="content">
-            <h3>Ciencia Política</h3>
-            <p class="brief">Instituciones, poder, ciudadanía y políticas públicas.</p>
-            <p class="tag">Del poder clásico a los dilemas de la democracia actual.</p>
-            <a class="btn btn-primary" href="curso-cienciapolitica.html">Ver más</a>
-          </div>
+        <article class="card">
+          <h3>Inglés</h3>
+          <p>Aprende de nivel A1 a C1 con un enfoque práctico y cultural.</p>
         </article>
-
-        <!-- Filosofía -->
-        <article class="card card-elev">
-          <figure class="cover">
-            <img src="assets/images/filosofia/dialogo-socratico.svg" alt="" loading="lazy" />
-          </figure>
-          <div class="content">
-            <h3>Filosofía</h3>
-            <p class="brief">Desde los griegos hasta la filosofía contemporánea y crítica.</p>
-            <p class="tag">De Sócrates a la Teoría Crítica: un viaje reflexivo.</p>
-            <a class="btn btn-primary" href="curso-filosofia.html">Ver más</a>
-          </div>
-        </article>
-
-        <!-- Capacitación Docente -->
-        <article class="card card-elev">
-          <figure class="cover">
-            <img src="assets/images/capacitaciondocente/rubrica-laptop.svg" alt="" loading="lazy" />
-          </figure>
-          <div class="content">
-            <h3>Capacitación Docente</h3>
-            <p class="brief">Estrategias activas, evaluación auténtica y tecnología educativa.</p>
-            <p class="tag">Actualiza tu práctica docente con innovación y evidencia.</p>
-            <a class="btn btn-primary" href="curso-capacitaciondocente.html">Ver más</a>
-          </div>
+        <article class="card">
+          <h3>Política</h3>
+          <p>Comprende el mundo actual con teoría y práctica crítica.</p>
         </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- TESTIMONIOS (carousel accesible, 15 items, 6s auto-rotación) -->
-  <section class="section" id="test" aria-roledescription="carousel" aria-label="Testimonios">
-    <div class="container">
-      <h2 class="sec-title">📝 Testimonios</h2>
-      <div class="card t-card reveal">
-        <p id="t-quote" class="t-quote">“Cargando…”</p>
-        <p id="t-name" class="t-name">—</p>
-        <div class="dots" role="tablist" aria-label="Navegación de testimonios"></div>
+    <section id="precios" class="section alt">
+      <h2>Planes y Precios</h2>
+      <div class="pricing">
+        <div class="price-card">
+          <h3>Básico</h3>
+          <p class="price">280.000 CLP</p>
+          <p>Acceso a un curso completo</p>
+        </div>
+        <div class="price-card featured">
+          <h3>Premium</h3>
+          <p class="price">480.000 CLP</p>
+          <p>Acceso a todos los cursos + tutorías</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- TEST ADAPTATIVO (resumen aquí; ejecución completa en página de test o flujo interno) -->
-  <section class="section section-soft" id="test-adaptativo">
-    <div class="container">
-      <h2 class="sec-title">🧪 Test Adaptativo (20 preguntas)</h2>
-      <p class="sec-sub">Captura nombre/email (Netlify Forms con honeypot). Resultado en pantalla con nivel recomendado.</p>
-      <div class="card reveal" style="max-width:640px">
-        <form name="test-adaptativo" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="grid" style="gap:.6rem">
-          <input type="hidden" name="form-name" value="test-adaptativo" />
-          <p class="hp"><label>¿No completar? <input name="bot-field" /></label></p>
-          <label class="field"><span>Nombre</span><input name="nombre" required /></label>
-          <label class="field"><span>Email</span><input name="email" type="email" required /></label>
-          <a class="btn btn-primary" href="cursos.html#test">Comenzar test</a>
-        </form>
-      </div>
-    </div>
-  </section>
+    <section id="nosotros" class="section">
+      <h2>Sobre Nosotros</h2>
+      <p>Aprendemas es una plataforma educativa diseñada para acercar el conocimiento a todos, combinando el pasado con las herramientas del futuro.</p>
+    </section>
 
-  <!-- CALENDLY (visible por defecto; solo vista estudiante) -->
-  <section id="calendly" class="section">
-    <div class="container">
-      <h2 class="sec-title">📆 Agendar</h2>
-      <p class="sec-sub">Verás disponibilidad y un formulario. Recibirás un correo cuando la/el profesora acepte.</p>
-      <div class="card calendly-wrap reveal">
-        <iframe
-          title="Calendly"
-          src="https://calendly.com/YOUR_SCHEDULER?hide_gdpr_banner=1&hide_event_type_details=1&locale=es&background_color=ffffff&text_color=111827&primary_color=1E1B4B"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-  </section>
+    <section id="contacto" class="section alt">
+      <h2>Contacto</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Nombre" required />
+        <input type="email" placeholder="Correo electrónico" required />
+        <textarea placeholder="Mensaje" required></textarea>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </section>
+  </main>
 
-  <!-- PAGOS (logos visibles en Home) -->
-  <section class="section section-tight" id="pagos">
-    <div class="container">
-      <div class="card payments-strip reveal">
-        <strong>Pagos disponibles:</strong>
-        <span class="pay"><img src="assets/payments/stripe.svg" alt="Stripe" width="84" height="24" loading="lazy" /></span>
-        <span class="pay"><img src="assets/payments/paypal.svg" alt="PayPal" width="84" height="24" loading="lazy" /></span>
-        <span class="pay"><img src="assets/payments/visa.svg" alt="VISA" width="72" height="24" loading="lazy" /></span>
-        <span class="pay"><img src="assets/payments/mastercard.svg" alt="Mastercard" width="96" height="24" loading="lazy" /></span>
-        <span class="note">* Formularios por Netlify (no se muestran correos reales).</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOBRE -->
-  <section id="sobre" class="section section-soft">
-    <div className="container">
-      <h2 class="sec-title">👥 Sobre Nosotros & Metodología</h2>
-      <ul class="bullets reveal">
-        <li>Compañia con base en EE. UU.
-          30+ años de experiencia;
-          1.500+ estudiantes
-          Clases para niñas y niños, y adultos en todo nivel educativo.</li>
-        <li>Pedagogía crítica, clases sincrónicas/asincrónicas, accesibilidad y aprendizaje colaborativo.</li>
-        <li>Lenguaje inclusivo: profesoras y profesores.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto" class="section">
-    <div class="container">
-      <h2 class="sec-title">✉️ Contacto</h2>
-      <p class="sec-sub">No mostramos correos reales; usamos Netlify Forms con honeypot.</p>
-      <div class="card reveal" style="max-width:640px">
-        <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="grid" style="gap:.6rem">
-          <input type="hidden" name="form-name" value="contacto" />
-          <p class="hp"><label>¿No completar? <input name="bot-field" /></label></p>
-          <label class="field"><span>Nombre</span><input name="nombre" required placeholder="Tu nombre" /></label>
-          <label class="field"><span>Email</span><input name="email" type="email" required placeholder="tucorreo@ejemplo.com" /></label>
-          <label class="field"><span>Mensaje</span><textarea name="mensaje" rows="5" placeholder="¿En qué curso estás pensando?"></textarea></label>
-          <button class="btn btn-primary" type="submit">Enviar</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER (solo Instagram aquí) -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p class="copy">© Aprende+. Todos los derechos reservados.</p>
-      <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="btn btn-outline insta" aria-label="Visítanos en Instagram">
-        <img src="assets/icons/instagram.svg" alt="" aria-hidden="true" width="18" height="18" /> Visítanos en Instagram
-      </a>
-      <div class="pay-logos">
-        <img src="assets/payments/stripe.svg" alt="Stripe" width="84" height="24" loading="lazy" />
-        <img src="assets/payments/paypal.svg" alt="PayPal" width="84" height="24" loading="lazy" />
-        <img src="assets/payments/visa.svg" alt="VISA" width="72" height="24" loading="lazy" />
-        <img src="assets/payments/mastercard.svg" alt="Mastercard" width="96" height="24" loading="lazy" />
-      </div>
-    </div>
+  <footer class="footer">
+    <p>© 2025 Aprendemas - Todos los derechos reservados</p>
   </footer>
-
-  <!-- ADA Floating -->
-  <button id="ada-button" class="ada-btn" aria-label="Accesibilidad" aria-expanded="false" aria-controls="ada-panel" title="Accesibilidad">
-    <span class="sr-only">Accesibilidad</span>
-    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M12 3a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/>
-      <path d="M3 10h18"/>
-      <path d="M6 10l2 10"/>
-      <path d="M18 10l-2 10"/>
-      <path d="M8 18h8"/>
-    </svg>
-  </button>
-  <div id="ada-panel" class="ada-panel" hidden role="dialog" aria-modal="false" aria-label="Preferencias de accesibilidad">
-    <div class="ada-head">Accesibilidad</div>
-    <div class="ada-body">
-      <label class="ada-row"><span>Contraste alto</span><input id="ada-contrast" type="checkbox"></label>
-      <label class="ada-row"><span>Zoom tipográfico</span><input id="ada-text" type="checkbox"></label>
-      <label class="ada-row"><span>Espaciado extra</span><input id="ada-spacing" type="checkbox"></label>
-      <label class="ada-row"><span>Pausar animaciones</span><input id="ada-pause" type="checkbox"></label>
-      <label class="ada-row"><span>Resaltar enlaces</span><input id="ada-links" type="checkbox"></label>
-      <div class="ada-actions">
-        <button id="ada-reset" class="btn btn-outline">Restablecer</button>
-        <button id="ada-close" class="btn btn-primary">Hecho</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="main.js"></script>
 </body>
 </html>
