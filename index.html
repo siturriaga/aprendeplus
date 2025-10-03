@@ -1,87 +1,182 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aprendemas - Aprende Hoy, Lidera Mañana</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Aprende+ · Clases online con personalidad</title>
+  <meta name="description" content="Clases online flexibles: Inglés, Historia, Ciencia Política, Filosofía y Capacitación Docente. Accesibles y con metodología clara.">
+  <meta property="og:title" content="Aprende+ · Clases online con personalidad">
+  <meta property="og:description" content="Cursos flexibles, accesibles y con resultados.">
+  <meta property="og:image" content="https://aprendemas.net/assets/img/og/hero-1200x630.webp">
+  <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/script.js"></script>
 </head>
-<body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="logo">Aprendemas</div>
-      <ul class="nav-links">
-        <li><a href="#cursos">Cursos</a></li>
-        <li><a href="#precios">Precios</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-    <section class="hero">
-      <h1>Aprende del pasado, construye tu futuro</h1>
-      <p>Plataforma interactiva para Historia, Filosofía, Inglés y más.</p>
-      <a href="#cursos" class="btn">Explora Cursos</a>
-    </section>
+<body class="theme-andes">
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Inicio">
+        <svg class="cap" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3 2 8l10 5 8-4v6a2 2 0 0 1-1 1.73L12 22l-7-3.27A2 2 0 0 1 4 17v-5l8 4 10-5-10-5z"/></svg>
+        <span class="brand-text">Aprende+</span>
+      </a>
+      <nav class="main-nav" aria-label="Principal">
+        <a href="cursos.html">Cursos</a>
+        <a href="#test">Test</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="cursos" class="section">
-      <h2>Nuestros Cursos</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Historia</h3>
-          <p>Explora los grandes momentos de la humanidad con enfoque crítico.</p>
-        </article>
-        <article class="card">
-          <h3>Filosofía</h3>
-          <p>Analiza las ideas que han cambiado el mundo.</p>
-        </article>
-        <article class="card">
+  <!-- HERO -->
+  <section class="hero hero--gradient">
+    <div class="container hero-grid" id="main">
+      <div class="hero-copy">
+        <h1>Idiomas y Humanidades con <span class="text-gradient">personalidad</span>.</h1>
+        <p class="lead">Clases flexibles, pedagogía crítica, accesibilidad y aprendizaje colaborativo.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="cursos.html">Ver cursos</a>
+          <a class="btn btn-outline" href="#test">Hacer test adaptativo</a>
+        </div>
+      </div>
+      <div class="hero-window">
+        <picture>
+          <source srcset="assets/img/hero-1600.webp 1600w, assets/img/hero-960.webp 960w" type="image/webp" />
+          <img src="assets/img/hero-960.webp" alt="Estudiantes aprendiendo en línea" width="1600" height="900" />
+        </picture>
+        <div class="hero-scrim" aria-hidden="true"></div>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 120" aria-hidden="true"><path d="M0,64L1440,16L1440,120L0,120Z"/></svg>
+  </section>
+
+  <!-- CURSOS rail (no precios en Home) -->
+  <section class="section" id="cursos">
+    <div class="container">
+      <h2>📚 Cursos</h2>
+      <p class="muted">Tarifa base y métodos de pago se muestran dentro de cada curso.</p>
+
+      <div class="rail" role="region" aria-label="Cursos" tabindex="0">
+        <article class="card accent-1">
           <h3>Inglés</h3>
-          <p>Aprende de nivel A1 a C1 con un enfoque práctico y cultural.</p>
+          <p class="small">Cursos desde nivel básico hasta avanzado, con enfoque comunicativo y académico.</p>
+          <p class="tagline">Domina el inglés con seguridad y práctica constante.</p>
+          <p class="special">&#x25A2; Tópico especial: <span>—</span></p>
+          <a class="link" href="curso-ingles.html">Ver más →</a>
         </article>
-        <article class="card">
-          <h3>Política</h3>
-          <p>Comprende el mundo actual con teoría y práctica crítica.</p>
+
+        <article class="card accent-2">
+          <h3>Historia</h3>
+          <p class="small">Procesos y cambios globales con mirada crítica y comparada.</p>
+          <p class="tagline">Explora los grandes giros que transformaron la humanidad.</p>
+          <p class="special">&#x25A2; Tópico especial: <span>Historia de género y feminismos</span></p>
+          <a class="link" href="curso-historia.html">Ver más →</a>
+        </article>
+
+        <article class="card accent-3">
+          <h3>Ciencia Política</h3>
+          <p class="small">Instituciones, poder, ciudadanía y políticas públicas.</p>
+          <p class="tagline">Del poder clásico a los dilemas de la democracia actual.</p>
+          <p class="special">&#x25A2; Tópico especial: <span>Populismo en América Latina</span></p>
+          <a class="link" href="curso-cienciapolitica.html">Ver más →</a>
+        </article>
+
+        <article class="card accent-4">
+          <h3>Filosofía (clásica, contemporánea y crítica)</h3>
+          <p class="small">Desde los griegos hasta la filosofía contemporánea y crítica.</p>
+          <p class="tagline">De Sócrates a la Teoría Crítica: un viaje reflexivo.</p>
+          <p class="special">&#x25A2; Tópico especial: <span>Escuela de Frankfurt</span></p>
+          <a class="link" href="curso-filosofia.html">Ver más →</a>
+        </article>
+
+        <article class="card accent-5">
+          <h3>Capacitación Docente</h3>
+          <p class="small">Estrategias activas, evaluación auténtica y tecnología educativa.</p>
+          <p class="tagline">Actualiza tu práctica docente con innovación y evidencia.</p>
+          <p class="special">&#x25A2; Tópico especial: <span>Ética e IA en la educación</span></p>
+          <a class="link" href="curso-capacitaciondocente.html">Ver más →</a>
         </article>
       </div>
-    </section>
+      <div class="rail-dots" aria-hidden="true"></div>
+    </div>
+  </section>
 
-    <section id="precios" class="section alt">
-      <h2>Planes y Precios</h2>
-      <div class="pricing">
-        <div class="price-card">
-          <h3>Básico</h3>
-          <p class="price">280.000 CLP</p>
-          <p>Acceso a un curso completo</p>
-        </div>
-        <div class="price-card featured">
-          <h3>Premium</h3>
-          <p class="price">480.000 CLP</p>
-          <p>Acceso a todos los cursos + tutorías</p>
-        </div>
-      </div>
-    </section>
+  <!-- TEST -->
+  <section class="section" id="test">
+    <div class="container">
+      <h2>🧪 Test adaptativo (20 preguntas)</h2>
+      <p class="muted">Accesible, con nombre y email (Netlify Forms con honeypot). Resultados en pantalla + nivel recomendado.</p>
 
-    <section id="nosotros" class="section">
-      <h2>Sobre Nosotros</h2>
-      <p>Aprendemas es una plataforma educativa diseñada para acercar el conocimiento a todos, combinando el pasado con las herramientas del futuro.</p>
-    </section>
-
-    <section id="contacto" class="section alt">
-      <h2>Contacto</h2>
-      <form class="contact-form">
-        <input type="text" placeholder="Nombre" required />
-        <input type="email" placeholder="Correo electrónico" required />
-        <textarea placeholder="Mensaje" required></textarea>
-        <button type="submit" class="btn">Enviar</button>
+      <form name="test-adaptativo" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="stack">
+        <input type="hidden" name="form-name" value="test-adaptativo" />
+        <p class="honeypot"><label>¿No completar? <input name="bot-field" /></label></p>
+        <label>Nombre <input required name="nombre" /></label>
+        <label>Email <input required type="email" name="email" /></label>
+        <button type="button" class="btn btn-primary" data-action="start-test">Comenzar</button>
+        <p class="tiny muted">* Demo: el banco de 20 preguntas se puede activar luego.</p>
       </form>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="footer">
-    <p>© 2025 Aprendemas - Todos los derechos reservados</p>
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <h2>👥 Sobre & Metodología</h2>
+      <ul class="bullets">
+        <li>Base en EE. UU.; 30+ años de experiencia; 1.500+ estudiantes.</li>
+        <li>Pedagogía crítica, clases sincrónicas/asincrónicas, accesibilidad y aprendizaje colaborativo.</li>
+        <li>Lenguaje inclusivo: profesoras y profesores.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section" id="contacto">
+    <div class="container">
+      <h2>✉️ Contacto</h2>
+      <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="stack">
+        <input type="hidden" name="form-name" value="contacto" />
+        <p class="honeypot"><label>¿No completar? <input name="bot-field" /></label></p>
+
+        <label>Nombre <input required name="nombre" placeholder="Tu nombre" /></label>
+        <label>Email <input required type="email" name="email" placeholder="tucorreo@ejemplo.com" /></label>
+        <label>Mensaje <textarea rows="5" name="mensaje" placeholder="Cuéntanos en qué curso estás pensando…"></textarea></label>
+        <button class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="tiny">© Aprende+. Todos los derechos reservados.</p>
+      <a class="btn btn-outline ig" href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener">Visítanos en Instagram</a>
+      <div class="pay-logos" aria-label="Métodos de pago">
+        <span class="pay stripe">Stripe</span>
+        <span class="pay paypal">PayPal</span>
+        <span class="pay visa">VISA</span>
+        <span class="pay mc">Mastercard</span>
+      </div>
+    </div>
   </footer>
+
+  <!-- ADA -->
+  <button class="ada-fab" aria-controls="ada-panel" aria-expanded="false" title="Accesibilidad" data-action="toggle-ada"><span class="sr-only">Accesibilidad</span>☰</button>
+  <div id="ada-panel" class="ada-panel" hidden>
+    <div class="ada-head">Accesibilidad</div>
+    <div class="ada-body">
+      <label class="switch"><input type="checkbox" data-ada="contrast" /> Contraste alto</label>
+      <label class="switch"><input type="checkbox" data-ada="text" /> Zoom tipográfico</label>
+      <label class="switch"><input type="checkbox" data-ada="spacing" /> Espaciado extra</label>
+      <label class="switch"><input type="checkbox" data-ada="links" /> Resaltar enlaces</label>
+      <label class="switch"><input type="checkbox" data-ada="pause" /> Pausar animaciones</label>
+      <div class="ada-actions"><button class="btn btn-outline" data-action="ada-reset">Restablecer</button><button class="btn btn-primary" data-action="ada-done">Hecho</button></div>
+    </div>
+  </div>
+
 </body>
 </html>
