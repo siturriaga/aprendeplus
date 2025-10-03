@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
-Sitemap: /sitemap.xml
+Disallow: /admin/
+Disallow: /forms/
+Sitemap: https://aprendemas.net/sitemap.xml
