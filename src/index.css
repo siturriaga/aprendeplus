@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  font-family: theme('fontFamily.sans');
+  background: radial-gradient(120% 120% at 50% 0%, rgba(90, 75, 255, 0.22), rgba(12, 16, 24, 0.95));
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+.glass-card {
+  @apply bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl shadow-glass;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(90, 75, 255, 0.6);
+  border-radius: 9999px;
+}
