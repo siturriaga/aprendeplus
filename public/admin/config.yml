@@ -1,0 +1,75 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: "public/uploads"
+public_folder: "/uploads"
+publish_mode: editorial_workflow
+site_url: "https://aprendemas.cl"
+logo_url: "https://aprendemas.cl/icon.png"
+locale: es
+collections:
+  - name: "courses"
+    label: "Cursos"
+    folder: "content/courses"
+    create: true
+    format: "frontmatter"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Resumen", name: "summary", widget: "text" }
+      - { label: "Nivel", name: "level", widget: "select", options: ["Inicial", "Intermedio", "Avanzado"] }
+      - { label: "Precio CLP", name: "priceCLP", widget: "number", value_type: "int" }
+      - { label: "Horas por semana", name: "hoursPerWeek", widget: "number", value_type: "int" }
+      - label: "Plan de estudios"
+        name: "syllabus"
+        widget: "list"
+        fields:
+          - { label: "Módulo", name: "title", widget: "string" }
+          - { label: "Descripción", name: "description", widget: "text" }
+      - { label: "Imagen", name: "image", widget: "image" }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Autor", name: "author", widget: "string" }
+      - { label: "Etiquetas", name: "tags", widget: "list", default: [] }
+      - { label: "Imagen de portada", name: "cover", widget: "image", required: false }
+      - { label: "Contenido", name: "body", widget: "markdown" }
+  - name: "team"
+    label: "Equipo"
+    folder: "content/team"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nombre", name: "name", widget: "string" }
+      - { label: "Rol", name: "role", widget: "string" }
+      - { label: "Biografía", name: "bio", widget: "text" }
+      - { label: "Fotografía", name: "photo", widget: "image" }
+  - name: "faqs"
+    label: "Preguntas frecuentes"
+    folder: "content/faqs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Pregunta", name: "question", widget: "string" }
+      - { label: "Respuesta", name: "answer", widget: "text" }
+  - name: "pages"
+    label: "Páginas"
+    folder: "content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Identificador", name: "id", widget: "string" }
+      - label: "Bloques"
+        name: "blocks"
+        widget: "list"
+        fields:
+          - { label: "Encabezado", name: "heading", widget: "string" }
+          - { label: "Contenido", name: "content", widget: "markdown" }

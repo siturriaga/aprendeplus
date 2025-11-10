@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "defaultTitle": "Aprende+",
+    "defaultDescription": "Formación continua premium para educadores y profesionales en Chile."
+  },
+  "nav": {
+    "home": "Inicio",
+    "courses": "Cursos",
+    "pricing": "Planes",
+    "about": "Nosotros",
+    "blog": "Blog",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Impulsa tu desarrollo profesional con Aprende+",
+    "subtitle": "Programas en vivo y asincrónicos diseñados para docentes y líderes educativos que buscan transformar sus comunidades.",
+    "ctaPrimary": "Explorar cursos",
+    "ctaSecondary": "Ver planes"
+  },
+  "home": {
+    "benefitsTitle": "¿Por qué elegir Aprende+?",
+    "benefits": [
+      {
+        "title": "Mentores expertos",
+        "description": "Docentes líderes y especialistas activos en el sistema educativo chileno."
+      },
+      {
+        "title": "Flexibilidad real",
+        "description": "Clases sincrónicas grabadas, materiales descargables y acompañamiento 1:1."
+      },
+      {
+        "title": "Impacto medible",
+        "description": "Portafolio, certificación y seguimiento para tu proyecto educativo."
+      }
+    ],
+    "featuredCoursesTitle": "Cursos destacados",
+    "ctaCourses": "Todos los cursos",
+    "ctaContact": "Agenda una llamada",
+    "testimonialsTitle": "Historias reales",
+    "testimonials": [
+      {
+        "quote": "El acompañamiento personalizado me permitió rediseñar mi plan de estudios con evidencia.",
+        "name": "Carolina Soto",
+        "role": "Coordinadora académica, Santiago"
+      },
+      {
+        "quote": "La comunidad de Aprende+ se transformó en mi red de apoyo profesional.",
+        "name": "Luis Ahumada",
+        "role": "Profesor de Historia, Valparaíso"
+      }
+    ]
+  },
+  "courses": {
+    "title": "Cursos diseñados para transformar tu práctica",
+    "filterLabel": "Nivel",
+    "allLevels": "Todos los niveles",
+    "levels": {
+      "Inicial": "Inicial",
+      "Intermedio": "Intermedio",
+      "Avanzado": "Avanzado"
+    },
+    "weeklyHours": "horas/semana",
+    "viewDetail": "Ver detalle",
+    "syllabusTitle": "Plan de estudios",
+    "enrollCta": "Quiero inscribirme"
+  },
+  "pricing": {
+    "title": "Planes flexibles para instituciones y profesionales",
+    "subtitle": "Valores en pesos chilenos. Todos los planes incluyen acceso a comunidad, materiales descargables y soporte pedagógico.",
+    "tiers": [
+      {
+        "name": "Individual",
+        "price": "49.000",
+        "description": "Ideal para docentes que buscan actualizar una competencia específica.",
+        "features": [
+          "Acceso a 1 curso activo",
+          "Sesiones grupales mensuales",
+          "Certificado digital"
+        ]
+      },
+      {
+        "name": "Equipo",
+        "price": "129.000",
+        "description": "Pensado para equipos docentes de hasta 5 personas.",
+        "features": [
+          "Acceso a 3 cursos simultáneos",
+          "Mentoría grupal bimensual",
+          "Informe de avance colectivo"
+        ]
+      },
+      {
+        "name": "Institucional",
+        "price": "Consultar",
+        "description": "Acompañamiento estratégico para colegios y fundaciones.",
+        "features": [
+          "Catálogo completo de cursos",
+          "Diagnóstico inicial",
+          "Diseño de plan personalizado"
+        ]
+      }
+    ],
+    "faqTitle": "Preguntas frecuentes"
+  },
+  "about": {
+    "title": "Nuestra misión es expandir el aprendizaje significativo",
+    "intro": "Aprende+ nace para apoyar a docentes y equipos educativos con herramientas prácticas, acompañamiento experto y una comunidad que comparte buenas prácticas.",
+    "pillarsTitle": "Nuestros principios",
+    "pillars": [
+      {
+        "title": "Pedagogía basada en evidencias",
+        "description": "Diseñamos experiencias de aprendizaje que integran investigación actualizada y contextos locales."
+      },
+      {
+        "title": "Acompañamiento humano",
+        "description": "Cada curso incluye mentorías y feedback personalizado para asegurar transferencia al aula."
+      },
+      {
+        "title": "Tecnología accesible",
+        "description": "Plataforma intuitiva con recursos descargables, foros y seguimiento de progreso."
+      }
+    ],
+    "teamTitle": "Conoce al equipo"
+  },
+  "blog": {
+    "title": "Ideas y recursos para tu práctica docente",
+    "readMore": "Leer artículo",
+    "published": "Publicado"
+  },
+  "contact": {
+    "title": "Construyamos juntos tu próximo proyecto",
+    "subtitle": "Completa el formulario y un asesor pedagógico te contactará en menos de 24 horas.",
+    "form": {
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "organization": "Institución",
+      "message": "¿En qué podemos ayudarte?",
+      "submit": "Enviar mensaje",
+      "success": "Gracias por escribirnos. Nos pondremos en contacto muy pronto."
+    }
+  },
+  "footer": {
+    "description": "Aprende+ acompaña a docentes y organizaciones educativas en toda Latinoamérica.",
+    "rights": "Todos los derechos reservados"
+  },
+  "common": {
+    "language": "English",
+    "back": "Volver",
+    "minutes": "minutos de lectura",
+    "noResults": "No encontramos resultados para tu búsqueda.",
+    "cta": "Descubrir más"
+  }
+}
