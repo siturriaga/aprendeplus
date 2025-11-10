@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "defaultTitle": "Aprende+",
+    "defaultDescription": "Premium professional development for educators across Latin America."
+  },
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "pricing": "Pricing",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Advance your teaching practice with Aprende+",
+    "subtitle": "Live and asynchronous programs tailored for educators and learning leaders who want to transform their communities.",
+    "ctaPrimary": "Explore courses",
+    "ctaSecondary": "View plans"
+  },
+  "home": {
+    "benefitsTitle": "Why Aprende+?",
+    "benefits": [
+      {
+        "title": "Expert mentors",
+        "description": "Lead teachers and specialists who actively work in the Chilean education system."
+      },
+      {
+        "title": "Real flexibility",
+        "description": "Recorded live sessions, downloadable resources, and 1:1 guidance."
+      },
+      {
+        "title": "Measurable impact",
+        "description": "Portfolio, certification, and follow-up for your educational project."
+      }
+    ],
+    "featuredCoursesTitle": "Featured courses",
+    "ctaCourses": "All courses",
+    "ctaContact": "Schedule a call",
+    "testimonialsTitle": "Real stories",
+    "testimonials": [
+      {
+        "quote": "Personalized mentoring helped me redesign my curriculum using real evidence.",
+        "name": "Carolina Soto",
+        "role": "Academic coordinator, Santiago"
+      },
+      {
+        "quote": "The Aprende+ community became my professional support network.",
+        "name": "Luis Ahumada",
+        "role": "History teacher, Valparaíso"
+      }
+    ]
+  },
+  "courses": {
+    "title": "Courses crafted to transform your practice",
+    "filterLabel": "Level",
+    "allLevels": "All levels",
+    "levels": {
+      "Inicial": "Beginner",
+      "Intermedio": "Intermediate",
+      "Avanzado": "Advanced"
+    },
+    "weeklyHours": "hours/week",
+    "viewDetail": "View details",
+    "syllabusTitle": "Syllabus",
+    "enrollCta": "Enroll now"
+  },
+  "pricing": {
+    "title": "Flexible plans for individuals and institutions",
+    "subtitle": "Prices in Chilean pesos. All plans include community access, downloadable resources, and pedagogical support.",
+    "tiers": [
+      {
+        "name": "Individual",
+        "price": "49,000",
+        "description": "Perfect for educators who want to update a specific competency.",
+        "features": [
+          "Access to one active course",
+          "Monthly group sessions",
+          "Digital certificate"
+        ]
+      },
+      {
+        "name": "Team",
+        "price": "129,000",
+        "description": "Designed for teaching teams of up to five people.",
+        "features": [
+          "Access to three simultaneous courses",
+          "Bi-monthly group mentoring",
+          "Collective progress report"
+        ]
+      },
+      {
+        "name": "Institution",
+        "price": "Contact",
+        "description": "Strategic support for schools and nonprofit organizations.",
+        "features": [
+          "Full course catalog",
+          "Initial diagnostic",
+          "Custom plan design"
+        ]
+      }
+    ],
+    "faqTitle": "Frequently asked questions"
+  },
+  "about": {
+    "title": "Our mission is to expand meaningful learning",
+    "intro": "Aprende+ exists to support educators with practical tools, expert coaching, and a community that shares best practices.",
+    "pillarsTitle": "Our principles",
+    "pillars": [
+      {
+        "title": "Evidence-based pedagogy",
+        "description": "We design learning experiences that combine updated research with local contexts."
+      },
+      {
+        "title": "Human guidance",
+        "description": "Every course includes mentoring and personalized feedback to ensure classroom transfer."
+      },
+      {
+        "title": "Accessible technology",
+        "description": "An intuitive platform with downloadable resources, forums, and progress tracking."
+      }
+    ],
+    "teamTitle": "Meet the team"
+  },
+  "blog": {
+    "title": "Ideas and resources for your teaching practice",
+    "readMore": "Read article",
+    "published": "Published"
+  },
+  "contact": {
+    "title": "Let's design your next project together",
+    "subtitle": "Complete the form and a learning advisor will reach out within 24 hours.",
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "organization": "Organization",
+      "message": "How can we support you?",
+      "submit": "Send message",
+      "success": "Thanks for reaching out. We'll be in touch very soon."
+    }
+  },
+  "footer": {
+    "description": "Aprende+ supports educators and organizations across Latin America.",
+    "rights": "All rights reserved"
+  },
+  "common": {
+    "language": "Español",
+    "back": "Back",
+    "minutes": "minute read",
+    "noResults": "We couldn't find results for your search.",
+    "cta": "Discover more"
+  }
+}
